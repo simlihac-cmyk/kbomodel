@@ -10,6 +10,7 @@ import type {
 import {
   fitGameModelParametersFromPreparedExamples,
   GAME_MODEL_OBJECTIVE,
+  isPredictionMetricsMoreDiscriminative,
   scorePreparedExamples,
   splitTrainYears,
   type PreparedGameExample,
@@ -118,6 +119,8 @@ type RollingValidationResult = {
   validationYears: number[];
   validationLogLoss: number | null;
   validationBrierScore: number | null;
+  coinFlipRate55: number | null;
+  meanDecisiveMargin: number | null;
 };
 
 type StrengthTunableKey =
@@ -513,13 +516,19 @@ function prepareGameExamplesForStrengthParameters(
 }
 
 function isFitMetricBetter(next: GamePredictionMetrics, current: GamePredictionMetrics) {
-  if (next.logLoss !== current.logLoss) {
-    return next.logLoss < current.logLoss;
+  if (next.logLoss < current.logLoss - 0.0015) {
+    return true;
   }
-  if (next.brierScore !== current.brierScore) {
-    return next.brierScore < current.brierScore;
+  if (next.logLoss > current.logLoss + 0.0015) {
+    return false;
   }
-  return next.accuracy > current.accuracy;
+  if (next.brierScore < current.brierScore - 0.0015) {
+    return true;
+  }
+  if (next.brierScore > current.brierScore + 0.0015) {
+    return false;
+  }
+  return isPredictionMetricsMoreDiscriminative(next, current);
 }
 
 function isSelectionBetter(next: StageEvaluation, current: StageEvaluation) {
@@ -957,6 +966,8 @@ function evaluateRollingValidation(
       validationYears: fold.validationYears,
       validationLogLoss: result.backtest.fitted.validation?.logLoss ?? null,
       validationBrierScore: result.backtest.fitted.validation?.brierScore ?? null,
+      coinFlipRate55: result.backtest.fitted.validation?.coinFlipRate55 ?? null,
+      meanDecisiveMargin: result.backtest.fitted.validation?.meanDecisiveMargin ?? null,
     };
   });
 }
@@ -988,25 +999,49 @@ function averageRollingValidationLogLoss(results: RollingValidationResult[]) {
   return roundMetric(weightedTotal / totalWeight);
 }
 
+function averageRollingMetric(
+  results: RollingValidationResult[],
+  key: "coinFlipRate55" | "meanDecisiveMargin",
+) {
+  const scoredResults = results.filter(
+    (result): result is RollingValidationResult & Record<typeof key, number> => result[key] !== null,
+  );
+  if (scoredResults.length === 0) {
+    return null;
+  }
+  return roundMetric(
+    scoredResults.reduce((sum, result) => sum + result[key], 0) / scoredResults.length,
+  );
+}
+
 function buildSelectionScore(args: {
   validationLogLoss: number | null;
   rollingLogLoss: number | null;
   tuneLogLoss: number | null;
   fitLogLoss: number;
+  validationMetrics: GamePredictionMetrics | null;
+  rollingCoinFlipRate55: number | null;
+  rollingMeanDecisiveMargin: number | null;
 }) {
+  const primaryLogLoss =
+    args.validationLogLoss ?? args.rollingLogLoss ?? args.tuneLogLoss ?? args.fitLogLoss;
+  let score = primaryLogLoss;
+
+  if (args.validationMetrics) {
+    score += Math.max(0, args.validationMetrics.coinFlipRate55 - 0.62) * 0.02;
+    score += Math.max(0, 0.12 - args.validationMetrics.meanDecisiveMargin) * 0.03;
+  }
+  if (args.rollingCoinFlipRate55 !== null) {
+    score += Math.max(0, args.rollingCoinFlipRate55 - 0.62) * 0.01;
+  }
+  if (args.rollingMeanDecisiveMargin !== null) {
+    score += Math.max(0, 0.12 - args.rollingMeanDecisiveMargin) * 0.015;
+  }
+
   if (args.validationLogLoss !== null && args.rollingLogLoss !== null) {
-    return roundMetric(args.validationLogLoss * 0.82 + args.rollingLogLoss * 0.18);
+    return roundMetric(score * 0.82 + args.rollingLogLoss * 0.18);
   }
-  if (args.validationLogLoss !== null) {
-    return args.validationLogLoss;
-  }
-  if (args.rollingLogLoss !== null) {
-    return args.rollingLogLoss;
-  }
-  if (args.tuneLogLoss !== null) {
-    return args.tuneLogLoss;
-  }
-  return args.fitLogLoss;
+  return roundMetric(score);
 }
 
 export function fitRuntimeModelParameters(
@@ -1051,12 +1086,20 @@ export function fitRuntimeModelParameters(
       ? evaluateRollingValidation(seasonsByYear, allYears, candidate, options)
       : [];
     const rollingLogLoss = averageRollingValidationLogLoss(rollingResults);
+    const rollingCoinFlipRate55 = averageRollingMetric(rollingResults, "coinFlipRate55");
+    const rollingMeanDecisiveMargin = averageRollingMetric(
+      rollingResults,
+      "meanDecisiveMargin",
+    );
     const validationLogLoss = result.backtest.fitted.validation?.logLoss ?? null;
     const score = buildSelectionScore({
       validationLogLoss,
       rollingLogLoss,
       tuneLogLoss: result.backtest.fitted.tune?.logLoss ?? null,
       fitLogLoss: result.backtest.fitted.fit.logLoss,
+      validationMetrics: result.backtest.fitted.validation,
+      rollingCoinFlipRate55,
+      rollingMeanDecisiveMargin,
     });
     const selectionCriterion =
       validationLogLoss !== null && rollingLogLoss !== null

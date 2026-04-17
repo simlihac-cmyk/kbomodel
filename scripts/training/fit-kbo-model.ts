@@ -126,6 +126,18 @@ async function main() {
   console.log(
     `[training-fit] fitted validation logLoss -> ${backtest.fitted.validation?.logLoss ?? "n/a"}`,
   );
+  console.log(
+    `[training-fit] baseline validation coinFlip55 -> ${backtest.baseline.validation?.coinFlipRate55 ?? "n/a"}`,
+  );
+  console.log(
+    `[training-fit] fitted validation coinFlip55 -> ${backtest.fitted.validation?.coinFlipRate55 ?? "n/a"}`,
+  );
+  console.log(
+    `[training-fit] baseline validation decisiveMargin -> ${backtest.baseline.validation?.meanDecisiveMargin ?? "n/a"}`,
+  );
+  console.log(
+    `[training-fit] fitted validation decisiveMargin -> ${backtest.fitted.validation?.meanDecisiveMargin ?? "n/a"}`,
+  );
 }
 
 main().catch((error) => {

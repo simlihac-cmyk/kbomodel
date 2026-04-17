@@ -82,6 +82,9 @@ pnpm training:kbo:fit -- --max-rounds=10 --starts=5
   - `parameters.json`
   - `backtest-summary.json`
 - 현재 학습기는 `팀 상태 -> 전력 합성(strength params) -> 경기 확률(game params)`을 단계적으로 같이 튜닝한다.
+- 학습 리포트에는 `coinFlip55`와 `decisiveMargin`도 같이 찍힌다.
+  - `coinFlip55`: 사실상 50:50에 가까운 경기 비율
+  - `decisiveMargin`: 홈/원정 decisive 확률 차이 평균
 - 기본적으로 `multi-start`와 `rolling validation`을 함께 사용한다.
   - `starts=5`면 서로 다른 초기값 5개로 학습을 반복한다.
   - rolling validation은 `2023`, `2024`, `2025`처럼 뒤 연도를 순차 홀드아웃으로 다시 확인한다.
@@ -94,7 +97,7 @@ pnpm training:kbo:fit -- --max-rounds=10 --starts=5
   - confidence 계산 계수
 - 득실차 가중치는 강한 고정값으로 두지 않고, `0`까지 내려갈 수 있게 학습 탐색 범위를 열어뒀다.
 - game 학습 대상에는 기존과 같이 기대득점/홈 어드밴티지/tie 관련 계수가 포함된다.
-- 학습 결과는 멀티클래스 log-loss 기준으로 선택한다.
+- 학습 결과는 log-loss를 우선 보되, 성능이 비슷하면 `coinFlip55`가 낮고 `decisiveMargin`이 큰 후보를 우선 선택한다.
 
 ## 4. 노트북에서 결과 번들 포장
 - 결과 디렉터리에 최소한 아래 파일을 둔다.

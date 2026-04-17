@@ -60,6 +60,8 @@ type FitResult = {
   backtest: GameModelBacktestSummary;
 };
 
+const METRIC_TIE_TOLERANCE = 0.0015;
+
 const PARAMETER_SPECS: ParameterSpec[] = [
   { key: "leagueRunEnvironment", min: 3.8, max: 5.2, step: 0.08, decay: 0.58 },
   { key: "awayRunEnvironmentOffset", min: 0, max: 0.35, step: 0.02, decay: 0.58 },
@@ -84,6 +86,59 @@ function clamp(value: number, min: number, max: number) {
 
 function roundMetric(value: number, digits = 6) {
   return Number(value.toFixed(digits));
+}
+
+export function buildDecisiveSpreadSnapshot(probabilities: readonly [number, number, number]) {
+  const decisiveTotal = Math.max(probabilities[0] + probabilities[1], 1e-9);
+  const favoriteShare = Math.max(probabilities[0], probabilities[1]) / decisiveTotal;
+  const margin = Math.abs(probabilities[0] - probabilities[1]) / decisiveTotal;
+
+  return {
+    favoriteShare,
+    margin,
+    coinFlip55: favoriteShare < 0.55 ? 1 : 0,
+    confident60: favoriteShare >= 0.6 ? 1 : 0,
+    strong70: favoriteShare >= 0.7 ? 1 : 0,
+  };
+}
+
+function isMeaningfullyLower(next: number, current: number, tolerance = METRIC_TIE_TOLERANCE) {
+  return next < current - tolerance;
+}
+
+function isMeaningfullyHigher(next: number, current: number, tolerance = METRIC_TIE_TOLERANCE) {
+  return next > current + tolerance;
+}
+
+export function isPredictionMetricsMoreDiscriminative(
+  next: GamePredictionMetrics,
+  current: GamePredictionMetrics,
+) {
+  if (isMeaningfullyLower(next.coinFlipRate55, current.coinFlipRate55, 0.01)) {
+    return true;
+  }
+  if (isMeaningfullyHigher(next.coinFlipRate55, current.coinFlipRate55, 0.01)) {
+    return false;
+  }
+  if (isMeaningfullyHigher(next.meanDecisiveMargin, current.meanDecisiveMargin, 0.01)) {
+    return true;
+  }
+  if (isMeaningfullyLower(next.meanDecisiveMargin, current.meanDecisiveMargin, 0.01)) {
+    return false;
+  }
+  if (isMeaningfullyHigher(next.confidentRate60, current.confidentRate60, 0.01)) {
+    return true;
+  }
+  if (isMeaningfullyLower(next.confidentRate60, current.confidentRate60, 0.01)) {
+    return false;
+  }
+  if (isMeaningfullyHigher(next.strongRate70, current.strongRate70, 0.01)) {
+    return true;
+  }
+  if (isMeaningfullyLower(next.strongRate70, current.strongRate70, 0.01)) {
+    return false;
+  }
+  return next.accuracy > current.accuracy;
 }
 
 function buildStrengthSnapshotFromGameExample(
@@ -190,6 +245,11 @@ export function scorePreparedExamples(
       logLoss: 0,
       brierScore: 0,
       accuracy: 0,
+      meanDecisiveFavoriteShare: 0,
+      meanDecisiveMargin: 0,
+      coinFlipRate55: 0,
+      confidentRate60: 0,
+      strongRate70: 0,
       actualHomeWinRate: 0,
       actualAwayWinRate: 0,
       actualTieRate: 0,
@@ -211,6 +271,11 @@ export function scorePreparedExamples(
   let predictedHomeWinTotal = 0;
   let predictedAwayWinTotal = 0;
   let predictedTieTotal = 0;
+  let decisiveFavoriteShareTotal = 0;
+  let decisiveMarginTotal = 0;
+  let coinFlip55Total = 0;
+  let confident60Total = 0;
+  let strong70Total = 0;
   let totalWeight = 0;
 
   for (const example of examples) {
@@ -226,12 +291,13 @@ export function scorePreparedExamples(
       prediction.homeWinProb,
       prediction.awayWinProb,
       prediction.tieProb,
-    ];
+    ] as const;
     const actuals = [
       example.actualHomeWin,
       example.actualAwayWin,
       example.actualTie,
     ];
+    const spread = buildDecisiveSpreadSnapshot(probabilities);
 
     totalWeight += weight;
     logLoss -= Math.log(Math.max(probabilities[example.actualIndex] ?? 0, 1e-9)) * weight;
@@ -251,6 +317,11 @@ export function scorePreparedExamples(
     predictedHomeWinTotal += probabilities[0]! * weight;
     predictedAwayWinTotal += probabilities[1]! * weight;
     predictedTieTotal += probabilities[2]! * weight;
+    decisiveFavoriteShareTotal += spread.favoriteShare * weight;
+    decisiveMarginTotal += spread.margin * weight;
+    coinFlip55Total += spread.coinFlip55 * weight;
+    confident60Total += spread.confident60 * weight;
+    strong70Total += spread.strong70 * weight;
   }
 
   return {
@@ -258,6 +329,11 @@ export function scorePreparedExamples(
     logLoss: roundMetric(logLoss / totalWeight),
     brierScore: roundMetric(brierScore / totalWeight),
     accuracy: roundMetric(correct / totalWeight),
+    meanDecisiveFavoriteShare: roundMetric(decisiveFavoriteShareTotal / totalWeight),
+    meanDecisiveMargin: roundMetric(decisiveMarginTotal / totalWeight),
+    coinFlipRate55: roundMetric(coinFlip55Total / totalWeight),
+    confidentRate60: roundMetric(confident60Total / totalWeight),
+    strongRate70: roundMetric(strong70Total / totalWeight),
     actualHomeWinRate: roundMetric(actualHomeWinTotal / totalWeight),
     actualAwayWinRate: roundMetric(actualAwayWinTotal / totalWeight),
     actualTieRate: roundMetric(actualTieTotal / totalWeight),
@@ -322,13 +398,19 @@ export function buildCalibrationSummary(
 }
 
 function isFitMetricBetter(next: GamePredictionMetrics, current: GamePredictionMetrics) {
-  if (next.logLoss !== current.logLoss) {
-    return next.logLoss < current.logLoss;
+  if (isMeaningfullyLower(next.logLoss, current.logLoss)) {
+    return true;
   }
-  if (next.brierScore !== current.brierScore) {
-    return next.brierScore < current.brierScore;
+  if (isMeaningfullyHigher(next.logLoss, current.logLoss)) {
+    return false;
   }
-  return next.accuracy > current.accuracy;
+  if (isMeaningfullyLower(next.brierScore, current.brierScore)) {
+    return true;
+  }
+  if (isMeaningfullyHigher(next.brierScore, current.brierScore)) {
+    return false;
+  }
+  return isPredictionMetricsMoreDiscriminative(next, current);
 }
 
 function isSelectionBetter(next: EvaluationResult, current: EvaluationResult) {

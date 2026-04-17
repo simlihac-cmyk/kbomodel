@@ -10,7 +10,11 @@ import {
   type ProbabilityAdjustmentParameterSet,
 } from "@/lib/sim/kbo/probability-adjustment-parameters";
 import type { GameModelParameterSet } from "@/lib/sim/kbo/model-parameters";
-import type { PreparedGameExample } from "@/lib/training/kbo/game-model-fit";
+import {
+  buildDecisiveSpreadSnapshot,
+  isPredictionMetricsMoreDiscriminative,
+  type PreparedGameExample,
+} from "@/lib/training/kbo/game-model-fit";
 import type {
   GamePredictionCalibration,
   GamePredictionMetrics,
@@ -66,6 +70,11 @@ export function scorePreparedExamplesWithAdjustment(
       logLoss: 0,
       brierScore: 0,
       accuracy: 0,
+      meanDecisiveFavoriteShare: 0,
+      meanDecisiveMargin: 0,
+      coinFlipRate55: 0,
+      confidentRate60: 0,
+      strongRate70: 0,
       actualHomeWinRate: 0,
       actualAwayWinRate: 0,
       actualTieRate: 0,
@@ -87,6 +96,11 @@ export function scorePreparedExamplesWithAdjustment(
   let predictedHomeWinTotal = 0;
   let predictedAwayWinTotal = 0;
   let predictedTieTotal = 0;
+  let decisiveFavoriteShareTotal = 0;
+  let decisiveMarginTotal = 0;
+  let coinFlip55Total = 0;
+  let confident60Total = 0;
+  let strong70Total = 0;
   let totalWeight = 0;
 
   for (const example of examples) {
@@ -99,8 +113,9 @@ export function scorePreparedExamplesWithAdjustment(
       features: example.adjustmentFeatures,
       parameters: adjustmentParameters,
     });
-    const probabilities = [adjusted.homeWinProb, adjusted.awayWinProb, adjusted.tieProb];
+    const probabilities = [adjusted.homeWinProb, adjusted.awayWinProb, adjusted.tieProb] as const;
     const actuals = [example.actualHomeWin, example.actualAwayWin, example.actualTie];
+    const spread = buildDecisiveSpreadSnapshot(probabilities);
 
     totalWeight += weight;
     logLoss -= Math.log(Math.max(probabilities[example.actualIndex] ?? 0, 1e-9)) * weight;
@@ -120,6 +135,11 @@ export function scorePreparedExamplesWithAdjustment(
     predictedHomeWinTotal += probabilities[0]! * weight;
     predictedAwayWinTotal += probabilities[1]! * weight;
     predictedTieTotal += probabilities[2]! * weight;
+    decisiveFavoriteShareTotal += spread.favoriteShare * weight;
+    decisiveMarginTotal += spread.margin * weight;
+    coinFlip55Total += spread.coinFlip55 * weight;
+    confident60Total += spread.confident60 * weight;
+    strong70Total += spread.strong70 * weight;
   }
 
   return {
@@ -127,6 +147,11 @@ export function scorePreparedExamplesWithAdjustment(
     logLoss: roundMetric(logLoss / totalWeight),
     brierScore: roundMetric(brierScore / totalWeight),
     accuracy: roundMetric(correct / totalWeight),
+    meanDecisiveFavoriteShare: roundMetric(decisiveFavoriteShareTotal / totalWeight),
+    meanDecisiveMargin: roundMetric(decisiveMarginTotal / totalWeight),
+    coinFlipRate55: roundMetric(coinFlip55Total / totalWeight),
+    confidentRate60: roundMetric(confident60Total / totalWeight),
+    strongRate70: roundMetric(strong70Total / totalWeight),
     actualHomeWinRate: roundMetric(actualHomeWinTotal / totalWeight),
     actualAwayWinRate: roundMetric(actualAwayWinTotal / totalWeight),
     actualTieRate: roundMetric(actualTieTotal / totalWeight),
@@ -186,6 +211,26 @@ type AdjustmentEvaluationResult = {
   validation: GamePredictionMetrics | null;
   selectionScore: number;
 };
+
+function getPrimarySelectionMetric(evaluation: AdjustmentEvaluationResult) {
+  return evaluation.validation ?? evaluation.tune ?? evaluation.fit;
+}
+
+function isAdjustmentEvaluationBetter(
+  next: AdjustmentEvaluationResult,
+  current: AdjustmentEvaluationResult,
+) {
+  if (next.selectionScore < current.selectionScore - 0.0015) {
+    return true;
+  }
+  if (next.selectionScore > current.selectionScore + 0.0015) {
+    return false;
+  }
+  return isPredictionMetricsMoreDiscriminative(
+    getPrimarySelectionMetric(next),
+    getPrimarySelectionMetric(current),
+  );
+}
 
 function evaluateAdjustmentSet(
   fitExamples: PreparedGameExample[],
@@ -337,7 +382,7 @@ export function fitProbabilityAdjustmentParameters(args: {
     );
     evaluations += 1;
 
-    if (evaluation.selectionScore < bestEvaluation.selectionScore) {
+    if (isAdjustmentEvaluationBetter(evaluation, bestEvaluation)) {
       best = cloneParameters(current);
       bestEvaluation = evaluation;
     }
