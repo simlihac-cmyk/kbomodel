@@ -18,6 +18,7 @@ import type {
   TeamStrengthSnapshot,
 } from "@/lib/domain/kbo/types";
 import { buildGameProbabilitySnapshot } from "@/lib/sim/kbo/probabilities";
+import { buildPregameEloDiffByGameId } from "@/lib/sim/kbo/direct-game/elo";
 import { buildPlayerImpactContext } from "@/lib/sim/kbo/player-impact";
 import { buildRestGapByGame } from "@/lib/sim/kbo/probability-adjustment";
 import { resolveForcedOutcomeForGame } from "@/lib/sim/kbo/scenario";
@@ -342,6 +343,10 @@ function buildSimulationEnvironment(input: SimulationInput) {
     teamStrengths.map((item) => [item.seasonTeamId, item]),
   );
   const restGapByGameId = buildRestGapByGame(input.games);
+  const eloDiffByGameId = buildPregameEloDiffByGameId({
+    games: input.games,
+    previousSeasonStats: input.previousSeasonStats,
+  });
   const gameProbabilities = input.games
     .filter((game) => game.status !== "final")
     .sort((left, right) => left.scheduledAt.localeCompare(right.scheduledAt))
@@ -355,6 +360,7 @@ function buildSimulationEnvironment(input: SimulationInput) {
         undefined,
         {
           restGap: restGapByGameId[game.gameId] ?? null,
+          eloDiff: eloDiffByGameId[game.gameId] ?? null,
         },
       ),
     );

@@ -15,6 +15,9 @@ import {
 } from "@/lib/sim/kbo/current-direct-game-model";
 import type { DirectGameParameterSet } from "@/lib/sim/kbo/direct-game/model-types";
 import {
+  buildPregameEloDiffBySampleId,
+} from "@/lib/sim/kbo/direct-game/elo";
+import {
   fitGameModelParametersFromPreparedExamples,
   GAME_MODEL_OBJECTIVE,
   isPredictionMetricsMoreDiscriminative,
@@ -497,6 +500,7 @@ function buildStrengthSnapshot(
 function prepareGameExamplesForStrengthParameters(
   contexts: HistoricalGameContextExample[],
   parameters: StrengthModelParameterSet,
+  eloDiffBySampleId: Record<string, number>,
 ): PreparedGameExample[] {
   return contexts.map((context) => ({
     sampleId: context.sampleId,
@@ -519,7 +523,9 @@ function prepareGameExamplesForStrengthParameters(
       parameters,
     ),
     adjustmentFeatures: buildProbabilityAdjustmentFeaturesFromTrainingExample(context.gameExample),
-    directGameFeatures: buildDirectGameFeaturesFromTrainingExample(context.gameExample),
+    directGameFeatures: buildDirectGameFeaturesFromTrainingExample(context.gameExample, {
+      eloDiff: eloDiffBySampleId[context.sampleId] ?? 0,
+    }),
     actualIndex: context.actualIndex,
     actualHomeWin: context.actualHomeWin,
     actualAwayWin: context.actualAwayWin,
@@ -556,10 +562,23 @@ function evaluateStrengthParameterSet(
   validationContexts: HistoricalGameContextExample[],
   strengthParameters: StrengthModelParameterSet,
   gameParameters: GameModelParameterSet,
+  eloDiffBySampleId: Record<string, number>,
 ): StageEvaluation {
-  const fitExamples = prepareGameExamplesForStrengthParameters(fitContexts, strengthParameters);
-  const tuneExamples = prepareGameExamplesForStrengthParameters(tuneContexts, strengthParameters);
-  const validationExamples = prepareGameExamplesForStrengthParameters(validationContexts, strengthParameters);
+  const fitExamples = prepareGameExamplesForStrengthParameters(
+    fitContexts,
+    strengthParameters,
+    eloDiffBySampleId,
+  );
+  const tuneExamples = prepareGameExamplesForStrengthParameters(
+    tuneContexts,
+    strengthParameters,
+    eloDiffBySampleId,
+  );
+  const validationExamples = prepareGameExamplesForStrengthParameters(
+    validationContexts,
+    strengthParameters,
+    eloDiffBySampleId,
+  );
 
   const fit = scorePreparedExamples(fitExamples, gameParameters);
   const tune = tuneExamples.length > 0 ? scorePreparedExamples(tuneExamples, gameParameters) : null;
@@ -594,6 +613,7 @@ function fitStrengthModelParameters(
   initial: StrengthModelParameterSet,
   maxRounds: number,
   gameParameters: GameModelParameterSet,
+  eloDiffBySampleId: Record<string, number>,
 ): StrengthFitResult {
   const initialParameters = normalizeStrengthParameterSet(initial);
   const { fitYears, tuneYears } = splitTrainYears(trainYears);
@@ -613,6 +633,7 @@ function fitStrengthModelParameters(
     validationContexts,
     currentParameters,
     gameParameters,
+    eloDiffBySampleId,
   );
   let bestSelectionParameters = currentParameters;
   let bestSelectionEvaluation = currentEvaluation;
@@ -639,6 +660,7 @@ function fitStrengthModelParameters(
           validationContexts,
           candidateParameters,
           gameParameters,
+          eloDiffBySampleId,
         );
         evaluations += 1;
 
@@ -673,6 +695,7 @@ function fitStrengthModelParameters(
       validationContexts,
       initialParameters,
       gameParameters,
+      eloDiffBySampleId,
     ),
     fittedEvaluation: bestSelectionEvaluation,
     evaluations,
@@ -682,11 +705,12 @@ function fitStrengthModelParameters(
 function buildPreparedExamplesByYear(
   contextsByYear: Record<number, HistoricalGameContextExample[]>,
   strengthParameters: StrengthModelParameterSet,
+  eloDiffBySampleId: Record<string, number>,
 ) {
   return Object.fromEntries(
     Object.entries(contextsByYear).map(([year, contexts]) => [
       Number(year),
-      prepareGameExamplesForStrengthParameters(contexts, strengthParameters),
+      prepareGameExamplesForStrengthParameters(contexts, strengthParameters, eloDiffBySampleId),
     ]),
   ) as Record<number, PreparedGameExample[]>;
 }
@@ -779,6 +803,7 @@ function fitRuntimeModelParametersSingleStart(
   const gameMaxRounds = options.gameMaxRounds ?? 7;
   const { fitYears, tuneYears } = splitTrainYears(trainYears);
   const contextsByYear = prepareHistoricalGameExamples(seasons);
+  const eloDiffBySampleId = buildPregameEloDiffBySampleId(seasons);
   const baselineStrength = normalizeStrengthParameterSet(
     options.initialStrength ?? CURRENT_STRENGTH_MODEL_PARAMETERS ?? DEFAULT_STRENGTH_MODEL_PARAMETERS,
   );
@@ -803,11 +828,16 @@ function fitRuntimeModelParametersSingleStart(
       currentStrength,
       strengthMaxRounds,
       currentGame,
+      eloDiffBySampleId,
     );
     currentStrength = strengthResult.fittedParameters;
     totalStrengthEvaluations += strengthResult.evaluations;
 
-    const preparedByYear = buildPreparedExamplesByYear(contextsByYear, currentStrength);
+    const preparedByYear = buildPreparedExamplesByYear(
+      contextsByYear,
+      currentStrength,
+      eloDiffBySampleId,
+    );
     const gameResult = fitGameModelParametersFromPreparedExamples(
       preparedByYear,
       trainYears,
@@ -827,8 +857,16 @@ function fitRuntimeModelParametersSingleStart(
     });
   }
 
-  const baselinePreparedByYear = buildPreparedExamplesByYear(contextsByYear, baselineStrength);
-  const fittedPreparedByYear = buildPreparedExamplesByYear(contextsByYear, currentStrength);
+  const baselinePreparedByYear = buildPreparedExamplesByYear(
+    contextsByYear,
+    baselineStrength,
+    eloDiffBySampleId,
+  );
+  const fittedPreparedByYear = buildPreparedExamplesByYear(
+    contextsByYear,
+    currentStrength,
+    eloDiffBySampleId,
+  );
   const contextualResult = fitProbabilityAdjustmentParameters({
     examplesByYear: fittedPreparedByYear,
     trainYears,

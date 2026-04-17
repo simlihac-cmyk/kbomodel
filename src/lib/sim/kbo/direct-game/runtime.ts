@@ -13,11 +13,6 @@ function sigmoid(value: number) {
   return 1 / (1 + Math.exp(-value));
 }
 
-function logit(probability: number) {
-  const safe = clamp(probability, 1e-6, 1 - 1e-6);
-  return Math.log(safe / (1 - safe));
-}
-
 function dotProduct(
   weights: Record<(typeof DIRECT_GAME_FEATURE_KEYS)[number], number>,
   features: DirectGameFeatureVector,
@@ -45,21 +40,18 @@ export function applyDirectGameRuntimeModel(
   const parameters = args.parameters ?? CURRENT_DIRECT_GAME_MODEL_PARAMETERS;
   const decisiveTotal = Math.max(args.homeWinProb + args.awayWinProb, 1e-9);
   const baseHomeDecisiveProb = args.homeWinProb / decisiveTotal;
-  const decisiveLogit =
-    logit(baseHomeDecisiveProb) +
+  const logisticHomeDecisiveProb = sigmoid(
     parameters.decisiveBias +
-    dotProduct(parameters.decisiveWeights, args.features);
-  const homeDecisiveProb = sigmoid(decisiveLogit);
-
-  const tieLogit =
-    logit(args.tieProb) +
-    parameters.tieBias +
-    dotProduct(parameters.tieWeights, args.features);
-  const tieProb = clamp(
-    sigmoid(tieLogit),
-    parameters.tieMinProbability,
-    parameters.tieMaxProbability,
+    dotProduct(parameters.decisiveWeights, args.features),
   );
+  const homeDecisiveProb = clamp(
+    baseHomeDecisiveProb * (1 - parameters.decisiveBlend) +
+      logisticHomeDecisiveProb * parameters.decisiveBlend,
+    1e-6,
+    1 - 1e-6,
+  );
+
+  const tieProb = args.tieProb;
   const homeWinProb = (1 - tieProb) * homeDecisiveProb;
   const awayWinProb = (1 - tieProb) * (1 - homeDecisiveProb);
 

@@ -1,20 +1,16 @@
 import { z } from "zod";
 
 export const DIRECT_GAME_FEATURE_KEYS = [
+  "eloDiff",
   "pctGap",
   "recent10Gap",
   "opponentAdjustedRecent10Gap",
-  "offenseRatingGap",
-  "starterRatingGap",
-  "bullpenRatingGap",
-  "confidenceGap",
   "venueSplitGap",
   "restGap",
   "seasonProgress",
-  "monthNormalized",
+  "progressXEloDiff",
   "progressXPctGap",
   "progressXOpponentAdjustedRecent10Gap",
-  "restXBullpenGap",
 ] as const;
 
 export type DirectGameFeatureKey = (typeof DIRECT_GAME_FEATURE_KEYS)[number];
@@ -30,6 +26,7 @@ export const directGameWeightVectorSchema = z.object(featureShape);
 export type DirectGameWeightVector = z.infer<typeof directGameWeightVectorSchema>;
 
 export const directGameParameterSetSchema = z.object({
+  decisiveBlend: z.number().min(0).max(1),
   decisiveBias: z.number(),
   decisiveWeights: directGameWeightVectorSchema,
   tieBias: z.number(),
@@ -47,6 +44,7 @@ function zeroWeights(): DirectGameWeightVector {
 
 export const DEFAULT_DIRECT_GAME_MODEL_PARAMETERS: DirectGameParameterSet =
   directGameParameterSetSchema.parse({
+    decisiveBlend: 0,
     decisiveBias: 0,
     decisiveWeights: zeroWeights(),
     tieBias: 0,

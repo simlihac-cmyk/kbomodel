@@ -83,34 +83,30 @@ function initializeGradientAccumulator() {
   ) as Record<DirectGameFeatureKey, number>;
 
   return {
+    decisiveBlend: 0,
     decisiveBias: 0,
     decisiveWeights: { ...zeroWeights },
-    tieBias: 0,
-    tieWeights: { ...zeroWeights },
   };
 }
 
 function cloneParameters(parameters: DirectGameParameterSet): DirectGameParameterSet {
-  return directGameParameterSetSchema.parse(JSON.parse(JSON.stringify(parameters)));
+  return JSON.parse(JSON.stringify(parameters)) as DirectGameParameterSet;
 }
 
 function normalizeParameters(parameters: DirectGameParameterSet): DirectGameParameterSet {
   const next = cloneParameters(parameters);
 
+  next.decisiveBlend = clamp(next.decisiveBlend, 0, 1);
   next.decisiveBias = clamp(next.decisiveBias, -1.5, 1.5);
-  next.tieBias = clamp(next.tieBias, -1.5, 1.5);
+  next.tieBias = 0;
 
   for (const key of DIRECT_GAME_FEATURE_KEYS) {
     next.decisiveWeights[key] = clamp(next.decisiveWeights[key], -1.5, 1.5);
-    next.tieWeights[key] = clamp(next.tieWeights[key], -1.5, 1.5);
+    next.tieWeights[key] = 0;
   }
 
-  next.tieMinProbability = clamp(next.tieMinProbability, 0, 0.2);
-  next.tieMaxProbability = clamp(
-    next.tieMaxProbability,
-    next.tieMinProbability + 0.01,
-    0.3,
-  );
+  next.tieMinProbability = 0;
+  next.tieMaxProbability = 1;
 
   return directGameParameterSetSchema.parse(next);
 }
@@ -394,41 +390,44 @@ export function fitDirectGameParameters(args: {
       const weight = buildObjectiveWeight(example, minYear, maxYear);
       totalWeight += weight;
 
-      const tieError = (adjusted.tieProb - example.actualTie) * weight;
-      gradient.tieBias += tieError;
-
-      for (const key of DIRECT_GAME_FEATURE_KEYS) {
-        const value = example.directGameFeatures[key];
-        gradient.tieWeights[key] += tieError * value;
-      }
-
       if (example.actualTie) {
         continue;
       }
 
       const decisiveTotal = Math.max(adjusted.homeWinProb + adjusted.awayWinProb, 1e-9);
       const homeDecisiveProb = adjusted.homeWinProb / decisiveTotal;
+      const logisticHomeDecisiveProb = 1 / (1 + Math.exp(-(
+        current.decisiveBias +
+        DIRECT_GAME_FEATURE_KEYS.reduce(
+          (sum, key) => sum + current.decisiveWeights[key] * example.directGameFeatures[key],
+          0,
+        )
+      )));
+      const baseDecisiveTotal = Math.max(base.homeWinProb + base.awayWinProb, 1e-9);
+      const baseHomeDecisiveProb = base.homeWinProb / baseDecisiveTotal;
       const decisiveError = (homeDecisiveProb - example.actualHomeWin) * weight;
-      gradient.decisiveBias += decisiveError;
+      const logisticGradientScale =
+        current.decisiveBlend * logisticHomeDecisiveProb * (1 - logisticHomeDecisiveProb);
+      gradient.decisiveBlend += decisiveError * (logisticHomeDecisiveProb - baseHomeDecisiveProb);
+      gradient.decisiveBias += decisiveError * logisticGradientScale;
 
       for (const key of DIRECT_GAME_FEATURE_KEYS) {
         const value = example.directGameFeatures[key];
-        gradient.decisiveWeights[key] += decisiveError * value;
+        gradient.decisiveWeights[key] += decisiveError * logisticGradientScale * value;
       }
     }
 
     const step = learningRate / Math.max(1, totalWeight);
+    current.decisiveBlend -= step * (
+      gradient.decisiveBlend +
+      current.decisiveBlend * l2Penalty
+    );
     current.decisiveBias -= step * (gradient.decisiveBias + current.decisiveBias * l2Penalty);
-    current.tieBias -= step * (gradient.tieBias + current.tieBias * l2Penalty);
 
     for (const key of DIRECT_GAME_FEATURE_KEYS) {
       current.decisiveWeights[key] -= step * (
         gradient.decisiveWeights[key] +
         current.decisiveWeights[key] * l2Penalty
-      );
-      current.tieWeights[key] -= step * (
-        gradient.tieWeights[key] +
-        current.tieWeights[key] * l2Penalty
       );
     }
 

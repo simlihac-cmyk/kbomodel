@@ -211,6 +211,7 @@ export const CURRENT_DIRECT_GAME_MODEL_SOURCE = {
 
 export const CURRENT_DIRECT_GAME_MODEL_PARAMETERS: DirectGameParameterSet =
   directGameParameterSetSchema.parse({
+    decisiveBlend: ${formatNumber(fitted.decisiveBlend)},
     decisiveBias: ${formatNumber(fitted.decisiveBias)},
     decisiveWeights: ${formatWeightObject(fitted.decisiveWeights)},
     tieBias: ${formatNumber(fitted.tieBias)},

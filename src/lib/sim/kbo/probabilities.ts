@@ -290,7 +290,9 @@ export function buildGameProbabilitySnapshot(
   tiesAllowed = true,
   starterProjection?: GameStarterProjection,
   parameters: GameModelParameterSet = CURRENT_GAME_MODEL_PARAMETERS,
-  adjustmentContext?: Partial<ProbabilityAdjustmentRuntimeContext>,
+  adjustmentContext?: Partial<ProbabilityAdjustmentRuntimeContext> & {
+    eloDiff?: number | null;
+  },
 ): GameProbabilitySnapshot {
   const {
     homeWinProb: baseHomeWinProb,
@@ -326,11 +328,11 @@ export function buildGameProbabilitySnapshot(
   const { homeWinProb, awayWinProb, tieProb } = applyDirectGameRuntimeModel({
     ...adjustedProbabilities,
     features: buildDirectGameFeaturesFromRuntime({
-      game,
       homeStrength,
       awayStrength,
       context: {
         restGap: adjustmentContext?.restGap ?? null,
+        eloDiff: adjustmentContext?.eloDiff ?? null,
       },
     }),
   });

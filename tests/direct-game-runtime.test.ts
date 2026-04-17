@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import type { Game, TeamStrengthSnapshot } from "@/lib/domain/kbo/types";
+import type { TeamStrengthSnapshot } from "@/lib/domain/kbo/types";
 import type { GameOutcomeTrainingExample } from "@/lib/data-sources/kbo/training-corpus-types";
 import { buildDirectGameFeaturesFromRuntime, buildDirectGameFeaturesFromTrainingExample } from "@/lib/sim/kbo/direct-game/feature-builder";
 import { DEFAULT_DIRECT_GAME_MODEL_PARAMETERS } from "@/lib/sim/kbo/direct-game/model-types";
@@ -118,36 +118,12 @@ function buildTrainingExample(
 
 describe("direct game runtime", () => {
   it("builds factual runtime features from strength snapshots", () => {
-    const game: Game = {
-      gameId: "game-1",
-      seasonId: "kbo-2026",
-      seriesId: "series-1",
-      homeSeasonTeamId: "season:home",
-      awaySeasonTeamId: "season:away",
-      scheduledAt: "2026-04-17T18:30:00+09:00",
-      status: "scheduled",
-      originalScheduledAt: null,
-      rescheduledFromGameId: null,
-      homeScore: null,
-      awayScore: null,
-      innings: null,
-      isTie: false,
-      note: null,
-      attendance: null,
-      externalLinks: [],
-    };
-
     const features = buildDirectGameFeaturesFromRuntime({
-      game,
       homeStrength: buildStrengthSnapshot({
         seasonTeamId: "season:home",
         winPct: 0.625,
         recent10WinRate: 0.7,
         opponentAdjustedRecent10WinRate: 0.76,
-        offenseRating: 104,
-        starterRating: 103,
-        bullpenRating: 101,
-        confidenceScore: 0.52,
         homePct: 0.72,
         seasonProgress: 0.18,
       }),
@@ -156,26 +132,27 @@ describe("direct game runtime", () => {
         winPct: 0.375,
         recent10WinRate: 0.3,
         opponentAdjustedRecent10WinRate: 0.24,
-        offenseRating: 98,
-        starterRating: 97,
-        bullpenRating: 99,
-        confidenceScore: 0.42,
         awayPct: 0.31,
         seasonProgress: 0.18,
       }),
       context: {
         restGap: 1,
+        eloDiff: 42,
       },
     });
 
+    expect(features.eloDiff).toBeCloseTo(42, 6);
     expect(features.pctGap).toBeCloseTo(0.25, 6);
     expect(features.opponentAdjustedRecent10Gap).toBeCloseTo(0.52, 6);
-    expect(features.restXBullpenGap).toBeCloseTo(2, 6);
+    expect(features.progressXEloDiff).toBeCloseTo(7.56, 6);
   });
 
   it("maps training examples into the same direct-game feature space", () => {
-    const features = buildDirectGameFeaturesFromTrainingExample(buildTrainingExample());
+    const features = buildDirectGameFeaturesFromTrainingExample(buildTrainingExample(), {
+      eloDiff: 35,
+    });
 
+    expect(features.eloDiff).toBeCloseTo(35, 6);
     expect(features.pctGap).toBeCloseTo(0.25, 6);
     expect(features.opponentAdjustedRecent10Gap).toBeCloseTo(0.52, 6);
     expect(features.progressXPctGap).toBeCloseTo(0.045, 6);
@@ -186,7 +163,9 @@ describe("direct game runtime", () => {
       homeWinProb: 0.56,
       awayWinProb: 0.39,
       tieProb: 0.05,
-      features: buildDirectGameFeaturesFromTrainingExample(buildTrainingExample()),
+      features: buildDirectGameFeaturesFromTrainingExample(buildTrainingExample(), {
+        eloDiff: 0,
+      }),
       parameters: DEFAULT_DIRECT_GAME_MODEL_PARAMETERS,
     });
 
@@ -196,7 +175,9 @@ describe("direct game runtime", () => {
   });
 
   it("can learn to widen decisive edges without changing the tie rate", () => {
-    const features = buildDirectGameFeaturesFromTrainingExample(buildTrainingExample());
+    const features = buildDirectGameFeaturesFromTrainingExample(buildTrainingExample(), {
+      eloDiff: 48,
+    });
     const adjusted = applyDirectGameRuntimeModel({
       homeWinProb: 0.52,
       awayWinProb: 0.43,
@@ -204,8 +185,10 @@ describe("direct game runtime", () => {
       features,
       parameters: {
         ...DEFAULT_DIRECT_GAME_MODEL_PARAMETERS,
+        decisiveBlend: 1,
         decisiveWeights: {
           ...DEFAULT_DIRECT_GAME_MODEL_PARAMETERS.decisiveWeights,
+          eloDiff: 0.01,
           opponentAdjustedRecent10Gap: 1.1,
           pctGap: 0.8,
         },
