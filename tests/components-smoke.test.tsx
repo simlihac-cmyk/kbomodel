@@ -190,7 +190,7 @@ describe("UI smoke", () => {
     expect(screen.getAllByText("LG 트윈스").length).toBeGreaterThan(0);
     expect(screen.getAllByText("SSG 랜더스").length).toBeGreaterThan(0);
     expect(screen.getAllByText("42.0%").length).toBeGreaterThan(0);
-    expect(screen.getByText("LG 픽")).toBeInTheDocument();
+    expect(screen.getByText("LG 우세")).toBeInTheDocument();
     expect(screen.getByText("5강권")).toBeInTheDocument();
   });
 

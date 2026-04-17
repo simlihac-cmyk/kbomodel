@@ -254,5 +254,49 @@ describe("buildGameProbabilitySnapshot", () => {
 
     expect(mismatch.pickConfidenceScore).toBeGreaterThan(balanced.pickConfidenceScore);
     expect(["pick", "strong"]).toContain(mismatch.pickConfidenceLevel);
+    expect(mismatch.homeWinProb).toBeGreaterThan(balanced.homeWinProb);
+    expect(mismatch.homeWinProb - balanced.homeWinProb).toBeGreaterThan(0.08);
+  });
+
+  it("lets strong away-side signals overcome a small home-field lean", () => {
+    const snapshot = buildGameProbabilitySnapshot(
+      game,
+      buildStrengthSnapshot({
+        seasonTeamId: "season:home",
+        offenseRating: 101,
+        starterRating: 99.5,
+        bullpenRating: 98.3,
+        winPct: 0.3125,
+        recent10WinRate: 0.5,
+        opponentAdjustedRecent10WinRate: 0.4914,
+        homePct: 0.3333333333,
+        awayPct: 0.3,
+        recentFormAdjustment: -0.031,
+        homeFieldAdjustment: 0.204,
+        confidenceScore: 0.305,
+      }),
+      buildStrengthSnapshot({
+        seasonTeamId: "season:away",
+        offenseRating: 105.1,
+        starterRating: 102.7,
+        bullpenRating: 101.9,
+        winPct: 0.5882,
+        recent10WinRate: 0.5,
+        opponentAdjustedRecent10WinRate: 0.4664,
+        homePct: 0.625,
+        awayPct: 0.5555555556,
+        recentFormAdjustment: 0.037,
+        homeFieldAdjustment: 0.212,
+        confidenceScore: 0.305,
+      }),
+      true,
+      undefined,
+      undefined,
+      { eloDiff: -108.8, restGap: 0 },
+    );
+
+    expect(snapshot.awayWinProb).toBeGreaterThan(snapshot.homeWinProb);
+    expect(snapshot.awayWinProb).toBeGreaterThan(0.54);
+    expect(snapshot.pickFavoriteSide).toBe("away");
   });
 });

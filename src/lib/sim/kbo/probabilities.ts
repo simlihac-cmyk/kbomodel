@@ -19,6 +19,25 @@ function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value));
 }
 
+function logistic(value: number) {
+  return 1 / (1 + Math.exp(-value));
+}
+
+function logit(probability: number) {
+  const safeProbability = clamp(probability, 1e-6, 1 - 1e-6);
+  return Math.log(safeProbability / (1 - safeProbability));
+}
+
+function signWithFloor(value: number, floor: number) {
+  if (value > floor) {
+    return 1;
+  }
+  if (value < -floor) {
+    return -1;
+  }
+  return 0;
+}
+
 function shrinkRatingByConfidence(
   rating: number,
   confidenceScore: number,
@@ -80,6 +99,85 @@ function buildRunOutcomeProbabilities(
     homeWin: homeWin / total,
     awayWin: awayWin / total,
     tie: tie / total,
+  };
+}
+
+function scaleSignedSignal(value: number, divisor: number, cap = 1.5) {
+  return clamp(value / divisor, -cap, cap);
+}
+
+function applyRuleBasedDecisiveSpread(args: {
+  homeWinProb: number;
+  awayWinProb: number;
+  tieProb: number;
+  features: ReturnType<typeof buildDirectGameFeaturesFromRuntime>;
+}) {
+  const decisiveTotal = Math.max(args.homeWinProb + args.awayWinProb, 1e-9);
+  const baseHomeDecisiveProb = args.homeWinProb / decisiveTotal;
+  const eloSignal = clamp(Math.abs(args.features.eloDiff) / 190, 0, 1);
+  const pctSignal = clamp(Math.abs(args.features.pctGap) / 0.24, 0, 1);
+  const recentSignal = clamp(
+    Math.abs(args.features.opponentAdjustedRecent10Gap) / 0.2,
+    0,
+    1,
+  );
+  const venueSignal = clamp(Math.abs(args.features.venueSplitGap) / 0.22, 0, 1);
+  const restSignal = clamp(Math.abs(args.features.restGap) / 2.5, 0, 1);
+  const seasonProgressDamping = 1 - clamp(args.features.seasonProgress, 0, 1) * 0.12;
+  const featureEdge =
+    scaleSignedSignal(args.features.eloDiff, 140) * 0.42 +
+    scaleSignedSignal(args.features.pctGap, 0.22) * 0.32 +
+    scaleSignedSignal(args.features.opponentAdjustedRecent10Gap, 0.18) * 0.14 +
+    scaleSignedSignal(args.features.venueSplitGap, 0.18) * 0.1 +
+    scaleSignedSignal(args.features.restGap, 2, 1.25) * 0.02;
+
+  const signs = [
+    signWithFloor(args.features.eloDiff, 18),
+    signWithFloor(args.features.pctGap, 0.05),
+    signWithFloor(args.features.opponentAdjustedRecent10Gap, 0.04),
+    signWithFloor(args.features.venueSplitGap, 0.05),
+  ].filter((value) => value !== 0);
+  const agreementSignal =
+    signs.length <= 1
+      ? 0.45
+      : clamp(
+          signs.filter((value) => value === signs[0]).length /
+            Math.max(1, signs.length),
+      0,
+      1,
+    );
+
+  const mismatchScore = clamp(
+    eloSignal * 0.4 +
+      pctSignal * 0.24 +
+      recentSignal * 0.18 +
+      venueSignal * 0.12 +
+      restSignal * 0.06,
+    0,
+    1,
+  );
+  const directionalHomeDecisiveProb = logistic(featureEdge * 1.15);
+  const directionalBlend = clamp(
+    mismatchScore * 0.42 + agreementSignal * 0.18,
+    0.08,
+    0.55,
+  );
+  const blendedHomeDecisiveProb =
+    baseHomeDecisiveProb * (1 - directionalBlend) +
+    directionalHomeDecisiveProb * directionalBlend;
+  const spreadAlpha = clamp(
+    (1 + mismatchScore * 1.05 + agreementSignal * 0.28) * seasonProgressDamping,
+    1,
+    2.2,
+  );
+  const spreadHomeDecisiveProb = logistic(
+    logit(blendedHomeDecisiveProb) * spreadAlpha,
+  );
+
+  return {
+    homeWinProb: Number((spreadHomeDecisiveProb * decisiveTotal).toFixed(4)),
+    awayWinProb: Number(((1 - spreadHomeDecisiveProb) * decisiveTotal).toFixed(4)),
+    tieProb: args.tieProb,
   };
 }
 
@@ -316,10 +414,16 @@ export function buildGameProbabilitySnapshot(
       eloDiff: adjustmentContext?.eloDiff ?? null,
     },
   });
-  const pickConfidence = buildPickConfidenceSnapshot({
+  const { homeWinProb, awayWinProb, tieProb } = applyRuleBasedDecisiveSpread({
     homeWinProb: baseHomeWinProb,
     awayWinProb: baseAwayWinProb,
     tieProb: baseTieProb,
+    features: directFeatures,
+  });
+  const pickConfidence = buildPickConfidenceSnapshot({
+    homeWinProb,
+    awayWinProb,
+    tieProb,
     features: directFeatures,
   });
 
@@ -408,9 +512,9 @@ export function buildGameProbabilitySnapshot(
     awaySeasonTeamId: game.awaySeasonTeamId,
     homeLikelyStarterId: starterProjection?.home?.playerId ?? null,
     awayLikelyStarterId: starterProjection?.away?.playerId ?? null,
-    homeWinProb: baseHomeWinProb,
-    awayWinProb: baseAwayWinProb,
-    tieProb: Number(baseTieProb.toFixed(4)),
+    homeWinProb,
+    awayWinProb,
+    tieProb: Number(tieProb.toFixed(4)),
     pickFavoriteSide: pickConfidence.favoriteSide,
     pickConfidenceScore: pickConfidence.score,
     pickConfidenceLevel: pickConfidence.level,

@@ -17,18 +17,18 @@ function buildPickLabel(
 ) {
   const level = probability?.pickConfidenceLevel ?? "pass";
   if (level === "pass") {
-    return "패스";
+    return "접전";
   }
 
   const favorite =
     probability?.pickFavoriteSide === "away" ? away.shortNameKo : home.shortNameKo;
   if (level === "strong") {
-    return `${favorite} 강한 픽`;
+    return `${favorite} 강우세`;
   }
   if (level === "pick") {
-    return `${favorite} 픽`;
+    return `${favorite} 우세`;
   }
-  return `${favorite} 관심`;
+  return `${favorite} 약우세`;
 }
 
 function pickChipClass(level: GameProbabilitySnapshot["pickConfidenceLevel"] | undefined) {
@@ -105,7 +105,7 @@ export function TodayWinProbabilityBoard({
                 <p className="text-3xl font-semibold tracking-tight text-ink">{formatPercent(awayShare)}</p>
                 <p className="mt-1 text-base font-semibold text-ink">{away.shortNameKo}</p>
               </div>
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">@</span>
+              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-muted">VS</span>
               <div className="text-right">
                 <p className="text-3xl font-semibold tracking-tight text-ink">{formatPercent(homeShare)}</p>
                 <p className="mt-1 text-base font-semibold text-ink">{home.shortNameKo}</p>
