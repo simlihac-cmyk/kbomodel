@@ -1,0 +1,115 @@
+{
+  "manifestType": "kbo-runtime-model-parameters",
+  "version": 1,
+  "trainedAt": "2026-04-17T06:09:57.104Z",
+  "objective": "multiclass-log-loss",
+  "fitYears": [
+    2021,
+    2022,
+    2023
+  ],
+  "tuneYears": [
+    2024
+  ],
+  "validationYears": [
+    2025
+  ],
+  "search": {
+    "iterations": 2,
+    "strengthRounds": 5,
+    "gameRounds": 6,
+    "evaluations": {
+      "strength": 422,
+      "game": 314,
+      "total": 736
+    }
+  },
+  "baselineParameters": {
+    "strength": {
+      "currentWeightProgressExponent": 1.35,
+      "currentWeightProgressMix": 0.55,
+      "currentWeightShrinkageMultiplier": 2.2,
+      "currentWeightMin": 0.08,
+      "currentWeightMax": 0.84,
+      "offenseRunsWeight": 9.4,
+      "offenseRunDiffWeight": 2.6,
+      "offenseRecentWeight": 4.2,
+      "runPreventionRunsAllowedWeight": 9.8,
+      "runPreventionRunDiffWeight": 3.1,
+      "runPreventionWinPctWeight": 8.4,
+      "bullpenRunsAllowedWeight": 6.6,
+      "bullpenRecentWeight": 5.8,
+      "bullpenStreakWeight": 0.35,
+      "homeFieldSplitWeight": 0.22,
+      "homeFieldMin": 0.08,
+      "homeFieldMax": 0.3,
+      "recentFormWinRateWeight": 0.8,
+      "recentFormStreakWeight": 0.08,
+      "confidenceBase": 0.24,
+      "confidenceCurrentWeightWeight": 0.68,
+      "confidenceRunDiffWeight": 0.04,
+      "confidenceRunDiffCap": 0.08,
+      "confidenceMin": 0.16,
+      "confidenceMax": 0.92
+    },
+    "game": {
+      "leagueRunEnvironment": 4.428628185856,
+      "awayRunEnvironmentOffset": 0.03343237341312,
+      "offenseWeight": 0.0090250233568,
+      "starterWeight": 0.0078123930880000005,
+      "bullpenWeight": 0.0019766570727296003,
+      "recentFormWeight": 0.09848762390625,
+      "homeFieldWeightHome": 0.19848762390625002,
+      "homeFieldWeightAway": 0.09848762390625,
+      "confidenceBase": 0.3365962639769601,
+      "confidenceScale": 0.5856103321599998,
+      "tieCarryRate": 0.25848762390624996,
+      "minTieProbability": 0.015,
+      "maxTieProbability": 0.085
+    }
+  },
+  "fittedParameters": {
+    "strength": {
+      "currentWeightProgressExponent": 1.5900000000000003,
+      "currentWeightProgressMix": 0.55,
+      "currentWeightShrinkageMultiplier": 2.2,
+      "currentWeightMin": 0.08,
+      "currentWeightMax": 0.84,
+      "offenseRunsWeight": 9.4,
+      "offenseRunDiffWeight": 2.6,
+      "offenseRecentWeight": 4.2,
+      "runPreventionRunsAllowedWeight": 9.8,
+      "runPreventionRunDiffWeight": 3.1,
+      "runPreventionWinPctWeight": 8.4,
+      "bullpenRunsAllowedWeight": 6.6,
+      "bullpenRecentWeight": 5.8,
+      "bullpenStreakWeight": 0.35,
+      "homeFieldSplitWeight": 0.22,
+      "homeFieldMin": 0.08,
+      "homeFieldMax": 0.3,
+      "recentFormWinRateWeight": 0.8,
+      "recentFormStreakWeight": 0.08,
+      "confidenceBase": 0.24,
+      "confidenceCurrentWeightWeight": 0.68,
+      "confidenceRunDiffWeight": 0.04,
+      "confidenceRunDiffCap": 0.08,
+      "confidenceMin": 0.16,
+      "confidenceMax": 0.92
+    },
+    "game": {
+      "leagueRunEnvironment": 4.268628185856,
+      "awayRunEnvironmentOffset": 0,
+      "offenseWeight": 0.011025023356800001,
+      "starterWeight": 0.009412393088000001,
+      "bullpenWeight": 0.001,
+      "recentFormWeight": 0.038487623906250004,
+      "homeFieldWeightHome": 0.13848762390625002,
+      "homeFieldWeightAway": 0.038487623906250004,
+      "confidenceBase": 0.41659626397696004,
+      "confidenceScale": 0.48561033215999977,
+      "tieCarryRate": 0.19848762390624997,
+      "minTieProbability": 0.015,
+      "maxTieProbability": 0.085
+    }
+  }
+}
