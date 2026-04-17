@@ -1,5 +1,9 @@
 import { z } from "zod";
 
+import {
+  DEFAULT_DIRECT_GAME_MODEL_PARAMETERS,
+  directGameParameterSetSchema,
+} from "@/lib/sim/kbo/direct-game/model-types";
 import { gameModelParameterSetSchema } from "@/lib/sim/kbo/model-parameters";
 import { probabilityAdjustmentParameterSetSchema } from "@/lib/sim/kbo/probability-adjustment-parameters";
 import { strengthModelParameterSetSchema } from "@/lib/sim/kbo/strength-model-parameters";
@@ -109,6 +113,7 @@ export const runtimeModelParameterArtifactSchema = z.object({
       strength: z.number().int().positive(),
       game: z.number().int().positive(),
       contextual: z.number().int().positive(),
+      direct: z.number().int().nonnegative().default(0),
       total: z.number().int().positive(),
     }),
   }),
@@ -116,11 +121,13 @@ export const runtimeModelParameterArtifactSchema = z.object({
     strength: strengthModelParameterSetSchema,
     game: gameModelParameterSetSchema,
     contextual: probabilityAdjustmentParameterSetSchema,
+    direct: directGameParameterSetSchema.default(DEFAULT_DIRECT_GAME_MODEL_PARAMETERS),
   }),
   fittedParameters: z.object({
     strength: strengthModelParameterSetSchema,
     game: gameModelParameterSetSchema,
     contextual: probabilityAdjustmentParameterSetSchema,
+    direct: directGameParameterSetSchema.default(DEFAULT_DIRECT_GAME_MODEL_PARAMETERS),
   }),
 });
 export type RuntimeModelParameterArtifact = z.infer<typeof runtimeModelParameterArtifactSchema>;

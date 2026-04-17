@@ -121,6 +121,9 @@ async function main() {
     `[training-fit] contextual evaluations -> ${parameters.search.evaluations.contextual}`,
   );
   console.log(
+    `[training-fit] direct evaluations -> ${parameters.search.evaluations.direct}`,
+  );
+  console.log(
     `[training-fit] baseline validation logLoss -> ${backtest.baseline.validation?.logLoss ?? "n/a"}`,
   );
   console.log(

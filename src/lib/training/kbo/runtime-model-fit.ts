@@ -8,6 +8,13 @@ import type {
   TrainingCorpusSeason,
 } from "@/lib/data-sources/kbo/training-corpus-types";
 import {
+  buildDirectGameFeaturesFromTrainingExample,
+} from "@/lib/sim/kbo/direct-game/feature-builder";
+import {
+  CURRENT_DIRECT_GAME_MODEL_PARAMETERS,
+} from "@/lib/sim/kbo/current-direct-game-model";
+import type { DirectGameParameterSet } from "@/lib/sim/kbo/direct-game/model-types";
+import {
   fitGameModelParametersFromPreparedExamples,
   GAME_MODEL_OBJECTIVE,
   isPredictionMetricsMoreDiscriminative,
@@ -52,10 +59,13 @@ import {
   buildProbabilityAdjustmentFeaturesFromTrainingExample,
 } from "@/lib/sim/kbo/probability-adjustment";
 import {
-  buildAdjustmentCalibrationSummary,
   fitProbabilityAdjustmentParameters,
-  scorePreparedExamplesWithAdjustment,
 } from "@/lib/training/kbo/probability-adjustment-fit";
+import {
+  buildDirectGameCalibrationSummary,
+  fitDirectGameParameters,
+  scorePreparedExamplesWithDirectGameModel,
+} from "@/lib/training/kbo/direct-game-fit";
 
 type HistoricalGameContextExample = {
   sampleId: string;
@@ -96,6 +106,7 @@ type RuntimeFitOptions = {
   initialStrength?: StrengthModelParameterSet;
   initialGame?: GameModelParameterSet;
   initialContextual?: ProbabilityAdjustmentParameterSet;
+  initialDirect?: DirectGameParameterSet;
   useRollingValidation?: boolean;
 };
 
@@ -508,6 +519,7 @@ function prepareGameExamplesForStrengthParameters(
       parameters,
     ),
     adjustmentFeatures: buildProbabilityAdjustmentFeaturesFromTrainingExample(context.gameExample),
+    directGameFeatures: buildDirectGameFeaturesFromTrainingExample(context.gameExample),
     actualIndex: context.actualIndex,
     actualHomeWin: context.actualHomeWin,
     actualAwayWin: context.actualAwayWin,
@@ -701,51 +713,57 @@ function buildEvaluation(
   };
 }
 
-function buildEvaluationWithContextualAdjustment(
+function buildEvaluationWithDirectGameModel(
   preparedByYear: Record<number, PreparedGameExample[]>,
   fitYears: number[],
   tuneYears: number[],
   validationYears: number[],
   gameParameters: GameModelParameterSet,
   adjustmentParameters: ProbabilityAdjustmentParameterSet,
+  directParameters: DirectGameParameterSet,
 ): StageEvaluation {
   const fitExamples = fitYears.flatMap((year) => preparedByYear[year] ?? []);
   const tuneExamples = tuneYears.flatMap((year) => preparedByYear[year] ?? []);
   const validationExamples = validationYears.flatMap((year) => preparedByYear[year] ?? []);
 
   return {
-    fit: scorePreparedExamplesWithAdjustment(
+    fit: scorePreparedExamplesWithDirectGameModel(
       fitExamples,
       gameParameters,
       adjustmentParameters,
+      directParameters,
     ),
     tune:
       tuneExamples.length > 0
-        ? scorePreparedExamplesWithAdjustment(
+        ? scorePreparedExamplesWithDirectGameModel(
             tuneExamples,
             gameParameters,
             adjustmentParameters,
+            directParameters,
           )
         : null,
     validation:
       validationExamples.length > 0
-        ? scorePreparedExamplesWithAdjustment(
+        ? scorePreparedExamplesWithDirectGameModel(
             validationExamples,
             gameParameters,
             adjustmentParameters,
+            directParameters,
           )
         : null,
     selectionScore:
       tuneExamples.length > 0
-        ? scorePreparedExamplesWithAdjustment(
+        ? scorePreparedExamplesWithDirectGameModel(
             tuneExamples,
             gameParameters,
             adjustmentParameters,
+            directParameters,
           ).logLoss
-        : scorePreparedExamplesWithAdjustment(
+        : scorePreparedExamplesWithDirectGameModel(
             fitExamples,
             gameParameters,
             adjustmentParameters,
+            directParameters,
           ).logLoss,
   };
 }
@@ -766,12 +784,15 @@ function fitRuntimeModelParametersSingleStart(
   );
   const baselineGame = normalizeGameParameterSet(options.initialGame ?? CURRENT_GAME_MODEL_PARAMETERS);
   const baselineContextual = options.initialContextual ?? CURRENT_PROBABILITY_ADJUSTMENT_PARAMETERS;
+  const baselineDirect = options.initialDirect ?? CURRENT_DIRECT_GAME_MODEL_PARAMETERS;
   let currentStrength = baselineStrength;
   let currentGame = baselineGame;
   let currentContextual = baselineContextual;
+  let currentDirect = baselineDirect;
   let totalStrengthEvaluations = 0;
   let totalGameEvaluations = 0;
   let totalContextualEvaluations = 0;
+  let totalDirectEvaluations = 0;
   const iterationSummaries: RuntimeModelBacktestSummary["iterations"] = [];
 
   for (let iteration = 1; iteration <= iterations; iteration += 1) {
@@ -818,21 +839,34 @@ function fitRuntimeModelParametersSingleStart(
   });
   currentContextual = contextualResult.fittedParameters;
   totalContextualEvaluations += contextualResult.evaluations;
-  const baselineEvaluation = buildEvaluationWithContextualAdjustment(
+  const directResult = fitDirectGameParameters({
+    examplesByYear: fittedPreparedByYear,
+    trainYears,
+    validationYears,
+    gameParameters: currentGame,
+    adjustmentParameters: currentContextual,
+    initial: baselineDirect,
+    maxRounds: Math.max(24, gameMaxRounds * 8),
+  });
+  currentDirect = directResult.fittedParameters;
+  totalDirectEvaluations += directResult.evaluations;
+  const baselineEvaluation = buildEvaluationWithDirectGameModel(
     baselinePreparedByYear,
     fitYears,
     tuneYears,
     validationYears,
     baselineGame,
     baselineContextual,
+    baselineDirect,
   );
-  const fittedEvaluation = buildEvaluationWithContextualAdjustment(
+  const fittedEvaluation = buildEvaluationWithDirectGameModel(
     fittedPreparedByYear,
     fitYears,
     tuneYears,
     validationYears,
     currentGame,
     currentContextual,
+    currentDirect,
   );
   const baselineValidationExamples = validationYears.flatMap((year) => baselinePreparedByYear[year] ?? []);
   const fittedValidationExamples = validationYears.flatMap((year) => fittedPreparedByYear[year] ?? []);
@@ -855,18 +889,25 @@ function fitRuntimeModelParametersSingleStart(
           strength: totalStrengthEvaluations,
           game: totalGameEvaluations,
           contextual: totalContextualEvaluations,
-          total: totalStrengthEvaluations + totalGameEvaluations + totalContextualEvaluations,
+          direct: totalDirectEvaluations,
+          total:
+            totalStrengthEvaluations +
+            totalGameEvaluations +
+            totalContextualEvaluations +
+            totalDirectEvaluations,
         },
       },
       baselineParameters: {
         strength: baselineStrength,
         game: baselineGame,
         contextual: baselineContextual,
+        direct: baselineDirect,
       },
       fittedParameters: {
         strength: currentStrength,
         game: currentGame,
         contextual: currentContextual,
+        direct: currentDirect,
       },
     },
     backtest: {
@@ -908,15 +949,17 @@ function fitRuntimeModelParametersSingleStart(
             : null,
       },
       calibration: {
-        baselineValidation: buildAdjustmentCalibrationSummary(
+        baselineValidation: buildDirectGameCalibrationSummary(
           baselineValidationExamples,
           baselineGame,
           baselineContextual,
+          baselineDirect,
         ),
-        fittedValidation: buildAdjustmentCalibrationSummary(
+        fittedValidation: buildDirectGameCalibrationSummary(
           fittedValidationExamples,
           currentGame,
           currentContextual,
+          currentDirect,
         ),
       },
       selection: {
@@ -959,6 +1002,7 @@ function evaluateRollingValidation(
         gameMaxRounds: options.gameMaxRounds,
         initialStrength: candidate.strength,
         initialGame: candidate.game,
+        initialDirect: options.initialDirect,
       },
     );
     return {
@@ -1079,6 +1123,7 @@ export function fitRuntimeModelParameters(
         gameMaxRounds: options.gameMaxRounds,
         initialStrength: candidate.strength,
         initialGame: candidate.game,
+        initialDirect: options.initialDirect,
       },
     );
 

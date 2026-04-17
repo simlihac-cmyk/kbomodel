@@ -36,6 +36,14 @@ const OUTPUT_CONTEXTUAL_PATH = path.join(
   "kbo",
   "current-probability-adjustment-parameters.ts",
 );
+const OUTPUT_DIRECT_PATH = path.join(
+  process.cwd(),
+  "src",
+  "lib",
+  "sim",
+  "kbo",
+  "current-direct-game-model.ts",
+);
 
 function parseArgs(argv: string[]) {
   return {
@@ -181,6 +189,38 @@ export const CURRENT_PROBABILITY_ADJUSTMENT_PARAMETERS: ProbabilityAdjustmentPar
 `;
 }
 
+function buildDirectModuleSource(
+  parametersPath: string,
+  artifact: ReturnType<typeof runtimeModelParameterArtifactSchema.parse>,
+) {
+  const fitted = artifact.fittedParameters.direct;
+  const sourcePath = path.relative(process.cwd(), parametersPath).split(path.sep).join("/");
+
+  return `import {
+  directGameParameterSetSchema,
+  type DirectGameParameterSet,
+} from "@/lib/sim/kbo/direct-game/model-types";
+
+export const CURRENT_DIRECT_GAME_MODEL_SOURCE = {
+  trainedAt: "${artifact.trainedAt}",
+  fitYears: ${formatArray(artifact.fitYears)},
+  tuneYears: ${formatArray(artifact.tuneYears)},
+  validationYears: ${formatArray(artifact.validationYears)},
+  sourcePath: "${sourcePath}",
+} as const;
+
+export const CURRENT_DIRECT_GAME_MODEL_PARAMETERS: DirectGameParameterSet =
+  directGameParameterSetSchema.parse({
+    decisiveBias: ${formatNumber(fitted.decisiveBias)},
+    decisiveWeights: ${formatWeightObject(fitted.decisiveWeights)},
+    tieBias: ${formatNumber(fitted.tieBias)},
+    tieWeights: ${formatWeightObject(fitted.tieWeights)},
+    tieMinProbability: ${formatNumber(fitted.tieMinProbability)},
+    tieMaxProbability: ${formatNumber(fitted.tieMaxProbability)},
+  });
+`;
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const raw = JSON.parse(await fs.readFile(args.from, "utf8")) as unknown;
@@ -196,8 +236,10 @@ async function main() {
   if (artifact.manifestType === "kbo-runtime-model-parameters") {
     const strengthSource = buildStrengthModuleSource(args.from, artifact);
     const contextualSource = buildContextualModuleSource(args.from, artifact);
+    const directSource = buildDirectModuleSource(args.from, artifact);
     await fs.writeFile(OUTPUT_STRENGTH_PATH, strengthSource, "utf8");
     await fs.writeFile(OUTPUT_CONTEXTUAL_PATH, contextualSource, "utf8");
+    await fs.writeFile(OUTPUT_DIRECT_PATH, directSource, "utf8");
   }
 
   console.log(`[training-promote] source -> ${args.from}`);
@@ -205,6 +247,7 @@ async function main() {
   if (artifact.manifestType === "kbo-runtime-model-parameters") {
     console.log(`[training-promote] strength output -> ${OUTPUT_STRENGTH_PATH}`);
     console.log(`[training-promote] contextual output -> ${OUTPUT_CONTEXTUAL_PATH}`);
+    console.log(`[training-promote] direct output -> ${OUTPUT_DIRECT_PATH}`);
   }
 }
 

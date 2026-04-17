@@ -1,6 +1,10 @@
 import type { TeamStrengthSnapshot } from "@/lib/domain/kbo/types";
 import type { GameOutcomeTrainingExample } from "@/lib/data-sources/kbo/training-corpus-types";
 import {
+  buildDirectGameFeaturesFromTrainingExample,
+} from "@/lib/sim/kbo/direct-game/feature-builder";
+import type { DirectGameFeatureVector } from "@/lib/sim/kbo/direct-game/model-types";
+import {
   buildGameProbabilityCoreSnapshot,
 } from "@/lib/sim/kbo/probabilities";
 import {
@@ -27,6 +31,7 @@ export type PreparedGameExample = {
   homeStrength: TeamStrengthSnapshot;
   awayStrength: TeamStrengthSnapshot;
   adjustmentFeatures: ProbabilityAdjustmentFeatureVector;
+  directGameFeatures: DirectGameFeatureVector;
   actualIndex: 0 | 1 | 2;
   actualHomeWin: number;
   actualAwayWin: number;
@@ -188,6 +193,7 @@ export function prepareGameExamples(examples: GameOutcomeTrainingExample[]): Pre
       homeStrength: buildStrengthSnapshotFromGameExample(example, "home"),
       awayStrength: buildStrengthSnapshotFromGameExample(example, "away"),
       adjustmentFeatures: buildProbabilityAdjustmentFeaturesFromTrainingExample(example),
+      directGameFeatures: buildDirectGameFeaturesFromTrainingExample(example),
       actualIndex,
       actualHomeWin: example.homeWin ? 1 : 0,
       actualAwayWin: example.awayWin ? 1 : 0,
