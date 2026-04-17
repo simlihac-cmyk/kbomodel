@@ -338,9 +338,26 @@ export function fitDirectGameParameters(args: {
   learningRate?: number;
   l2Penalty?: number;
 }) {
-  const initial = normalizeParameters(directGameParameterSetSchema.parse(
+  const seededInitial = directGameParameterSetSchema.parse(
     args.initial ?? DEFAULT_DIRECT_GAME_MODEL_PARAMETERS,
-  ));
+  );
+  if (
+    seededInitial.decisiveBlend === 0 &&
+    DIRECT_GAME_FEATURE_KEYS.every((key) => seededInitial.decisiveWeights[key] === 0)
+  ) {
+    seededInitial.decisiveBlend = 0.35;
+    seededInitial.decisiveBias = 0;
+    seededInitial.decisiveWeights.eloDiff = 0.0025;
+    seededInitial.decisiveWeights.pctGap = 0.9;
+    seededInitial.decisiveWeights.recent10Gap = 0.45;
+    seededInitial.decisiveWeights.opponentAdjustedRecent10Gap = 0.65;
+    seededInitial.decisiveWeights.venueSplitGap = 0.18;
+    seededInitial.decisiveWeights.restGap = 0.08;
+    seededInitial.decisiveWeights.progressXEloDiff = -0.0012;
+    seededInitial.decisiveWeights.progressXPctGap = -0.25;
+    seededInitial.decisiveWeights.progressXOpponentAdjustedRecent10Gap = -0.18;
+  }
+  const initial = normalizeParameters(seededInitial);
   const fitYears = args.trainYears.length > 1 ? args.trainYears.slice(0, -1) : [...args.trainYears];
   const tuneYears = args.trainYears.length > 1 ? [args.trainYears.at(-1)!] : [];
   const fitExamples = fitYears.flatMap((year) => args.examplesByYear[year] ?? []);
