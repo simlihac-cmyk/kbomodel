@@ -84,6 +84,7 @@ function initializeGradientAccumulator() {
 
   return {
     decisiveBlend: 0,
+    decisiveLogitScale: 0,
     decisiveBias: 0,
     decisiveWeights: { ...zeroWeights },
   };
@@ -96,7 +97,8 @@ function cloneParameters(parameters: DirectGameParameterSet): DirectGameParamete
 function normalizeParameters(parameters: DirectGameParameterSet): DirectGameParameterSet {
   const next = cloneParameters(parameters);
 
-  next.decisiveBlend = clamp(next.decisiveBlend, 0, 0.2);
+  next.decisiveBlend = clamp(next.decisiveBlend, 0, 0.85);
+  next.decisiveLogitScale = clamp(next.decisiveLogitScale, 0.45, 1.15);
   next.decisiveBias = clamp(next.decisiveBias, -1.2, 1.2);
   next.tieBias = 0;
 
@@ -345,7 +347,8 @@ export function fitDirectGameParameters(args: {
     seededInitial.decisiveBlend === 0 &&
     DIRECT_GAME_FEATURE_KEYS.every((key) => seededInitial.decisiveWeights[key] === 0)
   ) {
-    seededInitial.decisiveBlend = 0.12;
+    seededInitial.decisiveBlend = 0.55;
+    seededInitial.decisiveLogitScale = 0.72;
     seededInitial.decisiveBias = 0;
     seededInitial.decisiveWeights.eloDiff = 0.0015;
     seededInitial.decisiveWeights.pctGap = 0.35;
@@ -413,19 +416,29 @@ export function fitDirectGameParameters(args: {
 
       const decisiveTotal = Math.max(adjusted.homeWinProb + adjusted.awayWinProb, 1e-9);
       const homeDecisiveProb = adjusted.homeWinProb / decisiveTotal;
-      const logisticHomeDecisiveProb = 1 / (1 + Math.exp(-(
+      const rawDecisiveScore =
         current.decisiveBias +
         DIRECT_GAME_FEATURE_KEYS.reduce(
           (sum, key) => sum + current.decisiveWeights[key] * example.directGameFeatures[key],
           0,
-        )
-      )));
+        );
+      const logisticHomeDecisiveProb =
+        1 / (1 + Math.exp(-(rawDecisiveScore * current.decisiveLogitScale)));
       const baseDecisiveTotal = Math.max(base.homeWinProb + base.awayWinProb, 1e-9);
       const baseHomeDecisiveProb = base.homeWinProb / baseDecisiveTotal;
       const decisiveError = (homeDecisiveProb - example.actualHomeWin) * weight;
       const logisticGradientScale =
-        current.decisiveBlend * logisticHomeDecisiveProb * (1 - logisticHomeDecisiveProb);
+        current.decisiveBlend *
+        current.decisiveLogitScale *
+        logisticHomeDecisiveProb *
+        (1 - logisticHomeDecisiveProb);
       gradient.decisiveBlend += decisiveError * (logisticHomeDecisiveProb - baseHomeDecisiveProb);
+      gradient.decisiveLogitScale +=
+        decisiveError *
+        current.decisiveBlend *
+        rawDecisiveScore *
+        logisticHomeDecisiveProb *
+        (1 - logisticHomeDecisiveProb);
       gradient.decisiveBias += decisiveError * logisticGradientScale;
 
       for (const key of DIRECT_GAME_FEATURE_KEYS) {
@@ -438,6 +451,10 @@ export function fitDirectGameParameters(args: {
     current.decisiveBlend -= step * (
       gradient.decisiveBlend +
       current.decisiveBlend * l2Penalty
+    );
+    current.decisiveLogitScale -= step * (
+      gradient.decisiveLogitScale +
+      (current.decisiveLogitScale - 1) * l2Penalty
     );
     current.decisiveBias -= step * (gradient.decisiveBias + current.decisiveBias * l2Penalty);
 
@@ -462,6 +479,32 @@ export function fitDirectGameParameters(args: {
     if (isDirectEvaluationBetter(evaluation, bestEvaluation)) {
       best = cloneParameters(current);
       bestEvaluation = evaluation;
+    }
+  }
+
+  const blendCandidates = [0.2, 0.35, 0.5, 0.65, 0.8];
+  const scaleCandidates = [0.55, 0.65, 0.75, 0.85, 1, 1.1];
+  for (const decisiveBlend of blendCandidates) {
+    for (const decisiveLogitScale of scaleCandidates) {
+      const candidate = normalizeParameters({
+        ...best,
+        decisiveBlend,
+        decisiveLogitScale,
+      });
+      const evaluation = evaluateDirectParameterSet(
+        fitExamples,
+        tuneExamples,
+        validationExamples,
+        args.gameParameters,
+        args.adjustmentParameters,
+        candidate,
+      );
+      evaluations += 1;
+
+      if (isDirectEvaluationBetter(evaluation, bestEvaluation)) {
+        best = candidate;
+        bestEvaluation = evaluation;
+      }
     }
   }
 

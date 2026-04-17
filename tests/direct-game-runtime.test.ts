@@ -185,7 +185,8 @@ describe("direct game runtime", () => {
       features,
       parameters: {
         ...DEFAULT_DIRECT_GAME_MODEL_PARAMETERS,
-        decisiveBlend: 1,
+        decisiveBlend: 0.8,
+        decisiveLogitScale: 0.72,
         decisiveWeights: {
           ...DEFAULT_DIRECT_GAME_MODEL_PARAMETERS.decisiveWeights,
           eloDiff: 0.01,
@@ -198,5 +199,37 @@ describe("direct game runtime", () => {
     expect(adjusted.homeWinProb).toBeGreaterThan(0.52);
     expect(adjusted.awayWinProb).toBeLessThan(0.43);
     expect(adjusted.tieProb).toBeCloseTo(0.05, 4);
+  });
+
+  it("lets the direct model dominate decisive probabilities when blend is high", () => {
+    const features = buildDirectGameFeaturesFromTrainingExample(
+      buildTrainingExample({
+        pctGap: 0.34,
+        opponentAdjustedRecent10Gap: 0.42,
+      }),
+      { eloDiff: 170 },
+    );
+    const parameters = {
+      ...DEFAULT_DIRECT_GAME_MODEL_PARAMETERS,
+      decisiveBlend: 0.8,
+      decisiveLogitScale: 0.7,
+      decisiveWeights: {
+        ...DEFAULT_DIRECT_GAME_MODEL_PARAMETERS.decisiveWeights,
+        eloDiff: 0.01,
+        pctGap: 0.7,
+        opponentAdjustedRecent10Gap: 0.6,
+      },
+    };
+
+    const adjusted = applyDirectGameRuntimeModel({
+      homeWinProb: 0.58,
+      awayWinProb: 0.38,
+      tieProb: 0.04,
+      features,
+      parameters,
+    });
+
+    expect(adjusted.homeWinProb).toBeGreaterThan(0.64);
+    expect(adjusted.tieProb).toBeCloseTo(0.04, 6);
   });
 });

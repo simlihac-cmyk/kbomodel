@@ -40,9 +40,11 @@ export function applyDirectGameRuntimeModel(
   const parameters = args.parameters ?? CURRENT_DIRECT_GAME_MODEL_PARAMETERS;
   const decisiveTotal = Math.max(args.homeWinProb + args.awayWinProb, 1e-9);
   const baseHomeDecisiveProb = args.homeWinProb / decisiveTotal;
-  const logisticHomeDecisiveProb = sigmoid(
+  const rawDecisiveScore =
     parameters.decisiveBias +
-    dotProduct(parameters.decisiveWeights, args.features),
+    dotProduct(parameters.decisiveWeights, args.features);
+  const logisticHomeDecisiveProb = sigmoid(
+    rawDecisiveScore * parameters.decisiveLogitScale,
   );
   const homeDecisiveProb = clamp(
     baseHomeDecisiveProb * (1 - parameters.decisiveBlend) +
