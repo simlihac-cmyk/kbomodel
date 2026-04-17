@@ -96,12 +96,12 @@ function cloneParameters(parameters: DirectGameParameterSet): DirectGameParamete
 function normalizeParameters(parameters: DirectGameParameterSet): DirectGameParameterSet {
   const next = cloneParameters(parameters);
 
-  next.decisiveBlend = clamp(next.decisiveBlend, 0, 1);
-  next.decisiveBias = clamp(next.decisiveBias, -1.5, 1.5);
+  next.decisiveBlend = clamp(next.decisiveBlend, 0, 0.2);
+  next.decisiveBias = clamp(next.decisiveBias, -1.2, 1.2);
   next.tieBias = 0;
 
   for (const key of DIRECT_GAME_FEATURE_KEYS) {
-    next.decisiveWeights[key] = clamp(next.decisiveWeights[key], -1.5, 1.5);
+    next.decisiveWeights[key] = clamp(next.decisiveWeights[key], -0.9, 0.9);
     next.tieWeights[key] = 0;
   }
 
@@ -274,10 +274,10 @@ function isDirectEvaluationBetter(
   next: DirectEvaluationResult,
   current: DirectEvaluationResult,
 ) {
-  if (next.selectionScore < current.selectionScore - 0.0015) {
+  if (next.selectionScore < current.selectionScore - 0.0005) {
     return true;
   }
-  if (next.selectionScore > current.selectionScore + 0.0015) {
+  if (next.selectionScore > current.selectionScore + 0.0005) {
     return false;
   }
   return isPredictionMetricsMoreDiscriminative(
@@ -345,17 +345,17 @@ export function fitDirectGameParameters(args: {
     seededInitial.decisiveBlend === 0 &&
     DIRECT_GAME_FEATURE_KEYS.every((key) => seededInitial.decisiveWeights[key] === 0)
   ) {
-    seededInitial.decisiveBlend = 0.35;
+    seededInitial.decisiveBlend = 0.12;
     seededInitial.decisiveBias = 0;
-    seededInitial.decisiveWeights.eloDiff = 0.0025;
-    seededInitial.decisiveWeights.pctGap = 0.9;
-    seededInitial.decisiveWeights.recent10Gap = 0.45;
-    seededInitial.decisiveWeights.opponentAdjustedRecent10Gap = 0.65;
-    seededInitial.decisiveWeights.venueSplitGap = 0.18;
-    seededInitial.decisiveWeights.restGap = 0.08;
-    seededInitial.decisiveWeights.progressXEloDiff = -0.0012;
-    seededInitial.decisiveWeights.progressXPctGap = -0.25;
-    seededInitial.decisiveWeights.progressXOpponentAdjustedRecent10Gap = -0.18;
+    seededInitial.decisiveWeights.eloDiff = 0.0015;
+    seededInitial.decisiveWeights.pctGap = 0.35;
+    seededInitial.decisiveWeights.recent10Gap = 0.18;
+    seededInitial.decisiveWeights.opponentAdjustedRecent10Gap = 0.25;
+    seededInitial.decisiveWeights.venueSplitGap = 0.08;
+    seededInitial.decisiveWeights.restGap = 0.03;
+    seededInitial.decisiveWeights.progressXEloDiff = -0.0006;
+    seededInitial.decisiveWeights.progressXPctGap = -0.08;
+    seededInitial.decisiveWeights.progressXOpponentAdjustedRecent10Gap = -0.06;
   }
   const initial = normalizeParameters(seededInitial);
   const fitYears = args.trainYears.length > 1 ? args.trainYears.slice(0, -1) : [...args.trainYears];
@@ -364,8 +364,8 @@ export function fitDirectGameParameters(args: {
   const tuneExamples = tuneYears.flatMap((year) => args.examplesByYear[year] ?? []);
   const validationExamples = args.validationYears.flatMap((year) => args.examplesByYear[year] ?? []);
   const maxRounds = args.maxRounds ?? 36;
-  const learningRate = args.learningRate ?? 0.08;
-  const l2Penalty = args.l2Penalty ?? 0.015;
+  const learningRate = args.learningRate ?? 0.03;
+  const l2Penalty = args.l2Penalty ?? 0.08;
 
   if (fitExamples.length === 0) {
     throw new Error("Direct game fit requires at least one fit example.");

@@ -112,7 +112,7 @@ export const runtimeModelParameterArtifactSchema = z.object({
     evaluations: z.object({
       strength: z.number().int().positive(),
       game: z.number().int().positive(),
-      contextual: z.number().int().positive(),
+      contextual: z.number().int().nonnegative().default(0),
       direct: z.number().int().nonnegative().default(0),
       total: z.number().int().positive(),
     }),

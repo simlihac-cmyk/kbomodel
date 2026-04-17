@@ -26,7 +26,7 @@ export const directGameWeightVectorSchema = z.object(featureShape);
 export type DirectGameWeightVector = z.infer<typeof directGameWeightVectorSchema>;
 
 export const directGameParameterSetSchema = z.object({
-  decisiveBlend: z.number().min(0).max(1),
+  decisiveBlend: z.number().min(0).max(0.2),
   decisiveBias: z.number(),
   decisiveWeights: directGameWeightVectorSchema,
   tieBias: z.number(),

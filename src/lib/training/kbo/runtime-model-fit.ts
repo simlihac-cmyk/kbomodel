@@ -30,12 +30,12 @@ import {
 } from "@/lib/sim/kbo/current-model-parameters";
 import type { GameModelParameterSet } from "@/lib/sim/kbo/model-parameters";
 import {
-  CURRENT_PROBABILITY_ADJUSTMENT_PARAMETERS,
-} from "@/lib/sim/kbo/current-probability-adjustment-parameters";
-import {
   CURRENT_STRENGTH_MODEL_PARAMETERS,
 } from "@/lib/sim/kbo/current-strength-model-parameters";
 import type { ProbabilityAdjustmentParameterSet } from "@/lib/sim/kbo/probability-adjustment-parameters";
+import {
+  DEFAULT_PROBABILITY_ADJUSTMENT_PARAMETERS,
+} from "@/lib/sim/kbo/probability-adjustment-parameters";
 import type {
   GamePredictionMetrics,
   RuntimeModelBacktestSummary,
@@ -61,9 +61,6 @@ import {
 import {
   buildProbabilityAdjustmentFeaturesFromTrainingExample,
 } from "@/lib/sim/kbo/probability-adjustment";
-import {
-  fitProbabilityAdjustmentParameters,
-} from "@/lib/training/kbo/probability-adjustment-fit";
 import {
   buildDirectGameCalibrationSummary,
   fitDirectGameParameters,
@@ -189,6 +186,8 @@ const STRENGTH_PARAMETER_SPECS: StrengthParameterSpec[] = [
   { key: "confidenceRunDiffWeight", min: 0, max: 0.14, step: 0.006, decay: 0.7 },
   { key: "confidenceRunDiffCap", min: 0.02, max: 0.2, step: 0.012, decay: 0.7 },
 ];
+
+const DIRECT_LOG_LOSS_GUARDRAIL = 0.0005;
 
 function roundMetric(value: number, digits = 6) {
   return Number(value.toFixed(digits));
@@ -808,7 +807,7 @@ function fitRuntimeModelParametersSingleStart(
     options.initialStrength ?? CURRENT_STRENGTH_MODEL_PARAMETERS ?? DEFAULT_STRENGTH_MODEL_PARAMETERS,
   );
   const baselineGame = normalizeGameParameterSet(options.initialGame ?? CURRENT_GAME_MODEL_PARAMETERS);
-  const baselineContextual = options.initialContextual ?? CURRENT_PROBABILITY_ADJUSTMENT_PARAMETERS;
+  const baselineContextual = options.initialContextual ?? DEFAULT_PROBABILITY_ADJUSTMENT_PARAMETERS;
   const baselineDirect = options.initialDirect ?? CURRENT_DIRECT_GAME_MODEL_PARAMETERS;
   let currentStrength = baselineStrength;
   let currentGame = baselineGame;
@@ -867,16 +866,6 @@ function fitRuntimeModelParametersSingleStart(
     currentStrength,
     eloDiffBySampleId,
   );
-  const contextualResult = fitProbabilityAdjustmentParameters({
-    examplesByYear: fittedPreparedByYear,
-    trainYears,
-    validationYears,
-    gameParameters: currentGame,
-    initial: baselineContextual,
-    maxRounds: Math.max(24, gameMaxRounds * 8),
-  });
-  currentContextual = contextualResult.fittedParameters;
-  totalContextualEvaluations += contextualResult.evaluations;
   const directResult = fitDirectGameParameters({
     examplesByYear: fittedPreparedByYear,
     trainYears,
@@ -886,7 +875,18 @@ function fitRuntimeModelParametersSingleStart(
     initial: baselineDirect,
     maxRounds: Math.max(24, gameMaxRounds * 8),
   });
-  currentDirect = directResult.fittedParameters;
+  const directBaselineLogLoss =
+    directResult.baselineEvaluation.validation?.logLoss ??
+    directResult.baselineEvaluation.tune?.logLoss ??
+    directResult.baselineEvaluation.fit.logLoss;
+  const directFittedLogLoss =
+    directResult.fittedEvaluation.validation?.logLoss ??
+    directResult.fittedEvaluation.tune?.logLoss ??
+    directResult.fittedEvaluation.fit.logLoss;
+  currentDirect =
+    directFittedLogLoss <= directBaselineLogLoss + DIRECT_LOG_LOSS_GUARDRAIL
+      ? directResult.fittedParameters
+      : baselineDirect;
   totalDirectEvaluations += directResult.evaluations;
   const baselineEvaluation = buildEvaluationWithDirectGameModel(
     baselinePreparedByYear,

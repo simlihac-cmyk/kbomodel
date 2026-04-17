@@ -225,7 +225,7 @@ describe("fitRuntimeModelParameters", () => {
     expect(runtimeModelParameterArtifactSchema.parse(result.artifact).fittedParameters.direct).toBeTruthy();
     expect(runtimeModelBacktestSummarySchema.parse(result.backtest).fitted.fit.sampleCount).toBeGreaterThan(0);
     expect(result.artifact.search.evaluations.total).toBeGreaterThan(0);
-    expect(result.artifact.search.evaluations.contextual).toBeGreaterThan(0);
+    expect(result.artifact.search.evaluations.contextual).toBe(0);
     expect(result.artifact.search.evaluations.direct).toBeGreaterThan(0);
     expect(result.artifact.search.starts).toBeGreaterThan(0);
     expect(result.backtest.multiStarts.length).toBeGreaterThan(0);
