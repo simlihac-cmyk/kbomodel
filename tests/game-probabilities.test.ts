@@ -76,6 +76,9 @@ describe("buildGameProbabilitySnapshot", () => {
     expect(total).toBeCloseTo(1, 4);
     expect(snapshot.homeWinProb).toBeGreaterThan(snapshot.awayWinProb);
     expect(snapshot.expectedRunsHome).toBeGreaterThan(snapshot.expectedRunsAway);
+    expect(snapshot.pickFavoriteSide).toBe("home");
+    expect(snapshot.pickConfidenceScore).toBeGreaterThan(0);
+    expect(["pass", "lean", "pick", "strong"]).toContain(snapshot.pickConfidenceLevel);
   });
 
   it("shrinks edge intensity when confidence is low", () => {
@@ -191,5 +194,65 @@ describe("buildGameProbabilitySnapshot", () => {
     expect(withProjectedStarter.expectedRunsAway).toBeLessThan(baseline.expectedRunsAway);
     expect(withProjectedStarter.homeLikelyStarterId).toBe("home-sp");
     expect(withProjectedStarter.starterAdjustmentApplied).toBe(true);
+  });
+
+  it("raises pick confidence for clearer mismatches", () => {
+    const balanced = buildGameProbabilitySnapshot(
+      game,
+      buildStrengthSnapshot({
+        seasonTeamId: "season:home",
+        offenseRating: 101,
+        starterRating: 100,
+        bullpenRating: 100,
+        winPct: 0.53,
+        recent10WinRate: 0.5,
+        opponentAdjustedRecent10WinRate: 0.51,
+        homePct: 0.54,
+      }),
+      buildStrengthSnapshot({
+        seasonTeamId: "season:away",
+        offenseRating: 100,
+        starterRating: 99,
+        bullpenRating: 99,
+        winPct: 0.5,
+        recent10WinRate: 0.5,
+        opponentAdjustedRecent10WinRate: 0.49,
+        awayPct: 0.49,
+      }),
+      true,
+      undefined,
+      undefined,
+      { eloDiff: 18, restGap: 0 },
+    );
+    const mismatch = buildGameProbabilitySnapshot(
+      game,
+      buildStrengthSnapshot({
+        seasonTeamId: "season:home",
+        offenseRating: 110,
+        starterRating: 108,
+        bullpenRating: 106,
+        winPct: 0.7,
+        recent10WinRate: 0.8,
+        opponentAdjustedRecent10WinRate: 0.75,
+        homePct: 0.72,
+      }),
+      buildStrengthSnapshot({
+        seasonTeamId: "season:away",
+        offenseRating: 95,
+        starterRating: 94,
+        bullpenRating: 93,
+        winPct: 0.3,
+        recent10WinRate: 0.2,
+        opponentAdjustedRecent10WinRate: 0.28,
+        awayPct: 0.31,
+      }),
+      true,
+      undefined,
+      undefined,
+      { eloDiff: 165, restGap: 1 },
+    );
+
+    expect(mismatch.pickConfidenceScore).toBeGreaterThan(balanced.pickConfidenceScore);
+    expect(["pick", "strong"]).toContain(mismatch.pickConfidenceLevel);
   });
 });

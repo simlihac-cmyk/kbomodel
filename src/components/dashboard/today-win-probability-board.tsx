@@ -10,6 +10,40 @@ type TodayWinProbabilityBoardProps = {
   displayById: Record<string, TeamDisplay>;
 };
 
+function buildPickLabel(
+  probability: GameProbabilitySnapshot | undefined,
+  away: TeamDisplay,
+  home: TeamDisplay,
+) {
+  const level = probability?.pickConfidenceLevel ?? "pass";
+  if (level === "pass") {
+    return "패스";
+  }
+
+  const favorite =
+    probability?.pickFavoriteSide === "away" ? away.shortNameKo : home.shortNameKo;
+  if (level === "strong") {
+    return `${favorite} 강한 픽`;
+  }
+  if (level === "pick") {
+    return `${favorite} 픽`;
+  }
+  return `${favorite} 관심`;
+}
+
+function pickChipClass(level: GameProbabilitySnapshot["pickConfidenceLevel"] | undefined) {
+  if (level === "strong") {
+    return "bg-amber-100 text-amber-900";
+  }
+  if (level === "pick") {
+    return "bg-emerald-100 text-emerald-900";
+  }
+  if (level === "lean") {
+    return "bg-sky-100 text-sky-900";
+  }
+  return "bg-slate-100 text-muted";
+}
+
 function normalizeHeadToHeadShares(probability?: GameProbabilitySnapshot) {
   const homeWinProb = probability?.homeWinProb ?? 0.5;
   const awayWinProb = probability?.awayWinProb ?? 0.5;
@@ -46,6 +80,7 @@ export function TodayWinProbabilityBoard({
 
         const probability = probabilitiesById[game.gameId];
         const { awayShare, homeShare, tieProb } = normalizeHeadToHeadShares(probability);
+        const pickLabel = buildPickLabel(probability, away, home);
 
         return (
           <Link
@@ -55,9 +90,14 @@ export function TodayWinProbabilityBoard({
           >
             <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="metric-chip bg-slate-100 text-ink">{formatDateTimeLabel(game.scheduledAt)}</span>
-              {tieProb > 0.001 ? (
-                <span className="metric-chip bg-white text-muted">무 {formatPercent(tieProb)}</span>
-              ) : null}
+              <div className="flex flex-wrap items-center justify-end gap-2">
+                <span className={`metric-chip ${pickChipClass(probability?.pickConfidenceLevel)}`}>
+                  {pickLabel}
+                </span>
+                {tieProb > 0.001 ? (
+                  <span className="metric-chip bg-white text-muted">무 {formatPercent(tieProb)}</span>
+                ) : null}
+              </div>
             </div>
 
             <div className="mt-5 grid grid-cols-[1fr_auto_1fr] items-center gap-3">
@@ -93,6 +133,9 @@ export function TodayWinProbabilityBoard({
 
             <div className="mt-3 flex items-center justify-between text-xs font-medium text-muted">
               <span>{away.displayNameKo}</span>
+              <span>
+                신뢰도 {formatPercent(probability?.pickConfidenceScore ?? 0)}
+              </span>
               <span>{home.displayNameKo}</span>
             </div>
           </Link>

@@ -363,6 +363,9 @@ export type GameProbabilitySnapshot = {
   homeWinProb: number;
   awayWinProb: number;
   tieProb: number;
+  pickFavoriteSide: "home" | "away";
+  pickConfidenceScore: number;
+  pickConfidenceLevel: "pass" | "lean" | "pick" | "strong";
   expectedRunsHome: number;
   expectedRunsAway: number;
   starterAdjustmentApplied: boolean;

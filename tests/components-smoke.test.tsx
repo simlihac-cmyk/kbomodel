@@ -170,6 +170,9 @@ describe("UI smoke", () => {
         homeWinProb: 0.56,
         awayWinProb: 0.39,
         tieProb: 0.05,
+        pickFavoriteSide: "home",
+        pickConfidenceScore: 0.66,
+        pickConfidenceLevel: "pick",
         expectedRunsHome: 5.1,
         expectedRunsAway: 4.3,
         starterAdjustmentApplied: false,
@@ -187,6 +190,7 @@ describe("UI smoke", () => {
     expect(screen.getAllByText("LG 트윈스").length).toBeGreaterThan(0);
     expect(screen.getAllByText("SSG 랜더스").length).toBeGreaterThan(0);
     expect(screen.getAllByText("42.0%").length).toBeGreaterThan(0);
+    expect(screen.getByText("LG 픽")).toBeInTheDocument();
     expect(screen.getByText("5강권")).toBeInTheDocument();
   });
 

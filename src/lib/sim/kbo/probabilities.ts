@@ -15,6 +15,7 @@ import {
 } from "@/lib/sim/kbo/probability-adjustment";
 import { buildDirectGameFeaturesFromRuntime } from "@/lib/sim/kbo/direct-game/feature-builder";
 import { applyDirectGameRuntimeModel } from "@/lib/sim/kbo/direct-game/runtime";
+import { buildPickConfidenceSnapshot } from "@/lib/sim/kbo/pick-confidence";
 import type {
   GameStarterProjection,
   ProjectedStarterAssignment,
@@ -325,16 +326,23 @@ export function buildGameProbabilitySnapshot(
       },
     }),
   });
+  const directFeatures = buildDirectGameFeaturesFromRuntime({
+    homeStrength,
+    awayStrength,
+    context: {
+      restGap: adjustmentContext?.restGap ?? null,
+      eloDiff: adjustmentContext?.eloDiff ?? null,
+    },
+  });
   const { homeWinProb, awayWinProb, tieProb } = applyDirectGameRuntimeModel({
     ...adjustedProbabilities,
-    features: buildDirectGameFeaturesFromRuntime({
-      homeStrength,
-      awayStrength,
-      context: {
-        restGap: adjustmentContext?.restGap ?? null,
-        eloDiff: adjustmentContext?.eloDiff ?? null,
-      },
-    }),
+    features: directFeatures,
+  });
+  const pickConfidence = buildPickConfidenceSnapshot({
+    homeWinProb,
+    awayWinProb,
+    tieProb,
+    features: directFeatures,
   });
 
   const explanationReasons: ExplanationReason[] = [
@@ -425,6 +433,9 @@ export function buildGameProbabilitySnapshot(
     homeWinProb,
     awayWinProb,
     tieProb: Number(tieProb.toFixed(4)),
+    pickFavoriteSide: pickConfidence.favoriteSide,
+    pickConfidenceScore: pickConfidence.score,
+    pickConfidenceLevel: pickConfidence.level,
     expectedRunsHome: Number(expectedRunsHome.toFixed(2)),
     expectedRunsAway: Number(expectedRunsAway.toFixed(2)),
     starterAdjustmentApplied: Boolean(starterProjection?.home || starterProjection?.away),
