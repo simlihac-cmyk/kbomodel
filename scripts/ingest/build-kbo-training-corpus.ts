@@ -55,7 +55,10 @@ async function main() {
   }
 
   const seasons = await Promise.all(args.years.map((year) => loadHistoryTrainingSeason(year)));
-  const seasonCorpora = seasons.map((season) => buildTrainingCorpusSeason(season));
+  const sortedSeasons = [...seasons].sort((left, right) => left.year - right.year);
+  const seasonCorpora = sortedSeasons.map((season, index) =>
+    buildTrainingCorpusSeason(season, index > 0 ? sortedSeasons[index - 1]! : null),
+  );
 
   for (const seasonCorpus of seasonCorpora) {
     const filePath = path.join(OUTPUT_ROOT, `${seasonCorpus.year}.json`);
@@ -65,7 +68,7 @@ async function main() {
     );
   }
 
-  const bundle = buildTrainingCorpusBundle(seasons);
+  const bundle = buildTrainingCorpusBundle(sortedSeasons);
   await writeJsonFile(path.join(OUTPUT_ROOT, "all.json"), bundle);
 
   const latestYear = args.years.at(-1) ?? DEFAULT_END_YEAR;

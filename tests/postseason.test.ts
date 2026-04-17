@@ -41,6 +41,7 @@ describe("simulatePostseasonRun", () => {
           bullpenRating: 110 - index,
           winPct: row.pct,
           recent10WinRate: row.pct,
+          opponentAdjustedRecent10WinRate: row.pct,
           homePct: row.pct,
           awayPct: row.pct,
           splitGap: 0,

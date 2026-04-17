@@ -124,6 +124,7 @@ type StrengthTunableKey =
   | "currentWeightProgressExponent"
   | "currentWeightProgressMix"
   | "currentWeightShrinkageMultiplier"
+  | "currentWeightOpponentPriorPctWeight"
   | "currentWeightMin"
   | "currentWeightMax"
   | "offenseRunsWeight"
@@ -153,6 +154,7 @@ const STRENGTH_PARAMETER_SPECS: StrengthParameterSpec[] = [
   { key: "currentWeightProgressExponent", min: 0.75, max: 2.6, step: 0.12, decay: 0.62 },
   { key: "currentWeightProgressMix", min: 0.15, max: 0.85, step: 0.05, decay: 0.65 },
   { key: "currentWeightShrinkageMultiplier", min: 0.8, max: 4.4, step: 0.2, decay: 0.62 },
+  { key: "currentWeightOpponentPriorPctWeight", min: 0, max: 0.45, step: 0.03, decay: 0.68 },
   { key: "currentWeightMin", min: 0.01, max: 0.18, step: 0.012, decay: 0.72 },
   { key: "currentWeightMax", min: 0.58, max: 0.95, step: 0.02, decay: 0.72 },
   { key: "offenseRunsWeight", min: 3.2, max: 10.5, step: 0.45, decay: 0.62 },
@@ -223,6 +225,7 @@ function buildStartCandidates(
       strength: normalizeStrengthParameterSet({
         ...baselineStrength,
         currentWeightProgressExponent: baselineStrength.currentWeightProgressExponent + 0.25,
+        currentWeightOpponentPriorPctWeight: baselineStrength.currentWeightOpponentPriorPctWeight * 1.2,
         offenseRecentWeight: baselineStrength.offenseRecentWeight * 1.2,
         bullpenRecentWeight: baselineStrength.bullpenRecentWeight * 1.15,
         recentFormWinRateWeight: baselineStrength.recentFormWinRateWeight * 1.25,
@@ -239,6 +242,7 @@ function buildStartCandidates(
         ...baselineStrength,
         currentWeightProgressExponent: Math.max(0.8, baselineStrength.currentWeightProgressExponent - 0.2),
         currentWeightShrinkageMultiplier: baselineStrength.currentWeightShrinkageMultiplier * 0.85,
+        currentWeightOpponentPriorPctWeight: baselineStrength.currentWeightOpponentPriorPctWeight * 0.8,
         offenseRecentWeight: baselineStrength.offenseRecentWeight * 1.25,
         bullpenRecentWeight: baselineStrength.bullpenRecentWeight * 1.18,
       }),
@@ -256,6 +260,7 @@ function buildStartCandidates(
         ...baselineStrength,
         currentWeightProgressExponent: baselineStrength.currentWeightProgressExponent + 0.4,
         currentWeightShrinkageMultiplier: baselineStrength.currentWeightShrinkageMultiplier * 1.2,
+        currentWeightOpponentPriorPctWeight: baselineStrength.currentWeightOpponentPriorPctWeight * 1.35,
         offenseRecentWeight: baselineStrength.offenseRecentWeight * 1.4,
         bullpenRecentWeight: baselineStrength.bullpenRecentWeight * 1.3,
         recentFormWinRateWeight: baselineStrength.recentFormWinRateWeight * 1.35,
@@ -274,6 +279,7 @@ function buildStartCandidates(
         ...baselineStrength,
         offenseRunsWeight: baselineStrength.offenseRunsWeight * 1.08,
         runPreventionRunsAllowedWeight: baselineStrength.runPreventionRunsAllowedWeight * 1.08,
+        currentWeightOpponentPriorPctWeight: baselineStrength.currentWeightOpponentPriorPctWeight * 1.5,
         offenseRecentWeight: baselineStrength.offenseRecentWeight * 1.5,
         bullpenRecentWeight: baselineStrength.bullpenRecentWeight * 1.4,
         recentFormWinRateWeight: baselineStrength.recentFormWinRateWeight * 1.45,
@@ -296,6 +302,8 @@ function buildStartCandidates(
         ...baselineStrength,
         currentWeightProgressExponent: baselineStrength.currentWeightProgressExponent + intensity * 0.06,
         currentWeightShrinkageMultiplier: baselineStrength.currentWeightShrinkageMultiplier * (1 + intensity * 0.05),
+        currentWeightOpponentPriorPctWeight:
+          baselineStrength.currentWeightOpponentPriorPctWeight * (1 + intensity * 0.1),
         offenseRecentWeight: baselineStrength.offenseRecentWeight * (1 + intensity * 0.14),
         bullpenRecentWeight: baselineStrength.bullpenRecentWeight * (1 + intensity * 0.12),
         recentFormWinRateWeight: baselineStrength.recentFormWinRateWeight * (1 + intensity * 0.16),
@@ -342,6 +350,8 @@ function buildStateFromTeamExample(example: TeamSnapshotTrainingExample): TeamSt
     awayPct: example.awayPct,
     splitGap: example.splitPctGap,
     recent10WinRate: example.recent10WinRate,
+    recent10OpponentAvgPriorPct: example.recent10OpponentAvgPriorPct,
+    opponentAdjustedRecent10WinRate: example.opponentAdjustedRecent10WinRate,
     streakValue: example.streakValue,
   };
 }
@@ -435,7 +445,12 @@ function buildStrengthSnapshot(
   isHome: boolean,
   parameters: StrengthModelParameterSet,
 ): TeamStrengthSnapshot {
-  const currentWeight = buildCurrentWeight(state.gamesPlayed, regularSeasonGamesPerTeam, parameters);
+  const currentWeight = buildCurrentWeight(
+    state.gamesPlayed,
+    regularSeasonGamesPerTeam,
+    parameters,
+    state.recent10OpponentAvgPriorPct,
+  );
   const offenseSignal = buildOffenseSignal(state, league, parameters);
   const runPreventionSignal = buildRunPreventionSignal(state, league, parameters);
   const bullpenSignal = buildBullpenProxySignal(state, league, parameters);
@@ -447,6 +462,7 @@ function buildStrengthSnapshot(
     bullpenRating: Number((100 + bullpenSignal * currentWeight).toFixed(4)),
     winPct: Number(state.winPct.toFixed(4)),
     recent10WinRate: Number(state.recent10WinRate.toFixed(4)),
+    opponentAdjustedRecent10WinRate: Number(state.opponentAdjustedRecent10WinRate.toFixed(4)),
     homePct: Number(state.homePct.toFixed(4)),
     awayPct: Number(state.awayPct.toFixed(4)),
     splitGap: Number(state.splitGap.toFixed(4)),

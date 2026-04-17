@@ -15,6 +15,7 @@ export const CURRENT_STRENGTH_MODEL_PARAMETERS: StrengthModelParameterSet = stre
   currentWeightProgressExponent: 1.5900000000000003,
   currentWeightProgressMix: 0.55,
   currentWeightShrinkageMultiplier: 2.2,
+  currentWeightOpponentPriorPctWeight: 0.18,
   currentWeightMin: 0.08,
   currentWeightMax: 0.84,
   offenseRunsWeight: 9.4,

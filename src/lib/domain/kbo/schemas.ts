@@ -441,6 +441,7 @@ export const teamStrengthSnapshotSchema = z.object({
   bullpenRating: z.number(),
   winPct: z.number(),
   recent10WinRate: z.number(),
+  opponentAdjustedRecent10WinRate: z.number(),
   homePct: z.number(),
   awayPct: z.number(),
   splitGap: z.number(),

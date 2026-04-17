@@ -61,7 +61,9 @@ export function buildProbabilityAdjustmentFeaturesFromRuntime(args: {
   context: ProbabilityAdjustmentRuntimeContext;
 }): ProbabilityAdjustmentFeatureVector {
   return buildFeatureVector({
-    recent10Gap: args.homeStrength.recent10WinRate - args.awayStrength.recent10WinRate,
+    recent10Gap:
+      args.homeStrength.opponentAdjustedRecent10WinRate -
+      args.awayStrength.opponentAdjustedRecent10WinRate,
     pctGap: args.homeStrength.winPct - args.awayStrength.winPct,
     venueSplitGap: args.homeStrength.homePct - args.awayStrength.awayPct,
     restGap: args.context.restGap,
@@ -73,7 +75,7 @@ export function buildProbabilityAdjustmentFeaturesFromTrainingExample(
   example: GameOutcomeTrainingExample,
 ): ProbabilityAdjustmentFeatureVector {
   return buildFeatureVector({
-    recent10Gap: example.recent10Gap,
+    recent10Gap: example.opponentAdjustedRecent10Gap,
     pctGap: example.pctGap,
     venueSplitGap: example.venueSplitGap,
     restGap: example.restGap,

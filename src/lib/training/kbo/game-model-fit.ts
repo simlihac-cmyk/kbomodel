@@ -100,6 +100,8 @@ function buildStrengthSnapshotFromGameExample(
     bullpenRating: example[`${prefix}DerivedBullpenRating`],
     winPct: example[`${prefix}Pct`],
     recent10WinRate: example[`${prefix}Recent10WinRate`],
+    opponentAdjustedRecent10WinRate:
+      example[`${prefix}OpponentAdjustedRecent10WinRate`],
     homePct: side === "home" ? example.homeHomePct : 0.5,
     awayPct: side === "away" ? example.awayAwayPct : 0.5,
     splitGap:

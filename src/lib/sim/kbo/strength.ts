@@ -27,9 +27,8 @@ function clamp(value: number, min: number, max: number): number {
 function buildRemainingDifficultyMap(
   seasonTeams: SeasonTeam[],
   games: Game[],
-  teamSeasonStats: TeamSeasonStat[],
+  stateById: Record<string, ReturnType<typeof buildTeamStateSnapshot>>,
 ): Record<string, number> {
-  const stateById = Object.fromEntries(teamSeasonStats.map((stat) => [stat.seasonTeamId, buildTeamStateSnapshot(stat)]));
   const league = buildTeamStateLeagueAverages(Object.values(stateById));
   const currentPower = Object.fromEntries(
     Object.values(stateById).map((state) => [
@@ -80,6 +79,75 @@ function buildHeadToHeadLeverageMap(games: Game[]): Record<string, number> {
   );
 }
 
+function calculatePct(wins: number, losses: number) {
+  if (wins + losses === 0) {
+    return 0.5;
+  }
+  return wins / (wins + losses);
+}
+
+function buildPreviousSeasonPctByFranchise(
+  previousSeasonStats: TeamSeasonStat[],
+) {
+  return Object.fromEntries(
+    previousSeasonStats.map((stat) => [
+      stat.seasonTeamId.split(":")[1]!,
+      calculatePct(stat.wins, stat.losses),
+    ]),
+  ) as Record<string, number>;
+}
+
+function buildRecent10OpponentPriorMap(
+  games: Game[],
+  previousSeasonPctByFranchise: Record<string, number>,
+): Record<string, number> {
+  const completedGames = games
+    .filter(
+      (game) =>
+        game.status === "final" &&
+        game.homeScore !== null &&
+        game.awayScore !== null,
+    )
+    .sort((left, right) => left.scheduledAt.localeCompare(right.scheduledAt));
+  const recentOpponentPctsByTeam = new Map<string, number[]>();
+
+  for (const game of completedGames) {
+    const homeKey = game.homeSeasonTeamId;
+    const awayKey = game.awaySeasonTeamId;
+    const homeOpponentPct =
+      previousSeasonPctByFranchise[awayKey.split(":")[1] ?? ""] ?? 0.5;
+    const awayOpponentPct =
+      previousSeasonPctByFranchise[homeKey.split(":")[1] ?? ""] ?? 0.5;
+    const homeList = recentOpponentPctsByTeam.get(homeKey) ?? [];
+    const awayList = recentOpponentPctsByTeam.get(awayKey) ?? [];
+
+    homeList.push(homeOpponentPct);
+    awayList.push(awayOpponentPct);
+    if (homeList.length > 10) {
+      homeList.shift();
+    }
+    if (awayList.length > 10) {
+      awayList.shift();
+    }
+
+    recentOpponentPctsByTeam.set(homeKey, homeList);
+    recentOpponentPctsByTeam.set(awayKey, awayList);
+  }
+
+  return Object.fromEntries(
+    Array.from(recentOpponentPctsByTeam.entries()).map(([seasonTeamId, values]) => [
+      seasonTeamId,
+      values.length > 0
+        ? Number(
+            (
+              values.reduce((sum, value) => sum + value, 0) / values.length
+            ).toFixed(4),
+          )
+        : 0.5,
+    ]),
+  );
+}
+
 export function buildTeamStrengthSnapshots(
   seasonTeams: SeasonTeam[],
   currentSeasonStats: TeamSeasonStat[],
@@ -92,15 +160,26 @@ export function buildTeamStrengthSnapshots(
   const previousByFranchise = Object.fromEntries(
     previousSeasonStats.map((stat) => [stat.seasonTeamId.split(":")[1], stat]),
   );
+  const previousSeasonPctByFranchise = buildPreviousSeasonPctByFranchise(previousSeasonStats);
+  const recent10OpponentPriorMap = buildRecent10OpponentPriorMap(
+    games,
+    previousSeasonPctByFranchise,
+  );
   const currentStateById = Object.fromEntries(
-    currentSeasonStats.map((stat) => [stat.seasonTeamId, buildTeamStateSnapshot(stat)]),
+    currentSeasonStats.map((stat) => [
+      stat.seasonTeamId,
+      buildTeamStateSnapshot(stat, {
+        recent10OpponentAvgPriorPct:
+          recent10OpponentPriorMap[stat.seasonTeamId] ?? 0.5,
+      }),
+    ]),
   );
   const previousStateByFranchise = Object.fromEntries(
     previousSeasonStats.map((stat) => [stat.seasonTeamId.split(":")[1], buildTeamStateSnapshot(stat)]),
   );
   const leagueState = buildTeamStateLeagueAverages(Object.values(currentStateById));
   const previousLeagueState = buildTeamStateLeagueAverages(Object.values(previousStateByFranchise));
-  const difficultyMap = buildRemainingDifficultyMap(seasonTeams, games, currentSeasonStats);
+  const difficultyMap = buildRemainingDifficultyMap(seasonTeams, games, currentStateById);
   const leverageMap = buildHeadToHeadLeverageMap(games);
 
   return seasonTeams.map((seasonTeam) => {
@@ -111,7 +190,12 @@ export function buildTeamStrengthSnapshots(
     const previousState = previousStateByFranchise[seasonTeam.franchiseId] ?? null;
     const gamesPlayed = current ? current.wins + current.losses + current.ties : 0;
     const currentWeight = Number(
-      buildCurrentWeight(gamesPlayed, regularSeasonGamesPerTeam).toFixed(3),
+      buildCurrentWeight(
+        gamesPlayed,
+        regularSeasonGamesPerTeam,
+        undefined,
+        currentState?.recent10OpponentAvgPriorPct ?? 0.5,
+      ).toFixed(3),
     );
     const priorWeight = Number((1 - currentWeight).toFixed(3));
     const offensePlayerWeight = clamp(0.14 + currentWeight * 0.18, 0.12, 0.34);
@@ -182,6 +266,8 @@ export function buildTeamStrengthSnapshots(
       bullpenRating,
       winPct: currentState?.winPct ?? 0.5,
       recent10WinRate: currentState?.recent10WinRate ?? 0.5,
+      opponentAdjustedRecent10WinRate:
+        currentState?.opponentAdjustedRecent10WinRate ?? 0.5,
       homePct: currentState?.homePct ?? 0.5,
       awayPct: currentState?.awayPct ?? 0.5,
       splitGap: currentState?.splitGap ?? 0,

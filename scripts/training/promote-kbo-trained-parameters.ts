@@ -122,6 +122,7 @@ export const CURRENT_STRENGTH_MODEL_PARAMETERS: StrengthModelParameterSet = stre
   currentWeightProgressExponent: ${formatNumber(fitted.currentWeightProgressExponent)},
   currentWeightProgressMix: ${formatNumber(fitted.currentWeightProgressMix)},
   currentWeightShrinkageMultiplier: ${formatNumber(fitted.currentWeightShrinkageMultiplier)},
+  currentWeightOpponentPriorPctWeight: ${formatNumber(fitted.currentWeightOpponentPriorPctWeight)},
   currentWeightMin: ${formatNumber(fitted.currentWeightMin)},
   currentWeightMax: ${formatNumber(fitted.currentWeightMax)},
   offenseRunsWeight: ${formatNumber(fitted.offenseRunsWeight)},

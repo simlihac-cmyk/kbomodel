@@ -102,6 +102,71 @@ function inferRegularSeasonGamesPerTeam(season: HistoryTrainingSeason) {
   return inferred > 0 ? inferred : 144;
 }
 
+function buildPriorSeasonPctByFranchise(
+  previousSeason: HistoryTrainingSeason | null | undefined,
+) {
+  if (!previousSeason || previousSeason.snapshots.length === 0) {
+    return {} as Record<string, number>;
+  }
+
+  return Object.fromEntries(
+    previousSeason.snapshots[0]!.teams.map((team) => [
+      team.franchiseId,
+      calculatePct(team.finalWins, team.finalLosses),
+    ]),
+  ) as Record<string, number>;
+}
+
+function buildCompletedGamesByFranchise(season: HistoryTrainingSeason) {
+  const byFranchise: Record<string, HistoryTrainingSeason["gameLedger"]> = {};
+  const completedGames = season.gameLedger
+    .filter((game) => game.status === "final")
+    .sort((left, right) => left.date.localeCompare(right.date));
+
+  for (const game of completedGames) {
+    if (!byFranchise[game.homeFranchiseId]) {
+      byFranchise[game.homeFranchiseId] = [];
+    }
+    if (!byFranchise[game.awayFranchiseId]) {
+      byFranchise[game.awayFranchiseId] = [];
+    }
+    byFranchise[game.homeFranchiseId]!.push(game);
+    byFranchise[game.awayFranchiseId]!.push(game);
+  }
+
+  return byFranchise;
+}
+
+function buildRecent10OpponentPriorPctByFranchise(args: {
+  asOfDate: string;
+  completedGamesByFranchise: Record<string, HistoryTrainingSeason["gameLedger"]>;
+  priorSeasonPctByFranchise: Record<string, number>;
+  franchiseIds: string[];
+}) {
+  return Object.fromEntries(
+    args.franchiseIds.map((franchiseId) => {
+      const games = (args.completedGamesByFranchise[franchiseId] ?? [])
+        .filter((game) => game.date <= args.asOfDate)
+        .slice(-10);
+
+      if (games.length === 0) {
+        return [franchiseId, 0.5];
+      }
+
+      const average =
+        games.reduce((sum, game) => {
+          const opponentId =
+            game.homeFranchiseId === franchiseId
+              ? game.awayFranchiseId
+              : game.homeFranchiseId;
+          return sum + (args.priorSeasonPctByFranchise[opponentId] ?? 0.5);
+        }, 0) / games.length;
+
+      return [franchiseId, Number(average.toFixed(4))];
+    }),
+  ) as Record<string, number>;
+}
+
 function buildSnapshotTeamMap(snapshot: HistoryTrainingDailySnapshot) {
   return Object.fromEntries(snapshot.teams.map((team) => [team.franchiseId, team]));
 }
@@ -140,10 +205,14 @@ type SnapshotOperationalContext = {
 function buildSnapshotOperationalContext(
   season: HistoryTrainingSeason,
   snapshot: HistoryTrainingDailySnapshot,
+  recent10OpponentPriorPctByFranchise: Record<string, number>,
 ): SnapshotOperationalContext {
   const regularSeasonGamesPerTeam = inferRegularSeasonGamesPerTeam(season);
   const states = snapshot.teams.map((team) =>
-    buildTeamStateSnapshot(buildTeamSeasonStatFromSnapshotTeam(season, team)),
+    buildTeamStateSnapshot(buildTeamSeasonStatFromSnapshotTeam(season, team), {
+      recent10OpponentAvgPriorPct:
+        recent10OpponentPriorPctByFranchise[team.franchiseId] ?? 0.5,
+    }),
   );
   const teamStateById = Object.fromEntries(
     snapshot.teams.map((team, index) => [team.franchiseId, states[index]!]),
@@ -276,6 +345,10 @@ function buildTeamExample(args: {
     recent10Losses: recent10.losses,
     recent10Ties: recent10.ties,
     recent10WinRate: recent10.winRate,
+    recent10OpponentAvgPriorPct:
+      args.operationalContext.teamStateById[args.team.franchiseId]!.recent10OpponentAvgPriorPct,
+    opponentAdjustedRecent10WinRate:
+      args.operationalContext.teamStateById[args.team.franchiseId]!.opponentAdjustedRecent10WinRate,
     streakDirection: streak.direction,
     streakLength: streak.length,
     streakValue: streak.value,
@@ -361,6 +434,8 @@ function buildGameExample(args: {
   game: HistoryTrainingSeason["gameLedger"][number];
   snapshots: HistoryTrainingDailySnapshot[];
   restByGameKey: Map<string, { homeRestDays: number | null; awayRestDays: number | null }>;
+  priorSeasonPctByFranchise: Record<string, number>;
+  completedGamesByFranchise: Record<string, HistoryTrainingSeason["gameLedger"]>;
 }): GameOutcomeTrainingExample | null {
   const regularSeasonGamesPerTeam = inferRegularSeasonGamesPerTeam(args.season);
   const pregameSnapshot = findPregameSnapshot(args.snapshots, args.game.date);
@@ -369,12 +444,22 @@ function buildGameExample(args: {
   }
 
   const teamMap = buildSnapshotTeamMap(pregameSnapshot);
-  const operationalContext = buildSnapshotOperationalContext(args.season, pregameSnapshot);
   const home = teamMap[args.game.homeFranchiseId];
   const away = teamMap[args.game.awayFranchiseId];
   if (!home || !away) {
     return null;
   }
+  const recent10OpponentPriorPctByFranchise = buildRecent10OpponentPriorPctByFranchise({
+    asOfDate: pregameSnapshot.asOfDate,
+    completedGamesByFranchise: args.completedGamesByFranchise,
+    priorSeasonPctByFranchise: args.priorSeasonPctByFranchise,
+    franchiseIds: [home.franchiseId, away.franchiseId],
+  });
+  const operationalContext = buildSnapshotOperationalContext(
+    args.season,
+    pregameSnapshot,
+    recent10OpponentPriorPctByFranchise,
+  );
 
   const homeRecent10 = parseRecent10(home.recent10);
   const awayRecent10 = parseRecent10(away.recent10);
@@ -430,6 +515,24 @@ function buildGameExample(args: {
     homeRecent10WinRate: homeRecent10.winRate,
     awayRecent10WinRate: awayRecent10.winRate,
     recent10Gap: Number((homeRecent10.winRate - awayRecent10.winRate).toFixed(4)),
+    homeRecent10OpponentAvgPriorPct: recent10OpponentPriorPctByFranchise[home.franchiseId] ?? 0.5,
+    awayRecent10OpponentAvgPriorPct: recent10OpponentPriorPctByFranchise[away.franchiseId] ?? 0.5,
+    recent10OpponentPriorGap: Number(
+      (
+        (recent10OpponentPriorPctByFranchise[home.franchiseId] ?? 0.5) -
+        (recent10OpponentPriorPctByFranchise[away.franchiseId] ?? 0.5)
+      ).toFixed(4),
+    ),
+    homeOpponentAdjustedRecent10WinRate:
+      operationalContext.teamStateById[home.franchiseId]!.opponentAdjustedRecent10WinRate,
+    awayOpponentAdjustedRecent10WinRate:
+      operationalContext.teamStateById[away.franchiseId]!.opponentAdjustedRecent10WinRate,
+    opponentAdjustedRecent10Gap: Number(
+      (
+        operationalContext.teamStateById[home.franchiseId]!.opponentAdjustedRecent10WinRate -
+        operationalContext.teamStateById[away.franchiseId]!.opponentAdjustedRecent10WinRate
+      ).toFixed(4),
+    ),
     homeRunsScoredPerGame,
     awayRunsScoredPerGame,
     offenseGap: Number((homeRunsScoredPerGame - awayRunsScoredPerGame).toFixed(4)),
@@ -484,11 +587,26 @@ function buildGameExample(args: {
   };
 }
 
-export function buildTrainingCorpusSeason(season: HistoryTrainingSeason): TrainingCorpusSeason {
+export function buildTrainingCorpusSeason(
+  season: HistoryTrainingSeason,
+  previousSeason: HistoryTrainingSeason | null = null,
+): TrainingCorpusSeason {
   const usableSnapshots = season.snapshots.filter((snapshot) => snapshot.remainingGames > 0);
+  const priorSeasonPctByFranchise = buildPriorSeasonPctByFranchise(previousSeason);
+  const completedGamesByFranchise = buildCompletedGamesByFranchise(season);
   const teamExamples = usableSnapshots.flatMap((snapshot, index) => {
     const teamMap = buildSnapshotTeamMap(snapshot);
-    const operationalContext = buildSnapshotOperationalContext(season, snapshot);
+    const recent10OpponentPriorPctByFranchise = buildRecent10OpponentPriorPctByFranchise({
+      asOfDate: snapshot.asOfDate,
+      completedGamesByFranchise,
+      priorSeasonPctByFranchise,
+      franchiseIds: snapshot.teams.map((team) => team.franchiseId),
+    });
+    const operationalContext = buildSnapshotOperationalContext(
+      season,
+      snapshot,
+      recent10OpponentPriorPctByFranchise,
+    );
     return snapshot.teams.map((team) =>
       buildTeamExample({
         season,
@@ -509,6 +627,8 @@ export function buildTrainingCorpusSeason(season: HistoryTrainingSeason): Traini
         game,
         snapshots: usableSnapshots,
         restByGameKey,
+        priorSeasonPctByFranchise,
+        completedGamesByFranchise,
       }),
     )
     .filter((example): example is GameOutcomeTrainingExample => example !== null);
@@ -525,7 +645,10 @@ export function buildTrainingCorpusSeason(season: HistoryTrainingSeason): Traini
 }
 
 export function buildTrainingCorpusBundle(seasons: HistoryTrainingSeason[]): TrainingCorpusBundle {
-  const seasonCorpora = seasons.map((season) => buildTrainingCorpusSeason(season));
+  const sortedSeasons = [...seasons].sort((left, right) => left.year - right.year);
+  const seasonCorpora = sortedSeasons.map((season, index) =>
+    buildTrainingCorpusSeason(season, index > 0 ? sortedSeasons[index - 1]! : null),
+  );
   const teamExamples = seasonCorpora.flatMap((season) => season.teamExamples);
   const gameExamples = seasonCorpora.flatMap((season) => season.gameExamples);
 

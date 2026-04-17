@@ -13,6 +13,7 @@ function buildStrengthSnapshot(
     bullpenRating: 100,
     winPct: 0.5,
     recent10WinRate: 0.5,
+    opponentAdjustedRecent10WinRate: 0.5,
     homePct: 0.5,
     awayPct: 0.5,
     splitGap: 0,
