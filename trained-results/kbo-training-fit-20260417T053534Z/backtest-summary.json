@@ -1,0 +1,497 @@
+{
+  "manifestType": "kbo-game-model-backtest-summary",
+  "version": 1,
+  "generatedAt": "2026-04-17T05:35:35.977Z",
+  "objective": "multiclass-log-loss",
+  "fitYears": [
+    2021,
+    2022,
+    2023
+  ],
+  "tuneYears": [
+    2024
+  ],
+  "validationYears": [
+    2025
+  ],
+  "baseline": {
+    "fit": {
+      "sampleCount": 2160,
+      "logLoss": 0.822128,
+      "brierScore": 0.178016,
+      "accuracy": 0.50463,
+      "actualHomeWinRate": 0.502315,
+      "actualAwayWinRate": 0.463426,
+      "actualTieRate": 0.034259,
+      "predictedHomeWinRate": 0.541883,
+      "predictedAwayWinRate": 0.41242,
+      "predictedTieRate": 0.045695
+    },
+    "tune": {
+      "sampleCount": 720,
+      "logLoss": 0.780118,
+      "brierScore": 0.17383,
+      "accuracy": 0.511111,
+      "actualHomeWinRate": 0.504167,
+      "actualAwayWinRate": 0.481944,
+      "actualTieRate": 0.013889,
+      "predictedHomeWinRate": 0.542568,
+      "predictedAwayWinRate": 0.411632,
+      "predictedTieRate": 0.045801
+    },
+    "validation": {
+      "sampleCount": 720,
+      "logLoss": 0.813783,
+      "brierScore": 0.176822,
+      "accuracy": 0.525,
+      "actualHomeWinRate": 0.497222,
+      "actualAwayWinRate": 0.472222,
+      "actualTieRate": 0.030556,
+      "predictedHomeWinRate": 0.542724,
+      "predictedAwayWinRate": 0.411794,
+      "predictedTieRate": 0.045481
+    }
+  },
+  "fitted": {
+    "fit": {
+      "sampleCount": 2160,
+      "logLoss": 0.815241,
+      "brierScore": 0.176411,
+      "accuracy": 0.510185,
+      "actualHomeWinRate": 0.502315,
+      "actualAwayWinRate": 0.463426,
+      "actualTieRate": 0.034259,
+      "predictedHomeWinRate": 0.522771,
+      "predictedAwayWinRate": 0.442498,
+      "predictedTieRate": 0.034731
+    },
+    "tune": {
+      "sampleCount": 720,
+      "logLoss": 0.766344,
+      "brierScore": 0.171762,
+      "accuracy": 0.513889,
+      "actualHomeWinRate": 0.504167,
+      "actualAwayWinRate": 0.481944,
+      "actualTieRate": 0.013889,
+      "predictedHomeWinRate": 0.523508,
+      "predictedAwayWinRate": 0.441702,
+      "predictedTieRate": 0.034791
+    },
+    "validation": {
+      "sampleCount": 720,
+      "logLoss": 0.804717,
+      "brierScore": 0.174979,
+      "accuracy": 0.523611,
+      "actualHomeWinRate": 0.497222,
+      "actualAwayWinRate": 0.472222,
+      "actualTieRate": 0.030556,
+      "predictedHomeWinRate": 0.523578,
+      "predictedAwayWinRate": 0.441779,
+      "predictedTieRate": 0.034644
+    }
+  },
+  "deltas": {
+    "fitLogLoss": -0.006887,
+    "tuneLogLoss": -0.013774,
+    "validationLogLoss": -0.009066,
+    "fitBrierScore": -0.001605,
+    "tuneBrierScore": -0.002068,
+    "validationBrierScore": -0.001843
+  },
+  "calibration": {
+    "baselineValidation": [
+      {
+        "outcomeKey": "homeWin",
+        "buckets": [
+          {
+            "bucketLabel": "00-10%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "10-20%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "20-30%",
+            "sampleCount": 2,
+            "meanPredicted": 0.2875,
+            "actualRate": 0.5
+          },
+          {
+            "bucketLabel": "30-40%",
+            "sampleCount": 21,
+            "meanPredicted": 0.369471,
+            "actualRate": 0.428571
+          },
+          {
+            "bucketLabel": "40-50%",
+            "sampleCount": 153,
+            "meanPredicted": 0.461937,
+            "actualRate": 0.424837
+          },
+          {
+            "bucketLabel": "50-60%",
+            "sampleCount": 406,
+            "meanPredicted": 0.546335,
+            "actualRate": 0.502463
+          },
+          {
+            "bucketLabel": "60-70%",
+            "sampleCount": 122,
+            "meanPredicted": 0.639018,
+            "actualRate": 0.57377
+          },
+          {
+            "bucketLabel": "70-80%",
+            "sampleCount": 14,
+            "meanPredicted": 0.738786,
+            "actualRate": 0.642857
+          },
+          {
+            "bucketLabel": "80-90%",
+            "sampleCount": 2,
+            "meanPredicted": 0.8178,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "90-100%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          }
+        ]
+      },
+      {
+        "outcomeKey": "awayWin",
+        "buckets": [
+          {
+            "bucketLabel": "00-10%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "10-20%",
+            "sampleCount": 5,
+            "meanPredicted": 0.16806,
+            "actualRate": 0.6
+          },
+          {
+            "bucketLabel": "20-30%",
+            "sampleCount": 47,
+            "meanPredicted": 0.273394,
+            "actualRate": 0.297872
+          },
+          {
+            "bucketLabel": "30-40%",
+            "sampleCount": 249,
+            "meanPredicted": 0.362944,
+            "actualRate": 0.461847
+          },
+          {
+            "bucketLabel": "40-50%",
+            "sampleCount": 337,
+            "meanPredicted": 0.439271,
+            "actualRate": 0.474777
+          },
+          {
+            "bucketLabel": "50-60%",
+            "sampleCount": 78,
+            "meanPredicted": 0.536078,
+            "actualRate": 0.576923
+          },
+          {
+            "bucketLabel": "60-70%",
+            "sampleCount": 4,
+            "meanPredicted": 0.645175,
+            "actualRate": 0.75
+          },
+          {
+            "bucketLabel": "70-80%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "80-90%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "90-100%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          }
+        ]
+      },
+      {
+        "outcomeKey": "tie",
+        "buckets": [
+          {
+            "bucketLabel": "00-10%",
+            "sampleCount": 720,
+            "meanPredicted": 0.045481,
+            "actualRate": 0.030556
+          },
+          {
+            "bucketLabel": "10-20%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "20-30%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "30-40%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "40-50%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "50-60%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "60-70%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "70-80%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "80-90%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "90-100%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          }
+        ]
+      }
+    ],
+    "fittedValidation": [
+      {
+        "outcomeKey": "homeWin",
+        "buckets": [
+          {
+            "bucketLabel": "00-10%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "10-20%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "20-30%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "30-40%",
+            "sampleCount": 15,
+            "meanPredicted": 0.376087,
+            "actualRate": 0.466667
+          },
+          {
+            "bucketLabel": "40-50%",
+            "sampleCount": 204,
+            "meanPredicted": 0.46692,
+            "actualRate": 0.416667
+          },
+          {
+            "bucketLabel": "50-60%",
+            "sampleCount": 437,
+            "meanPredicted": 0.538475,
+            "actualRate": 0.517162
+          },
+          {
+            "bucketLabel": "60-70%",
+            "sampleCount": 59,
+            "meanPredicted": 0.628888,
+            "actualRate": 0.644068
+          },
+          {
+            "bucketLabel": "70-80%",
+            "sampleCount": 5,
+            "meanPredicted": 0.73306,
+            "actualRate": 0.4
+          },
+          {
+            "bucketLabel": "80-90%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "90-100%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          }
+        ]
+      },
+      {
+        "outcomeKey": "awayWin",
+        "buckets": [
+          {
+            "bucketLabel": "00-10%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "10-20%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "20-30%",
+            "sampleCount": 11,
+            "meanPredicted": 0.265155,
+            "actualRate": 0.363636
+          },
+          {
+            "bucketLabel": "30-40%",
+            "sampleCount": 128,
+            "meanPredicted": 0.367865,
+            "actualRate": 0.414063
+          },
+          {
+            "bucketLabel": "40-50%",
+            "sampleCount": 482,
+            "meanPredicted": 0.446149,
+            "actualRate": 0.466805
+          },
+          {
+            "bucketLabel": "50-60%",
+            "sampleCount": 96,
+            "meanPredicted": 0.532534,
+            "actualRate": 0.583333
+          },
+          {
+            "bucketLabel": "60-70%",
+            "sampleCount": 3,
+            "meanPredicted": 0.636833,
+            "actualRate": 0.666667
+          },
+          {
+            "bucketLabel": "70-80%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "80-90%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "90-100%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          }
+        ]
+      },
+      {
+        "outcomeKey": "tie",
+        "buckets": [
+          {
+            "bucketLabel": "00-10%",
+            "sampleCount": 720,
+            "meanPredicted": 0.034644,
+            "actualRate": 0.030556
+          },
+          {
+            "bucketLabel": "10-20%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "20-30%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "30-40%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "40-50%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "50-60%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "60-70%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "70-80%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "80-90%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          },
+          {
+            "bucketLabel": "90-100%",
+            "sampleCount": 0,
+            "meanPredicted": 0,
+            "actualRate": 0
+          }
+        ]
+      }
+    ]
+  }
+}

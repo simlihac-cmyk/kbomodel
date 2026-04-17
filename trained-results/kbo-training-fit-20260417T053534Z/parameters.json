@@ -1,0 +1,51 @@
+{
+  "manifestType": "kbo-game-model-parameters",
+  "version": 1,
+  "trainedAt": "2026-04-17T05:35:35.977Z",
+  "objective": "multiclass-log-loss",
+  "fitYears": [
+    2021,
+    2022,
+    2023
+  ],
+  "tuneYears": [
+    2024
+  ],
+  "validationYears": [
+    2025
+  ],
+  "search": {
+    "rounds": 7,
+    "evaluations": 183
+  },
+  "baselineParameters": {
+    "leagueRunEnvironment": 4.35,
+    "awayRunEnvironmentOffset": 0.08,
+    "offenseWeight": 0.0105,
+    "starterWeight": 0.0075,
+    "bullpenWeight": 0.0035,
+    "recentFormWeight": 0.18,
+    "homeFieldWeightHome": 0.28,
+    "homeFieldWeightAway": 0.18,
+    "confidenceBase": 0.3,
+    "confidenceScale": 0.7,
+    "tieCarryRate": 0.34,
+    "minTieProbability": 0.015,
+    "maxTieProbability": 0.085
+  },
+  "fittedParameters": {
+    "leagueRunEnvironment": 4.428628185856,
+    "awayRunEnvironmentOffset": 0.03343237341312,
+    "offenseWeight": 0.0090250233568,
+    "starterWeight": 0.0078123930880000005,
+    "bullpenWeight": 0.0019766570727296003,
+    "recentFormWeight": 0.09848762390625,
+    "homeFieldWeightHome": 0.19848762390625002,
+    "homeFieldWeightAway": 0.09848762390625,
+    "confidenceBase": 0.3365962639769601,
+    "confidenceScale": 0.5856103321599998,
+    "tieCarryRate": 0.25848762390624996,
+    "minTieProbability": 0.015,
+    "maxTieProbability": 0.085
+  }
+}
