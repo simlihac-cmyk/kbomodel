@@ -88,7 +88,6 @@ ADMIN_SESSION_SECRET=replace-with-a-long-random-secret
 - `docs/data-source-strategy.md`
 - `docs/source-matrix.md`
 - `docs/ingest-workflow.md`
-- `docs/training-workflow.md`
 
 관련 명령:
 ```bash
@@ -107,12 +106,13 @@ pnpm ingest:kbo:team-stats
 pnpm ingest:kbo:player-stats
 pnpm ingest:kbo:roster
 pnpm ingest:kbo:history
-pnpm training:kbo:export
-pnpm training:kbo:fit
-pnpm training:kbo:pack-results
-pnpm training:kbo:import-results
 pnpm normalize:kbo
 ```
+
+모델 참고:
+- 승률은 전년도 기준점, 현재 승률, 최근 10경기, 홈/원정 흐름, 기대 득점 기반의 규칙 모델로 계산합니다.
+- 별도 학습 기반 승률 보정은 현재 운영 경로에서 사용하지 않습니다.
+- 대신 `패스 / 관심 / 픽 / 강한 픽` 형태의 pick confidence를 Elo, 최근 흐름, 휴식일 같은 사실 기반 신호로 따로 계산합니다.
 
 ## 보안 문서
 - `docs/security-model.md`

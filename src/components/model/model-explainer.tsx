@@ -14,7 +14,7 @@ export function ModelExplainer({ data }: ModelExplainerProps) {
       <PageHeader
         eyebrow="모델 설명"
         title="이 모델이 무엇을 반영하는가"
-        description="이 앱의 예측기는 black box가 아니라, prior와 current를 어떻게 섞는지와 남은 시리즈가 왜 중요한지를 사람이 읽는 문장으로 설명하는 KBO 전용 모델입니다."
+        description="이 앱의 승률은 학습된 black box가 아니라, 전년도 기준점과 현재 시즌 흐름을 규칙 기반으로 섞어 계산하는 KBO 전용 모델입니다."
         actions={
           <Link href={`/season/${data.season.year}/scenario`} className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-white">
             경우의 수 계산기로 가기
@@ -31,13 +31,12 @@ export function ModelExplainer({ data }: ModelExplainerProps) {
           </div>
         </SectionCard>
 
-        <SectionCard title="선발 / 불펜 / 최근 폼" subtitle="단일 rating 하나로 뭉개지지 않도록 축을 분리했습니다.">
+        <SectionCard title="전력과 경기 확률" subtitle="단일 rating 하나로 뭉개지지 않도록 축을 분리했습니다.">
           <div className="space-y-3 text-sm leading-6 text-muted">
-            <p>운영 모델의 코어는 과거 데이터와 같은 축으로 맞췄습니다. 현재 승률, 득실차, 최근 10경기, 홈/원정 편차, 남은 일정 난도를 바탕으로 offenseRating, starterRating, bullpenRating을 만듭니다.</p>
-            <p>최근 10경기 흐름과 streak는 recent form adjustment에만 작은 폭으로 넣어, 단기 흐름이 시즌 전체 전력을 과하게 덮지 않도록 설계했습니다.</p>
-            <p>공식 선수 시즌 스탯과 최근 로스터 이벤트는 이제 코어 모델을 바꾸는 주재료가 아니라 얇은 overlay로만 반영합니다. 그래서 과거 학습으로 맞춘 계수를 운영 모델에 더 자연스럽게 연결할 수 있습니다.</p>
-            <p>개별 경기 승률은 이 공통 rating들을 점수 기대값으로 바꾼 뒤 계산하고, 남은 경기에서는 최근 pitcher game log와 휴식일 간격으로 추정한 likely starter turn을 경기 단위 추가 보정으로만 사용합니다.</p>
-            <p>불펜 쪽도 코어는 팀 상태 기반으로 보고, reliever 시즌 스탯이나 최근 usage는 후반 이닝 안정성을 흔드는 보조 신호로만 덧입힙니다.</p>
+            <p>코어 전력은 현재 승률, 최근 10경기, 경기당 득점과 실점, 홈/원정 성향을 바탕으로 offenseRating, starterRating, bullpenRating으로 나눠 만듭니다.</p>
+            <p>최근 10경기 흐름과 streak는 작은 recent form 보정으로만 넣어, 단기 분위기가 시즌 전체 전력을 과하게 덮지 않게 했습니다.</p>
+            <p>개별 경기 승률은 이 공통 rating들을 기대 득점으로 바꾼 뒤 승/무/패 확률로 계산합니다. 예상 선발이나 최근 불펜 usage는 있더라도 경기 단위 보조 신호로만 얹습니다.</p>
+            <p>별도의 학습 기반 승률 보정은 쓰지 않고, 대신 Elo와 휴식일 같은 사실 기반 신호로 픽 confidence만 따로 계산합니다.</p>
           </div>
         </SectionCard>
       </div>

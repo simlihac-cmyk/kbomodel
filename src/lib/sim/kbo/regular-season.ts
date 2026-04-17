@@ -20,7 +20,7 @@ import type {
 import { buildGameProbabilitySnapshot } from "@/lib/sim/kbo/probabilities";
 import { buildPregameEloDiffByGameId } from "@/lib/sim/kbo/direct-game/elo";
 import { buildPlayerImpactContext } from "@/lib/sim/kbo/player-impact";
-import { buildRestGapByGame } from "@/lib/sim/kbo/probability-adjustment";
+import { buildRestGapByGame } from "@/lib/sim/kbo/rest-gap";
 import { resolveForcedOutcomeForGame } from "@/lib/sim/kbo/scenario";
 import { buildTeamStrengthSnapshots } from "@/lib/sim/kbo/strength";
 

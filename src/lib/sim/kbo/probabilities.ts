@@ -8,13 +8,7 @@ import {
   type GameModelParameterSet,
 } from "@/lib/sim/kbo/model-parameters";
 import { CURRENT_GAME_MODEL_PARAMETERS } from "@/lib/sim/kbo/current-model-parameters";
-import {
-  applyProbabilityAdjustment,
-  buildProbabilityAdjustmentFeaturesFromRuntime,
-  type ProbabilityAdjustmentRuntimeContext,
-} from "@/lib/sim/kbo/probability-adjustment";
 import { buildDirectGameFeaturesFromRuntime } from "@/lib/sim/kbo/direct-game/feature-builder";
-import { applyDirectGameRuntimeModel } from "@/lib/sim/kbo/direct-game/runtime";
 import { buildPickConfidenceSnapshot } from "@/lib/sim/kbo/pick-confidence";
 import type {
   GameStarterProjection,
@@ -291,7 +285,8 @@ export function buildGameProbabilitySnapshot(
   tiesAllowed = true,
   starterProjection?: GameStarterProjection,
   parameters: GameModelParameterSet = CURRENT_GAME_MODEL_PARAMETERS,
-  adjustmentContext?: Partial<ProbabilityAdjustmentRuntimeContext> & {
+  adjustmentContext?: {
+    restGap?: number | null;
     eloDiff?: number | null;
   },
 ): GameProbabilitySnapshot {
@@ -313,19 +308,6 @@ export function buildGameProbabilitySnapshot(
     starterProjection,
     parameters,
   );
-  const adjustedProbabilities = applyProbabilityAdjustment({
-    homeWinProb: baseHomeWinProb,
-    awayWinProb: baseAwayWinProb,
-    tieProb: baseTieProb,
-    features: buildProbabilityAdjustmentFeaturesFromRuntime({
-      game,
-      homeStrength,
-      awayStrength,
-      context: {
-        restGap: adjustmentContext?.restGap ?? null,
-      },
-    }),
-  });
   const directFeatures = buildDirectGameFeaturesFromRuntime({
     homeStrength,
     awayStrength,
@@ -334,14 +316,10 @@ export function buildGameProbabilitySnapshot(
       eloDiff: adjustmentContext?.eloDiff ?? null,
     },
   });
-  const { homeWinProb, awayWinProb, tieProb } = applyDirectGameRuntimeModel({
-    ...adjustedProbabilities,
-    features: directFeatures,
-  });
   const pickConfidence = buildPickConfidenceSnapshot({
-    homeWinProb,
-    awayWinProb,
-    tieProb,
+    homeWinProb: baseHomeWinProb,
+    awayWinProb: baseAwayWinProb,
+    tieProb: baseTieProb,
     features: directFeatures,
   });
 
@@ -430,9 +408,9 @@ export function buildGameProbabilitySnapshot(
     awaySeasonTeamId: game.awaySeasonTeamId,
     homeLikelyStarterId: starterProjection?.home?.playerId ?? null,
     awayLikelyStarterId: starterProjection?.away?.playerId ?? null,
-    homeWinProb,
-    awayWinProb,
-    tieProb: Number(tieProb.toFixed(4)),
+    homeWinProb: baseHomeWinProb,
+    awayWinProb: baseAwayWinProb,
+    tieProb: Number(baseTieProb.toFixed(4)),
     pickFavoriteSide: pickConfidence.favoriteSide,
     pickConfidenceScore: pickConfidence.score,
     pickConfidenceLevel: pickConfidence.level,
