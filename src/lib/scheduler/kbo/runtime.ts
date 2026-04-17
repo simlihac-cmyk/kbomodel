@@ -28,6 +28,26 @@ export type AutomationRunSummary = {
   publishResults: string[];
 };
 
+function isMissingPublishedBundleError(error: unknown) {
+  return (
+    error instanceof Error &&
+    error.message.includes("No published official KBO bundle is available.")
+  );
+}
+
+export async function loadCurrentBundleForAutomation() {
+  try {
+    return await kboRepository.getBundle();
+  } catch (error) {
+    if (!isMissingPublishedBundleError(error)) {
+      throw error;
+    }
+
+    await refreshCurrentLiveBundle();
+    return await kboRepository.getBundle();
+  }
+}
+
 function filterPreviousSeasonStats(currentYear: number, seasons: Awaited<ReturnType<typeof kboRepository.listSeasons>>, allStats: TeamSeasonStat[]) {
   const previous = [...seasons]
     .filter((season) => season.year < currentYear)
@@ -188,7 +208,7 @@ export async function runAutomationMode(mode: AutomationMode): Promise<Automatio
     : [];
   const previousManifest = (await manifestRepository.getManifest("current")) as CurrentManifest | null;
 
-  const currentBundle = await kboRepository.getBundle();
+  const currentBundle = await loadCurrentBundleForAutomation();
   const currentSeason =
     currentBundle.seasons.sort((left, right) => right.year - left.year).find((season) => season.status === "ongoing") ?? currentBundle.seasons[0];
   const currentSeasonContext = await kboRepository.getSeasonContext(currentSeason.year);
