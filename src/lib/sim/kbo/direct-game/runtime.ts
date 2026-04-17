@@ -13,6 +13,11 @@ function sigmoid(value: number) {
   return 1 / (1 + Math.exp(-value));
 }
 
+function logit(probability: number) {
+  const clamped = clamp(probability, 1e-6, 1 - 1e-6);
+  return Math.log(clamped / (1 - clamped));
+}
+
 function dotProduct(
   weights: Record<(typeof DIRECT_GAME_FEATURE_KEYS)[number], number>,
   features: DirectGameFeatureVector,
@@ -46,9 +51,17 @@ export function applyDirectGameRuntimeModel(
   const logisticHomeDecisiveProb = sigmoid(
     rawDecisiveScore * parameters.decisiveLogitScale,
   );
-  const homeDecisiveProb = clamp(
+  const blendedHomeDecisiveProb = clamp(
     baseHomeDecisiveProb * (1 - parameters.decisiveBlend) +
       logisticHomeDecisiveProb * parameters.decisiveBlend,
+    1e-6,
+    1 - 1e-6,
+  );
+  const homeDecisiveProb = clamp(
+    sigmoid(
+      logit(blendedHomeDecisiveProb) * parameters.decisiveCalibrationScale +
+        parameters.decisiveCalibrationBias,
+    ),
     1e-6,
     1 - 1e-6,
   );

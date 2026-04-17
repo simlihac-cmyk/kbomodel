@@ -99,6 +99,8 @@ function normalizeParameters(parameters: DirectGameParameterSet): DirectGamePara
 
   next.decisiveBlend = clamp(next.decisiveBlend, 0, 0.85);
   next.decisiveLogitScale = clamp(next.decisiveLogitScale, 0.45, 1.15);
+  next.decisiveCalibrationScale = clamp(next.decisiveCalibrationScale, 0.65, 1.15);
+  next.decisiveCalibrationBias = clamp(next.decisiveCalibrationBias, -0.35, 0.35);
   next.decisiveBias = clamp(next.decisiveBias, -1.2, 1.2);
   next.tieBias = 0;
 
@@ -349,6 +351,8 @@ export function fitDirectGameParameters(args: {
   ) {
     seededInitial.decisiveBlend = 0.55;
     seededInitial.decisiveLogitScale = 0.72;
+    seededInitial.decisiveCalibrationScale = 0.92;
+    seededInitial.decisiveCalibrationBias = 0;
     seededInitial.decisiveBias = 0;
     seededInitial.decisiveWeights.eloDiff = 0.0015;
     seededInitial.decisiveWeights.pctGap = 0.35;
@@ -490,6 +494,32 @@ export function fitDirectGameParameters(args: {
         ...best,
         decisiveBlend,
         decisiveLogitScale,
+      });
+      const evaluation = evaluateDirectParameterSet(
+        fitExamples,
+        tuneExamples,
+        validationExamples,
+        args.gameParameters,
+        args.adjustmentParameters,
+        candidate,
+      );
+      evaluations += 1;
+
+      if (isDirectEvaluationBetter(evaluation, bestEvaluation)) {
+        best = candidate;
+        bestEvaluation = evaluation;
+      }
+    }
+  }
+
+  const calibrationScaleCandidates = [0.7, 0.8, 0.9, 0.95, 1, 1.05];
+  const calibrationBiasCandidates = [-0.12, -0.06, 0, 0.06, 0.12];
+  for (const decisiveCalibrationScale of calibrationScaleCandidates) {
+    for (const decisiveCalibrationBias of calibrationBiasCandidates) {
+      const candidate = normalizeParameters({
+        ...best,
+        decisiveCalibrationScale,
+        decisiveCalibrationBias,
       });
       const evaluation = evaluateDirectParameterSet(
         fitExamples,

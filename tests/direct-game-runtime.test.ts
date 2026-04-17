@@ -187,6 +187,7 @@ describe("direct game runtime", () => {
         ...DEFAULT_DIRECT_GAME_MODEL_PARAMETERS,
         decisiveBlend: 0.8,
         decisiveLogitScale: 0.72,
+        decisiveCalibrationScale: 0.95,
         decisiveWeights: {
           ...DEFAULT_DIRECT_GAME_MODEL_PARAMETERS.decisiveWeights,
           eloDiff: 0.01,
@@ -213,6 +214,7 @@ describe("direct game runtime", () => {
       ...DEFAULT_DIRECT_GAME_MODEL_PARAMETERS,
       decisiveBlend: 0.8,
       decisiveLogitScale: 0.7,
+      decisiveCalibrationScale: 0.95,
       decisiveWeights: {
         ...DEFAULT_DIRECT_GAME_MODEL_PARAMETERS.decisiveWeights,
         eloDiff: 0.01,
@@ -231,5 +233,54 @@ describe("direct game runtime", () => {
 
     expect(adjusted.homeWinProb).toBeGreaterThan(0.64);
     expect(adjusted.tieProb).toBeCloseTo(0.04, 6);
+  });
+
+  it("can calibrate an aggressive decisive edge back toward a realistic range", () => {
+    const features = buildDirectGameFeaturesFromTrainingExample(
+      buildTrainingExample({
+        pctGap: 0.3,
+        opponentAdjustedRecent10Gap: 0.36,
+      }),
+      { eloDiff: 150 },
+    );
+    const aggressive = applyDirectGameRuntimeModel({
+      homeWinProb: 0.57,
+      awayWinProb: 0.39,
+      tieProb: 0.04,
+      features,
+      parameters: {
+        ...DEFAULT_DIRECT_GAME_MODEL_PARAMETERS,
+        decisiveBlend: 0.8,
+        decisiveLogitScale: 0.8,
+        decisiveCalibrationScale: 1,
+        decisiveWeights: {
+          ...DEFAULT_DIRECT_GAME_MODEL_PARAMETERS.decisiveWeights,
+          eloDiff: 0.01,
+          pctGap: 0.7,
+          opponentAdjustedRecent10Gap: 0.55,
+        },
+      },
+    });
+    const calibrated = applyDirectGameRuntimeModel({
+      homeWinProb: 0.57,
+      awayWinProb: 0.39,
+      tieProb: 0.04,
+      features,
+      parameters: {
+        ...DEFAULT_DIRECT_GAME_MODEL_PARAMETERS,
+        decisiveBlend: 0.8,
+        decisiveLogitScale: 0.8,
+        decisiveCalibrationScale: 0.8,
+        decisiveWeights: {
+          ...DEFAULT_DIRECT_GAME_MODEL_PARAMETERS.decisiveWeights,
+          eloDiff: 0.01,
+          pctGap: 0.7,
+          opponentAdjustedRecent10Gap: 0.55,
+        },
+      },
+    });
+
+    expect(aggressive.homeWinProb).toBeGreaterThan(calibrated.homeWinProb);
+    expect(calibrated.tieProb).toBeCloseTo(0.04, 6);
   });
 });

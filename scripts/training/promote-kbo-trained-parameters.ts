@@ -213,6 +213,8 @@ export const CURRENT_DIRECT_GAME_MODEL_PARAMETERS: DirectGameParameterSet =
   directGameParameterSetSchema.parse({
     decisiveBlend: ${formatNumber(fitted.decisiveBlend)},
     decisiveLogitScale: ${formatNumber(fitted.decisiveLogitScale)},
+    decisiveCalibrationScale: ${formatNumber(fitted.decisiveCalibrationScale)},
+    decisiveCalibrationBias: ${formatNumber(fitted.decisiveCalibrationBias)},
     decisiveBias: ${formatNumber(fitted.decisiveBias)},
     decisiveWeights: ${formatWeightObject(fitted.decisiveWeights)},
     tieBias: ${formatNumber(fitted.tieBias)},

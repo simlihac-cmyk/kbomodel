@@ -28,6 +28,8 @@ export type DirectGameWeightVector = z.infer<typeof directGameWeightVectorSchema
 export const directGameParameterSetSchema = z.object({
   decisiveBlend: z.number().min(0).max(0.85),
   decisiveLogitScale: z.number().min(0.45).max(1.15),
+  decisiveCalibrationScale: z.number().min(0.65).max(1.15),
+  decisiveCalibrationBias: z.number().min(-0.35).max(0.35),
   decisiveBias: z.number(),
   decisiveWeights: directGameWeightVectorSchema,
   tieBias: z.number(),
@@ -47,6 +49,8 @@ export const DEFAULT_DIRECT_GAME_MODEL_PARAMETERS: DirectGameParameterSet =
   directGameParameterSetSchema.parse({
     decisiveBlend: 0,
     decisiveLogitScale: 1,
+    decisiveCalibrationScale: 1,
+    decisiveCalibrationBias: 0,
     decisiveBias: 0,
     decisiveWeights: zeroWeights(),
     tieBias: 0,
