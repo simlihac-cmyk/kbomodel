@@ -118,6 +118,9 @@ async function main() {
     `[training-fit] game evaluations -> ${parameters.search.evaluations.game}`,
   );
   console.log(
+    `[training-fit] contextual evaluations -> ${parameters.search.evaluations.contextual}`,
+  );
+  console.log(
     `[training-fit] baseline validation logLoss -> ${backtest.baseline.validation?.logLoss ?? "n/a"}`,
   );
   console.log(

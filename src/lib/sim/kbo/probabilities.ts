@@ -8,6 +8,11 @@ import {
   type GameModelParameterSet,
 } from "@/lib/sim/kbo/model-parameters";
 import { CURRENT_GAME_MODEL_PARAMETERS } from "@/lib/sim/kbo/current-model-parameters";
+import {
+  applyProbabilityAdjustment,
+  buildProbabilityAdjustmentFeaturesFromRuntime,
+  type ProbabilityAdjustmentRuntimeContext,
+} from "@/lib/sim/kbo/probability-adjustment";
 import type {
   GameStarterProjection,
   ProjectedStarterAssignment,
@@ -283,11 +288,12 @@ export function buildGameProbabilitySnapshot(
   tiesAllowed = true,
   starterProjection?: GameStarterProjection,
   parameters: GameModelParameterSet = CURRENT_GAME_MODEL_PARAMETERS,
+  adjustmentContext?: Partial<ProbabilityAdjustmentRuntimeContext>,
 ): GameProbabilitySnapshot {
   const {
-    homeWinProb,
-    awayWinProb,
-    tieProb,
+    homeWinProb: baseHomeWinProb,
+    awayWinProb: baseAwayWinProb,
+    tieProb: baseTieProb,
     expectedRunsHome,
     expectedRunsAway,
     recentEdge,
@@ -302,6 +308,23 @@ export function buildGameProbabilitySnapshot(
     starterProjection,
     parameters,
   );
+  const adjustedProbabilities = applyProbabilityAdjustment({
+    homeWinProb: baseHomeWinProb,
+    awayWinProb: baseAwayWinProb,
+    tieProb: baseTieProb,
+    features: buildProbabilityAdjustmentFeaturesFromRuntime({
+      game,
+      homeStrength,
+      awayStrength,
+      context: {
+        month:
+          adjustmentContext?.month ??
+          new Date(game.scheduledAt).getMonth() + 1,
+        restGap: adjustmentContext?.restGap ?? null,
+      },
+    }),
+  });
+  const { homeWinProb, awayWinProb, tieProb } = adjustedProbabilities;
 
   const explanationReasons: ExplanationReason[] = [
     {

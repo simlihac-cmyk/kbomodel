@@ -213,8 +213,10 @@ describe("fitRuntimeModelParameters", () => {
     });
 
     expect(runtimeModelParameterArtifactSchema.parse(result.artifact).fittedParameters.game).toBeTruthy();
+    expect(runtimeModelParameterArtifactSchema.parse(result.artifact).fittedParameters.contextual).toBeTruthy();
     expect(runtimeModelBacktestSummarySchema.parse(result.backtest).fitted.fit.sampleCount).toBeGreaterThan(0);
     expect(result.artifact.search.evaluations.total).toBeGreaterThan(0);
+    expect(result.artifact.search.evaluations.contextual).toBeGreaterThan(0);
     expect(result.artifact.search.starts).toBeGreaterThan(0);
     expect(result.backtest.multiStarts.length).toBeGreaterThan(0);
     expect(result.backtest.rollingValidation.length).toBeGreaterThan(0);

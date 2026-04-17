@@ -180,6 +180,15 @@ export function buildTeamStrengthSnapshots(
       offenseRating,
       starterRating,
       bullpenRating,
+      winPct: currentState?.winPct ?? 0.5,
+      recent10WinRate: currentState?.recent10WinRate ?? 0.5,
+      homePct: currentState?.homePct ?? 0.5,
+      awayPct: currentState?.awayPct ?? 0.5,
+      splitGap: currentState?.splitGap ?? 0,
+      seasonProgress:
+        regularSeasonGamesPerTeam > 0
+          ? Number((gamesPlayed / regularSeasonGamesPerTeam).toFixed(4))
+          : 0,
       homeFieldAdjustment: currentState
         ? Number(
             buildHomeFieldAdjustmentFromState(currentState, leagueState, BASE_HOME_FIELD_ADVANTAGE).toFixed(3),

@@ -28,6 +28,14 @@ const OUTPUT_STRENGTH_PATH = path.join(
   "kbo",
   "current-strength-model-parameters.ts",
 );
+const OUTPUT_CONTEXTUAL_PATH = path.join(
+  process.cwd(),
+  "src",
+  "lib",
+  "sim",
+  "kbo",
+  "current-probability-adjustment-parameters.ts",
+);
 
 function parseArgs(argv: string[]) {
   return {
@@ -43,6 +51,12 @@ function formatArray(values: number[]) {
 
 function formatNumber(value: number) {
   return Number.isInteger(value) ? `${value}` : `${value}`;
+}
+
+function formatWeightObject(values: Record<string, number>) {
+  return `{\n${Object.entries(values)
+    .map(([key, value]) => `    ${key}: ${formatNumber(value)},`)
+    .join("\n")}\n  }`;
 }
 
 function buildGameModuleSource(
@@ -134,6 +148,38 @@ export const CURRENT_STRENGTH_MODEL_PARAMETERS: StrengthModelParameterSet = stre
 `;
 }
 
+function buildContextualModuleSource(
+  parametersPath: string,
+  artifact: ReturnType<typeof runtimeModelParameterArtifactSchema.parse>,
+) {
+  const fitted = artifact.fittedParameters.contextual;
+  const sourcePath = path.relative(process.cwd(), parametersPath).split(path.sep).join("/");
+
+  return `import {
+  probabilityAdjustmentParameterSetSchema,
+  type ProbabilityAdjustmentParameterSet,
+} from "@/lib/sim/kbo/probability-adjustment-parameters";
+
+export const CURRENT_PROBABILITY_ADJUSTMENT_PARAMETERS_SOURCE = {
+  trainedAt: "${artifact.trainedAt}",
+  fitYears: ${formatArray(artifact.fitYears)},
+  tuneYears: ${formatArray(artifact.tuneYears)},
+  validationYears: ${formatArray(artifact.validationYears)},
+  sourcePath: "${sourcePath}",
+} as const;
+
+export const CURRENT_PROBABILITY_ADJUSTMENT_PARAMETERS: ProbabilityAdjustmentParameterSet =
+  probabilityAdjustmentParameterSetSchema.parse({
+    homeBias: ${formatNumber(fitted.homeBias)},
+    awayBias: ${formatNumber(fitted.awayBias)},
+    tieBias: ${formatNumber(fitted.tieBias)},
+    homeWeights: ${formatWeightObject(fitted.homeWeights)},
+    awayWeights: ${formatWeightObject(fitted.awayWeights)},
+    tieWeights: ${formatWeightObject(fitted.tieWeights)},
+  });
+`;
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const raw = JSON.parse(await fs.readFile(args.from, "utf8")) as unknown;
@@ -148,13 +194,16 @@ async function main() {
 
   if (artifact.manifestType === "kbo-runtime-model-parameters") {
     const strengthSource = buildStrengthModuleSource(args.from, artifact);
+    const contextualSource = buildContextualModuleSource(args.from, artifact);
     await fs.writeFile(OUTPUT_STRENGTH_PATH, strengthSource, "utf8");
+    await fs.writeFile(OUTPUT_CONTEXTUAL_PATH, contextualSource, "utf8");
   }
 
   console.log(`[training-promote] source -> ${args.from}`);
   console.log(`[training-promote] game output -> ${OUTPUT_GAME_PATH}`);
   if (artifact.manifestType === "kbo-runtime-model-parameters") {
     console.log(`[training-promote] strength output -> ${OUTPUT_STRENGTH_PATH}`);
+    console.log(`[training-promote] contextual output -> ${OUTPUT_CONTEXTUAL_PATH}`);
   }
 }
 

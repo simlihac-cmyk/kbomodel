@@ -337,6 +337,12 @@ export type TeamStrengthSnapshot = {
   offenseRating: number;
   starterRating: number;
   bullpenRating: number;
+  winPct: number;
+  recent10WinRate: number;
+  homePct: number;
+  awayPct: number;
+  splitGap: number;
+  seasonProgress: number;
   homeFieldAdjustment: number;
   recentFormAdjustment: number;
   confidenceScore: number;

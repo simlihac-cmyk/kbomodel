@@ -4,6 +4,10 @@ import {
   buildGameProbabilityCoreSnapshot,
 } from "@/lib/sim/kbo/probabilities";
 import {
+  buildProbabilityAdjustmentFeaturesFromTrainingExample,
+  type ProbabilityAdjustmentFeatureVector,
+} from "@/lib/sim/kbo/probability-adjustment";
+import {
   DEFAULT_GAME_MODEL_PARAMETERS,
   gameModelParameterSetSchema,
   type GameModelParameterSet,
@@ -22,6 +26,7 @@ export type PreparedGameExample = {
   seasonProgress: number;
   homeStrength: TeamStrengthSnapshot;
   awayStrength: TeamStrengthSnapshot;
+  adjustmentFeatures: ProbabilityAdjustmentFeatureVector;
   actualIndex: 0 | 1 | 2;
   actualHomeWin: number;
   actualAwayWin: number;
@@ -93,6 +98,15 @@ function buildStrengthSnapshotFromGameExample(
     offenseRating: example[`${prefix}DerivedOffenseRating`],
     starterRating: example[`${prefix}DerivedStarterRating`],
     bullpenRating: example[`${prefix}DerivedBullpenRating`],
+    winPct: example[`${prefix}Pct`],
+    recent10WinRate: example[`${prefix}Recent10WinRate`],
+    homePct: side === "home" ? example.homeHomePct : 0.5,
+    awayPct: side === "away" ? example.awayAwayPct : 0.5,
+    splitGap:
+      side === "home"
+        ? Number((example.homeHomePct - 0.5).toFixed(4))
+        : Number((0.5 - example.awayAwayPct).toFixed(4)),
+    seasonProgress: example[`${prefix}SeasonProgress`],
     homeFieldAdjustment:
       side === "home"
         ? example.homeDerivedHomeFieldAdjustment
@@ -116,6 +130,7 @@ export function prepareGameExamples(examples: GameOutcomeTrainingExample[]): Pre
       seasonProgress: Number(((example.homeSeasonProgress + example.awaySeasonProgress) / 2).toFixed(4)),
       homeStrength: buildStrengthSnapshotFromGameExample(example, "home"),
       awayStrength: buildStrengthSnapshotFromGameExample(example, "away"),
+      adjustmentFeatures: buildProbabilityAdjustmentFeaturesFromTrainingExample(example),
       actualIndex,
       actualHomeWin: example.homeWin ? 1 : 0,
       actualAwayWin: example.awayWin ? 1 : 0,

@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import { gameModelParameterSetSchema } from "@/lib/sim/kbo/model-parameters";
+import { probabilityAdjustmentParameterSetSchema } from "@/lib/sim/kbo/probability-adjustment-parameters";
 import { strengthModelParameterSetSchema } from "@/lib/sim/kbo/strength-model-parameters";
 
 const trainingObjectiveSchema = z.enum([
@@ -102,16 +103,19 @@ export const runtimeModelParameterArtifactSchema = z.object({
     evaluations: z.object({
       strength: z.number().int().positive(),
       game: z.number().int().positive(),
+      contextual: z.number().int().positive(),
       total: z.number().int().positive(),
     }),
   }),
   baselineParameters: z.object({
     strength: strengthModelParameterSetSchema,
     game: gameModelParameterSetSchema,
+    contextual: probabilityAdjustmentParameterSetSchema,
   }),
   fittedParameters: z.object({
     strength: strengthModelParameterSetSchema,
     game: gameModelParameterSetSchema,
+    contextual: probabilityAdjustmentParameterSetSchema,
   }),
 });
 export type RuntimeModelParameterArtifact = z.infer<typeof runtimeModelParameterArtifactSchema>;

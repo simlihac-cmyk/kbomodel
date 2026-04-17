@@ -19,6 +19,7 @@ import type {
 } from "@/lib/domain/kbo/types";
 import { buildGameProbabilitySnapshot } from "@/lib/sim/kbo/probabilities";
 import { buildPlayerImpactContext } from "@/lib/sim/kbo/player-impact";
+import { buildRestGapByGame } from "@/lib/sim/kbo/probability-adjustment";
 import { resolveForcedOutcomeForGame } from "@/lib/sim/kbo/scenario";
 import { buildTeamStrengthSnapshots } from "@/lib/sim/kbo/strength";
 
@@ -340,6 +341,7 @@ function buildSimulationEnvironment(input: SimulationInput) {
   const strengthMap = Object.fromEntries(
     teamStrengths.map((item) => [item.seasonTeamId, item]),
   );
+  const restGapByGameId = buildRestGapByGame(input.games);
   const gameProbabilities = input.games
     .filter((game) => game.status !== "final")
     .sort((left, right) => left.scheduledAt.localeCompare(right.scheduledAt))
@@ -350,6 +352,11 @@ function buildSimulationEnvironment(input: SimulationInput) {
         strengthMap[game.awaySeasonTeamId],
         input.ruleset.tiesAllowed,
         playerImpactContext.starterByGameId[game.gameId],
+        undefined,
+        {
+          month: new Date(game.scheduledAt).getMonth() + 1,
+          restGap: restGapByGameId[game.gameId] ?? null,
+        },
       ),
     );
 

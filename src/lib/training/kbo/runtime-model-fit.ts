@@ -3,11 +3,11 @@ import type {
   TeamStrengthSnapshot,
 } from "@/lib/domain/kbo/types";
 import type {
+  GameOutcomeTrainingExample,
   TeamSnapshotTrainingExample,
   TrainingCorpusSeason,
 } from "@/lib/data-sources/kbo/training-corpus-types";
 import {
-  buildCalibrationSummary,
   fitGameModelParametersFromPreparedExamples,
   GAME_MODEL_OBJECTIVE,
   scorePreparedExamples,
@@ -19,8 +19,12 @@ import {
 } from "@/lib/sim/kbo/current-model-parameters";
 import type { GameModelParameterSet } from "@/lib/sim/kbo/model-parameters";
 import {
+  CURRENT_PROBABILITY_ADJUSTMENT_PARAMETERS,
+} from "@/lib/sim/kbo/current-probability-adjustment-parameters";
+import {
   CURRENT_STRENGTH_MODEL_PARAMETERS,
 } from "@/lib/sim/kbo/current-strength-model-parameters";
+import type { ProbabilityAdjustmentParameterSet } from "@/lib/sim/kbo/probability-adjustment-parameters";
 import type {
   GamePredictionMetrics,
   RuntimeModelBacktestSummary,
@@ -43,11 +47,20 @@ import {
   type TeamStateLeagueAverages,
   type TeamStateSnapshot,
 } from "@/lib/sim/kbo/shared-team-state";
+import {
+  buildProbabilityAdjustmentFeaturesFromTrainingExample,
+} from "@/lib/sim/kbo/probability-adjustment";
+import {
+  buildAdjustmentCalibrationSummary,
+  fitProbabilityAdjustmentParameters,
+  scorePreparedExamplesWithAdjustment,
+} from "@/lib/training/kbo/probability-adjustment-fit";
 
 type HistoricalGameContextExample = {
   sampleId: string;
   year: number;
   seasonProgress: number;
+  gameExample: GameOutcomeTrainingExample;
   regularSeasonGamesPerTeam: number;
   homeFranchiseId: string;
   awayFranchiseId: string;
@@ -81,6 +94,7 @@ type RuntimeFitOptions = {
   gameMaxRounds?: number;
   initialStrength?: StrengthModelParameterSet;
   initialGame?: GameModelParameterSet;
+  initialContextual?: ProbabilityAdjustmentParameterSet;
   useRollingValidation?: boolean;
 };
 
@@ -394,6 +408,7 @@ function prepareHistoricalGameExamples(
           seasonProgress: Number(
             (((homeState.gamesPlayed + awayState.gamesPlayed) / 2) / regularSeasonGamesPerTeam).toFixed(4),
           ),
+          gameExample,
           regularSeasonGamesPerTeam,
           homeFranchiseId: gameExample.homeFranchiseId,
           awayFranchiseId: gameExample.awayFranchiseId,
@@ -430,6 +445,12 @@ function buildStrengthSnapshot(
     offenseRating: Number((100 + offenseSignal * currentWeight).toFixed(4)),
     starterRating: Number((100 + runPreventionSignal * currentWeight * 0.92).toFixed(4)),
     bullpenRating: Number((100 + bullpenSignal * currentWeight).toFixed(4)),
+    winPct: Number(state.winPct.toFixed(4)),
+    recent10WinRate: Number(state.recent10WinRate.toFixed(4)),
+    homePct: Number(state.homePct.toFixed(4)),
+    awayPct: Number(state.awayPct.toFixed(4)),
+    splitGap: Number(state.splitGap.toFixed(4)),
+    seasonProgress: Number((state.gamesPlayed / regularSeasonGamesPerTeam).toFixed(4)),
     homeFieldAdjustment: isHome
       ? Number(buildHomeFieldAdjustmentFromState(state, league, BASE_HOME_FIELD_ADVANTAGE, parameters).toFixed(4))
       : 0,
@@ -467,6 +488,7 @@ function prepareGameExamplesForStrengthParameters(
       false,
       parameters,
     ),
+    adjustmentFeatures: buildProbabilityAdjustmentFeaturesFromTrainingExample(context.gameExample),
     actualIndex: context.actualIndex,
     actualHomeWin: context.actualHomeWin,
     actualAwayWin: context.actualAwayWin,
@@ -649,8 +671,57 @@ function buildEvaluation(
     validation: validationExamples.length > 0 ? scorePreparedExamples(validationExamples, gameParameters) : null,
     selectionScore:
       tuneExamples.length > 0
-        ? scorePreparedExamples(tuneExamples, gameParameters).logLoss
-        : scorePreparedExamples(fitExamples, gameParameters).logLoss,
+      ? scorePreparedExamples(tuneExamples, gameParameters).logLoss
+      : scorePreparedExamples(fitExamples, gameParameters).logLoss,
+  };
+}
+
+function buildEvaluationWithContextualAdjustment(
+  preparedByYear: Record<number, PreparedGameExample[]>,
+  fitYears: number[],
+  tuneYears: number[],
+  validationYears: number[],
+  gameParameters: GameModelParameterSet,
+  adjustmentParameters: ProbabilityAdjustmentParameterSet,
+): StageEvaluation {
+  const fitExamples = fitYears.flatMap((year) => preparedByYear[year] ?? []);
+  const tuneExamples = tuneYears.flatMap((year) => preparedByYear[year] ?? []);
+  const validationExamples = validationYears.flatMap((year) => preparedByYear[year] ?? []);
+
+  return {
+    fit: scorePreparedExamplesWithAdjustment(
+      fitExamples,
+      gameParameters,
+      adjustmentParameters,
+    ),
+    tune:
+      tuneExamples.length > 0
+        ? scorePreparedExamplesWithAdjustment(
+            tuneExamples,
+            gameParameters,
+            adjustmentParameters,
+          )
+        : null,
+    validation:
+      validationExamples.length > 0
+        ? scorePreparedExamplesWithAdjustment(
+            validationExamples,
+            gameParameters,
+            adjustmentParameters,
+          )
+        : null,
+    selectionScore:
+      tuneExamples.length > 0
+        ? scorePreparedExamplesWithAdjustment(
+            tuneExamples,
+            gameParameters,
+            adjustmentParameters,
+          ).logLoss
+        : scorePreparedExamplesWithAdjustment(
+            fitExamples,
+            gameParameters,
+            adjustmentParameters,
+          ).logLoss,
   };
 }
 
@@ -669,10 +740,13 @@ function fitRuntimeModelParametersSingleStart(
     options.initialStrength ?? CURRENT_STRENGTH_MODEL_PARAMETERS ?? DEFAULT_STRENGTH_MODEL_PARAMETERS,
   );
   const baselineGame = normalizeGameParameterSet(options.initialGame ?? CURRENT_GAME_MODEL_PARAMETERS);
+  const baselineContextual = options.initialContextual ?? CURRENT_PROBABILITY_ADJUSTMENT_PARAMETERS;
   let currentStrength = baselineStrength;
   let currentGame = baselineGame;
+  let currentContextual = baselineContextual;
   let totalStrengthEvaluations = 0;
   let totalGameEvaluations = 0;
+  let totalContextualEvaluations = 0;
   const iterationSummaries: RuntimeModelBacktestSummary["iterations"] = [];
 
   for (let iteration = 1; iteration <= iterations; iteration += 1) {
@@ -709,19 +783,31 @@ function fitRuntimeModelParametersSingleStart(
 
   const baselinePreparedByYear = buildPreparedExamplesByYear(contextsByYear, baselineStrength);
   const fittedPreparedByYear = buildPreparedExamplesByYear(contextsByYear, currentStrength);
-  const baselineEvaluation = buildEvaluation(
+  const contextualResult = fitProbabilityAdjustmentParameters({
+    examplesByYear: fittedPreparedByYear,
+    trainYears,
+    validationYears,
+    gameParameters: currentGame,
+    initial: baselineContextual,
+    maxRounds: Math.max(24, gameMaxRounds * 8),
+  });
+  currentContextual = contextualResult.fittedParameters;
+  totalContextualEvaluations += contextualResult.evaluations;
+  const baselineEvaluation = buildEvaluationWithContextualAdjustment(
     baselinePreparedByYear,
     fitYears,
     tuneYears,
     validationYears,
     baselineGame,
+    baselineContextual,
   );
-  const fittedEvaluation = buildEvaluation(
+  const fittedEvaluation = buildEvaluationWithContextualAdjustment(
     fittedPreparedByYear,
     fitYears,
     tuneYears,
     validationYears,
     currentGame,
+    currentContextual,
   );
   const baselineValidationExamples = validationYears.flatMap((year) => baselinePreparedByYear[year] ?? []);
   const fittedValidationExamples = validationYears.flatMap((year) => fittedPreparedByYear[year] ?? []);
@@ -743,16 +829,19 @@ function fitRuntimeModelParametersSingleStart(
         evaluations: {
           strength: totalStrengthEvaluations,
           game: totalGameEvaluations,
-          total: totalStrengthEvaluations + totalGameEvaluations,
+          contextual: totalContextualEvaluations,
+          total: totalStrengthEvaluations + totalGameEvaluations + totalContextualEvaluations,
         },
       },
       baselineParameters: {
         strength: baselineStrength,
         game: baselineGame,
+        contextual: baselineContextual,
       },
       fittedParameters: {
         strength: currentStrength,
         game: currentGame,
+        contextual: currentContextual,
       },
     },
     backtest: {
@@ -794,8 +883,16 @@ function fitRuntimeModelParametersSingleStart(
             : null,
       },
       calibration: {
-        baselineValidation: buildCalibrationSummary(baselineValidationExamples, baselineGame),
-        fittedValidation: buildCalibrationSummary(fittedValidationExamples, currentGame),
+        baselineValidation: buildAdjustmentCalibrationSummary(
+          baselineValidationExamples,
+          baselineGame,
+          baselineContextual,
+        ),
+        fittedValidation: buildAdjustmentCalibrationSummary(
+          fittedValidationExamples,
+          currentGame,
+          currentContextual,
+        ),
       },
       selection: {
         startCount: 1,
