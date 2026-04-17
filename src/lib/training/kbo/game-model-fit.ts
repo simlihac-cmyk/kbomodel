@@ -19,6 +19,7 @@ import type {
 export type PreparedGameExample = {
   sampleId: string;
   year: number;
+  seasonProgress: number;
   homeStrength: TeamStrengthSnapshot;
   awayStrength: TeamStrengthSnapshot;
   actualIndex: 0 | 1 | 2;
@@ -60,15 +61,17 @@ const PARAMETER_SPECS: ParameterSpec[] = [
   { key: "offenseWeight", min: 0.004, max: 0.02, step: 0.001, decay: 0.62 },
   { key: "starterWeight", min: 0.003, max: 0.016, step: 0.0008, decay: 0.62 },
   { key: "bullpenWeight", min: 0.001, max: 0.01, step: 0.0006, decay: 0.62 },
-  { key: "recentFormWeight", min: 0, max: 0.45, step: 0.03, decay: 0.65 },
-  { key: "homeFieldWeightHome", min: 0, max: 0.55, step: 0.03, decay: 0.65 },
-  { key: "homeFieldWeightAway", min: 0, max: 0.45, step: 0.03, decay: 0.65 },
+  { key: "recentFormWeight", min: 0.02, max: 0.8, step: 0.04, decay: 0.65 },
+  { key: "homeFieldWeightHome", min: 0, max: 0.45, step: 0.03, decay: 0.65 },
+  { key: "homeFieldWeightAway", min: 0, max: 0.35, step: 0.03, decay: 0.65 },
   { key: "confidenceBase", min: 0.05, max: 0.8, step: 0.04, decay: 0.68 },
   { key: "confidenceScale", min: 0.2, max: 1.1, step: 0.05, decay: 0.68 },
   { key: "tieCarryRate", min: 0.1, max: 0.7, step: 0.03, decay: 0.65 },
   { key: "minTieProbability", min: 0.001, max: 0.05, step: 0.005, decay: 0.6 },
   { key: "maxTieProbability", min: 0.03, max: 0.14, step: 0.01, decay: 0.6 },
 ];
+
+export const GAME_MODEL_OBJECTIVE = "recency-weighted-multiclass-log-loss" as const;
 
 function clamp(value: number, min: number, max: number) {
   return Math.max(min, Math.min(max, value));
@@ -110,6 +113,7 @@ export function prepareGameExamples(examples: GameOutcomeTrainingExample[]): Pre
     return {
       sampleId: example.sampleId,
       year: example.year,
+      seasonProgress: Number(((example.homeSeasonProgress + example.awaySeasonProgress) / 2).toFixed(4)),
       homeStrength: buildStrengthSnapshotFromGameExample(example, "home"),
       awayStrength: buildStrengthSnapshotFromGameExample(example, "away"),
       actualIndex,
@@ -134,6 +138,31 @@ function normalizeParameterSet(parameters: GameModelParameterSet): GameModelPara
   return gameModelParameterSetSchema.parse(next);
 }
 
+function buildObjectiveWeight(
+  example: PreparedGameExample,
+  minYear: number,
+  maxYear: number,
+) {
+  const yearSpan = Math.max(1, maxYear - minYear);
+  const recencyWeight =
+    maxYear === minYear
+      ? 1
+      : 1 + ((example.year - minYear) / yearSpan) * 0.35;
+  const progress = clamp(example.seasonProgress, 0, 1);
+  const earlySeasonWeight =
+    progress <= 0.12
+      ? 1.6
+      : progress <= 0.22
+        ? 1.45
+        : progress <= 0.35
+          ? 1.25
+          : progress <= 0.55
+            ? 1.1
+            : 1;
+
+  return recencyWeight * earlySeasonWeight;
+}
+
 export function scorePreparedExamples(
   examples: PreparedGameExample[],
   parameters: GameModelParameterSet,
@@ -153,6 +182,9 @@ export function scorePreparedExamples(
     };
   }
 
+  const years = examples.map((example) => example.year);
+  const minYear = Math.min(...years);
+  const maxYear = Math.max(...years);
   let logLoss = 0;
   let brierScore = 0;
   let correct = 0;
@@ -162,8 +194,10 @@ export function scorePreparedExamples(
   let predictedHomeWinTotal = 0;
   let predictedAwayWinTotal = 0;
   let predictedTieTotal = 0;
+  let totalWeight = 0;
 
   for (const example of examples) {
+    const weight = buildObjectiveWeight(example, minYear, maxYear);
     const prediction = buildGameProbabilityCoreSnapshot(
       example.homeStrength,
       example.awayStrength,
@@ -182,36 +216,37 @@ export function scorePreparedExamples(
       example.actualTie,
     ];
 
-    logLoss -= Math.log(Math.max(probabilities[example.actualIndex] ?? 0, 1e-9));
+    totalWeight += weight;
+    logLoss -= Math.log(Math.max(probabilities[example.actualIndex] ?? 0, 1e-9)) * weight;
     brierScore += probabilities.reduce((sum, probability, index) => {
       const delta = probability - actuals[index]!;
       return sum + delta * delta;
-    }, 0) / 3;
+    }, 0) / 3 * weight;
 
     const predictedIndex = probabilities.indexOf(Math.max(...probabilities));
     if (predictedIndex === example.actualIndex) {
-      correct += 1;
+      correct += weight;
     }
 
-    actualHomeWinTotal += example.actualHomeWin;
-    actualAwayWinTotal += example.actualAwayWin;
-    actualTieTotal += example.actualTie;
-    predictedHomeWinTotal += probabilities[0]!;
-    predictedAwayWinTotal += probabilities[1]!;
-    predictedTieTotal += probabilities[2]!;
+    actualHomeWinTotal += example.actualHomeWin * weight;
+    actualAwayWinTotal += example.actualAwayWin * weight;
+    actualTieTotal += example.actualTie * weight;
+    predictedHomeWinTotal += probabilities[0]! * weight;
+    predictedAwayWinTotal += probabilities[1]! * weight;
+    predictedTieTotal += probabilities[2]! * weight;
   }
 
   return {
     sampleCount: examples.length,
-    logLoss: roundMetric(logLoss / examples.length),
-    brierScore: roundMetric(brierScore / examples.length),
-    accuracy: roundMetric(correct / examples.length),
-    actualHomeWinRate: roundMetric(actualHomeWinTotal / examples.length),
-    actualAwayWinRate: roundMetric(actualAwayWinTotal / examples.length),
-    actualTieRate: roundMetric(actualTieTotal / examples.length),
-    predictedHomeWinRate: roundMetric(predictedHomeWinTotal / examples.length),
-    predictedAwayWinRate: roundMetric(predictedAwayWinTotal / examples.length),
-    predictedTieRate: roundMetric(predictedTieTotal / examples.length),
+    logLoss: roundMetric(logLoss / totalWeight),
+    brierScore: roundMetric(brierScore / totalWeight),
+    accuracy: roundMetric(correct / totalWeight),
+    actualHomeWinRate: roundMetric(actualHomeWinTotal / totalWeight),
+    actualAwayWinRate: roundMetric(actualAwayWinTotal / totalWeight),
+    actualTieRate: roundMetric(actualTieTotal / totalWeight),
+    predictedHomeWinRate: roundMetric(predictedHomeWinTotal / totalWeight),
+    predictedAwayWinRate: roundMetric(predictedAwayWinTotal / totalWeight),
+    predictedTieRate: roundMetric(predictedTieTotal / totalWeight),
   };
 }
 
@@ -417,7 +452,7 @@ export function fitGameModelParametersFromPreparedExamples(
       manifestType: "kbo-game-model-parameters",
       version: 1,
       trainedAt: new Date().toISOString(),
-      objective: "multiclass-log-loss",
+      objective: GAME_MODEL_OBJECTIVE,
       fitYears,
       tuneYears,
       validationYears,
@@ -432,7 +467,7 @@ export function fitGameModelParametersFromPreparedExamples(
       manifestType: "kbo-game-model-backtest-summary",
       version: 1,
       generatedAt: new Date().toISOString(),
-      objective: "multiclass-log-loss",
+      objective: GAME_MODEL_OBJECTIVE,
       fitYears,
       tuneYears,
       validationYears,

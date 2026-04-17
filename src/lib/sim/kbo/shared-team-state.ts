@@ -192,7 +192,6 @@ export function buildOffenseSignal(
 ) {
   return clamp(
     (state.runsScoredPerGame - league.runsScoredPerGame) * parameters.offenseRunsWeight +
-      (state.runDiffPerGame - league.runDiffPerGame) * parameters.offenseRunDiffWeight +
       (state.recent10WinRate - league.recent10WinRate) * parameters.offenseRecentWeight,
     -16,
     16,
@@ -206,7 +205,6 @@ export function buildRunPreventionSignal(
 ) {
   return clamp(
     (league.runsAllowedPerGame - state.runsAllowedPerGame) * parameters.runPreventionRunsAllowedWeight +
-      (state.runDiffPerGame - league.runDiffPerGame) * parameters.runPreventionRunDiffWeight +
       (state.winPct - league.winPct) * parameters.runPreventionWinPctWeight,
     -16,
     16,
@@ -243,8 +241,7 @@ export function buildHomeFieldAdjustmentFromState(
 export function buildScheduleStrengthValue(state: TeamStateSnapshot, league: TeamStateLeagueAverages) {
   return (
     (state.winPct - league.winPct) * 10 +
-    (state.runDiffPerGame - league.runDiffPerGame) * 3 +
-    (state.recent10WinRate - league.recent10WinRate) * 2
+    (state.recent10WinRate - league.recent10WinRate) * 7
   );
 }
 
@@ -288,7 +285,10 @@ export function buildConfidenceScore(
   return clamp(
     parameters.confidenceBase +
       currentWeight * parameters.confidenceCurrentWeightWeight +
-      Math.min(parameters.confidenceRunDiffCap, Math.abs(state.runDiffPerGame) * parameters.confidenceRunDiffWeight),
+      Math.min(
+        parameters.confidenceRunDiffCap,
+        Math.abs(state.recent10WinRate - 0.5) * 2 * parameters.confidenceRunDiffWeight,
+      ),
     parameters.confidenceMin,
     parameters.confidenceMax,
   );

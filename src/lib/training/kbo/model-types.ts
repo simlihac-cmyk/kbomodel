@@ -3,6 +3,11 @@ import { z } from "zod";
 import { gameModelParameterSetSchema } from "@/lib/sim/kbo/model-parameters";
 import { strengthModelParameterSetSchema } from "@/lib/sim/kbo/strength-model-parameters";
 
+const trainingObjectiveSchema = z.enum([
+  "multiclass-log-loss",
+  "recency-weighted-multiclass-log-loss",
+]);
+
 export const gamePredictionMetricsSchema = z.object({
   sampleCount: z.number().int().nonnegative(),
   logLoss: z.number(),
@@ -35,7 +40,7 @@ export const gameModelParameterArtifactSchema = z.object({
   manifestType: z.literal("kbo-game-model-parameters"),
   version: z.literal(1),
   trainedAt: z.string().datetime(),
-  objective: z.literal("multiclass-log-loss"),
+  objective: trainingObjectiveSchema,
   fitYears: z.array(z.number().int()).min(1),
   tuneYears: z.array(z.number().int()),
   validationYears: z.array(z.number().int()),
@@ -52,7 +57,7 @@ export const gameModelBacktestSummarySchema = z.object({
   manifestType: z.literal("kbo-game-model-backtest-summary"),
   version: z.literal(1),
   generatedAt: z.string().datetime(),
-  objective: z.literal("multiclass-log-loss"),
+  objective: trainingObjectiveSchema,
   fitYears: z.array(z.number().int()).min(1),
   tuneYears: z.array(z.number().int()),
   validationYears: z.array(z.number().int()),
@@ -85,7 +90,7 @@ export const runtimeModelParameterArtifactSchema = z.object({
   manifestType: z.literal("kbo-runtime-model-parameters"),
   version: z.literal(1),
   trainedAt: z.string().datetime(),
-  objective: z.literal("multiclass-log-loss"),
+  objective: trainingObjectiveSchema,
   fitYears: z.array(z.number().int()).min(1),
   tuneYears: z.array(z.number().int()),
   validationYears: z.array(z.number().int()),
@@ -115,7 +120,7 @@ export const runtimeModelBacktestSummarySchema = z.object({
   manifestType: z.literal("kbo-runtime-model-backtest-summary"),
   version: z.literal(1),
   generatedAt: z.string().datetime(),
-  objective: z.literal("multiclass-log-loss"),
+  objective: trainingObjectiveSchema,
   fitYears: z.array(z.number().int()).min(1),
   tuneYears: z.array(z.number().int()),
   validationYears: z.array(z.number().int()),
@@ -144,7 +149,11 @@ export const runtimeModelBacktestSummarySchema = z.object({
   selection: z.object({
     startCount: z.number().int().positive(),
     selectedStartIndex: z.number().int().nonnegative(),
-    criterion: z.enum(["rolling-validation-log-loss", "validation-log-loss"]),
+    criterion: z.enum([
+      "rolling-validation-log-loss",
+      "validation-log-loss",
+      "blended-validation-log-loss",
+    ]),
   }),
   multiStarts: z.array(
     z.object({

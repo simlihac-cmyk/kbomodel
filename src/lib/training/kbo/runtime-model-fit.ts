@@ -9,6 +9,7 @@ import type {
 import {
   buildCalibrationSummary,
   fitGameModelParametersFromPreparedExamples,
+  GAME_MODEL_OBJECTIVE,
   scorePreparedExamples,
   splitTrainYears,
   type PreparedGameExample,
@@ -46,6 +47,7 @@ import {
 type HistoricalGameContextExample = {
   sampleId: string;
   year: number;
+  seasonProgress: number;
   regularSeasonGamesPerTeam: number;
   homeFranchiseId: string;
   awayFranchiseId: string;
@@ -111,10 +113,8 @@ type StrengthTunableKey =
   | "currentWeightMin"
   | "currentWeightMax"
   | "offenseRunsWeight"
-  | "offenseRunDiffWeight"
   | "offenseRecentWeight"
   | "runPreventionRunsAllowedWeight"
-  | "runPreventionRunDiffWeight"
   | "runPreventionWinPctWeight"
   | "bullpenRunsAllowedWeight"
   | "bullpenRecentWeight"
@@ -141,22 +141,20 @@ const STRENGTH_PARAMETER_SPECS: StrengthParameterSpec[] = [
   { key: "currentWeightShrinkageMultiplier", min: 0.8, max: 4.4, step: 0.2, decay: 0.62 },
   { key: "currentWeightMin", min: 0.01, max: 0.18, step: 0.012, decay: 0.72 },
   { key: "currentWeightMax", min: 0.58, max: 0.95, step: 0.02, decay: 0.72 },
-  { key: "offenseRunsWeight", min: 4.5, max: 14.5, step: 0.55, decay: 0.62 },
-  { key: "offenseRunDiffWeight", min: 0, max: 5.6, step: 0.3, decay: 0.62 },
-  { key: "offenseRecentWeight", min: 0, max: 8.5, step: 0.35, decay: 0.65 },
-  { key: "runPreventionRunsAllowedWeight", min: 4.5, max: 14.5, step: 0.55, decay: 0.62 },
-  { key: "runPreventionRunDiffWeight", min: 0, max: 5.8, step: 0.3, decay: 0.62 },
-  { key: "runPreventionWinPctWeight", min: 0, max: 12.5, step: 0.5, decay: 0.62 },
-  { key: "bullpenRunsAllowedWeight", min: 2.5, max: 10.5, step: 0.35, decay: 0.65 },
-  { key: "bullpenRecentWeight", min: 0, max: 10.5, step: 0.35, decay: 0.65 },
+  { key: "offenseRunsWeight", min: 3.2, max: 10.5, step: 0.45, decay: 0.62 },
+  { key: "offenseRecentWeight", min: 1.5, max: 14.5, step: 0.55, decay: 0.65 },
+  { key: "runPreventionRunsAllowedWeight", min: 3.2, max: 10.5, step: 0.45, decay: 0.62 },
+  { key: "runPreventionWinPctWeight", min: 2, max: 15, step: 0.55, decay: 0.62 },
+  { key: "bullpenRunsAllowedWeight", min: 1.5, max: 7.5, step: 0.3, decay: 0.65 },
+  { key: "bullpenRecentWeight", min: 1.5, max: 15, step: 0.55, decay: 0.65 },
   { key: "bullpenStreakWeight", min: 0, max: 1.2, step: 0.06, decay: 0.68 },
   { key: "homeFieldSplitWeight", min: 0.04, max: 0.42, step: 0.02, decay: 0.68 },
-  { key: "recentFormWinRateWeight", min: 0, max: 1.4, step: 0.08, decay: 0.68 },
-  { key: "recentFormStreakWeight", min: 0, max: 0.22, step: 0.01, decay: 0.68 },
+  { key: "recentFormWinRateWeight", min: 0.4, max: 3.2, step: 0.14, decay: 0.68 },
+  { key: "recentFormStreakWeight", min: 0, max: 0.18, step: 0.008, decay: 0.68 },
   { key: "confidenceBase", min: 0.08, max: 0.45, step: 0.02, decay: 0.7 },
   { key: "confidenceCurrentWeightWeight", min: 0.25, max: 1.1, step: 0.05, decay: 0.7 },
-  { key: "confidenceRunDiffWeight", min: 0, max: 0.08, step: 0.004, decay: 0.7 },
-  { key: "confidenceRunDiffCap", min: 0.02, max: 0.16, step: 0.01, decay: 0.7 },
+  { key: "confidenceRunDiffWeight", min: 0, max: 0.14, step: 0.006, decay: 0.7 },
+  { key: "confidenceRunDiffCap", min: 0.02, max: 0.2, step: 0.012, decay: 0.7 },
 ];
 
 function roundMetric(value: number, digits = 6) {
@@ -210,15 +208,16 @@ function buildStartCandidates(
     {
       strength: normalizeStrengthParameterSet({
         ...baselineStrength,
-        offenseRunDiffWeight: 0,
-        runPreventionRunDiffWeight: 0,
         currentWeightProgressExponent: baselineStrength.currentWeightProgressExponent + 0.25,
+        offenseRecentWeight: baselineStrength.offenseRecentWeight * 1.2,
+        bullpenRecentWeight: baselineStrength.bullpenRecentWeight * 1.15,
+        recentFormWinRateWeight: baselineStrength.recentFormWinRateWeight * 1.25,
       }),
       game: normalizeGameParameterSet({
         ...baselineGame,
         homeFieldWeightHome: baselineGame.homeFieldWeightHome * 0.75,
         homeFieldWeightAway: baselineGame.homeFieldWeightAway * 0.65,
-        recentFormWeight: baselineGame.recentFormWeight * 0.75,
+        recentFormWeight: baselineGame.recentFormWeight * 1.2,
       }),
     },
     {
@@ -226,8 +225,8 @@ function buildStartCandidates(
         ...baselineStrength,
         currentWeightProgressExponent: Math.max(0.8, baselineStrength.currentWeightProgressExponent - 0.2),
         currentWeightShrinkageMultiplier: baselineStrength.currentWeightShrinkageMultiplier * 0.85,
-        offenseRunDiffWeight: baselineStrength.offenseRunDiffWeight * 0.35,
-        runPreventionRunDiffWeight: baselineStrength.runPreventionRunDiffWeight * 0.35,
+        offenseRecentWeight: baselineStrength.offenseRecentWeight * 1.25,
+        bullpenRecentWeight: baselineStrength.bullpenRecentWeight * 1.18,
       }),
       game: normalizeGameParameterSet({
         ...baselineGame,
@@ -235,6 +234,7 @@ function buildStartCandidates(
         starterWeight: baselineGame.starterWeight * 1.08,
         homeFieldWeightHome: baselineGame.homeFieldWeightHome * 0.82,
         homeFieldWeightAway: baselineGame.homeFieldWeightAway * 0.72,
+        recentFormWeight: baselineGame.recentFormWeight * 1.18,
       }),
     },
     {
@@ -242,13 +242,14 @@ function buildStartCandidates(
         ...baselineStrength,
         currentWeightProgressExponent: baselineStrength.currentWeightProgressExponent + 0.4,
         currentWeightShrinkageMultiplier: baselineStrength.currentWeightShrinkageMultiplier * 1.2,
-        offenseRunDiffWeight: 0,
-        runPreventionRunDiffWeight: 0,
-        recentFormWinRateWeight: baselineStrength.recentFormWinRateWeight * 0.8,
+        offenseRecentWeight: baselineStrength.offenseRecentWeight * 1.4,
+        bullpenRecentWeight: baselineStrength.bullpenRecentWeight * 1.3,
+        recentFormWinRateWeight: baselineStrength.recentFormWinRateWeight * 1.35,
+        recentFormStreakWeight: baselineStrength.recentFormStreakWeight * 0.75,
       }),
       game: normalizeGameParameterSet({
         ...baselineGame,
-        recentFormWeight: baselineGame.recentFormWeight * 0.6,
+        recentFormWeight: baselineGame.recentFormWeight * 1.35,
         homeFieldWeightHome: baselineGame.homeFieldWeightHome * 0.7,
         homeFieldWeightAway: baselineGame.homeFieldWeightAway * 0.6,
         starterWeight: baselineGame.starterWeight * 1.1,
@@ -257,11 +258,11 @@ function buildStartCandidates(
     {
       strength: normalizeStrengthParameterSet({
         ...baselineStrength,
-        offenseRunDiffWeight: 0,
-        runPreventionRunDiffWeight: 0,
         offenseRunsWeight: baselineStrength.offenseRunsWeight * 1.08,
         runPreventionRunsAllowedWeight: baselineStrength.runPreventionRunsAllowedWeight * 1.08,
-        bullpenRecentWeight: baselineStrength.bullpenRecentWeight * 1.1,
+        offenseRecentWeight: baselineStrength.offenseRecentWeight * 1.5,
+        bullpenRecentWeight: baselineStrength.bullpenRecentWeight * 1.4,
+        recentFormWinRateWeight: baselineStrength.recentFormWinRateWeight * 1.45,
       }),
       game: normalizeGameParameterSet({
         ...baselineGame,
@@ -269,9 +270,31 @@ function buildStartCandidates(
         starterWeight: baselineGame.starterWeight * 1.14,
         bullpenWeight: Math.max(0.001, baselineGame.bullpenWeight * 0.9),
         tieCarryRate: baselineGame.tieCarryRate * 0.92,
+        recentFormWeight: baselineGame.recentFormWeight * 1.45,
       }),
     },
   ];
+
+  while (candidates.length < Math.max(1, starts)) {
+    const intensity = candidates.length - 4;
+    candidates.push({
+      strength: normalizeStrengthParameterSet({
+        ...baselineStrength,
+        currentWeightProgressExponent: baselineStrength.currentWeightProgressExponent + intensity * 0.06,
+        currentWeightShrinkageMultiplier: baselineStrength.currentWeightShrinkageMultiplier * (1 + intensity * 0.05),
+        offenseRecentWeight: baselineStrength.offenseRecentWeight * (1 + intensity * 0.14),
+        bullpenRecentWeight: baselineStrength.bullpenRecentWeight * (1 + intensity * 0.12),
+        recentFormWinRateWeight: baselineStrength.recentFormWinRateWeight * (1 + intensity * 0.16),
+        recentFormStreakWeight: baselineStrength.recentFormStreakWeight * Math.max(0.45, 1 - intensity * 0.08),
+      }),
+      game: normalizeGameParameterSet({
+        ...baselineGame,
+        recentFormWeight: baselineGame.recentFormWeight * (1 + intensity * 0.14),
+        homeFieldWeightHome: baselineGame.homeFieldWeightHome * Math.max(0.55, 1 - intensity * 0.05),
+        homeFieldWeightAway: baselineGame.homeFieldWeightAway * Math.max(0.45, 1 - intensity * 0.06),
+      }),
+    });
+  }
 
   return candidates.slice(0, Math.max(1, starts));
 }
@@ -368,6 +391,9 @@ function prepareHistoricalGameExamples(
         return [{
           sampleId: gameExample.sampleId,
           year: season.year,
+          seasonProgress: Number(
+            (((homeState.gamesPlayed + awayState.gamesPlayed) / 2) / regularSeasonGamesPerTeam).toFixed(4),
+          ),
           regularSeasonGamesPerTeam,
           homeFranchiseId: gameExample.homeFranchiseId,
           awayFranchiseId: gameExample.awayFranchiseId,
@@ -424,6 +450,7 @@ function prepareGameExamplesForStrengthParameters(
   return contexts.map((context) => ({
     sampleId: context.sampleId,
     year: context.year,
+    seasonProgress: context.seasonProgress,
     homeStrength: buildStrengthSnapshot(
       context.homeFranchiseId,
       context.homeState,
@@ -704,7 +731,7 @@ function fitRuntimeModelParametersSingleStart(
       manifestType: "kbo-runtime-model-parameters",
       version: 1,
       trainedAt: new Date().toISOString(),
-      objective: "multiclass-log-loss",
+      objective: GAME_MODEL_OBJECTIVE,
       fitYears,
       tuneYears,
       validationYears,
@@ -732,7 +759,7 @@ function fitRuntimeModelParametersSingleStart(
       manifestType: "kbo-runtime-model-backtest-summary",
       version: 1,
       generatedAt: new Date().toISOString(),
-      objective: "multiclass-log-loss",
+      objective: GAME_MODEL_OBJECTIVE,
       fitYears,
       tuneYears,
       validationYears,
@@ -822,13 +849,51 @@ function evaluateRollingValidation(
 }
 
 function averageRollingValidationLogLoss(results: RollingValidationResult[]) {
-  const values = results
-    .map((result) => result.validationLogLoss)
-    .filter((value): value is number => value !== null);
-  if (values.length === 0) {
+  const scoredResults = results.filter(
+    (result): result is RollingValidationResult & { validationLogLoss: number } => result.validationLogLoss !== null,
+  );
+  if (scoredResults.length === 0) {
     return null;
   }
-  return roundMetric(values.reduce((sum, value) => sum + value, 0) / values.length);
+
+  const foldYears = scoredResults.map((result) => Math.max(...result.validationYears));
+  const minYear = Math.min(...foldYears);
+  const maxYear = Math.max(...foldYears);
+  let weightedTotal = 0;
+  let totalWeight = 0;
+
+  for (const result of scoredResults) {
+    const foldYear = Math.max(...result.validationYears);
+    const weight =
+      maxYear === minYear
+        ? 1
+        : 1 + ((foldYear - minYear) / Math.max(1, maxYear - minYear)) * 0.35;
+    weightedTotal += result.validationLogLoss * weight;
+    totalWeight += weight;
+  }
+
+  return roundMetric(weightedTotal / totalWeight);
+}
+
+function buildSelectionScore(args: {
+  validationLogLoss: number | null;
+  rollingLogLoss: number | null;
+  tuneLogLoss: number | null;
+  fitLogLoss: number;
+}) {
+  if (args.validationLogLoss !== null && args.rollingLogLoss !== null) {
+    return roundMetric(args.validationLogLoss * 0.82 + args.rollingLogLoss * 0.18);
+  }
+  if (args.validationLogLoss !== null) {
+    return args.validationLogLoss;
+  }
+  if (args.rollingLogLoss !== null) {
+    return args.rollingLogLoss;
+  }
+  if (args.tuneLogLoss !== null) {
+    return args.tuneLogLoss;
+  }
+  return args.fitLogLoss;
 }
 
 export function fitRuntimeModelParameters(
@@ -851,6 +916,7 @@ export function fitRuntimeModelParameters(
   let bestStartIndex = 0;
   let bestScore = Number.POSITIVE_INFINITY;
   let bestRollingResults: RollingValidationResult[] = [];
+  let bestSelectionCriterion: RuntimeModelBacktestSummary["selection"]["criterion"] = "validation-log-loss";
   let baselineReferenceResult: RuntimeFitResult | null = null;
   const multiStarts: RuntimeModelBacktestSummary["multiStarts"] = [];
 
@@ -873,7 +939,18 @@ export function fitRuntimeModelParameters(
       : [];
     const rollingLogLoss = averageRollingValidationLogLoss(rollingResults);
     const validationLogLoss = result.backtest.fitted.validation?.logLoss ?? null;
-    const score = rollingLogLoss ?? validationLogLoss ?? result.backtest.fitted.tune?.logLoss ?? result.backtest.fitted.fit.logLoss;
+    const score = buildSelectionScore({
+      validationLogLoss,
+      rollingLogLoss,
+      tuneLogLoss: result.backtest.fitted.tune?.logLoss ?? null,
+      fitLogLoss: result.backtest.fitted.fit.logLoss,
+    });
+    const selectionCriterion =
+      validationLogLoss !== null && rollingLogLoss !== null
+        ? "blended-validation-log-loss"
+        : rollingLogLoss !== null
+          ? "rolling-validation-log-loss"
+          : "validation-log-loss";
 
     multiStarts.push({
       startIndex,
@@ -891,6 +968,7 @@ export function fitRuntimeModelParameters(
       bestResult = result;
       bestStartIndex = startIndex;
       bestRollingResults = rollingResults;
+      bestSelectionCriterion = selectionCriterion;
     }
   }
 
@@ -908,7 +986,7 @@ export function fitRuntimeModelParameters(
   bestResult.backtest.selection = {
     startCount: startCandidates.length,
     selectedStartIndex: bestStartIndex,
-    criterion: bestRollingResults.length > 0 ? "rolling-validation-log-loss" : "validation-log-loss",
+    criterion: bestSelectionCriterion,
   };
   bestResult.backtest.multiStarts = multiStarts.map((item) => ({
     ...item,

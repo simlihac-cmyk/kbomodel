@@ -219,4 +219,30 @@ describe("fitRuntimeModelParameters", () => {
     expect(result.backtest.multiStarts.length).toBeGreaterThan(0);
     expect(result.backtest.rollingValidation.length).toBeGreaterThan(0);
   });
+
+  it("honors start counts above the old five-candidate cap", () => {
+    const seasons = [
+      buildSeason(2021, {}),
+      buildSeason(2022, {
+        outcome: "awayWin",
+        homeWin: false,
+        awayWin: true,
+        homeScore: 2,
+        awayScore: 5,
+      }),
+      buildSeason(2023, {}),
+      buildSeason(2024, {}),
+      buildSeason(2025, {}),
+    ];
+
+    const result = fitRuntimeModelParameters(seasons, [2021, 2022, 2023, 2024], [2025], {
+      iterations: 1,
+      strengthMaxRounds: 1,
+      gameMaxRounds: 1,
+      starts: 7,
+    });
+
+    expect(result.artifact.search.starts).toBe(7);
+    expect(result.backtest.multiStarts).toHaveLength(7);
+  });
 });

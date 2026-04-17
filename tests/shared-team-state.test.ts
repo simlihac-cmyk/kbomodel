@@ -46,6 +46,52 @@ describe("shared team state signals", () => {
     expect(buildBullpenProxySignal(strong, league)).toBeGreaterThan(buildBullpenProxySignal(weak, league));
   });
 
+  it("does not let run differential alone overpower the shared signals", () => {
+    const steady = buildTeamStateSnapshot(buildStat({
+      seasonTeamId: "kbo-2026:steady",
+      wins: 10,
+      losses: 10,
+      runsScored: 90,
+      runsAllowed: 90,
+      last10: "5-5-0",
+    }));
+    const blowout = buildTeamStateSnapshot(buildStat({
+      seasonTeamId: "kbo-2026:blowout",
+      wins: 10,
+      losses: 10,
+      runsScored: 102,
+      runsAllowed: 78,
+      last10: "5-5-0",
+    }));
+    const league = buildTeamStateLeagueAverages([steady, blowout]);
+
+    expect(buildOffenseSignal(blowout, league)).toBeGreaterThan(buildOffenseSignal(steady, league));
+    expect(buildRunPreventionSignal(blowout, league)).toBeGreaterThan(buildRunPreventionSignal(steady, league));
+    expect(buildScheduleStrengthValue(blowout, league)).toBe(buildScheduleStrengthValue(steady, league));
+  });
+
+  it("treats schedule strength as a win-trend signal instead of a score-margin signal", () => {
+    const sameRecordA = buildTeamStateSnapshot(buildStat({
+      seasonTeamId: "kbo-2026:a",
+      wins: 10,
+      losses: 8,
+      runsScored: 110,
+      runsAllowed: 82,
+      last10: "6-4-0",
+    }));
+    const sameRecordB = buildTeamStateSnapshot(buildStat({
+      seasonTeamId: "kbo-2026:b",
+      wins: 10,
+      losses: 8,
+      runsScored: 82,
+      runsAllowed: 110,
+      last10: "6-4-0",
+    }));
+    const league = buildTeamStateLeagueAverages([sameRecordA, sameRecordB]);
+
+    expect(buildScheduleStrengthValue(sameRecordA, league)).toBe(buildScheduleStrengthValue(sameRecordB, league));
+  });
+
   it("builds home field and schedule values from shared live/historical state", () => {
     const homeStrong = buildTeamStateSnapshot(buildStat({ homeWins: 9, homeLosses: 1, awayWins: 3, awayLosses: 7 }));
     const roadStrong = buildTeamStateSnapshot(buildStat({ seasonTeamId: "kbo-2026:kt", homeWins: 4, homeLosses: 6, awayWins: 8, awayLosses: 2 }));
