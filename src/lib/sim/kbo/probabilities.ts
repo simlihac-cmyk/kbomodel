@@ -13,6 +13,8 @@ import {
   buildProbabilityAdjustmentFeaturesFromRuntime,
   type ProbabilityAdjustmentRuntimeContext,
 } from "@/lib/sim/kbo/probability-adjustment";
+import { buildDirectGameFeaturesFromRuntime } from "@/lib/sim/kbo/direct-game/feature-builder";
+import { applyDirectGameRuntimeModel } from "@/lib/sim/kbo/direct-game/runtime";
 import type {
   GameStarterProjection,
   ProjectedStarterAssignment,
@@ -321,7 +323,17 @@ export function buildGameProbabilitySnapshot(
       },
     }),
   });
-  const { homeWinProb, awayWinProb, tieProb } = adjustedProbabilities;
+  const { homeWinProb, awayWinProb, tieProb } = applyDirectGameRuntimeModel({
+    ...adjustedProbabilities,
+    features: buildDirectGameFeaturesFromRuntime({
+      game,
+      homeStrength,
+      awayStrength,
+      context: {
+        restGap: adjustmentContext?.restGap ?? null,
+      },
+    }),
+  });
 
   const explanationReasons: ExplanationReason[] = [
     {
