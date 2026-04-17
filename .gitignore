@@ -11,3 +11,12 @@ tsconfig.tsbuildinfo
 
 .env.local
 .env.*.local
+
+data/kbo/
+data/raw/
+data/manual-patches/
+data/normalized/kbo/*
+!data/normalized/kbo/history-training/
+!data/normalized/kbo/history-training/**
+!data/normalized/kbo/training-corpus/
+!data/normalized/kbo/training-corpus/**
