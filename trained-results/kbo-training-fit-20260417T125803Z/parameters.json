@@ -1,0 +1,246 @@
+{
+  "manifestType": "kbo-runtime-model-parameters",
+  "version": 1,
+  "trainedAt": "2026-04-17T12:58:32.261Z",
+  "objective": "recency-weighted-multiclass-log-loss",
+  "fitYears": [
+    2021,
+    2022,
+    2023
+  ],
+  "tuneYears": [
+    2024
+  ],
+  "validationYears": [
+    2025
+  ],
+  "search": {
+    "starts": 7,
+    "iterations": 2,
+    "strengthRounds": 11,
+    "gameRounds": 12,
+    "evaluations": {
+      "strength": 882,
+      "game": 626,
+      "contextual": 0,
+      "direct": 97,
+      "total": 1605
+    }
+  },
+  "baselineParameters": {
+    "strength": {
+      "currentWeightProgressExponent": 1.5900000000000003,
+      "currentWeightProgressMix": 0.55,
+      "currentWeightShrinkageMultiplier": 2.2,
+      "currentWeightOpponentPriorPctWeight": 0.18,
+      "currentWeightMin": 0.08,
+      "currentWeightMax": 0.84,
+      "offenseRunsWeight": 9.4,
+      "offenseRunDiffWeight": 2.6,
+      "offenseRecentWeight": 4.2,
+      "runPreventionRunsAllowedWeight": 9.8,
+      "runPreventionRunDiffWeight": 3.1,
+      "runPreventionWinPctWeight": 8.4,
+      "bullpenRunsAllowedWeight": 6.6,
+      "bullpenRecentWeight": 5.8,
+      "bullpenStreakWeight": 0.35,
+      "homeFieldSplitWeight": 0.22,
+      "homeFieldMin": 0.08,
+      "homeFieldMax": 0.3,
+      "recentFormWinRateWeight": 0.8,
+      "recentFormStreakWeight": 0.08,
+      "confidenceBase": 0.24,
+      "confidenceCurrentWeightWeight": 0.68,
+      "confidenceRunDiffWeight": 0.04,
+      "confidenceRunDiffCap": 0.08,
+      "confidenceMin": 0.16,
+      "confidenceMax": 0.92
+    },
+    "game": {
+      "leagueRunEnvironment": 4.268628185856,
+      "awayRunEnvironmentOffset": 0,
+      "offenseWeight": 0.011025023356800001,
+      "starterWeight": 0.009412393088000001,
+      "bullpenWeight": 0.001,
+      "recentFormWeight": 0.038487623906250004,
+      "homeFieldWeightHome": 0.13848762390625002,
+      "homeFieldWeightAway": 0.038487623906250004,
+      "confidenceBase": 0.41659626397696004,
+      "confidenceScale": 0.48561033215999977,
+      "tieCarryRate": 0.19848762390624997,
+      "minTieProbability": 0.015,
+      "maxTieProbability": 0.085
+    },
+    "contextual": {
+      "homeBias": 0,
+      "awayBias": 0,
+      "tieBias": 0,
+      "homeWeights": {
+        "recent10Gap": 0,
+        "pctGap": 0,
+        "venueSplitGap": 0,
+        "restGap": 0,
+        "seasonProgress": 0,
+        "recent10ByProgress": 0,
+        "pctByProgress": 0
+      },
+      "awayWeights": {
+        "recent10Gap": 0,
+        "pctGap": 0,
+        "venueSplitGap": 0,
+        "restGap": 0,
+        "seasonProgress": 0,
+        "recent10ByProgress": 0,
+        "pctByProgress": 0
+      },
+      "tieWeights": {
+        "recent10Gap": 0,
+        "pctGap": 0,
+        "venueSplitGap": 0,
+        "restGap": 0,
+        "seasonProgress": 0,
+        "recent10ByProgress": 0,
+        "pctByProgress": 0
+      }
+    },
+    "direct": {
+      "decisiveBlend": 0,
+      "decisiveBias": 0,
+      "decisiveWeights": {
+        "eloDiff": 0,
+        "pctGap": 0,
+        "recent10Gap": 0,
+        "opponentAdjustedRecent10Gap": 0,
+        "venueSplitGap": 0,
+        "restGap": 0,
+        "seasonProgress": 0,
+        "progressXEloDiff": 0,
+        "progressXPctGap": 0,
+        "progressXOpponentAdjustedRecent10Gap": 0
+      },
+      "tieBias": 0,
+      "tieWeights": {
+        "eloDiff": 0,
+        "pctGap": 0,
+        "recent10Gap": 0,
+        "opponentAdjustedRecent10Gap": 0,
+        "venueSplitGap": 0,
+        "restGap": 0,
+        "seasonProgress": 0,
+        "progressXEloDiff": 0,
+        "progressXPctGap": 0,
+        "progressXOpponentAdjustedRecent10Gap": 0
+      },
+      "tieMinProbability": 0,
+      "tieMaxProbability": 1
+    }
+  },
+  "fittedParameters": {
+    "strength": {
+      "currentWeightProgressExponent": 1.7100000000000004,
+      "currentWeightProgressMix": 0.6000000000000001,
+      "currentWeightShrinkageMultiplier": 2.2,
+      "currentWeightOpponentPriorPctWeight": 0.18,
+      "currentWeightMin": 0.092,
+      "currentWeightMax": 0.84,
+      "offenseRunsWeight": 9.4,
+      "offenseRunDiffWeight": 2.6,
+      "offenseRecentWeight": 4.2,
+      "runPreventionRunsAllowedWeight": 9.8,
+      "runPreventionRunDiffWeight": 3.1,
+      "runPreventionWinPctWeight": 8.4,
+      "bullpenRunsAllowedWeight": 6.6,
+      "bullpenRecentWeight": 5.8,
+      "bullpenStreakWeight": 0.35,
+      "homeFieldSplitWeight": 0.22,
+      "homeFieldMin": 0.08,
+      "homeFieldMax": 0.3,
+      "recentFormWinRateWeight": 0.8,
+      "recentFormStreakWeight": 0.08,
+      "confidenceBase": 0.24,
+      "confidenceCurrentWeightWeight": 0.68,
+      "confidenceRunDiffWeight": 0.04,
+      "confidenceRunDiffCap": 0.08,
+      "confidenceMin": 0.16,
+      "confidenceMax": 0.92
+    },
+    "game": {
+      "leagueRunEnvironment": 4.1886281858559995,
+      "awayRunEnvironmentOffset": 0,
+      "offenseWeight": 0.012025023356800002,
+      "starterWeight": 0.009412393088000001,
+      "bullpenWeight": 0.001,
+      "recentFormWeight": 0.07848762390625,
+      "homeFieldWeightHome": 0.16848762390625002,
+      "homeFieldWeightAway": 0.06848762390625,
+      "confidenceBase": 0.41659626397696004,
+      "confidenceScale": 0.48561033215999977,
+      "tieCarryRate": 0.16848762390624997,
+      "minTieProbability": 0.015,
+      "maxTieProbability": 0.085
+    },
+    "contextual": {
+      "homeBias": 0,
+      "awayBias": 0,
+      "tieBias": 0,
+      "homeWeights": {
+        "recent10Gap": 0,
+        "pctGap": 0,
+        "venueSplitGap": 0,
+        "restGap": 0,
+        "seasonProgress": 0,
+        "recent10ByProgress": 0,
+        "pctByProgress": 0
+      },
+      "awayWeights": {
+        "recent10Gap": 0,
+        "pctGap": 0,
+        "venueSplitGap": 0,
+        "restGap": 0,
+        "seasonProgress": 0,
+        "recent10ByProgress": 0,
+        "pctByProgress": 0
+      },
+      "tieWeights": {
+        "recent10Gap": 0,
+        "pctGap": 0,
+        "venueSplitGap": 0,
+        "restGap": 0,
+        "seasonProgress": 0,
+        "recent10ByProgress": 0,
+        "pctByProgress": 0
+      }
+    },
+    "direct": {
+      "decisiveBlend": 0.12101291026028747,
+      "decisiveBias": -0.00037143689798338296,
+      "decisiveWeights": {
+        "eloDiff": 0.014055765384414633,
+        "pctGap": 0.3499657033028577,
+        "recent10Gap": 0.1798952708294515,
+        "opponentAdjustedRecent10Gap": 0.24988644943197488,
+        "venueSplitGap": 0.08001807755240711,
+        "restGap": 0.03037779438038834,
+        "seasonProgress": 0.00005407987237418639,
+        "progressXEloDiff": -0.002819756008153934,
+        "progressXPctGap": -0.07998434025670965,
+        "progressXOpponentAdjustedRecent10Gap": -0.06004161468097356
+      },
+      "tieBias": 0,
+      "tieWeights": {
+        "eloDiff": 0,
+        "pctGap": 0,
+        "recent10Gap": 0,
+        "opponentAdjustedRecent10Gap": 0,
+        "venueSplitGap": 0,
+        "restGap": 0,
+        "seasonProgress": 0,
+        "progressXEloDiff": 0,
+        "progressXPctGap": 0,
+        "progressXOpponentAdjustedRecent10Gap": 0
+      },
+      "tieMinProbability": 0,
+      "tieMaxProbability": 1
+    }
+  }
+}
