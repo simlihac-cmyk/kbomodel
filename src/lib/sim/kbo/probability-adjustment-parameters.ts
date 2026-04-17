@@ -5,21 +5,9 @@ export const PROBABILITY_ADJUSTMENT_FEATURE_KEYS = [
   "pctGap",
   "venueSplitGap",
   "restGap",
-  "monthValue",
   "seasonProgress",
-  "offenseGap",
-  "starterGap",
-  "bullpenGap",
-  "confidenceGap",
-  "recentFormGap",
-  "currentWeightGap",
-  "homeFieldValue",
   "recent10ByProgress",
   "pctByProgress",
-  "offenseByProgress",
-  "bullpenByRest",
-  "homeFieldByRecent10",
-  "confidenceByRecent10",
 ] as const;
 
 export type ProbabilityAdjustmentFeatureKey =

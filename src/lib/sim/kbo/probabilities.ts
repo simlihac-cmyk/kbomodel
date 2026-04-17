@@ -317,9 +317,6 @@ export function buildGameProbabilitySnapshot(
       homeStrength,
       awayStrength,
       context: {
-        month:
-          adjustmentContext?.month ??
-          new Date(game.scheduledAt).getMonth() + 1,
         restGap: adjustmentContext?.restGap ?? null,
       },
     }),

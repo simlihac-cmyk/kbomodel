@@ -227,6 +227,15 @@ function initializeGradientAccumulator() {
   };
 }
 
+function resetTieAdjustment(parameters: ProbabilityAdjustmentParameterSet): ProbabilityAdjustmentParameterSet {
+  const next = cloneParameters(parameters);
+  next.tieBias = 0;
+  for (const key of PROBABILITY_ADJUSTMENT_FEATURE_KEYS) {
+    next.tieWeights[key] = 0;
+  }
+  return probabilityAdjustmentParameterSetSchema.parse(next);
+}
+
 function cloneParameters(parameters: ProbabilityAdjustmentParameterSet): ProbabilityAdjustmentParameterSet {
   return probabilityAdjustmentParameterSetSchema.parse(JSON.parse(JSON.stringify(parameters)));
 }
@@ -241,17 +250,17 @@ export function fitProbabilityAdjustmentParameters(args: {
   learningRate?: number;
   l2Penalty?: number;
 }) {
-  const initial = probabilityAdjustmentParameterSetSchema.parse(
+  const initial = resetTieAdjustment(probabilityAdjustmentParameterSetSchema.parse(
     args.initial ?? DEFAULT_PROBABILITY_ADJUSTMENT_PARAMETERS,
-  );
+  ));
   const fitYears = args.trainYears.length > 1 ? args.trainYears.slice(0, -1) : [...args.trainYears];
   const tuneYears = args.trainYears.length > 1 ? [args.trainYears.at(-1)!] : [];
   const fitExamples = fitYears.flatMap((year) => args.examplesByYear[year] ?? []);
   const tuneExamples = tuneYears.flatMap((year) => args.examplesByYear[year] ?? []);
   const validationExamples = args.validationYears.flatMap((year) => args.examplesByYear[year] ?? []);
-  const maxRounds = args.maxRounds ?? 48;
-  const learningRate = args.learningRate ?? 0.08;
-  const l2Penalty = args.l2Penalty ?? 0.0015;
+  const maxRounds = args.maxRounds ?? 36;
+  const learningRate = args.learningRate ?? 0.05;
+  const l2Penalty = args.l2Penalty ?? 0.01;
 
   if (fitExamples.length === 0) {
     throw new Error("Probability adjustment fit requires at least one fit example.");
@@ -285,36 +294,40 @@ export function fitProbabilityAdjustmentParameters(args: {
         features: example.adjustmentFeatures,
         parameters: current,
       });
-      const probabilities = [adjusted.homeWinProb, adjusted.awayWinProb, adjusted.tieProb];
-      const actuals = [example.actualHomeWin, example.actualAwayWin, example.actualTie];
       const weight = buildObjectiveWeight(example, minYear, maxYear);
+      if (example.actualTie) {
+        continue;
+      }
+
+      const decisiveTotal = Math.max(1 - adjusted.tieProb, 1e-9);
+      const homeDecisiveProb = adjusted.homeWinProb / decisiveTotal;
+      const awayDecisiveProb = adjusted.awayWinProb / decisiveTotal;
       totalWeight += weight;
-      const deltas = probabilities.map((probability, index) => (probability - actuals[index]!) * weight);
+      const deltas = [
+        (homeDecisiveProb - example.actualHomeWin) * weight,
+        (awayDecisiveProb - example.actualAwayWin) * weight,
+      ] as const;
 
       gradient.homeBias += deltas[0]!;
       gradient.awayBias += deltas[1]!;
-      gradient.tieBias += deltas[2]!;
 
       for (const key of PROBABILITY_ADJUSTMENT_FEATURE_KEYS) {
         const value = example.adjustmentFeatures[key];
         gradient.homeWeights[key] += deltas[0]! * value;
         gradient.awayWeights[key] += deltas[1]! * value;
-        gradient.tieWeights[key] += deltas[2]! * value;
       }
     }
 
     const step = learningRate / Math.max(1, totalWeight);
     current.homeBias -= step * gradient.homeBias;
     current.awayBias -= step * gradient.awayBias;
-    current.tieBias -= step * gradient.tieBias;
 
     for (const key of PROBABILITY_ADJUSTMENT_FEATURE_KEYS) {
       current.homeWeights[key] -= step * (gradient.homeWeights[key] + current.homeWeights[key] * l2Penalty);
       current.awayWeights[key] -= step * (gradient.awayWeights[key] + current.awayWeights[key] * l2Penalty);
-      current.tieWeights[key] -= step * (gradient.tieWeights[key] + current.tieWeights[key] * l2Penalty);
     }
 
-    current = probabilityAdjustmentParameterSetSchema.parse(current);
+    current = resetTieAdjustment(probabilityAdjustmentParameterSetSchema.parse(current));
     const evaluation = evaluateAdjustmentSet(
       fitExamples,
       tuneExamples,

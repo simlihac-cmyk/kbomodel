@@ -25,7 +25,6 @@ function scaleRange(value: number, divisor: number, cap = 1.5) {
 export type ProbabilityAdjustmentFeatureVector = Record<ProbabilityAdjustmentFeatureKey, number>;
 
 export type ProbabilityAdjustmentRuntimeContext = {
-  month: number;
   restGap: number | null;
 };
 
@@ -34,52 +33,24 @@ type FeatureInputs = {
   pctGap: number;
   venueSplitGap: number;
   restGap: number | null;
-  month: number;
   seasonProgress: number;
-  offenseGap: number;
-  starterGap: number;
-  bullpenGap: number;
-  confidenceGap: number;
-  recentFormGap: number;
-  currentWeightGap: number;
-  homeFieldValue: number;
 };
 
 function buildFeatureVector(inputs: FeatureInputs): ProbabilityAdjustmentFeatureVector {
   const restGap = scaleRange(safeValue(inputs.restGap), 4, 1.25);
-  const monthValue = scaleRange(inputs.month - 6.5, 3.5, 1.2);
   const seasonProgress = clamp(inputs.seasonProgress, 0, 1);
   const recent10Gap = clamp(inputs.recent10Gap, -1, 1);
   const pctGap = clamp(inputs.pctGap, -1, 1);
   const venueSplitGap = clamp(inputs.venueSplitGap, -1, 1);
-  const offenseGap = scaleRange(inputs.offenseGap, 12);
-  const starterGap = scaleRange(inputs.starterGap, 12);
-  const bullpenGap = scaleRange(inputs.bullpenGap, 10);
-  const confidenceGap = clamp(inputs.confidenceGap, -1, 1);
-  const recentFormGap = scaleRange(inputs.recentFormGap, 0.45);
-  const currentWeightGap = clamp(inputs.currentWeightGap, -1, 1);
-  const homeFieldValue = scaleRange(inputs.homeFieldValue, 0.3);
 
   return {
     recent10Gap,
     pctGap,
     venueSplitGap,
     restGap,
-    monthValue,
     seasonProgress,
-    offenseGap,
-    starterGap,
-    bullpenGap,
-    confidenceGap,
-    recentFormGap,
-    currentWeightGap,
-    homeFieldValue,
     recent10ByProgress: recent10Gap * (1 - seasonProgress),
     pctByProgress: pctGap * seasonProgress,
-    offenseByProgress: offenseGap * seasonProgress,
-    bullpenByRest: bullpenGap * restGap,
-    homeFieldByRecent10: homeFieldValue * recent10Gap,
-    confidenceByRecent10: confidenceGap * recent10Gap,
   };
 }
 
@@ -94,15 +65,7 @@ export function buildProbabilityAdjustmentFeaturesFromRuntime(args: {
     pctGap: args.homeStrength.winPct - args.awayStrength.winPct,
     venueSplitGap: args.homeStrength.homePct - args.awayStrength.awayPct,
     restGap: args.context.restGap,
-    month: args.context.month,
     seasonProgress: (args.homeStrength.seasonProgress + args.awayStrength.seasonProgress) / 2,
-    offenseGap: args.homeStrength.offenseRating - args.awayStrength.offenseRating,
-    starterGap: args.homeStrength.starterRating - args.awayStrength.starterRating,
-    bullpenGap: args.homeStrength.bullpenRating - args.awayStrength.bullpenRating,
-    confidenceGap: args.homeStrength.confidenceScore - args.awayStrength.confidenceScore,
-    recentFormGap: args.homeStrength.recentFormAdjustment - args.awayStrength.recentFormAdjustment,
-    currentWeightGap: args.homeStrength.currentWeight - args.awayStrength.currentWeight,
-    homeFieldValue: args.homeStrength.homeFieldAdjustment,
   });
 }
 
@@ -114,15 +77,7 @@ export function buildProbabilityAdjustmentFeaturesFromTrainingExample(
     pctGap: example.pctGap,
     venueSplitGap: example.venueSplitGap,
     restGap: example.restGap,
-    month: example.month,
     seasonProgress: (example.homeSeasonProgress + example.awaySeasonProgress) / 2,
-    offenseGap: example.offenseRatingGap,
-    starterGap: example.starterRatingGap,
-    bullpenGap: example.bullpenRatingGap,
-    confidenceGap: example.confidenceScoreGap,
-    recentFormGap: example.recentFormAdjustmentGap,
-    currentWeightGap: example.currentWeightGap,
-    homeFieldValue: example.homeDerivedHomeFieldAdjustment,
   });
 }
 
@@ -146,25 +101,24 @@ export function applyProbabilityAdjustment(args: {
   parameters?: ProbabilityAdjustmentParameterSet;
 }) {
   const parameters = args.parameters ?? CURRENT_PROBABILITY_ADJUSTMENT_PARAMETERS;
+  const decisiveTotal = Math.max(1 - args.tieProb, 1e-9);
+  const homeDecisiveProb = Math.max(args.homeWinProb / decisiveTotal, 1e-9);
+  const awayDecisiveProb = Math.max(args.awayWinProb / decisiveTotal, 1e-9);
   const homeLogit =
-    Math.log(Math.max(args.homeWinProb, 1e-9)) +
+    Math.log(homeDecisiveProb) +
     scoreWithWeights(parameters.homeBias, parameters.homeWeights, args.features);
   const awayLogit =
-    Math.log(Math.max(args.awayWinProb, 1e-9)) +
+    Math.log(awayDecisiveProb) +
     scoreWithWeights(parameters.awayBias, parameters.awayWeights, args.features);
-  const tieLogit =
-    Math.log(Math.max(args.tieProb, 1e-9)) +
-    scoreWithWeights(parameters.tieBias, parameters.tieWeights, args.features);
-  const maxLogit = Math.max(homeLogit, awayLogit, tieLogit);
+  const maxLogit = Math.max(homeLogit, awayLogit);
   const homeExp = Math.exp(homeLogit - maxLogit);
   const awayExp = Math.exp(awayLogit - maxLogit);
-  const tieExp = Math.exp(tieLogit - maxLogit);
-  const total = homeExp + awayExp + tieExp;
+  const total = homeExp + awayExp;
 
   return {
-    homeWinProb: homeExp / total,
-    awayWinProb: awayExp / total,
-    tieProb: tieExp / total,
+    homeWinProb: decisiveTotal * (homeExp / total),
+    awayWinProb: decisiveTotal * (awayExp / total),
+    tieProb: args.tieProb,
   };
 }
 

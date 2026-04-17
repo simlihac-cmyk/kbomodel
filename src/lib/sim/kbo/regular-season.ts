@@ -354,7 +354,6 @@ function buildSimulationEnvironment(input: SimulationInput) {
         playerImpactContext.starterByGameId[game.gameId],
         undefined,
         {
-          month: new Date(game.scheduledAt).getMonth() + 1,
           restGap: restGapByGameId[game.gameId] ?? null,
         },
       ),
