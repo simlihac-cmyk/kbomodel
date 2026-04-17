@@ -1,0 +1,39 @@
+name: KBO Hot Poller
+
+on:
+  schedule:
+    # 12:03-23:58 KST = 03:03-14:58 UTC. Odd offset avoids top-of-hour crowding.
+    - cron: "3-58/5 3-14 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: kbo-hot-poller
+  cancel-in-progress: false
+
+jobs:
+  hot-poller:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.1.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Run hot poller
+        id: hot
+        run: |
+          summary="$(pnpm exec tsx scripts/ingest/run-hot-phase.ts)"
+          echo "$summary"
+          {
+            echo "phase-summary<<EOF"
+            echo "$summary"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+      - name: Workflow summary
+        run: |
+          echo "## KBO Hot Poller" >> "$GITHUB_STEP_SUMMARY"
+          echo '${{ steps.hot.outputs.phase-summary }}' >> "$GITHUB_STEP_SUMMARY"

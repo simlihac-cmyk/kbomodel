@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-04-17T05:14:54.691Z",
+  "years": [
+    {
+      "year": 2021,
+      "output": "/Users/sg_mac/kbo/data/normalized/kbo/training-corpus/2021.json",
+      "teamExampleCount": 2430,
+      "gameExampleCount": 720
+    },
+    {
+      "year": 2022,
+      "output": "/Users/sg_mac/kbo/data/normalized/kbo/training-corpus/2022.json",
+      "teamExampleCount": 2240,
+      "gameExampleCount": 720
+    },
+    {
+      "year": 2023,
+      "output": "/Users/sg_mac/kbo/data/normalized/kbo/training-corpus/2023.json",
+      "teamExampleCount": 2300,
+      "gameExampleCount": 720
+    },
+    {
+      "year": 2024,
+      "output": "/Users/sg_mac/kbo/data/normalized/kbo/training-corpus/2024.json",
+      "teamExampleCount": 2140,
+      "gameExampleCount": 720
+    },
+    {
+      "year": 2025,
+      "output": "/Users/sg_mac/kbo/data/normalized/kbo/training-corpus/2025.json",
+      "teamExampleCount": 2170,
+      "gameExampleCount": 720
+    }
+  ],
+  "combinedOutput": "/Users/sg_mac/kbo/data/normalized/kbo/training-corpus/all.json",
+  "suggestedSplit": {
+    "trainYears": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "validationYears": [
+      2025
+    ]
+  }
+}

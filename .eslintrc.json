@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "next/core-web-vitals"
+  ],
+  "ignorePatterns": [
+    ".next/**",
+    "coverage/**",
+    "data/kbo/bundle.json",
+    "data/kbo/manual-adjustments.json"
+  ]
+}

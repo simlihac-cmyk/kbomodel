@@ -1,0 +1,22 @@
+# Route Map
+
+- `/` 현재 시즌 리다이렉트
+- `/season/[year]` 현재 시즌 대시보드
+- `/season/[year]/race` 순위전망
+- `/season/[year]/scenario` 시나리오 입력
+- `/season/[year]/teams/[teamSlug]` 시즌 팀 상세
+- `/season/[year]/postseason` 포스트시즌 odds
+- `/season/[year]/records` 기록실
+- `/archive` 아카이브 허브
+- `/archive/[year]` 시즌 아카이브
+- `/teams/[teamSlug]` 구단 아카이브
+- `/games/[gameId]` 경기 상세
+- `/players/[playerId]` 선수 상세
+- `/model` 모델 설명
+- `/admin` 관리자 홈
+- `/admin/seasons`
+- `/admin/teams`
+- `/admin/schedule`
+- `/admin/imports`
+- `/admin/manual-adjustments`
+- `/admin/audit`

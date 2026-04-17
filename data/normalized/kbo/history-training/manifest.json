@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-04-17T04:13:15.352Z",
+  "years": [
+    {
+      "year": 2021,
+      "output": "/Users/sg_mac/kbo/data/normalized/kbo/history-training/2021.json",
+      "scheduleSnapshots": 1,
+      "scoreboardSnapshots": 275,
+      "scheduledGames": 720,
+      "completedGames": 720,
+      "snapshotCount": 275
+    },
+    {
+      "year": 2022,
+      "output": "/Users/sg_mac/kbo/data/normalized/kbo/history-training/2022.json",
+      "scheduleSnapshots": 1,
+      "scoreboardSnapshots": 275,
+      "scheduledGames": 720,
+      "completedGames": 720,
+      "snapshotCount": 275
+    },
+    {
+      "year": 2023,
+      "output": "/Users/sg_mac/kbo/data/normalized/kbo/history-training/2023.json",
+      "scheduleSnapshots": 1,
+      "scoreboardSnapshots": 275,
+      "scheduledGames": 720,
+      "completedGames": 720,
+      "snapshotCount": 275
+    },
+    {
+      "year": 2024,
+      "output": "/Users/sg_mac/kbo/data/normalized/kbo/history-training/2024.json",
+      "scheduleSnapshots": 1,
+      "scoreboardSnapshots": 275,
+      "scheduledGames": 720,
+      "completedGames": 720,
+      "snapshotCount": 275
+    },
+    {
+      "year": 2025,
+      "output": "/Users/sg_mac/kbo/data/normalized/kbo/history-training/2025.json",
+      "scheduleSnapshots": 1,
+      "scoreboardSnapshots": 275,
+      "scheduledGames": 720,
+      "completedGames": 720,
+      "snapshotCount": 275
+    }
+  ],
+  "historicalRecordSnapshotKey": "2026-04-17"
+}

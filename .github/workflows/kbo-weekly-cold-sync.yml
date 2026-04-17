@@ -1,0 +1,39 @@
+name: KBO Weekly Cold Sync
+
+on:
+  schedule:
+    # Monday 04:11 KST = Sunday 19:11 UTC.
+    - cron: "11 19 * * 0"
+  workflow_dispatch:
+
+concurrency:
+  group: kbo-weekly-cold-sync
+  cancel-in-progress: false
+
+jobs:
+  weekly-cold-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.1.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Run weekly cold sync
+        id: cold
+        run: |
+          summary="$(pnpm exec tsx scripts/ingest/run-weekly-cold-sync.ts)"
+          echo "$summary"
+          {
+            echo "phase-summary<<EOF"
+            echo "$summary"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+      - name: Workflow summary
+        run: |
+          echo "## KBO Weekly Cold Sync" >> "$GITHUB_STEP_SUMMARY"
+          echo '${{ steps.cold.outputs.phase-summary }}' >> "$GITHUB_STEP_SUMMARY"

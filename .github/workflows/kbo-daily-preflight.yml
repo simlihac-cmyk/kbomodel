@@ -1,0 +1,39 @@
+name: KBO Daily Preflight
+
+on:
+  schedule:
+    # 07:12 KST = 22:12 UTC on the previous day.
+    - cron: "12 22 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: kbo-daily-preflight
+  cancel-in-progress: false
+
+jobs:
+  daily-preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.1.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Run daily preflight
+        id: preflight
+        run: |
+          summary="$(pnpm exec tsx scripts/ingest/run-daily-preflight.ts)"
+          echo "$summary"
+          {
+            echo "phase-summary<<EOF"
+            echo "$summary"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+      - name: Workflow summary
+        run: |
+          echo "## KBO Daily Preflight" >> "$GITHUB_STEP_SUMMARY"
+          echo '${{ steps.preflight.outputs.phase-summary }}' >> "$GITHUB_STEP_SUMMARY"

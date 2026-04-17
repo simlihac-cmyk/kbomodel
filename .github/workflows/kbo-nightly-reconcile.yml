@@ -1,0 +1,44 @@
+name: KBO Nightly Reconcile
+
+on:
+  schedule:
+    # 00:17 KST = 15:17 UTC on the previous day.
+    - cron: "17 15 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: kbo-nightly-reconcile
+  cancel-in-progress: false
+
+jobs:
+  nightly-reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.1.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Run nightly reconcile
+        id: nightly
+        run: |
+          summary="$(pnpm exec tsx scripts/ingest/run-nightly-reconcile.ts)"
+          echo "$summary"
+          {
+            echo "phase-summary<<EOF"
+            echo "$summary"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+      - name: Upload reconcile report
+        uses: actions/upload-artifact@v4
+        with:
+          name: kbo-nightly-reconcile
+          path: data/normalized/kbo/manifests
+      - name: Workflow summary
+        run: |
+          echo "## KBO Nightly Reconcile" >> "$GITHUB_STEP_SUMMARY"
+          echo '${{ steps.nightly.outputs.phase-summary }}' >> "$GITHUB_STEP_SUMMARY"
