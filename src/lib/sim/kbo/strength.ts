@@ -1,4 +1,4 @@
-import { BASE_HOME_FIELD_ADVANTAGE, CURRENT_SIGNAL_SHRINKAGE_GAMES, RECENT_FORM_WINDOW } from "@/lib/domain/kbo/constants";
+import { BASE_HOME_FIELD_ADVANTAGE } from "@/lib/domain/kbo/constants";
 import { buildStrengthReasons } from "@/lib/domain/kbo/explanations";
 import type {
   Game,
@@ -9,9 +9,11 @@ import type {
 import type { TeamPlayerImpact } from "@/lib/sim/kbo/player-impact";
 import {
   buildBullpenProxySignal,
+  buildConfidenceScore,
+  buildCurrentWeight,
   buildHomeFieldAdjustmentFromState,
   buildOffenseSignal,
-  parseRecent10,
+  buildRecentFormAdjustment,
   buildRunPreventionSignal,
   buildScheduleStrengthValue,
   buildTeamStateLeagueAverages,
@@ -20,27 +22,6 @@ import {
 
 function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value));
-}
-
-function buildCurrentWeight(gamesPlayed: number, regularSeasonGamesPerTeam: number) {
-  if (gamesPlayed <= 0 || regularSeasonGamesPerTeam <= 0) {
-    return 0.02;
-  }
-
-  const seasonProgress = clamp(gamesPlayed / regularSeasonGamesPerTeam, 0, 1);
-  const progressSignal = Math.pow(seasonProgress, 1.35);
-  const sampleSignal = gamesPlayed / (gamesPlayed + CURRENT_SIGNAL_SHRINKAGE_GAMES * 2.2);
-
-  return clamp(progressSignal * 0.55 + sampleSignal * 0.45, 0.08, 0.84);
-}
-
-function buildRecentFormMap(currentSeasonStats: TeamSeasonStat[]): Record<string, number> {
-  return Object.fromEntries(
-    currentSeasonStats.map((stat) => {
-      const recent10 = parseRecent10(stat.last10);
-      return [stat.seasonTeamId, Number((recent10.winRate - 0.5).toFixed(3))];
-    }),
-  );
 }
 
 function buildRemainingDifficultyMap(
@@ -117,7 +98,6 @@ export function buildTeamStrengthSnapshots(
   const previousStateByFranchise = Object.fromEntries(
     previousSeasonStats.map((stat) => [stat.seasonTeamId.split(":")[1], buildTeamStateSnapshot(stat)]),
   );
-  const recentFormMap = buildRecentFormMap(currentSeasonStats);
   const leagueState = buildTeamStateLeagueAverages(Object.values(currentStateById));
   const previousLeagueState = buildTeamStateLeagueAverages(Object.values(previousStateByFranchise));
   const difficultyMap = buildRemainingDifficultyMap(seasonTeams, games, currentSeasonStats);
@@ -180,17 +160,14 @@ export function buildTeamStrengthSnapshots(
         (playerImpact?.bullpenDelta ?? 0) * bullpenPlayerWeight
       ).toFixed(2),
     );
+    const baseRecentFormAdjustment = currentState ? buildRecentFormAdjustment(currentState) : 0;
     const recentFormAdjustment = Number(
-      (
-        (recentFormMap[seasonTeam.seasonTeamId] ?? 0) * 0.8 +
-        (currentState ? (currentState.streakValue / RECENT_FORM_WINDOW) * 0.08 : 0)
-      ).toFixed(3),
+      baseRecentFormAdjustment.toFixed(3),
     );
+    const baseConfidenceScore = currentState ? buildConfidenceScore(currentState, currentWeight) : 0.24;
     const confidenceScore = Number(
       clamp(
-        0.24 +
-          currentWeight * 0.68 +
-          Math.min(0.08, Math.abs(currentState?.runDiffPerGame ?? 0) * 0.04) +
+        baseConfidenceScore +
           manual.confidence +
           (playerImpact?.confidenceDelta ?? 0) * confidencePlayerWeight,
         0.16,

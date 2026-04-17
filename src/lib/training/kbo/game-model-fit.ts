@@ -16,7 +16,7 @@ import type {
   GamePredictionMetrics,
 } from "@/lib/training/kbo/model-types";
 
-type PreparedGameExample = {
+export type PreparedGameExample = {
   sampleId: string;
   year: number;
   homeStrength: TeamStrengthSnapshot;
@@ -134,7 +134,7 @@ function normalizeParameterSet(parameters: GameModelParameterSet): GameModelPara
   return gameModelParameterSetSchema.parse(next);
 }
 
-function scorePreparedExamples(
+export function scorePreparedExamples(
   examples: PreparedGameExample[],
   parameters: GameModelParameterSet,
 ): GamePredictionMetrics {
@@ -259,7 +259,7 @@ function buildCalibrationBuckets(
   }));
 }
 
-function buildCalibrationSummary(
+export function buildCalibrationSummary(
   examples: PreparedGameExample[],
   parameters: GameModelParameterSet,
 ): GamePredictionCalibration[] {
@@ -307,7 +307,7 @@ function evaluateParameterSet(
   };
 }
 
-function splitTrainYears(trainYears: number[]) {
+export function splitTrainYears(trainYears: number[]) {
   if (trainYears.length <= 1) {
     return {
       fitYears: [...trainYears],
@@ -332,8 +332,8 @@ function adjustParameter(
   });
 }
 
-export function fitGameModelParameters(
-  examplesByYear: Record<number, GameOutcomeTrainingExample[]>,
+export function fitGameModelParametersFromPreparedExamples(
+  examplesByYear: Record<number, PreparedGameExample[]>,
   trainYears: number[],
   validationYears: number[],
   options: FitOptions = {},
@@ -342,9 +342,9 @@ export function fitGameModelParameters(
   const { fitYears, tuneYears } = splitTrainYears(trainYears);
   const maxRounds = options.maxRounds ?? 7;
 
-  const fitExamples = prepareGameExamples(fitYears.flatMap((year) => examplesByYear[year] ?? []));
-  const tuneExamples = prepareGameExamples(tuneYears.flatMap((year) => examplesByYear[year] ?? []));
-  const validationExamples = prepareGameExamples(validationYears.flatMap((year) => examplesByYear[year] ?? []));
+  const fitExamples = fitYears.flatMap((year) => examplesByYear[year] ?? []);
+  const tuneExamples = tuneYears.flatMap((year) => examplesByYear[year] ?? []);
+  const validationExamples = validationYears.flatMap((year) => examplesByYear[year] ?? []);
 
   if (fitExamples.length === 0) {
     throw new Error("Game model fit requires at least one fit-year example.");
@@ -472,4 +472,22 @@ export function fitGameModelParameters(
       },
     },
   };
+}
+
+export function fitGameModelParameters(
+  examplesByYear: Record<number, GameOutcomeTrainingExample[]>,
+  trainYears: number[],
+  validationYears: number[],
+  options: FitOptions = {},
+): FitResult {
+  const preparedByYear = Object.fromEntries(
+    Object.entries(examplesByYear).map(([year, examples]) => [Number(year), prepareGameExamples(examples)]),
+  ) as Record<number, PreparedGameExample[]>;
+
+  return fitGameModelParametersFromPreparedExamples(
+    preparedByYear,
+    trainYears,
+    validationYears,
+    options,
+  );
 }

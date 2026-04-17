@@ -4,16 +4,16 @@ import { z } from "zod";
 
 import { trainingCorpusSeasonSchema } from "@/lib/data-sources/kbo/training-corpus-types";
 import {
-  fitGameModelParameters,
-} from "@/lib/training/kbo/game-model-fit";
+  fitRuntimeModelParameters,
+} from "@/lib/training/kbo/runtime-model-fit";
 import {
   KBO_TRAINING_RESULT_ROOT,
   buildTimestampId,
   writeJsonFile,
 } from "@/lib/training/kbo/transfer";
 import {
-  gameModelBacktestSummarySchema,
-  gameModelParameterArtifactSchema,
+  runtimeModelBacktestSummarySchema,
+  runtimeModelParameterArtifactSchema,
 } from "@/lib/training/kbo/model-types";
 
 const TRAINING_CORPUS_ROOT = path.join(process.cwd(), "data", "normalized", "kbo", "training-corpus");
@@ -81,14 +81,17 @@ async function main() {
   const selectedYears = Array.from(new Set([...trainYears, ...validationYears])).sort((left, right) => left - right);
   const seasons = await Promise.all(selectedYears.map((year) => loadTrainingCorpusSeason(args.corpusRoot, year)));
   const examplesByYear = Object.fromEntries(
-    seasons.map((season) => [season.year, season.gameExamples]),
-  ) as Record<number, (typeof seasons)[number]["gameExamples"]>;
+    seasons.map((season) => [season.year, season]),
+  ) as Record<number, (typeof seasons)[number]>;
 
-  const result = fitGameModelParameters(examplesByYear, trainYears, validationYears, {
-    maxRounds: args.maxRounds,
+  const selectedSeasons = selectedYears.map((year) => examplesByYear[year]!);
+  const result = fitRuntimeModelParameters(selectedSeasons, trainYears, validationYears, {
+    iterations: 2,
+    strengthMaxRounds: Math.max(2, args.maxRounds - 1),
+    gameMaxRounds: args.maxRounds,
   });
-  const parameters = gameModelParameterArtifactSchema.parse(result.artifact);
-  const backtest = gameModelBacktestSummarySchema.parse(result.backtest);
+  const parameters = runtimeModelParameterArtifactSchema.parse(result.artifact);
+  const backtest = runtimeModelBacktestSummarySchema.parse(result.backtest);
 
   await fs.mkdir(args.outputDir, { recursive: true });
   await writeJsonFile(path.join(args.outputDir, "parameters.json"), parameters);
@@ -98,6 +101,12 @@ async function main() {
   console.log(`[training-fit] fit years -> ${parameters.fitYears.join(", ")}`);
   console.log(`[training-fit] tune years -> ${parameters.tuneYears.join(", ") || "-"}`);
   console.log(`[training-fit] validation years -> ${parameters.validationYears.join(", ") || "-"}`);
+  console.log(
+    `[training-fit] strength evaluations -> ${parameters.search.evaluations.strength}`,
+  );
+  console.log(
+    `[training-fit] game evaluations -> ${parameters.search.evaluations.game}`,
+  );
   console.log(
     `[training-fit] baseline validation logLoss -> ${backtest.baseline.validation?.logLoss ?? "n/a"}`,
   );

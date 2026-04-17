@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import { gameModelParameterSetSchema } from "@/lib/sim/kbo/model-parameters";
+import { strengthModelParameterSetSchema } from "@/lib/sim/kbo/strength-model-parameters";
 
 export const gamePredictionMetricsSchema = z.object({
   sampleCount: z.number().int().nonnegative(),
@@ -79,3 +80,72 @@ export const gameModelBacktestSummarySchema = z.object({
   }),
 });
 export type GameModelBacktestSummary = z.infer<typeof gameModelBacktestSummarySchema>;
+
+export const runtimeModelParameterArtifactSchema = z.object({
+  manifestType: z.literal("kbo-runtime-model-parameters"),
+  version: z.literal(1),
+  trainedAt: z.string().datetime(),
+  objective: z.literal("multiclass-log-loss"),
+  fitYears: z.array(z.number().int()).min(1),
+  tuneYears: z.array(z.number().int()),
+  validationYears: z.array(z.number().int()),
+  search: z.object({
+    iterations: z.number().int().positive(),
+    strengthRounds: z.number().int().positive(),
+    gameRounds: z.number().int().positive(),
+    evaluations: z.object({
+      strength: z.number().int().positive(),
+      game: z.number().int().positive(),
+      total: z.number().int().positive(),
+    }),
+  }),
+  baselineParameters: z.object({
+    strength: strengthModelParameterSetSchema,
+    game: gameModelParameterSetSchema,
+  }),
+  fittedParameters: z.object({
+    strength: strengthModelParameterSetSchema,
+    game: gameModelParameterSetSchema,
+  }),
+});
+export type RuntimeModelParameterArtifact = z.infer<typeof runtimeModelParameterArtifactSchema>;
+
+export const runtimeModelBacktestSummarySchema = z.object({
+  manifestType: z.literal("kbo-runtime-model-backtest-summary"),
+  version: z.literal(1),
+  generatedAt: z.string().datetime(),
+  objective: z.literal("multiclass-log-loss"),
+  fitYears: z.array(z.number().int()).min(1),
+  tuneYears: z.array(z.number().int()),
+  validationYears: z.array(z.number().int()),
+  baseline: z.object({
+    fit: gamePredictionMetricsSchema,
+    tune: gamePredictionMetricsSchema.nullable(),
+    validation: gamePredictionMetricsSchema.nullable(),
+  }),
+  fitted: z.object({
+    fit: gamePredictionMetricsSchema,
+    tune: gamePredictionMetricsSchema.nullable(),
+    validation: gamePredictionMetricsSchema.nullable(),
+  }),
+  deltas: z.object({
+    fitLogLoss: z.number(),
+    tuneLogLoss: z.number().nullable(),
+    validationLogLoss: z.number().nullable(),
+    fitBrierScore: z.number(),
+    tuneBrierScore: z.number().nullable(),
+    validationBrierScore: z.number().nullable(),
+  }),
+  calibration: z.object({
+    baselineValidation: z.array(gamePredictionCalibrationSchema),
+    fittedValidation: z.array(gamePredictionCalibrationSchema),
+  }),
+  iterations: z.array(
+    z.object({
+      iteration: z.number().int().positive(),
+      strengthValidationLogLoss: z.number().nullable(),
+      gameValidationLogLoss: z.number().nullable(),
+    }),
+  ),
+});
+export type RuntimeModelBacktestSummary = z.infer<typeof runtimeModelBacktestSummarySchema>;

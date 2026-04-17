@@ -1,5 +1,7 @@
 import { CURRENT_SIGNAL_SHRINKAGE_GAMES, RECENT_FORM_WINDOW } from "@/lib/domain/kbo/constants";
 import type { TeamSeasonStat } from "@/lib/domain/kbo/types";
+import { CURRENT_STRENGTH_MODEL_PARAMETERS } from "@/lib/sim/kbo/current-strength-model-parameters";
+import type { StrengthModelParameterSet } from "@/lib/sim/kbo/strength-model-parameters";
 
 function clamp(value: number, min: number, max: number) {
   return Math.max(min, Math.min(max, value));
@@ -183,41 +185,58 @@ export function buildTeamStateLeagueAverages(states: TeamStateSnapshot[]): TeamS
   };
 }
 
-export function buildOffenseSignal(state: TeamStateSnapshot, league: TeamStateLeagueAverages) {
+export function buildOffenseSignal(
+  state: TeamStateSnapshot,
+  league: TeamStateLeagueAverages,
+  parameters: StrengthModelParameterSet = CURRENT_STRENGTH_MODEL_PARAMETERS,
+) {
   return clamp(
-    (state.runsScoredPerGame - league.runsScoredPerGame) * 9.4 +
-      (state.runDiffPerGame - league.runDiffPerGame) * 2.6 +
-      (state.recent10WinRate - league.recent10WinRate) * 4.2,
+    (state.runsScoredPerGame - league.runsScoredPerGame) * parameters.offenseRunsWeight +
+      (state.runDiffPerGame - league.runDiffPerGame) * parameters.offenseRunDiffWeight +
+      (state.recent10WinRate - league.recent10WinRate) * parameters.offenseRecentWeight,
     -16,
     16,
   );
 }
 
-export function buildRunPreventionSignal(state: TeamStateSnapshot, league: TeamStateLeagueAverages) {
+export function buildRunPreventionSignal(
+  state: TeamStateSnapshot,
+  league: TeamStateLeagueAverages,
+  parameters: StrengthModelParameterSet = CURRENT_STRENGTH_MODEL_PARAMETERS,
+) {
   return clamp(
-    (league.runsAllowedPerGame - state.runsAllowedPerGame) * 9.8 +
-      (state.runDiffPerGame - league.runDiffPerGame) * 3.1 +
-      (state.winPct - league.winPct) * 8.4,
+    (league.runsAllowedPerGame - state.runsAllowedPerGame) * parameters.runPreventionRunsAllowedWeight +
+      (state.runDiffPerGame - league.runDiffPerGame) * parameters.runPreventionRunDiffWeight +
+      (state.winPct - league.winPct) * parameters.runPreventionWinPctWeight,
     -16,
     16,
   );
 }
 
-export function buildBullpenProxySignal(state: TeamStateSnapshot, league: TeamStateLeagueAverages) {
+export function buildBullpenProxySignal(
+  state: TeamStateSnapshot,
+  league: TeamStateLeagueAverages,
+  parameters: StrengthModelParameterSet = CURRENT_STRENGTH_MODEL_PARAMETERS,
+) {
   return clamp(
-    (league.runsAllowedPerGame - state.runsAllowedPerGame) * 6.6 +
-      (state.recent10WinRate - league.recent10WinRate) * 5.8 +
-      state.streakValue * 0.35,
+    (league.runsAllowedPerGame - state.runsAllowedPerGame) * parameters.bullpenRunsAllowedWeight +
+      (state.recent10WinRate - league.recent10WinRate) * parameters.bullpenRecentWeight +
+      state.streakValue * parameters.bullpenStreakWeight,
     -12,
     12,
   );
 }
 
-export function buildHomeFieldAdjustmentFromState(state: TeamStateSnapshot, league: TeamStateLeagueAverages, baseAdjustment: number) {
+export function buildHomeFieldAdjustmentFromState(
+  state: TeamStateSnapshot,
+  league: TeamStateLeagueAverages,
+  baseAdjustment: number,
+  parameters: StrengthModelParameterSet = CURRENT_STRENGTH_MODEL_PARAMETERS,
+) {
   return clamp(
-    baseAdjustment + (state.splitGap - (league.homePct - league.awayPct)) * 0.22,
-    0.08,
-    0.3,
+    baseAdjustment + (state.splitGap - (league.homePct - league.awayPct)) * parameters.homeFieldSplitWeight,
+    parameters.homeFieldMin,
+    parameters.homeFieldMax,
   );
 }
 
@@ -229,27 +248,49 @@ export function buildScheduleStrengthValue(state: TeamStateSnapshot, league: Tea
   );
 }
 
-export function buildCurrentWeight(gamesPlayed: number, regularSeasonGamesPerTeam: number) {
+export function buildCurrentWeight(
+  gamesPlayed: number,
+  regularSeasonGamesPerTeam: number,
+  parameters: StrengthModelParameterSet = CURRENT_STRENGTH_MODEL_PARAMETERS,
+) {
   if (gamesPlayed <= 0 || regularSeasonGamesPerTeam <= 0) {
     return 0.02;
   }
 
   const seasonProgress = clamp(gamesPlayed / regularSeasonGamesPerTeam, 0, 1);
-  const progressSignal = Math.pow(seasonProgress, 1.35);
-  const sampleSignal = gamesPlayed / (gamesPlayed + CURRENT_SIGNAL_SHRINKAGE_GAMES * 2.2);
+  const progressSignal = Math.pow(seasonProgress, parameters.currentWeightProgressExponent);
+  const sampleSignal =
+    gamesPlayed / (gamesPlayed + CURRENT_SIGNAL_SHRINKAGE_GAMES * parameters.currentWeightShrinkageMultiplier);
 
-  return clamp(progressSignal * 0.55 + sampleSignal * 0.45, 0.08, 0.84);
-}
-
-export function buildRecentFormAdjustment(state: TeamStateSnapshot) {
-  return (state.recent10WinRate - 0.5) * 0.8 + (state.streakValue / RECENT_FORM_WINDOW) * 0.08;
-}
-
-export function buildConfidenceScore(state: TeamStateSnapshot, currentWeight: number) {
   return clamp(
-    0.24 + currentWeight * 0.68 + Math.min(0.08, Math.abs(state.runDiffPerGame) * 0.04),
-    0.16,
-    0.92,
+    progressSignal * parameters.currentWeightProgressMix +
+      sampleSignal * (1 - parameters.currentWeightProgressMix),
+    parameters.currentWeightMin,
+    parameters.currentWeightMax,
+  );
+}
+
+export function buildRecentFormAdjustment(
+  state: TeamStateSnapshot,
+  parameters: StrengthModelParameterSet = CURRENT_STRENGTH_MODEL_PARAMETERS,
+) {
+  return (
+    (state.recent10WinRate - 0.5) * parameters.recentFormWinRateWeight +
+    (state.streakValue / RECENT_FORM_WINDOW) * parameters.recentFormStreakWeight
+  );
+}
+
+export function buildConfidenceScore(
+  state: TeamStateSnapshot,
+  currentWeight: number,
+  parameters: StrengthModelParameterSet = CURRENT_STRENGTH_MODEL_PARAMETERS,
+) {
+  return clamp(
+    parameters.confidenceBase +
+      currentWeight * parameters.confidenceCurrentWeightWeight +
+      Math.min(parameters.confidenceRunDiffCap, Math.abs(state.runDiffPerGame) * parameters.confidenceRunDiffWeight),
+    parameters.confidenceMin,
+    parameters.confidenceMax,
   );
 }
 
@@ -258,11 +299,13 @@ export function buildFactBasedOperationalSnapshot(args: {
   league: TeamStateLeagueAverages;
   regularSeasonGamesPerTeam: number;
   baseHomeFieldAdjustment: number;
+  parameters?: StrengthModelParameterSet;
 }): FactBasedOperationalSnapshot {
-  const currentWeight = buildCurrentWeight(args.state.gamesPlayed, args.regularSeasonGamesPerTeam);
-  const offenseSignal = buildOffenseSignal(args.state, args.league);
-  const runPreventionSignal = buildRunPreventionSignal(args.state, args.league);
-  const bullpenSignal = buildBullpenProxySignal(args.state, args.league);
+  const parameters = args.parameters ?? CURRENT_STRENGTH_MODEL_PARAMETERS;
+  const currentWeight = buildCurrentWeight(args.state.gamesPlayed, args.regularSeasonGamesPerTeam, parameters);
+  const offenseSignal = buildOffenseSignal(args.state, args.league, parameters);
+  const runPreventionSignal = buildRunPreventionSignal(args.state, args.league, parameters);
+  const bullpenSignal = buildBullpenProxySignal(args.state, args.league, parameters);
 
   return {
     currentWeight: Number(currentWeight.toFixed(4)),
@@ -272,11 +315,11 @@ export function buildFactBasedOperationalSnapshot(args: {
     offenseRating: Number((100 + offenseSignal * currentWeight).toFixed(4)),
     starterRating: Number((100 + runPreventionSignal * currentWeight * 0.92).toFixed(4)),
     bullpenRating: Number((100 + bullpenSignal * currentWeight).toFixed(4)),
-    confidenceScore: Number(buildConfidenceScore(args.state, currentWeight).toFixed(4)),
+    confidenceScore: Number(buildConfidenceScore(args.state, currentWeight, parameters).toFixed(4)),
     homeFieldAdjustment: Number(
-      buildHomeFieldAdjustmentFromState(args.state, args.league, args.baseHomeFieldAdjustment).toFixed(4),
+      buildHomeFieldAdjustmentFromState(args.state, args.league, args.baseHomeFieldAdjustment, parameters).toFixed(4),
     ),
-    recentFormAdjustment: Number(buildRecentFormAdjustment(args.state).toFixed(4)),
+    recentFormAdjustment: Number(buildRecentFormAdjustment(args.state, parameters).toFixed(4)),
   };
 }
 

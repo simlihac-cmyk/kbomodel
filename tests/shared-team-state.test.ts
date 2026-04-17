@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import type { TeamSeasonStat } from "@/lib/domain/kbo/types";
 import {
   buildBullpenProxySignal,
+  buildCurrentWeight,
   buildHomeFieldAdjustmentFromState,
   buildOffenseSignal,
   parseRecent10,
@@ -11,6 +12,7 @@ import {
   buildTeamStateLeagueAverages,
   buildTeamStateSnapshot,
 } from "@/lib/sim/kbo/shared-team-state";
+import { DEFAULT_STRENGTH_MODEL_PARAMETERS } from "@/lib/sim/kbo/strength-model-parameters";
 
 describe("shared team state signals", () => {
   const buildStat = (overrides: Partial<TeamSeasonStat>): TeamSeasonStat => ({
@@ -56,5 +58,22 @@ describe("shared team state signals", () => {
   it("treats an empty recent-10 sample as neutral instead of negative", () => {
     expect(parseRecent10("0-0").winRate).toBe(0.5);
     expect(parseRecent10("0-0-0").winRate).toBe(0.5);
+  });
+
+  it("lets current-weight conservatism move with learned parameters", () => {
+    const conservative = buildCurrentWeight(14, 144, {
+      ...DEFAULT_STRENGTH_MODEL_PARAMETERS,
+      currentWeightProgressExponent: 1.8,
+      currentWeightProgressMix: 0.62,
+      currentWeightShrinkageMultiplier: 2.8,
+    });
+    const aggressive = buildCurrentWeight(14, 144, {
+      ...DEFAULT_STRENGTH_MODEL_PARAMETERS,
+      currentWeightProgressExponent: 0.9,
+      currentWeightProgressMix: 0.35,
+      currentWeightShrinkageMultiplier: 1.2,
+    });
+
+    expect(aggressive).toBeGreaterThan(conservative);
   });
 });

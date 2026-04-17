@@ -81,7 +81,14 @@ pnpm training:kbo:fit
 - 산출 파일:
   - `parameters.json`
   - `backtest-summary.json`
-- 현재 학습기는 `derivedOffenseRating`, `derivedStarterRating`, `derivedBullpenRating`, `derivedConfidenceScore`, `derivedHomeFieldAdjustment`, `derivedRecentFormAdjustment`를 사용해 경기 확률 계수를 맞춘다.
+- 현재 학습기는 `팀 상태 -> 전력 합성(strength params) -> 경기 확률(game params)`을 단계적으로 같이 튜닝한다.
+- strength 학습 대상에는 아래가 포함된다.
+  - `currentWeight / priorWeight` 곡선
+  - 타선/실점 억제/불펜 proxy 신호 계수
+  - 최근 폼 가중치
+  - 홈 이점 split 반영치
+  - confidence 계산 계수
+- game 학습 대상에는 기존과 같이 기대득점/홈 어드밴티지/tie 관련 계수가 포함된다.
 - 학습 결과는 멀티클래스 log-loss 기준으로 선택한다.
 
 ## 4. 노트북에서 결과 번들 포장
@@ -118,7 +125,9 @@ pnpm training:kbo:import-results -- --from=/path/to/result-dir
 pnpm training:kbo:promote -- --from=trained-results/<result-dir>/parameters.json
 ```
 
-- 이 명령은 `src/lib/sim/kbo/current-model-parameters.ts`를 갱신한다.
+- 이 명령은 아래 두 파일을 같이 갱신한다.
+  - `src/lib/sim/kbo/current-strength-model-parameters.ts`
+  - `src/lib/sim/kbo/current-model-parameters.ts`
 - 이후 `pnpm test`, `pnpm build`로 확인한 뒤 배포하면 된다.
 
 ## 운영 원칙
