@@ -69,7 +69,7 @@ pnpm training:kbo:fit
 
 ## 3. 노트북에서 실제 학습 실행
 ```bash
-pnpm training:kbo:fit
+pnpm training:kbo:fit -- --max-rounds=10 --starts=5
 ```
 
 - 기본 입력 경로: `data/normalized/kbo/training-corpus`
@@ -82,12 +82,17 @@ pnpm training:kbo:fit
   - `parameters.json`
   - `backtest-summary.json`
 - 현재 학습기는 `팀 상태 -> 전력 합성(strength params) -> 경기 확률(game params)`을 단계적으로 같이 튜닝한다.
+- 기본적으로 `multi-start`와 `rolling validation`을 함께 사용한다.
+  - `starts=5`면 서로 다른 초기값 5개로 학습을 반복한다.
+  - rolling validation은 `2023`, `2024`, `2025`처럼 뒤 연도를 순차 홀드아웃으로 다시 확인한다.
+- 시작점 수를 줄이고 싶으면 `--starts=3`, rolling validation을 끄고 싶으면 `--no-rolling-validation`을 붙인다.
 - strength 학습 대상에는 아래가 포함된다.
   - `currentWeight / priorWeight` 곡선
   - 타선/실점 억제/불펜 proxy 신호 계수
   - 최근 폼 가중치
   - 홈 이점 split 반영치
   - confidence 계산 계수
+- 득실차 가중치는 강한 고정값으로 두지 않고, `0`까지 내려갈 수 있게 학습 탐색 범위를 열어뒀다.
 - game 학습 대상에는 기존과 같이 기대득점/홈 어드밴티지/tie 관련 계수가 포함된다.
 - 학습 결과는 멀티클래스 log-loss 기준으로 선택한다.
 

@@ -90,6 +90,7 @@ export const runtimeModelParameterArtifactSchema = z.object({
   tuneYears: z.array(z.number().int()),
   validationYears: z.array(z.number().int()),
   search: z.object({
+    starts: z.number().int().positive(),
     iterations: z.number().int().positive(),
     strengthRounds: z.number().int().positive(),
     gameRounds: z.number().int().positive(),
@@ -140,6 +141,27 @@ export const runtimeModelBacktestSummarySchema = z.object({
     baselineValidation: z.array(gamePredictionCalibrationSchema),
     fittedValidation: z.array(gamePredictionCalibrationSchema),
   }),
+  selection: z.object({
+    startCount: z.number().int().positive(),
+    selectedStartIndex: z.number().int().nonnegative(),
+    criterion: z.enum(["rolling-validation-log-loss", "validation-log-loss"]),
+  }),
+  multiStarts: z.array(
+    z.object({
+      startIndex: z.number().int().nonnegative(),
+      validationLogLoss: z.number().nullable(),
+      rollingValidationLogLoss: z.number().nullable(),
+      selected: z.boolean(),
+    }),
+  ),
+  rollingValidation: z.array(
+    z.object({
+      trainYears: z.array(z.number().int()).min(2),
+      validationYears: z.array(z.number().int()).min(1),
+      validationLogLoss: z.number().nullable(),
+      validationBrierScore: z.number().nullable(),
+    }),
+  ),
   iterations: z.array(
     z.object({
       iteration: z.number().int().positive(),

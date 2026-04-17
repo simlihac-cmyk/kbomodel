@@ -48,7 +48,9 @@ describe("import preview", () => {
 
     const patches = buildSchedulePatchesFromImport(raw, bundle, "2026-04-15T12:00:00+09:00");
     expect(patches).toHaveLength(1);
-    expect(patches[0]?.gameId).toBe("game:official-kbo-ko:20260415두산SSG");
+    const patchedGame = bundle.games.find((game) => game.gameId === patches[0]?.gameId);
+    expect(patchedGame?.homeSeasonTeamId).toBe("kbo-2026:ssg");
+    expect(patchedGame?.awaySeasonTeamId).toBe("kbo-2026:doosan");
 
     const candidates = buildImportCandidatesFromImport(raw, bundle, "2026-04-15T12:00:00+09:00");
     expect(candidates).toHaveLength(1);

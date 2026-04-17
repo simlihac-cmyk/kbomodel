@@ -73,15 +73,35 @@ type StrengthFitResult = {
 };
 
 type RuntimeFitOptions = {
+  starts?: number;
   iterations?: number;
   strengthMaxRounds?: number;
   gameMaxRounds?: number;
   initialStrength?: StrengthModelParameterSet;
+  initialGame?: GameModelParameterSet;
+  useRollingValidation?: boolean;
 };
 
 type RuntimeFitResult = {
   artifact: RuntimeModelParameterArtifact;
   backtest: RuntimeModelBacktestSummary;
+};
+
+type RuntimeStartCandidate = {
+  strength: StrengthModelParameterSet;
+  game: GameModelParameterSet;
+};
+
+type RollingValidationFold = {
+  trainYears: number[];
+  validationYears: number[];
+};
+
+type RollingValidationResult = {
+  trainYears: number[];
+  validationYears: number[];
+  validationLogLoss: number | null;
+  validationBrierScore: number | null;
 };
 
 type StrengthTunableKey =
@@ -122,10 +142,10 @@ const STRENGTH_PARAMETER_SPECS: StrengthParameterSpec[] = [
   { key: "currentWeightMin", min: 0.01, max: 0.18, step: 0.012, decay: 0.72 },
   { key: "currentWeightMax", min: 0.58, max: 0.95, step: 0.02, decay: 0.72 },
   { key: "offenseRunsWeight", min: 4.5, max: 14.5, step: 0.55, decay: 0.62 },
-  { key: "offenseRunDiffWeight", min: 0.6, max: 5.6, step: 0.3, decay: 0.62 },
+  { key: "offenseRunDiffWeight", min: 0, max: 5.6, step: 0.3, decay: 0.62 },
   { key: "offenseRecentWeight", min: 0, max: 8.5, step: 0.35, decay: 0.65 },
   { key: "runPreventionRunsAllowedWeight", min: 4.5, max: 14.5, step: 0.55, decay: 0.62 },
-  { key: "runPreventionRunDiffWeight", min: 0.6, max: 5.8, step: 0.3, decay: 0.62 },
+  { key: "runPreventionRunDiffWeight", min: 0, max: 5.8, step: 0.3, decay: 0.62 },
   { key: "runPreventionWinPctWeight", min: 0, max: 12.5, step: 0.5, decay: 0.62 },
   { key: "bullpenRunsAllowedWeight", min: 2.5, max: 10.5, step: 0.35, decay: 0.65 },
   { key: "bullpenRecentWeight", min: 0, max: 10.5, step: 0.35, decay: 0.65 },
@@ -155,6 +175,119 @@ function normalizeStrengthParameterSet(parameters: StrengthModelParameterSet): S
   next.confidenceMax = Math.max(next.confidenceMax, next.confidenceMin + 0.05);
 
   return strengthModelParameterSetSchema.parse(next);
+}
+
+function normalizeGameParameterSet(parameters: GameModelParameterSet): GameModelParameterSet {
+  return {
+    ...parameters,
+    awayRunEnvironmentOffset: Math.max(0, parameters.awayRunEnvironmentOffset),
+    offenseWeight: Math.max(0.001, parameters.offenseWeight),
+    starterWeight: Math.max(0.001, parameters.starterWeight),
+    bullpenWeight: Math.max(0.001, parameters.bullpenWeight),
+    recentFormWeight: Math.max(0, parameters.recentFormWeight),
+    homeFieldWeightHome: Math.max(0, parameters.homeFieldWeightHome),
+    homeFieldWeightAway: Math.max(0, parameters.homeFieldWeightAway),
+    tieCarryRate: Math.max(0.08, parameters.tieCarryRate),
+    minTieProbability: Math.max(0.001, parameters.minTieProbability),
+    maxTieProbability: Math.max(parameters.minTieProbability + 0.005, parameters.maxTieProbability),
+  };
+}
+
+function clamp01(value: number) {
+  return Math.max(0, Math.min(1, value));
+}
+
+function buildStartCandidates(
+  baselineStrength: StrengthModelParameterSet,
+  baselineGame: GameModelParameterSet,
+  starts: number,
+): RuntimeStartCandidate[] {
+  const candidates: RuntimeStartCandidate[] = [
+    {
+      strength: normalizeStrengthParameterSet(baselineStrength),
+      game: normalizeGameParameterSet(baselineGame),
+    },
+    {
+      strength: normalizeStrengthParameterSet({
+        ...baselineStrength,
+        offenseRunDiffWeight: 0,
+        runPreventionRunDiffWeight: 0,
+        currentWeightProgressExponent: baselineStrength.currentWeightProgressExponent + 0.25,
+      }),
+      game: normalizeGameParameterSet({
+        ...baselineGame,
+        homeFieldWeightHome: baselineGame.homeFieldWeightHome * 0.75,
+        homeFieldWeightAway: baselineGame.homeFieldWeightAway * 0.65,
+        recentFormWeight: baselineGame.recentFormWeight * 0.75,
+      }),
+    },
+    {
+      strength: normalizeStrengthParameterSet({
+        ...baselineStrength,
+        currentWeightProgressExponent: Math.max(0.8, baselineStrength.currentWeightProgressExponent - 0.2),
+        currentWeightShrinkageMultiplier: baselineStrength.currentWeightShrinkageMultiplier * 0.85,
+        offenseRunDiffWeight: baselineStrength.offenseRunDiffWeight * 0.35,
+        runPreventionRunDiffWeight: baselineStrength.runPreventionRunDiffWeight * 0.35,
+      }),
+      game: normalizeGameParameterSet({
+        ...baselineGame,
+        offenseWeight: baselineGame.offenseWeight * 1.08,
+        starterWeight: baselineGame.starterWeight * 1.08,
+        homeFieldWeightHome: baselineGame.homeFieldWeightHome * 0.82,
+        homeFieldWeightAway: baselineGame.homeFieldWeightAway * 0.72,
+      }),
+    },
+    {
+      strength: normalizeStrengthParameterSet({
+        ...baselineStrength,
+        currentWeightProgressExponent: baselineStrength.currentWeightProgressExponent + 0.4,
+        currentWeightShrinkageMultiplier: baselineStrength.currentWeightShrinkageMultiplier * 1.2,
+        offenseRunDiffWeight: 0,
+        runPreventionRunDiffWeight: 0,
+        recentFormWinRateWeight: baselineStrength.recentFormWinRateWeight * 0.8,
+      }),
+      game: normalizeGameParameterSet({
+        ...baselineGame,
+        recentFormWeight: baselineGame.recentFormWeight * 0.6,
+        homeFieldWeightHome: baselineGame.homeFieldWeightHome * 0.7,
+        homeFieldWeightAway: baselineGame.homeFieldWeightAway * 0.6,
+        starterWeight: baselineGame.starterWeight * 1.1,
+      }),
+    },
+    {
+      strength: normalizeStrengthParameterSet({
+        ...baselineStrength,
+        offenseRunDiffWeight: 0,
+        runPreventionRunDiffWeight: 0,
+        offenseRunsWeight: baselineStrength.offenseRunsWeight * 1.08,
+        runPreventionRunsAllowedWeight: baselineStrength.runPreventionRunsAllowedWeight * 1.08,
+        bullpenRecentWeight: baselineStrength.bullpenRecentWeight * 1.1,
+      }),
+      game: normalizeGameParameterSet({
+        ...baselineGame,
+        offenseWeight: baselineGame.offenseWeight * 1.12,
+        starterWeight: baselineGame.starterWeight * 1.14,
+        bullpenWeight: Math.max(0.001, baselineGame.bullpenWeight * 0.9),
+        tieCarryRate: baselineGame.tieCarryRate * 0.92,
+      }),
+    },
+  ];
+
+  return candidates.slice(0, Math.max(1, starts));
+}
+
+function buildRollingValidationFolds(years: number[]): RollingValidationFold[] {
+  const sortedYears = [...years].sort((left, right) => left - right);
+  const folds: RollingValidationFold[] = [];
+
+  for (let index = 2; index < sortedYears.length; index += 1) {
+    folds.push({
+      trainYears: sortedYears.slice(0, index),
+      validationYears: [sortedYears[index]!],
+    });
+  }
+
+  return folds;
 }
 
 function buildStateFromTeamExample(example: TeamSnapshotTrainingExample): TeamStateSnapshot {
@@ -494,7 +627,7 @@ function buildEvaluation(
   };
 }
 
-export function fitRuntimeModelParameters(
+function fitRuntimeModelParametersSingleStart(
   seasons: TrainingCorpusSeason[],
   trainYears: number[],
   validationYears: number[],
@@ -508,7 +641,7 @@ export function fitRuntimeModelParameters(
   const baselineStrength = normalizeStrengthParameterSet(
     options.initialStrength ?? CURRENT_STRENGTH_MODEL_PARAMETERS ?? DEFAULT_STRENGTH_MODEL_PARAMETERS,
   );
-  const baselineGame = CURRENT_GAME_MODEL_PARAMETERS;
+  const baselineGame = normalizeGameParameterSet(options.initialGame ?? CURRENT_GAME_MODEL_PARAMETERS);
   let currentStrength = baselineStrength;
   let currentGame = baselineGame;
   let totalStrengthEvaluations = 0;
@@ -576,6 +709,7 @@ export function fitRuntimeModelParameters(
       tuneYears,
       validationYears,
       search: {
+        starts: 1,
         iterations,
         strengthRounds: strengthMaxRounds,
         gameRounds: gameMaxRounds,
@@ -636,7 +770,151 @@ export function fitRuntimeModelParameters(
         baselineValidation: buildCalibrationSummary(baselineValidationExamples, baselineGame),
         fittedValidation: buildCalibrationSummary(fittedValidationExamples, currentGame),
       },
+      selection: {
+        startCount: 1,
+        selectedStartIndex: 0,
+        criterion: "validation-log-loss",
+      },
+      multiStarts: [
+        {
+          startIndex: 0,
+          validationLogLoss: fittedEvaluation.validation?.logLoss ?? null,
+          rollingValidationLogLoss: null,
+          selected: true,
+        },
+      ],
+      rollingValidation: [],
       iterations: iterationSummaries,
     },
   };
+}
+
+function evaluateRollingValidation(
+  seasonsByYear: Record<number, TrainingCorpusSeason>,
+  years: number[],
+  candidate: RuntimeStartCandidate,
+  options: RuntimeFitOptions,
+): RollingValidationResult[] {
+  const folds = buildRollingValidationFolds(years);
+  return folds.map((fold) => {
+    const foldSeasons = [...fold.trainYears, ...fold.validationYears]
+      .map((year) => seasonsByYear[year])
+      .filter((season): season is TrainingCorpusSeason => Boolean(season));
+    const result = fitRuntimeModelParametersSingleStart(
+      foldSeasons,
+      fold.trainYears,
+      fold.validationYears,
+      {
+        iterations: options.iterations,
+        strengthMaxRounds: options.strengthMaxRounds,
+        gameMaxRounds: options.gameMaxRounds,
+        initialStrength: candidate.strength,
+        initialGame: candidate.game,
+      },
+    );
+    return {
+      trainYears: fold.trainYears,
+      validationYears: fold.validationYears,
+      validationLogLoss: result.backtest.fitted.validation?.logLoss ?? null,
+      validationBrierScore: result.backtest.fitted.validation?.brierScore ?? null,
+    };
+  });
+}
+
+function averageRollingValidationLogLoss(results: RollingValidationResult[]) {
+  const values = results
+    .map((result) => result.validationLogLoss)
+    .filter((value): value is number => value !== null);
+  if (values.length === 0) {
+    return null;
+  }
+  return roundMetric(values.reduce((sum, value) => sum + value, 0) / values.length);
+}
+
+export function fitRuntimeModelParameters(
+  seasons: TrainingCorpusSeason[],
+  trainYears: number[],
+  validationYears: number[],
+  options: RuntimeFitOptions = {},
+): RuntimeFitResult {
+  const starts = options.starts ?? 5;
+  const useRollingValidation = options.useRollingValidation ?? true;
+  const seasonsByYear = Object.fromEntries(seasons.map((season) => [season.year, season])) as Record<number, TrainingCorpusSeason>;
+  const allYears = Array.from(new Set(seasons.map((season) => season.year))).sort((left, right) => left - right);
+  const baselineStrength = normalizeStrengthParameterSet(
+    options.initialStrength ?? CURRENT_STRENGTH_MODEL_PARAMETERS ?? DEFAULT_STRENGTH_MODEL_PARAMETERS,
+  );
+  const baselineGame = normalizeGameParameterSet(CURRENT_GAME_MODEL_PARAMETERS);
+  const startCandidates = buildStartCandidates(baselineStrength, baselineGame, starts);
+
+  let bestResult: RuntimeFitResult | null = null;
+  let bestStartIndex = 0;
+  let bestScore = Number.POSITIVE_INFINITY;
+  let bestRollingResults: RollingValidationResult[] = [];
+  let baselineReferenceResult: RuntimeFitResult | null = null;
+  const multiStarts: RuntimeModelBacktestSummary["multiStarts"] = [];
+
+  for (const [startIndex, candidate] of startCandidates.entries()) {
+    const result = fitRuntimeModelParametersSingleStart(
+      seasons,
+      trainYears,
+      validationYears,
+      {
+        iterations: options.iterations,
+        strengthMaxRounds: options.strengthMaxRounds,
+        gameMaxRounds: options.gameMaxRounds,
+        initialStrength: candidate.strength,
+        initialGame: candidate.game,
+      },
+    );
+
+    const rollingResults = useRollingValidation
+      ? evaluateRollingValidation(seasonsByYear, allYears, candidate, options)
+      : [];
+    const rollingLogLoss = averageRollingValidationLogLoss(rollingResults);
+    const validationLogLoss = result.backtest.fitted.validation?.logLoss ?? null;
+    const score = rollingLogLoss ?? validationLogLoss ?? result.backtest.fitted.tune?.logLoss ?? result.backtest.fitted.fit.logLoss;
+
+    multiStarts.push({
+      startIndex,
+      validationLogLoss,
+      rollingValidationLogLoss: rollingLogLoss,
+      selected: false,
+    });
+
+    if (startIndex === 0) {
+      baselineReferenceResult = result;
+    }
+
+    if (score < bestScore) {
+      bestScore = score;
+      bestResult = result;
+      bestStartIndex = startIndex;
+      bestRollingResults = rollingResults;
+    }
+  }
+
+  if (!bestResult) {
+    throw new Error("Runtime model fit failed to produce a candidate result.");
+  }
+
+  bestResult.artifact.search.starts = startCandidates.length;
+  if (baselineReferenceResult) {
+    bestResult.artifact.baselineParameters = baselineReferenceResult.artifact.baselineParameters;
+    bestResult.backtest.baseline = baselineReferenceResult.backtest.baseline;
+    bestResult.backtest.calibration.baselineValidation =
+      baselineReferenceResult.backtest.calibration.baselineValidation;
+  }
+  bestResult.backtest.selection = {
+    startCount: startCandidates.length,
+    selectedStartIndex: bestStartIndex,
+    criterion: bestRollingResults.length > 0 ? "rolling-validation-log-loss" : "validation-log-loss",
+  };
+  bestResult.backtest.multiStarts = multiStarts.map((item) => ({
+    ...item,
+    selected: item.startIndex === bestStartIndex,
+  }));
+  bestResult.backtest.rollingValidation = bestRollingResults;
+
+  return bestResult;
 }

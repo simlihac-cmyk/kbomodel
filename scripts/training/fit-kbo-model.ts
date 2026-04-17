@@ -31,6 +31,8 @@ type FitArgs = {
   trainYears: number[] | null;
   validationYears: number[] | null;
   maxRounds: number;
+  starts: number;
+  useRollingValidation: boolean;
 };
 
 function parseArgs(argv: string[]): FitArgs {
@@ -57,6 +59,11 @@ function parseArgs(argv: string[]): FitArgs {
       argv.find((arg) => arg.startsWith("--max-rounds="))?.split("=")[1] ?? "7",
       10,
     ),
+    starts: Number.parseInt(
+      argv.find((arg) => arg.startsWith("--starts="))?.split("=")[1] ?? "5",
+      10,
+    ),
+    useRollingValidation: !argv.includes("--no-rolling-validation"),
   };
 }
 
@@ -89,6 +96,8 @@ async function main() {
     iterations: 2,
     strengthMaxRounds: Math.max(2, args.maxRounds - 1),
     gameMaxRounds: args.maxRounds,
+    starts: args.starts,
+    useRollingValidation: args.useRollingValidation,
   });
   const parameters = runtimeModelParameterArtifactSchema.parse(result.artifact);
   const backtest = runtimeModelBacktestSummarySchema.parse(result.backtest);
@@ -101,6 +110,7 @@ async function main() {
   console.log(`[training-fit] fit years -> ${parameters.fitYears.join(", ")}`);
   console.log(`[training-fit] tune years -> ${parameters.tuneYears.join(", ") || "-"}`);
   console.log(`[training-fit] validation years -> ${parameters.validationYears.join(", ") || "-"}`);
+  console.log(`[training-fit] starts -> ${parameters.search.starts}`);
   console.log(
     `[training-fit] strength evaluations -> ${parameters.search.evaluations.strength}`,
   );
