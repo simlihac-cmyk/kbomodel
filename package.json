@@ -30,6 +30,7 @@
     "ingest:kbo:training-corpus": "tsx scripts/ingest/build-kbo-training-corpus.ts",
     "training:kbo:export": "tsx scripts/training/export-kbo-training-package.ts",
     "training:kbo:fit": "tsx scripts/training/fit-kbo-model.ts",
+    "training:kbo:promote": "tsx scripts/training/promote-kbo-trained-parameters.ts",
     "training:kbo:pack-results": "tsx scripts/training/pack-kbo-training-results.ts",
     "training:kbo:import-results": "tsx scripts/training/import-kbo-training-results.ts",
     "ingest:kbo:publish": "tsx scripts/ingest/publish-kbo-bundle.ts",

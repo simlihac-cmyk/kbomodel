@@ -5,9 +5,9 @@ import type {
   TeamStrengthSnapshot,
 } from "@/lib/domain/kbo/types";
 import {
-  DEFAULT_GAME_MODEL_PARAMETERS,
   type GameModelParameterSet,
 } from "@/lib/sim/kbo/model-parameters";
+import { CURRENT_GAME_MODEL_PARAMETERS } from "@/lib/sim/kbo/current-model-parameters";
 import type {
   GameStarterProjection,
   ProjectedStarterAssignment,
@@ -221,7 +221,7 @@ export function buildGameProbabilityCoreSnapshot(
   awayStrength: TeamStrengthSnapshot,
   tiesAllowed = true,
   starterProjection?: GameStarterProjection,
-  parameters: GameModelParameterSet = DEFAULT_GAME_MODEL_PARAMETERS,
+  parameters: GameModelParameterSet = CURRENT_GAME_MODEL_PARAMETERS,
 ): GameProbabilityCoreSnapshot {
   const {
     expectedRunsHome,
@@ -282,7 +282,7 @@ export function buildGameProbabilitySnapshot(
   awayStrength: TeamStrengthSnapshot,
   tiesAllowed = true,
   starterProjection?: GameStarterProjection,
-  parameters: GameModelParameterSet = DEFAULT_GAME_MODEL_PARAMETERS,
+  parameters: GameModelParameterSet = CURRENT_GAME_MODEL_PARAMETERS,
 ): GameProbabilitySnapshot {
   const {
     homeWinProb,

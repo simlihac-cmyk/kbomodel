@@ -111,6 +111,16 @@ pnpm training:kbo:import-results -- --from=/path/to/result-dir
   - `data/normalized/kbo/model-training/registry.json`
   - `data/normalized/kbo/model-training/latest.json`
 
+## 6. git으로 가져온 결과를 운영 파라미터로 승격
+학습 결과를 `trained-results/.../parameters.json` 형태로 git으로 가져왔다면 아래 명령으로 현재 운영 파라미터 파일을 갱신한다.
+
+```bash
+pnpm training:kbo:promote -- --from=trained-results/<result-dir>/parameters.json
+```
+
+- 이 명령은 `src/lib/sim/kbo/current-model-parameters.ts`를 갱신한다.
+- 이후 `pnpm test`, `pnpm build`로 확인한 뒤 배포하면 된다.
+
 ## 운영 원칙
 - 학습 입력 패키지와 결과 번들은 항상 manifest + checksum 기준으로 이동한다.
 - 노트북 학습 중에는 입력 데이터를 바꾸지 않는다.
