@@ -1,0 +1,123 @@
+{
+  "generatedAt": "2026-04-17T06:19:29.783Z",
+  "seasonId": "kbo-2026",
+  "gamesToday": [
+    {
+      "gameId": "game:official-kbo-ko:20260417HTOB0",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-ko:20260417HTOB0",
+      "homeSeasonTeamId": "kbo-2026:doosan",
+      "awaySeasonTeamId": "kbo-2026:kia",
+      "scheduledAt": "2026-04-17T18:30:00+09:00",
+      "status": "scheduled",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": null,
+      "awayScore": null,
+      "innings": null,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": [
+        {
+          "label": "원문 경기 링크",
+          "url": "https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx?gameDate=20260417&gameId=20260417HTOB0&section=START_PIT"
+        }
+      ]
+    },
+    {
+      "gameId": "game:official-kbo-ko:20260417HHLT0",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-ko:20260417HHLT0",
+      "homeSeasonTeamId": "kbo-2026:lotte",
+      "awaySeasonTeamId": "kbo-2026:hanwha",
+      "scheduledAt": "2026-04-17T18:30:00+09:00",
+      "status": "scheduled",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": null,
+      "awayScore": null,
+      "innings": null,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": [
+        {
+          "label": "원문 경기 링크",
+          "url": "https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx?gameDate=20260417&gameId=20260417HHLT0&section=START_PIT"
+        }
+      ]
+    },
+    {
+      "gameId": "game:official-kbo-ko:20260417LGSS0",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-ko:20260417LGSS0",
+      "homeSeasonTeamId": "kbo-2026:samsung",
+      "awaySeasonTeamId": "kbo-2026:lg",
+      "scheduledAt": "2026-04-17T18:30:00+09:00",
+      "status": "scheduled",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": null,
+      "awayScore": null,
+      "innings": null,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": [
+        {
+          "label": "원문 경기 링크",
+          "url": "https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx?gameDate=20260417&gameId=20260417LGSS0&section=START_PIT"
+        }
+      ]
+    },
+    {
+      "gameId": "game:official-kbo-ko:20260417SKNC0",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-ko:20260417SKNC0",
+      "homeSeasonTeamId": "kbo-2026:nc",
+      "awaySeasonTeamId": "kbo-2026:ssg",
+      "scheduledAt": "2026-04-17T18:30:00+09:00",
+      "status": "scheduled",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": null,
+      "awayScore": null,
+      "innings": null,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": [
+        {
+          "label": "원문 경기 링크",
+          "url": "https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx?gameDate=20260417&gameId=20260417SKNC0&section=START_PIT"
+        }
+      ]
+    },
+    {
+      "gameId": "game:official-kbo-ko:20260417WOKT0",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-ko:20260417WOKT0",
+      "homeSeasonTeamId": "kbo-2026:kt",
+      "awaySeasonTeamId": "kbo-2026:heroes",
+      "scheduledAt": "2026-04-17T18:30:00+09:00",
+      "status": "scheduled",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": null,
+      "awayScore": null,
+      "innings": null,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": [
+        {
+          "label": "원문 경기 링크",
+          "url": "https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx?gameDate=20260417&gameId=20260417WOKT0&section=START_PIT"
+        }
+      ]
+    }
+  ],
+  "hasLiveGames": false,
+  "allGamesFinal": false
+}

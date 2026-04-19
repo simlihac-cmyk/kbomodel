@@ -1,0 +1,47 @@
+{
+  "manifestType": "simulation",
+  "publishedAt": "2026-04-17T06:19:29.897Z",
+  "dataVersion": "1838f90b15ac26f3e23f7d83389237f12bfa0bc2d45151e9fdee4c889fd4766e",
+  "simulationVersion": "9e0d03cbd493718838393b690ac696c99d8bdcbcf69e878706bc61a53c362320",
+  "standingsVersion": "85b44982d77fe0171402bddf1dcbe98f0f75af5255ccbdb099501fac14b5bc39",
+  "scheduleVersion": "45f25c3e399260e3c94b0193391c2a082ae8b7225362d4ce95afd4d4ea7db154",
+  "recomputedBecause": [],
+  "freshnessByDataset": [
+    {
+      "dataset": "schedule",
+      "fetchedAt": "2026-04-17T06:19:16.673Z",
+      "sourceId": "official-kbo-ko",
+      "stale": false
+    },
+    {
+      "dataset": "scoreboard",
+      "fetchedAt": "2026-04-17T06:19:17.360Z",
+      "sourceId": "official-kbo-en",
+      "stale": false
+    },
+    {
+      "dataset": "standings",
+      "fetchedAt": "2026-04-17T06:19:17.051Z",
+      "sourceId": "official-kbo-en",
+      "stale": false
+    },
+    {
+      "dataset": "players",
+      "fetchedAt": "2026-04-17T06:19:27.239Z",
+      "sourceId": "official-kbo-ko",
+      "stale": false
+    },
+    {
+      "dataset": "team-offense",
+      "fetchedAt": "2026-04-17T06:19:18.160Z",
+      "sourceId": "official-kbo-ko",
+      "stale": false
+    },
+    {
+      "dataset": "team-pitching",
+      "fetchedAt": "2026-04-17T06:19:18.452Z",
+      "sourceId": "official-kbo-ko",
+      "stale": false
+    }
+  ]
+}
