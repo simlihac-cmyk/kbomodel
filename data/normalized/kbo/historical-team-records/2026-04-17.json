@@ -1,0 +1,3783 @@
+{
+  "generatedAt": "2026-04-17T06:19:28.927Z",
+  "sources": [
+    {
+      "sourceId": "official-kbo-ko",
+      "datasetId": "historical-team-record",
+      "snapshotKey": "2026-04-17",
+      "parserVersion": "2026-04-15-ko-history-v1"
+    }
+  ],
+  "rows": [
+    {
+      "year": 2020,
+      "franchiseId": "nc",
+      "brandLabel": "NC 다이노스",
+      "rank": 1,
+      "wins": 83,
+      "losses": 55,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 2020,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 2,
+      "wins": 79,
+      "losses": 61,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2020,
+      "franchiseId": "kt",
+      "brandLabel": "KT 위즈",
+      "rank": 3,
+      "wins": 81,
+      "losses": 62,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2020,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 4,
+      "wins": 79,
+      "losses": 61,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2020,
+      "franchiseId": "heroes",
+      "brandLabel": "키움 히어로즈",
+      "rank": 5,
+      "wins": 80,
+      "losses": 63,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2020,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 6,
+      "wins": 73,
+      "losses": 71,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2020,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 7,
+      "wins": 71,
+      "losses": 72,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2020,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 8,
+      "wins": 64,
+      "losses": 75,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2020,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 9,
+      "wins": 51,
+      "losses": 92,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2020,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 10,
+      "wins": 46,
+      "losses": 95,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2021,
+      "franchiseId": "kt",
+      "brandLabel": "KT 위즈",
+      "rank": 1,
+      "wins": 76,
+      "losses": 59,
+      "ties": 9,
+      "postseasonResult": null
+    },
+    {
+      "year": 2021,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 2,
+      "wins": 71,
+      "losses": 65,
+      "ties": 8,
+      "postseasonResult": null
+    },
+    {
+      "year": 2021,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 3,
+      "wins": 76,
+      "losses": 59,
+      "ties": 9,
+      "postseasonResult": null
+    },
+    {
+      "year": 2021,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 4,
+      "wins": 72,
+      "losses": 58,
+      "ties": 14,
+      "postseasonResult": null
+    },
+    {
+      "year": 2021,
+      "franchiseId": "heroes",
+      "brandLabel": "키움 히어로즈",
+      "rank": 5,
+      "wins": 70,
+      "losses": 67,
+      "ties": 7,
+      "postseasonResult": null
+    },
+    {
+      "year": 2021,
+      "franchiseId": "ssg",
+      "brandLabel": "SSG 랜더스",
+      "rank": 6,
+      "wins": 66,
+      "losses": 64,
+      "ties": 14,
+      "postseasonResult": null
+    },
+    {
+      "year": 2021,
+      "franchiseId": "nc",
+      "brandLabel": "NC 다이노스",
+      "rank": 7,
+      "wins": 67,
+      "losses": 68,
+      "ties": 9,
+      "postseasonResult": null
+    },
+    {
+      "year": 2021,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 8,
+      "wins": 65,
+      "losses": 71,
+      "ties": 8,
+      "postseasonResult": null
+    },
+    {
+      "year": 2021,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 9,
+      "wins": 58,
+      "losses": 76,
+      "ties": 10,
+      "postseasonResult": null
+    },
+    {
+      "year": 2021,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 10,
+      "wins": 49,
+      "losses": 83,
+      "ties": 12,
+      "postseasonResult": null
+    },
+    {
+      "year": 2022,
+      "franchiseId": "ssg",
+      "brandLabel": "SSG 랜더스",
+      "rank": 1,
+      "wins": 88,
+      "losses": 52,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2022,
+      "franchiseId": "heroes",
+      "brandLabel": "키움 히어로즈",
+      "rank": 2,
+      "wins": 80,
+      "losses": 62,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2022,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 3,
+      "wins": 87,
+      "losses": 55,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2022,
+      "franchiseId": "kt",
+      "brandLabel": "KT 위즈",
+      "rank": 4,
+      "wins": 80,
+      "losses": 62,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2022,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 5,
+      "wins": 70,
+      "losses": 73,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2022,
+      "franchiseId": "nc",
+      "brandLabel": "NC 다이노스",
+      "rank": 6,
+      "wins": 67,
+      "losses": 74,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2022,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 7,
+      "wins": 66,
+      "losses": 76,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2022,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 8,
+      "wins": 64,
+      "losses": 76,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2022,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 9,
+      "wins": 60,
+      "losses": 82,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2022,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 10,
+      "wins": 46,
+      "losses": 96,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2023,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 1,
+      "wins": 86,
+      "losses": 56,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2023,
+      "franchiseId": "kt",
+      "brandLabel": "KT 위즈",
+      "rank": 2,
+      "wins": 79,
+      "losses": 62,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2023,
+      "franchiseId": "ssg",
+      "brandLabel": "SSG 랜더스",
+      "rank": 3,
+      "wins": 76,
+      "losses": 65,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2023,
+      "franchiseId": "nc",
+      "brandLabel": "NC 다이노스",
+      "rank": 4,
+      "wins": 75,
+      "losses": 67,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2023,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 5,
+      "wins": 74,
+      "losses": 68,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2023,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 6,
+      "wins": 73,
+      "losses": 69,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2023,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 7,
+      "wins": 68,
+      "losses": 76,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2023,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 8,
+      "wins": 61,
+      "losses": 82,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2023,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 9,
+      "wins": 58,
+      "losses": 80,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 2023,
+      "franchiseId": "heroes",
+      "brandLabel": "키움 히어로즈",
+      "rank": 10,
+      "wins": 58,
+      "losses": 83,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2024,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 1,
+      "wins": 87,
+      "losses": 55,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2024,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 2,
+      "wins": 78,
+      "losses": 64,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2024,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 3,
+      "wins": 76,
+      "losses": 66,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2024,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 4,
+      "wins": 74,
+      "losses": 68,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2024,
+      "franchiseId": "kt",
+      "brandLabel": "KT 위즈",
+      "rank": 5,
+      "wins": 72,
+      "losses": 70,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2024,
+      "franchiseId": "ssg",
+      "brandLabel": "SSG 랜더스",
+      "rank": 6,
+      "wins": 72,
+      "losses": 70,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2024,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 7,
+      "wins": 66,
+      "losses": 74,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2024,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 8,
+      "wins": 66,
+      "losses": 76,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2024,
+      "franchiseId": "nc",
+      "brandLabel": "NC 다이노스",
+      "rank": 9,
+      "wins": 61,
+      "losses": 81,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2024,
+      "franchiseId": "heroes",
+      "brandLabel": "키움 히어로즈",
+      "rank": 10,
+      "wins": 58,
+      "losses": 86,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2025,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 1,
+      "wins": 85,
+      "losses": 56,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2025,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 2,
+      "wins": 83,
+      "losses": 57,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2025,
+      "franchiseId": "ssg",
+      "brandLabel": "SSG 랜더스",
+      "rank": 3,
+      "wins": 75,
+      "losses": 65,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2025,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 4,
+      "wins": 74,
+      "losses": 68,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2025,
+      "franchiseId": "nc",
+      "brandLabel": "NC 다이노스",
+      "rank": 5,
+      "wins": 71,
+      "losses": 67,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 2025,
+      "franchiseId": "kt",
+      "brandLabel": "KT 위즈",
+      "rank": 6,
+      "wins": 71,
+      "losses": 68,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2025,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 7,
+      "wins": 66,
+      "losses": 72,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 2025,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 8,
+      "wins": 65,
+      "losses": 75,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2025,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 9,
+      "wins": 61,
+      "losses": 77,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 2025,
+      "franchiseId": "heroes",
+      "brandLabel": "키움 히어로즈",
+      "rank": 10,
+      "wins": 47,
+      "losses": 93,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2026,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 1,
+      "wins": 11,
+      "losses": 4,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2026,
+      "franchiseId": "kt",
+      "brandLabel": "KT 위즈",
+      "rank": 2,
+      "wins": 11,
+      "losses": 5,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2026,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 3,
+      "wins": 11,
+      "losses": 5,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2026,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 4,
+      "wins": 9,
+      "losses": 7,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2026,
+      "franchiseId": "ssg",
+      "brandLabel": "SSG 랜더스",
+      "rank": 5,
+      "wins": 9,
+      "losses": 7,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2026,
+      "franchiseId": "nc",
+      "brandLabel": "NC 다이노스",
+      "rank": 6,
+      "wins": 7,
+      "losses": 9,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2026,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 7,
+      "wins": 6,
+      "losses": 10,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2026,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 8,
+      "wins": 6,
+      "losses": 10,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2026,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 9,
+      "wins": 5,
+      "losses": 10,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2026,
+      "franchiseId": "heroes",
+      "brandLabel": "키움 히어로즈",
+      "rank": 10,
+      "wins": 4,
+      "losses": 12,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2010,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 1,
+      "wins": 84,
+      "losses": 47,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2010,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 2,
+      "wins": 79,
+      "losses": 52,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2010,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 3,
+      "wins": 73,
+      "losses": 57,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2010,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 4,
+      "wins": 69,
+      "losses": 61,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2010,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 5,
+      "wins": 59,
+      "losses": 74,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2010,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 6,
+      "wins": 57,
+      "losses": 71,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2010,
+      "franchiseId": "heroes",
+      "brandLabel": "넥센 히어로즈",
+      "rank": 7,
+      "wins": 52,
+      "losses": 78,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2010,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 8,
+      "wins": 49,
+      "losses": 82,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2011,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 1,
+      "wins": 79,
+      "losses": 50,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2011,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 2,
+      "wins": 71,
+      "losses": 59,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2011,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 3,
+      "wins": 72,
+      "losses": 56,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2011,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 4,
+      "wins": 70,
+      "losses": 63,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2011,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 5,
+      "wins": 61,
+      "losses": 70,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2011,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 6,
+      "wins": 59,
+      "losses": 72,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2011,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 7,
+      "wins": 59,
+      "losses": 72,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2011,
+      "franchiseId": "heroes",
+      "brandLabel": "넥센 히어로즈",
+      "rank": 8,
+      "wins": 51,
+      "losses": 80,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2012,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 1,
+      "wins": 80,
+      "losses": 51,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2012,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 2,
+      "wins": 71,
+      "losses": 59,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2012,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 3,
+      "wins": 68,
+      "losses": 62,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2012,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 4,
+      "wins": 65,
+      "losses": 62,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 2012,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 5,
+      "wins": 62,
+      "losses": 65,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 2012,
+      "franchiseId": "heroes",
+      "brandLabel": "넥센 히어로즈",
+      "rank": 6,
+      "wins": 61,
+      "losses": 69,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2012,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 7,
+      "wins": 57,
+      "losses": 72,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2012,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 8,
+      "wins": 53,
+      "losses": 77,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2013,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 1,
+      "wins": 75,
+      "losses": 51,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2013,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 2,
+      "wins": 71,
+      "losses": 54,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2013,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 3,
+      "wins": 74,
+      "losses": 54,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2013,
+      "franchiseId": "heroes",
+      "brandLabel": "넥센 히어로즈",
+      "rank": 4,
+      "wins": 72,
+      "losses": 54,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2013,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 5,
+      "wins": 66,
+      "losses": 58,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2013,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 6,
+      "wins": 62,
+      "losses": 63,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2013,
+      "franchiseId": "nc",
+      "brandLabel": "NC 다이노스",
+      "rank": 7,
+      "wins": 52,
+      "losses": 72,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2013,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 8,
+      "wins": 51,
+      "losses": 74,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2013,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 9,
+      "wins": 42,
+      "losses": 85,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2014,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 1,
+      "wins": 78,
+      "losses": 47,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2014,
+      "franchiseId": "heroes",
+      "brandLabel": "넥센 히어로즈",
+      "rank": 2,
+      "wins": 78,
+      "losses": 48,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2014,
+      "franchiseId": "nc",
+      "brandLabel": "NC 다이노스",
+      "rank": 3,
+      "wins": 70,
+      "losses": 57,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2014,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 4,
+      "wins": 62,
+      "losses": 64,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2014,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 5,
+      "wins": 61,
+      "losses": 65,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2014,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 6,
+      "wins": 59,
+      "losses": 68,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2014,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 7,
+      "wins": 58,
+      "losses": 69,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2014,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 8,
+      "wins": 54,
+      "losses": 74,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2014,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 9,
+      "wins": 49,
+      "losses": 77,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2015,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 1,
+      "wins": 79,
+      "losses": 65,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2015,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 2,
+      "wins": 88,
+      "losses": 56,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2015,
+      "franchiseId": "nc",
+      "brandLabel": "NC 다이노스",
+      "rank": 3,
+      "wins": 84,
+      "losses": 57,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2015,
+      "franchiseId": "heroes",
+      "brandLabel": "넥센 히어로즈",
+      "rank": 4,
+      "wins": 78,
+      "losses": 65,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2015,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 5,
+      "wins": 69,
+      "losses": 73,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2015,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 6,
+      "wins": 68,
+      "losses": 76,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2015,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 7,
+      "wins": 67,
+      "losses": 77,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2015,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 8,
+      "wins": 66,
+      "losses": 77,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2015,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 9,
+      "wins": 64,
+      "losses": 78,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2015,
+      "franchiseId": "kt",
+      "brandLabel": "KT 위즈",
+      "rank": 10,
+      "wins": 52,
+      "losses": 91,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2016,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 1,
+      "wins": 93,
+      "losses": 50,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2016,
+      "franchiseId": "nc",
+      "brandLabel": "NC 다이노스",
+      "rank": 2,
+      "wins": 83,
+      "losses": 58,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2016,
+      "franchiseId": "heroes",
+      "brandLabel": "넥센 히어로즈",
+      "rank": 3,
+      "wins": 77,
+      "losses": 66,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2016,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 4,
+      "wins": 71,
+      "losses": 71,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2016,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 5,
+      "wins": 70,
+      "losses": 73,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2016,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 6,
+      "wins": 69,
+      "losses": 75,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2016,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 7,
+      "wins": 66,
+      "losses": 75,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2016,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 8,
+      "wins": 66,
+      "losses": 78,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2016,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 9,
+      "wins": 65,
+      "losses": 78,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2016,
+      "franchiseId": "kt",
+      "brandLabel": "KT 위즈",
+      "rank": 10,
+      "wins": 53,
+      "losses": 89,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2017,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 1,
+      "wins": 87,
+      "losses": 56,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2017,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 2,
+      "wins": 84,
+      "losses": 57,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2017,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 3,
+      "wins": 80,
+      "losses": 62,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2017,
+      "franchiseId": "nc",
+      "brandLabel": "NC 다이노스",
+      "rank": 4,
+      "wins": 79,
+      "losses": 62,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2017,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 5,
+      "wins": 75,
+      "losses": 68,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2017,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 6,
+      "wins": 69,
+      "losses": 72,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2017,
+      "franchiseId": "heroes",
+      "brandLabel": "넥센 히어로즈",
+      "rank": 7,
+      "wins": 69,
+      "losses": 73,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2017,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 8,
+      "wins": 61,
+      "losses": 81,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2017,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 9,
+      "wins": 55,
+      "losses": 84,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2017,
+      "franchiseId": "kt",
+      "brandLabel": "KT 위즈",
+      "rank": 10,
+      "wins": 50,
+      "losses": 94,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2018,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 1,
+      "wins": 78,
+      "losses": 65,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2018,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 2,
+      "wins": 93,
+      "losses": 51,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2018,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 3,
+      "wins": 77,
+      "losses": 67,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2018,
+      "franchiseId": "heroes",
+      "brandLabel": "넥센 히어로즈",
+      "rank": 4,
+      "wins": 75,
+      "losses": 69,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2018,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 5,
+      "wins": 70,
+      "losses": 74,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2018,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 6,
+      "wins": 68,
+      "losses": 72,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2018,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 7,
+      "wins": 68,
+      "losses": 74,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2018,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 8,
+      "wins": 68,
+      "losses": 75,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2018,
+      "franchiseId": "kt",
+      "brandLabel": "KT 위즈",
+      "rank": 9,
+      "wins": 59,
+      "losses": 82,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2018,
+      "franchiseId": "nc",
+      "brandLabel": "NC 다이노스",
+      "rank": 10,
+      "wins": 58,
+      "losses": 85,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2019,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 1,
+      "wins": 88,
+      "losses": 55,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2019,
+      "franchiseId": "heroes",
+      "brandLabel": "키움 히어로즈",
+      "rank": 2,
+      "wins": 86,
+      "losses": 57,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2019,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 3,
+      "wins": 88,
+      "losses": 55,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2019,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 4,
+      "wins": 79,
+      "losses": 64,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2019,
+      "franchiseId": "nc",
+      "brandLabel": "NC 다이노스",
+      "rank": 5,
+      "wins": 73,
+      "losses": 69,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2019,
+      "franchiseId": "kt",
+      "brandLabel": "KT 위즈",
+      "rank": 6,
+      "wins": 71,
+      "losses": 71,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2019,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 7,
+      "wins": 62,
+      "losses": 80,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2019,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 8,
+      "wins": 60,
+      "losses": 83,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2019,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 9,
+      "wins": 58,
+      "losses": 86,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2019,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 10,
+      "wins": 48,
+      "losses": 93,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2000,
+      "franchiseId": "unknown:Unknown",
+      "brandLabel": "Unknown",
+      "rank": 1,
+      "wins": 0,
+      "losses": 0,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2000,
+      "franchiseId": "unknown:현대 유니콘스",
+      "brandLabel": "현대 유니콘스",
+      "rank": 2,
+      "wins": 91,
+      "losses": 40,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2000,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 3,
+      "wins": 76,
+      "losses": 57,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2000,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 4,
+      "wins": 69,
+      "losses": 59,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2000,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 5,
+      "wins": 57,
+      "losses": 72,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2000,
+      "franchiseId": "unknown:Unknown",
+      "brandLabel": "Unknown",
+      "rank": 6,
+      "wins": 0,
+      "losses": 0,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2000,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 7,
+      "wins": 67,
+      "losses": 63,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2000,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 8,
+      "wins": 65,
+      "losses": 64,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2000,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 9,
+      "wins": 50,
+      "losses": 78,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2000,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 10,
+      "wins": 44,
+      "losses": 86,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2001,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 1,
+      "wins": 65,
+      "losses": 63,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2001,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 2,
+      "wins": 81,
+      "losses": 52,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2001,
+      "franchiseId": "unknown:현대 유니콘스",
+      "brandLabel": "현대 유니콘스",
+      "rank": 3,
+      "wins": 72,
+      "losses": 57,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2001,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 4,
+      "wins": 61,
+      "losses": 68,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2001,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 5,
+      "wins": 60,
+      "losses": 68,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2001,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 6,
+      "wins": 58,
+      "losses": 67,
+      "ties": 8,
+      "postseasonResult": null
+    },
+    {
+      "year": 2001,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 7,
+      "wins": 60,
+      "losses": 71,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2001,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 8,
+      "wins": 59,
+      "losses": 70,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2002,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 1,
+      "wins": 82,
+      "losses": 47,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2002,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 2,
+      "wins": 66,
+      "losses": 61,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 2002,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 3,
+      "wins": 78,
+      "losses": 51,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2002,
+      "franchiseId": "unknown:현대 유니콘스",
+      "brandLabel": "현대 유니콘스",
+      "rank": 4,
+      "wins": 70,
+      "losses": 58,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2002,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 5,
+      "wins": 66,
+      "losses": 65,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2002,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 6,
+      "wins": 61,
+      "losses": 69,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2002,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 7,
+      "wins": 59,
+      "losses": 69,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2002,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 8,
+      "wins": 35,
+      "losses": 97,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2003,
+      "franchiseId": "unknown:현대 유니콘스",
+      "brandLabel": "현대 유니콘스",
+      "rank": 1,
+      "wins": 80,
+      "losses": 51,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2003,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 2,
+      "wins": 66,
+      "losses": 64,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2003,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 3,
+      "wins": 78,
+      "losses": 50,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2003,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 4,
+      "wins": 76,
+      "losses": 53,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2003,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 5,
+      "wins": 63,
+      "losses": 65,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2003,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 6,
+      "wins": 60,
+      "losses": 71,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2003,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 7,
+      "wins": 57,
+      "losses": 74,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2003,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 8,
+      "wins": 39,
+      "losses": 91,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2004,
+      "franchiseId": "unknown:현대 유니콘스",
+      "brandLabel": "현대 유니콘스",
+      "rank": 1,
+      "wins": 75,
+      "losses": 53,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2004,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 2,
+      "wins": 73,
+      "losses": 52,
+      "ties": 8,
+      "postseasonResult": null
+    },
+    {
+      "year": 2004,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 3,
+      "wins": 70,
+      "losses": 62,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2004,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 4,
+      "wins": 67,
+      "losses": 61,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2004,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 5,
+      "wins": 61,
+      "losses": 64,
+      "ties": 8,
+      "postseasonResult": null
+    },
+    {
+      "year": 2004,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 6,
+      "wins": 59,
+      "losses": 70,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2004,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 7,
+      "wins": 53,
+      "losses": 74,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 2004,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 8,
+      "wins": 50,
+      "losses": 72,
+      "ties": 11,
+      "postseasonResult": null
+    },
+    {
+      "year": 2005,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 1,
+      "wins": 74,
+      "losses": 48,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2005,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 2,
+      "wins": 72,
+      "losses": 51,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2005,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 3,
+      "wins": 70,
+      "losses": 50,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 2005,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 4,
+      "wins": 64,
+      "losses": 61,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2005,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 5,
+      "wins": 58,
+      "losses": 67,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2005,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 6,
+      "wins": 54,
+      "losses": 71,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2005,
+      "franchiseId": "unknown:현대 유니콘스",
+      "brandLabel": "현대 유니콘스",
+      "rank": 7,
+      "wins": 53,
+      "losses": 70,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2005,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 8,
+      "wins": 49,
+      "losses": 76,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2006,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 1,
+      "wins": 73,
+      "losses": 50,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2006,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 2,
+      "wins": 67,
+      "losses": 57,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2006,
+      "franchiseId": "unknown:현대 유니콘스",
+      "brandLabel": "현대 유니콘스",
+      "rank": 3,
+      "wins": 70,
+      "losses": 55,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2006,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 4,
+      "wins": 64,
+      "losses": 59,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2006,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 5,
+      "wins": 63,
+      "losses": 60,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2006,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 6,
+      "wins": 60,
+      "losses": 65,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2006,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 7,
+      "wins": 50,
+      "losses": 73,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2006,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 8,
+      "wins": 47,
+      "losses": 75,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2007,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 1,
+      "wins": 73,
+      "losses": 48,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 2007,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 2,
+      "wins": 70,
+      "losses": 54,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2007,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 3,
+      "wins": 67,
+      "losses": 57,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2007,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 4,
+      "wins": 62,
+      "losses": 60,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2007,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 5,
+      "wins": 58,
+      "losses": 62,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 2007,
+      "franchiseId": "unknown:현대 유니콘스",
+      "brandLabel": "현대 유니콘스",
+      "rank": 6,
+      "wins": 56,
+      "losses": 69,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2007,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 7,
+      "wins": 55,
+      "losses": 68,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 2007,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 8,
+      "wins": 51,
+      "losses": 74,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2008,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 1,
+      "wins": 83,
+      "losses": 43,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2008,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 2,
+      "wins": 70,
+      "losses": 56,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2008,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 3,
+      "wins": 69,
+      "losses": 57,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2008,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 4,
+      "wins": 65,
+      "losses": 61,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2008,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 5,
+      "wins": 64,
+      "losses": 62,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2008,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 6,
+      "wins": 57,
+      "losses": 69,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2008,
+      "franchiseId": "unknown:우리 히어로즈",
+      "brandLabel": "우리 히어로즈",
+      "rank": 7,
+      "wins": 50,
+      "losses": 76,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2008,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 8,
+      "wins": 46,
+      "losses": 80,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2009,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 1,
+      "wins": 81,
+      "losses": 48,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2009,
+      "franchiseId": "ssg",
+      "brandLabel": "SK 와이번스",
+      "rank": 2,
+      "wins": 80,
+      "losses": 47,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 2009,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 3,
+      "wins": 71,
+      "losses": 60,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 2009,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 4,
+      "wins": 66,
+      "losses": 67,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2009,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 5,
+      "wins": 64,
+      "losses": 69,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 2009,
+      "franchiseId": "unknown:히어로즈",
+      "brandLabel": "히어로즈",
+      "rank": 6,
+      "wins": 60,
+      "losses": 72,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 2009,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 7,
+      "wins": 54,
+      "losses": 75,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 2009,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 8,
+      "wins": 46,
+      "losses": 84,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1990,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 1,
+      "wins": 71,
+      "losses": 49,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1990,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 2,
+      "wins": 66,
+      "losses": 52,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1990,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 3,
+      "wins": 68,
+      "losses": 49,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1990,
+      "franchiseId": "unknown:빙그레 이글스",
+      "brandLabel": "빙그레 이글스",
+      "rank": 4,
+      "wins": 68,
+      "losses": 50,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1990,
+      "franchiseId": "unknown:태평양 돌핀스",
+      "brandLabel": "태평양 돌핀스",
+      "rank": 5,
+      "wins": 58,
+      "losses": 59,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1990,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 6,
+      "wins": 44,
+      "losses": 71,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1990,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 7,
+      "wins": 35,
+      "losses": 80,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1991,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 1,
+      "wins": 79,
+      "losses": 42,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1991,
+      "franchiseId": "unknown:빙그레 이글스",
+      "brandLabel": "빙그레 이글스",
+      "rank": 2,
+      "wins": 72,
+      "losses": 49,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1991,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 3,
+      "wins": 70,
+      "losses": 55,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1991,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 4,
+      "wins": 61,
+      "losses": 62,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1991,
+      "franchiseId": "unknown:태평양 돌핀스",
+      "brandLabel": "태평양 돌핀스",
+      "rank": 5,
+      "wins": 55,
+      "losses": 69,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1991,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 6,
+      "wins": 53,
+      "losses": 72,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1991,
+      "franchiseId": "unknown:쌍방울 레이더스",
+      "brandLabel": "쌍방울 레이더스",
+      "rank": 7,
+      "wins": 52,
+      "losses": 71,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1991,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 8,
+      "wins": 51,
+      "losses": 73,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1992,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 1,
+      "wins": 71,
+      "losses": 55,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1992,
+      "franchiseId": "unknown:빙그레 이글스",
+      "brandLabel": "빙그레 이글스",
+      "rank": 2,
+      "wins": 81,
+      "losses": 43,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1992,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 3,
+      "wins": 71,
+      "losses": 54,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1992,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 4,
+      "wins": 67,
+      "losses": 57,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1992,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 5,
+      "wins": 56,
+      "losses": 66,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 1992,
+      "franchiseId": "unknown:태평양 돌핀스",
+      "brandLabel": "태평양 돌핀스",
+      "rank": 6,
+      "wins": 56,
+      "losses": 67,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1992,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 7,
+      "wins": 53,
+      "losses": 70,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1992,
+      "franchiseId": "unknown:쌍방울 레이더스",
+      "brandLabel": "쌍방울 레이더스",
+      "rank": 8,
+      "wins": 41,
+      "losses": 84,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1993,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 1,
+      "wins": 81,
+      "losses": 42,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1993,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 2,
+      "wins": 73,
+      "losses": 48,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1993,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 3,
+      "wins": 66,
+      "losses": 55,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1993,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 4,
+      "wins": 66,
+      "losses": 57,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1993,
+      "franchiseId": "unknown:빙그레 이글스",
+      "brandLabel": "빙그레 이글스",
+      "rank": 5,
+      "wins": 61,
+      "losses": 61,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 1993,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 6,
+      "wins": 62,
+      "losses": 63,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1993,
+      "franchiseId": "unknown:쌍방울 레이더스",
+      "brandLabel": "쌍방울 레이더스",
+      "rank": 7,
+      "wins": 43,
+      "losses": 78,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1993,
+      "franchiseId": "unknown:태평양 돌핀스",
+      "brandLabel": "태평양 돌핀스",
+      "rank": 8,
+      "wins": 34,
+      "losses": 82,
+      "ties": 10,
+      "postseasonResult": null
+    },
+    {
+      "year": 1994,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 1,
+      "wins": 81,
+      "losses": 45,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1994,
+      "franchiseId": "unknown:태평양 돌핀스",
+      "brandLabel": "태평양 돌핀스",
+      "rank": 2,
+      "wins": 68,
+      "losses": 55,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1994,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 3,
+      "wins": 65,
+      "losses": 59,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1994,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 4,
+      "wins": 65,
+      "losses": 59,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1994,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 5,
+      "wins": 60,
+      "losses": 64,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1994,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 6,
+      "wins": 56,
+      "losses": 67,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1994,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 7,
+      "wins": 53,
+      "losses": 72,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1994,
+      "franchiseId": "unknown:쌍방울 레이더스",
+      "brandLabel": "쌍방울 레이더스",
+      "rank": 8,
+      "wins": 47,
+      "losses": 74,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1995,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 1,
+      "wins": 74,
+      "losses": 47,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1995,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 2,
+      "wins": 68,
+      "losses": 53,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1995,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 3,
+      "wins": 74,
+      "losses": 48,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 1995,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 4,
+      "wins": 64,
+      "losses": 58,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 1995,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 5,
+      "wins": 60,
+      "losses": 60,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 1995,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 6,
+      "wins": 55,
+      "losses": 71,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1995,
+      "franchiseId": "unknown:태평양 돌핀스",
+      "brandLabel": "태평양 돌핀스",
+      "rank": 7,
+      "wins": 48,
+      "losses": 73,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1995,
+      "franchiseId": "unknown:쌍방울 레이더스",
+      "brandLabel": "쌍방울 레이더스",
+      "rank": 8,
+      "wins": 45,
+      "losses": 78,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1996,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 1,
+      "wins": 73,
+      "losses": 51,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1996,
+      "franchiseId": "unknown:현대 유니콘스",
+      "brandLabel": "현대 유니콘스",
+      "rank": 2,
+      "wins": 67,
+      "losses": 54,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1996,
+      "franchiseId": "unknown:쌍방울 레이더스",
+      "brandLabel": "쌍방울 레이더스",
+      "rank": 3,
+      "wins": 70,
+      "losses": 54,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1996,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 4,
+      "wins": 70,
+      "losses": 55,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1996,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 5,
+      "wins": 57,
+      "losses": 63,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 1996,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 6,
+      "wins": 54,
+      "losses": 67,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1996,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 7,
+      "wins": 50,
+      "losses": 71,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1996,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 8,
+      "wins": 47,
+      "losses": 73,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 1997,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 1,
+      "wins": 75,
+      "losses": 50,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1997,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 2,
+      "wins": 73,
+      "losses": 51,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1997,
+      "franchiseId": "unknown:쌍방울 레이더스",
+      "brandLabel": "쌍방울 레이더스",
+      "rank": 3,
+      "wins": 71,
+      "losses": 53,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1997,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 4,
+      "wins": 66,
+      "losses": 53,
+      "ties": 7,
+      "postseasonResult": null
+    },
+    {
+      "year": 1997,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 5,
+      "wins": 57,
+      "losses": 64,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1997,
+      "franchiseId": "unknown:현대 유니콘스",
+      "brandLabel": "현대 유니콘스",
+      "rank": 6,
+      "wins": 51,
+      "losses": 71,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 1997,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 7,
+      "wins": 51,
+      "losses": 73,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1997,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 8,
+      "wins": 48,
+      "losses": 77,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1998,
+      "franchiseId": "unknown:현대 유니콘스",
+      "brandLabel": "현대 유니콘스",
+      "rank": 1,
+      "wins": 81,
+      "losses": 45,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1998,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 2,
+      "wins": 63,
+      "losses": 62,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1998,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 3,
+      "wins": 66,
+      "losses": 58,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1998,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 4,
+      "wins": 61,
+      "losses": 62,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1998,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 5,
+      "wins": 61,
+      "losses": 64,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1998,
+      "franchiseId": "unknown:쌍방울 레이더스",
+      "brandLabel": "쌍방울 레이더스",
+      "rank": 6,
+      "wins": 58,
+      "losses": 66,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1998,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 7,
+      "wins": 55,
+      "losses": 66,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1998,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 8,
+      "wins": 50,
+      "losses": 72,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 1999,
+      "franchiseId": "unknown:Unknown",
+      "brandLabel": "Unknown",
+      "rank": 1,
+      "wins": 0,
+      "losses": 0,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1999,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 2,
+      "wins": 75,
+      "losses": 52,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1999,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 3,
+      "wins": 76,
+      "losses": 51,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1999,
+      "franchiseId": "unknown:현대 유니콘스",
+      "brandLabel": "현대 유니콘스",
+      "rank": 4,
+      "wins": 68,
+      "losses": 59,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1999,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 5,
+      "wins": 60,
+      "losses": 69,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1999,
+      "franchiseId": "unknown:Unknown",
+      "brandLabel": "Unknown",
+      "rank": 6,
+      "wins": 0,
+      "losses": 0,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1999,
+      "franchiseId": "hanwha",
+      "brandLabel": "한화 이글스",
+      "rank": 7,
+      "wins": 72,
+      "losses": 58,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1999,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 8,
+      "wins": 73,
+      "losses": 57,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1999,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 9,
+      "wins": 61,
+      "losses": 70,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1999,
+      "franchiseId": "unknown:쌍방울 레이더스",
+      "brandLabel": "쌍방울 레이더스",
+      "rank": 10,
+      "wins": 28,
+      "losses": 97,
+      "ties": 7,
+      "postseasonResult": null
+    },
+    {
+      "year": 1982,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 1,
+      "wins": 56,
+      "losses": 24,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1982,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 2,
+      "wins": 54,
+      "losses": 26,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1982,
+      "franchiseId": "unknown:MBC 청룡",
+      "brandLabel": "MBC 청룡",
+      "rank": 3,
+      "wins": 46,
+      "losses": 34,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1982,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 4,
+      "wins": 38,
+      "losses": 42,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1982,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 5,
+      "wins": 31,
+      "losses": 49,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1982,
+      "franchiseId": "unknown:삼미 슈퍼스타즈",
+      "brandLabel": "삼미 슈퍼스타즈",
+      "rank": 6,
+      "wins": 15,
+      "losses": 65,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1983,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 1,
+      "wins": 55,
+      "losses": 44,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1983,
+      "franchiseId": "unknown:MBC 청룡",
+      "brandLabel": "MBC 청룡",
+      "rank": 2,
+      "wins": 55,
+      "losses": 43,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1983,
+      "franchiseId": "unknown:삼미 슈퍼스타즈",
+      "brandLabel": "삼미 슈퍼스타즈",
+      "rank": 3,
+      "wins": 52,
+      "losses": 47,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1983,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 4,
+      "wins": 46,
+      "losses": 50,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 1983,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 5,
+      "wins": 44,
+      "losses": 55,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1983,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 6,
+      "wins": 43,
+      "losses": 56,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1984,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 1,
+      "wins": 50,
+      "losses": 48,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1984,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 2,
+      "wins": 55,
+      "losses": 45,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1984,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 3,
+      "wins": 58,
+      "losses": 41,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1984,
+      "franchiseId": "unknown:MBC 청룡",
+      "brandLabel": "MBC 청룡",
+      "rank": 4,
+      "wins": 51,
+      "losses": 48,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1984,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 5,
+      "wins": 43,
+      "losses": 54,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1984,
+      "franchiseId": "unknown:삼미 슈퍼스타즈",
+      "brandLabel": "삼미 슈퍼스타즈",
+      "rank": 6,
+      "wins": 38,
+      "losses": 59,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1985,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 1,
+      "wins": 77,
+      "losses": 32,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1985,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 2,
+      "wins": 59,
+      "losses": 51,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1985,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 3,
+      "wins": 57,
+      "losses": 52,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1985,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 4,
+      "wins": 51,
+      "losses": 57,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1985,
+      "franchiseId": "unknown:MBC 청룡",
+      "brandLabel": "MBC 청룡",
+      "rank": 5,
+      "wins": 44,
+      "losses": 65,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1985,
+      "franchiseId": "unknown:청보 핀토스",
+      "brandLabel": "청보 핀토스",
+      "rank": 6,
+      "wins": 39,
+      "losses": 70,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1986,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 1,
+      "wins": 67,
+      "losses": 37,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 1986,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 2,
+      "wins": 70,
+      "losses": 37,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1986,
+      "franchiseId": "unknown:MBC 청룡",
+      "brandLabel": "MBC 청룡",
+      "rank": 3,
+      "wins": 59,
+      "losses": 41,
+      "ties": 8,
+      "postseasonResult": null
+    },
+    {
+      "year": 1986,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 4,
+      "wins": 56,
+      "losses": 48,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 1986,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 5,
+      "wins": 50,
+      "losses": 52,
+      "ties": 6,
+      "postseasonResult": null
+    },
+    {
+      "year": 1986,
+      "franchiseId": "unknown:청보 핀토스",
+      "brandLabel": "청보 핀토스",
+      "rank": 6,
+      "wins": 32,
+      "losses": 74,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1986,
+      "franchiseId": "unknown:빙그레 이글스",
+      "brandLabel": "빙그레 이글스",
+      "rank": 7,
+      "wins": 31,
+      "losses": 76,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1987,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 1,
+      "wins": 55,
+      "losses": 48,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1987,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 2,
+      "wins": 64,
+      "losses": 44,
+      "ties": 0,
+      "postseasonResult": null
+    },
+    {
+      "year": 1987,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 3,
+      "wins": 54,
+      "losses": 49,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1987,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 4,
+      "wins": 55,
+      "losses": 52,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1987,
+      "franchiseId": "unknown:MBC 청룡",
+      "brandLabel": "MBC 청룡",
+      "rank": 5,
+      "wins": 50,
+      "losses": 51,
+      "ties": 7,
+      "postseasonResult": null
+    },
+    {
+      "year": 1987,
+      "franchiseId": "unknown:빙그레 이글스",
+      "brandLabel": "빙그레 이글스",
+      "rank": 6,
+      "wins": 47,
+      "losses": 57,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 1987,
+      "franchiseId": "unknown:청보 핀토스",
+      "brandLabel": "청보 핀토스",
+      "rank": 7,
+      "wins": 41,
+      "losses": 65,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1988,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 1,
+      "wins": 68,
+      "losses": 38,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1988,
+      "franchiseId": "unknown:빙그레 이글스",
+      "brandLabel": "빙그레 이글스",
+      "rank": 2,
+      "wins": 62,
+      "losses": 45,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1988,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 3,
+      "wins": 57,
+      "losses": 49,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1988,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 4,
+      "wins": 56,
+      "losses": 50,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1988,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 5,
+      "wins": 54,
+      "losses": 52,
+      "ties": 2,
+      "postseasonResult": null
+    },
+    {
+      "year": 1988,
+      "franchiseId": "unknown:MBC 청룡",
+      "brandLabel": "MBC 청룡",
+      "rank": 6,
+      "wins": 40,
+      "losses": 64,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 1988,
+      "franchiseId": "unknown:태평양 돌핀스",
+      "brandLabel": "태평양 돌핀스",
+      "rank": 7,
+      "wins": 34,
+      "losses": 73,
+      "ties": 1,
+      "postseasonResult": null
+    },
+    {
+      "year": 1989,
+      "franchiseId": "unknown:해태 타이거즈",
+      "brandLabel": "해태 타이거즈",
+      "rank": 1,
+      "wins": 65,
+      "losses": 51,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 1989,
+      "franchiseId": "unknown:빙그레 이글스",
+      "brandLabel": "빙그레 이글스",
+      "rank": 2,
+      "wins": 71,
+      "losses": 46,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1989,
+      "franchiseId": "unknown:태평양 돌핀스",
+      "brandLabel": "태평양 돌핀스",
+      "rank": 3,
+      "wins": 62,
+      "losses": 54,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 1989,
+      "franchiseId": "samsung",
+      "brandLabel": "삼성 라이온즈",
+      "rank": 4,
+      "wins": 57,
+      "losses": 58,
+      "ties": 5,
+      "postseasonResult": null
+    },
+    {
+      "year": 1989,
+      "franchiseId": "unknown:OB 베어스",
+      "brandLabel": "OB 베어스",
+      "rank": 5,
+      "wins": 54,
+      "losses": 63,
+      "ties": 3,
+      "postseasonResult": null
+    },
+    {
+      "year": 1989,
+      "franchiseId": "unknown:MBC 청룡",
+      "brandLabel": "MBC 청룡",
+      "rank": 6,
+      "wins": 49,
+      "losses": 67,
+      "ties": 4,
+      "postseasonResult": null
+    },
+    {
+      "year": 1989,
+      "franchiseId": "lotte",
+      "brandLabel": "롯데 자이언츠",
+      "rank": 7,
+      "wins": 48,
+      "losses": 67,
+      "ties": 5,
+      "postseasonResult": null
+    }
+  ]
+}

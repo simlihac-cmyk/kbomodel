@@ -1,0 +1,5159 @@
+{
+  "generatedAt": "2026-04-18T13:35:56.945Z",
+  "sources": [
+    {
+      "sourceId": "official-kbo-ko",
+      "datasetId": "player-awards-mvp-rookie",
+      "snapshotKey": "2026-04-18",
+      "parserVersion": "2026-04-18-ko-player-awards-mvp-rookie-v1"
+    },
+    {
+      "sourceId": "official-kbo-ko",
+      "datasetId": "player-awards-golden-glove",
+      "snapshotKey": "2026-04-18",
+      "parserVersion": "2026-04-18-ko-player-awards-golden-glove-v1"
+    },
+    {
+      "sourceId": "official-kbo-ko",
+      "datasetId": "player-awards-defense-prize",
+      "snapshotKey": "2026-04-18",
+      "parserVersion": "2026-04-18-ko-player-awards-defense-prize-v1"
+    },
+    {
+      "sourceId": "official-kbo-ko",
+      "datasetId": "player-awards-series-prize",
+      "snapshotKey": "2026-04-18",
+      "parserVersion": "2026-04-18-ko-player-awards-series-prize-v1"
+    }
+  ],
+  "awards": [
+    {
+      "awardId": "award:kbo-2025:골든글러브-1루수:디아즈",
+      "seasonId": "kbo-2025",
+      "label": "골든글러브 1루수",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:디아즈",
+      "seasonTeamId": "kbo-2025:samsung",
+      "note": "디아즈 · 삼성 · 1루수"
+    },
+    {
+      "awardId": "award:kbo-2025:골든글러브-2루수:신민재",
+      "seasonId": "kbo-2025",
+      "label": "골든글러브 2루수",
+      "playerId": "player:kbo-2026:kbo-2026:lg:신민재",
+      "seasonTeamId": "kbo-2025:lg",
+      "note": "신민재 · LG · 2루수"
+    },
+    {
+      "awardId": "award:kbo-2025:골든글러브-3루수:송성문",
+      "seasonId": "kbo-2025",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": "kbo-2025:heroes",
+      "note": "송성문 · 키움 · 3루수"
+    },
+    {
+      "awardId": "award:kbo-2025:골든글러브-외야수:구자욱",
+      "seasonId": "kbo-2025",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:62404",
+      "seasonTeamId": "kbo-2025:samsung",
+      "note": "구자욱 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:kbo-2025:골든글러브-외야수:레이예스",
+      "seasonId": "kbo-2025",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:lotte:레이예스",
+      "seasonTeamId": "kbo-2025:lotte",
+      "note": "레이예스 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:kbo-2025:골든글러브-외야수:안현민",
+      "seasonId": "kbo-2025",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:52001",
+      "seasonTeamId": "kbo-2025:kt",
+      "note": "안현민 · KT · 외야수"
+    },
+    {
+      "awardId": "award:kbo-2025:골든글러브-유격수:김주원",
+      "seasonId": "kbo-2025",
+      "label": "골든글러브 유격수",
+      "playerId": "player:kbo-2026:kbo-2026:nc:김주원",
+      "seasonTeamId": "kbo-2025:nc",
+      "note": "김주원 · NC · 유격수"
+    },
+    {
+      "awardId": "award:kbo-2025:골든글러브-지명타자:최형우",
+      "seasonId": "kbo-2025",
+      "label": "골든글러브 지명타자",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:최형우",
+      "seasonTeamId": "kbo-2025:samsung",
+      "note": "최형우 · 삼성 · 지명타자"
+    },
+    {
+      "awardId": "award:kbo-2025:골든글러브-투수:폰세",
+      "seasonId": "kbo-2025",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": "kbo-2025:hanwha",
+      "note": "폰세 · 한화 · 투수"
+    },
+    {
+      "awardId": "award:kbo-2025:골든글러브-포수:양의지",
+      "seasonId": "kbo-2025",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": "kbo-2025:doosan",
+      "note": "양의지 · 두산 · 포수"
+    },
+    {
+      "awardId": "award:kbo-2025:kbo-수비상-1루수:디아즈",
+      "seasonId": "kbo-2025",
+      "label": "KBO 수비상 1루수",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:디아즈",
+      "seasonTeamId": "kbo-2025:samsung",
+      "note": "디아즈 · 삼성 · 1루수"
+    },
+    {
+      "awardId": "award:kbo-2025:kbo-수비상-2루수:박민우",
+      "seasonId": "kbo-2025",
+      "label": "KBO 수비상 2루수",
+      "playerId": "player:kbo-2026:kbo-2026:nc:박민우",
+      "seasonTeamId": "kbo-2025:nc",
+      "note": "박민우 · NC · 2루수"
+    },
+    {
+      "awardId": "award:kbo-2025:kbo-수비상-3루수:송성문",
+      "seasonId": "kbo-2025",
+      "label": "KBO 수비상 3루수",
+      "playerId": null,
+      "seasonTeamId": "kbo-2025:heroes",
+      "note": "송성문 · 키움 · 3루수"
+    },
+    {
+      "awardId": "award:kbo-2025:kbo-수비상-우익수:김성윤",
+      "seasonId": "kbo-2025",
+      "label": "KBO 수비상 우익수",
+      "playerId": "player:official-kbo-en:67449",
+      "seasonTeamId": "kbo-2025:samsung",
+      "note": "김성윤 · 삼성 · 우익수"
+    },
+    {
+      "awardId": "award:kbo-2025:kbo-수비상-유격수:김주원",
+      "seasonId": "kbo-2025",
+      "label": "KBO 수비상 유격수",
+      "playerId": "player:kbo-2026:kbo-2026:nc:김주원",
+      "seasonTeamId": "kbo-2025:nc",
+      "note": "김주원 · NC · 유격수"
+    },
+    {
+      "awardId": "award:kbo-2025:kbo-수비상-좌익수:에레디아",
+      "seasonId": "kbo-2025",
+      "label": "KBO 수비상 좌익수",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:에레디아",
+      "seasonTeamId": "kbo-2025:ssg",
+      "note": "에레디아 · SSG · 좌익수"
+    },
+    {
+      "awardId": "award:kbo-2025:kbo-수비상-중견수:박해민",
+      "seasonId": "kbo-2025",
+      "label": "KBO 수비상 중견수",
+      "playerId": "player:kbo-2026:kbo-2026:lg:박해민",
+      "seasonTeamId": "kbo-2025:lg",
+      "note": "박해민 · LG · 중견수"
+    },
+    {
+      "awardId": "award:kbo-2025:kbo-수비상-투수:고영표",
+      "seasonId": "kbo-2025",
+      "label": "KBO 수비상 투수",
+      "playerId": "player:kbo-2026:kbo-2026:kt:고영표",
+      "seasonTeamId": "kbo-2025:kt",
+      "note": "고영표 · KT · 투수"
+    },
+    {
+      "awardId": "award:kbo-2025:kbo-수비상-포수:김형준",
+      "seasonId": "kbo-2025",
+      "label": "KBO 수비상 포수",
+      "playerId": "player:kbo-2026:kbo-2026:nc:김형준",
+      "seasonTeamId": "kbo-2025:nc",
+      "note": "김형준 · NC · 포수"
+    },
+    {
+      "awardId": "award:kbo-2025:kbo-신인상:안현민",
+      "seasonId": "kbo-2025",
+      "label": "KBO 신인상",
+      "playerId": "player:official-kbo-en:52001",
+      "seasonTeamId": "kbo-2025:kt",
+      "note": "안현민 · KT · 외야수"
+    },
+    {
+      "awardId": "award:kbo-2025:kbo-올스타전-mvp:박동원",
+      "seasonId": "kbo-2025",
+      "label": "KBO 올스타전 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:lg:박동원",
+      "seasonTeamId": "kbo-2025:lg",
+      "note": "박동원 · LG · 포수"
+    },
+    {
+      "awardId": "award:kbo-2025:kbo-한국시리즈-mvp:김현수",
+      "seasonId": "kbo-2025",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": "kbo-2025:lg",
+      "note": "김현수 · LG · 외야수"
+    },
+    {
+      "awardId": "award:kbo-2025:kbo-mvp:폰세",
+      "seasonId": "kbo-2025",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": "kbo-2025:hanwha",
+      "note": "폰세 · 한화 · 투수"
+    },
+    {
+      "awardId": "award:kbo-2017:골든글러브-1루수:이대호",
+      "seasonId": "kbo-2017",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": "kbo-2017:lotte",
+      "note": "이대호 · 롯데 · 1루수"
+    },
+    {
+      "awardId": "award:kbo-2017:골든글러브-2루수:안치홍",
+      "seasonId": "kbo-2017",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": "kbo-2017:kia",
+      "note": "안치홍 · KIA · 2루수"
+    },
+    {
+      "awardId": "award:kbo-2017:골든글러브-3루수:최정",
+      "seasonId": "kbo-2017",
+      "label": "골든글러브 3루수",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:최정",
+      "seasonTeamId": "kbo-2017:ssg",
+      "note": "최정 · SK · 3루수"
+    },
+    {
+      "awardId": "award:kbo-2017:골든글러브-외야수:버나디나",
+      "seasonId": "kbo-2017",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": "kbo-2017:kia",
+      "note": "버나디나 · KIA · 외야수"
+    },
+    {
+      "awardId": "award:kbo-2017:골든글러브-외야수:손아섭",
+      "seasonId": "kbo-2017",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": "kbo-2017:lotte",
+      "note": "손아섭 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:kbo-2017:골든글러브-외야수:최형우",
+      "seasonId": "kbo-2017",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": "kbo-2017:kia",
+      "note": "최형우 · KIA · 외야수"
+    },
+    {
+      "awardId": "award:kbo-2017:골든글러브-유격수:김선빈",
+      "seasonId": "kbo-2017",
+      "label": "골든글러브 유격수",
+      "playerId": "player:kbo-2026:kbo-2026:kia:김선빈",
+      "seasonTeamId": "kbo-2017:kia",
+      "note": "김선빈 · KIA · 유격수"
+    },
+    {
+      "awardId": "award:kbo-2017:골든글러브-지명타자:박용택",
+      "seasonId": "kbo-2017",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": "kbo-2017:lg",
+      "note": "박용택 · LG · 지명타자"
+    },
+    {
+      "awardId": "award:kbo-2017:골든글러브-투수:양현종",
+      "seasonId": "kbo-2017",
+      "label": "골든글러브 투수",
+      "playerId": "player:kbo-2026:kbo-2026:kia:양현종",
+      "seasonTeamId": "kbo-2017:kia",
+      "note": "양현종 · KIA · 투수"
+    },
+    {
+      "awardId": "award:kbo-2017:골든글러브-포수:강민호",
+      "seasonId": "kbo-2017",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:강민호",
+      "seasonTeamId": "kbo-2017:samsung",
+      "note": "강민호 · 삼성 · 포수"
+    },
+    {
+      "awardId": "award:kbo-2017:kbo-신인상:이정후",
+      "seasonId": "kbo-2017",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": "kbo-2017:heroes",
+      "note": "이정후 · 넥센 · 내야수"
+    },
+    {
+      "awardId": "award:kbo-2017:kbo-올스타전-mvp:최정",
+      "seasonId": "kbo-2017",
+      "label": "KBO 올스타전 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:최정",
+      "seasonTeamId": "kbo-2017:ssg",
+      "note": "최정 · SK · 내야수"
+    },
+    {
+      "awardId": "award:kbo-2017:kbo-한국시리즈-mvp:양현종",
+      "seasonId": "kbo-2017",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:kia:양현종",
+      "seasonTeamId": "kbo-2017:kia",
+      "note": "양현종 · KIA · 투수"
+    },
+    {
+      "awardId": "award:kbo-2017:kbo-mvp:양현종",
+      "seasonId": "kbo-2017",
+      "label": "KBO MVP",
+      "playerId": "player:kbo-2026:kbo-2026:kia:양현종",
+      "seasonTeamId": "kbo-2017:kia",
+      "note": "양현종 · KIA · 투수"
+    },
+    {
+      "awardId": "award:archive-2024:골든글러브-1루수:오스틴",
+      "seasonId": "archive-2024",
+      "label": "골든글러브 1루수",
+      "playerId": "player:kbo-2026:kbo-2026:lg:오스틴",
+      "seasonTeamId": null,
+      "note": "오스틴 · LG · 1루수"
+    },
+    {
+      "awardId": "award:archive-2024:골든글러브-2루수:김혜성",
+      "seasonId": "archive-2024",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김혜성 · 키움 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2024:골든글러브-3루수:김도영",
+      "seasonId": "archive-2024",
+      "label": "골든글러브 3루수",
+      "playerId": "player:kbo-2026:kbo-2026:kia:김도영",
+      "seasonTeamId": null,
+      "note": "김도영 · KIA · 3루수"
+    },
+    {
+      "awardId": "award:archive-2024:골든글러브-외야수:구자욱",
+      "seasonId": "archive-2024",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:62404",
+      "seasonTeamId": null,
+      "note": "구자욱 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2024:골든글러브-외야수:레이예스",
+      "seasonId": "archive-2024",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:lotte:레이예스",
+      "seasonTeamId": null,
+      "note": "레이예스 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2024:골든글러브-외야수:로하스",
+      "seasonId": "archive-2024",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "로하스 · KT · 외야수"
+    },
+    {
+      "awardId": "award:archive-2024:골든글러브-유격수:박찬호",
+      "seasonId": "archive-2024",
+      "label": "골든글러브 유격수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:박찬호",
+      "seasonTeamId": null,
+      "note": "박찬호 · KIA · 유격수"
+    },
+    {
+      "awardId": "award:archive-2024:골든글러브-지명타자:최형우",
+      "seasonId": "archive-2024",
+      "label": "골든글러브 지명타자",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:최형우",
+      "seasonTeamId": null,
+      "note": "최형우 · KIA · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2024:골든글러브-투수:하트",
+      "seasonId": "archive-2024",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "하트 · NC · 투수"
+    },
+    {
+      "awardId": "award:archive-2024:골든글러브-포수:강민호",
+      "seasonId": "archive-2024",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:강민호",
+      "seasonTeamId": null,
+      "note": "강민호 · 삼성 · 포수"
+    },
+    {
+      "awardId": "award:archive-2024:kbo-수비상-1루수:오스틴",
+      "seasonId": "archive-2024",
+      "label": "KBO 수비상 1루수",
+      "playerId": "player:kbo-2026:kbo-2026:lg:오스틴",
+      "seasonTeamId": null,
+      "note": "오스틴 · LG · 1루수"
+    },
+    {
+      "awardId": "award:archive-2024:kbo-수비상-2루수:김혜성",
+      "seasonId": "archive-2024",
+      "label": "KBO 수비상 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김혜성 · 키움 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2024:kbo-수비상-3루수:허경민",
+      "seasonId": "archive-2024",
+      "label": "KBO 수비상 3루수",
+      "playerId": "player:official-kbo-en:79240",
+      "seasonTeamId": null,
+      "note": "허경민 · KT · 3루수"
+    },
+    {
+      "awardId": "award:archive-2024:kbo-수비상-우익수:홍창기",
+      "seasonId": "archive-2024",
+      "label": "KBO 수비상 우익수",
+      "playerId": "player:kbo-2026:kbo-2026:lg:홍창기",
+      "seasonTeamId": null,
+      "note": "홍창기 · LG · 우익수"
+    },
+    {
+      "awardId": "award:archive-2024:kbo-수비상-유격수:박찬호",
+      "seasonId": "archive-2024",
+      "label": "KBO 수비상 유격수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:박찬호",
+      "seasonTeamId": null,
+      "note": "박찬호 · KIA · 유격수"
+    },
+    {
+      "awardId": "award:archive-2024:kbo-수비상-좌익수:에레디아",
+      "seasonId": "archive-2024",
+      "label": "KBO 수비상 좌익수",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:에레디아",
+      "seasonTeamId": null,
+      "note": "에레디아 · SSG · 좌익수"
+    },
+    {
+      "awardId": "award:archive-2024:kbo-수비상-중견수:정수빈",
+      "seasonId": "archive-2024",
+      "label": "KBO 수비상 중견수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:정수빈",
+      "seasonTeamId": null,
+      "note": "정수빈 · 두산 · 중견수"
+    },
+    {
+      "awardId": "award:archive-2024:kbo-수비상-투수:하트",
+      "seasonId": "archive-2024",
+      "label": "KBO 수비상 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "하트 · NC · 투수"
+    },
+    {
+      "awardId": "award:archive-2024:kbo-수비상-포수:박동원",
+      "seasonId": "archive-2024",
+      "label": "KBO 수비상 포수",
+      "playerId": "player:kbo-2026:kbo-2026:lg:박동원",
+      "seasonTeamId": null,
+      "note": "박동원 · LG · 포수"
+    },
+    {
+      "awardId": "award:archive-2024:kbo-신인상:김택연",
+      "seasonId": "archive-2024",
+      "label": "KBO 신인상",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:김택연",
+      "seasonTeamId": null,
+      "note": "김택연 · 두산 · 투수"
+    },
+    {
+      "awardId": "award:archive-2024:kbo-올스타전-mvp:최형우",
+      "seasonId": "archive-2024",
+      "label": "KBO 올스타전 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:최형우",
+      "seasonTeamId": null,
+      "note": "최형우 · KIA · 외야수"
+    },
+    {
+      "awardId": "award:archive-2024:kbo-한국시리즈-mvp:김선빈",
+      "seasonId": "archive-2024",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:kia:김선빈",
+      "seasonTeamId": null,
+      "note": "김선빈 · KIA · 내야수"
+    },
+    {
+      "awardId": "award:archive-2024:kbo-mvp:김도영",
+      "seasonId": "archive-2024",
+      "label": "KBO MVP",
+      "playerId": "player:kbo-2026:kbo-2026:kia:김도영",
+      "seasonTeamId": null,
+      "note": "김도영 · KIA · 내야수"
+    },
+    {
+      "awardId": "award:archive-2023:골든글러브-1루수:오스틴",
+      "seasonId": "archive-2023",
+      "label": "골든글러브 1루수",
+      "playerId": "player:kbo-2026:kbo-2026:lg:오스틴",
+      "seasonTeamId": null,
+      "note": "오스틴 · LG · 1루수"
+    },
+    {
+      "awardId": "award:archive-2023:골든글러브-2루수:김혜성",
+      "seasonId": "archive-2023",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김혜성 · 키움 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2023:골든글러브-3루수:노시환",
+      "seasonId": "archive-2023",
+      "label": "골든글러브 3루수",
+      "playerId": "player:official-kbo-en:69737",
+      "seasonTeamId": null,
+      "note": "노시환 · 한화 · 3루수"
+    },
+    {
+      "awardId": "award:archive-2023:골든글러브-외야수:구자욱",
+      "seasonId": "archive-2023",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:62404",
+      "seasonTeamId": null,
+      "note": "구자욱 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2023:골든글러브-외야수:박건우",
+      "seasonId": "archive-2023",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:nc:박건우",
+      "seasonTeamId": null,
+      "note": "박건우 · NC · 외야수"
+    },
+    {
+      "awardId": "award:archive-2023:골든글러브-외야수:홍창기",
+      "seasonId": "archive-2023",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:lg:홍창기",
+      "seasonTeamId": null,
+      "note": "홍창기 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-2023:골든글러브-유격수:오지환",
+      "seasonId": "archive-2023",
+      "label": "골든글러브 유격수",
+      "playerId": "player:kbo-2026:kbo-2026:lg:오지환",
+      "seasonTeamId": null,
+      "note": "오지환 · LG · 유격수"
+    },
+    {
+      "awardId": "award:archive-2023:골든글러브-지명타자:손아섭",
+      "seasonId": "archive-2023",
+      "label": "골든글러브 지명타자",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:손아섭",
+      "seasonTeamId": null,
+      "note": "손아섭 · NC · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2023:골든글러브-투수:페디",
+      "seasonId": "archive-2023",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "페디 · NC · 투수"
+    },
+    {
+      "awardId": "award:archive-2023:골든글러브-포수:양의지",
+      "seasonId": "archive-2023",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": null,
+      "note": "양의지 · 두산 · 포수"
+    },
+    {
+      "awardId": "award:archive-2023:kbo-수비상-1루수:박병호",
+      "seasonId": "archive-2023",
+      "label": "KBO 수비상 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박병호 · KT · 1루수"
+    },
+    {
+      "awardId": "award:archive-2023:kbo-수비상-2루수:김혜성",
+      "seasonId": "archive-2023",
+      "label": "KBO 수비상 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김혜성 · 키움 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2023:kbo-수비상-3루수:허경민",
+      "seasonId": "archive-2023",
+      "label": "KBO 수비상 3루수",
+      "playerId": "player:official-kbo-en:79240",
+      "seasonTeamId": null,
+      "note": "허경민 · 두산 · 3루수"
+    },
+    {
+      "awardId": "award:archive-2023:kbo-수비상-우익수:홍창기",
+      "seasonId": "archive-2023",
+      "label": "KBO 수비상 우익수",
+      "playerId": "player:kbo-2026:kbo-2026:lg:홍창기",
+      "seasonTeamId": null,
+      "note": "홍창기 · LG · 우익수"
+    },
+    {
+      "awardId": "award:archive-2023:kbo-수비상-유격수:박찬호",
+      "seasonId": "archive-2023",
+      "label": "KBO 수비상 유격수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:박찬호",
+      "seasonTeamId": null,
+      "note": "박찬호 · KIA · 유격수"
+    },
+    {
+      "awardId": "award:archive-2023:kbo-수비상-유격수:오지환",
+      "seasonId": "archive-2023",
+      "label": "KBO 수비상 유격수",
+      "playerId": "player:kbo-2026:kbo-2026:lg:오지환",
+      "seasonTeamId": null,
+      "note": "오지환 · LG · 유격수"
+    },
+    {
+      "awardId": "award:archive-2023:kbo-수비상-좌익수:에레디아",
+      "seasonId": "archive-2023",
+      "label": "KBO 수비상 좌익수",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:에레디아",
+      "seasonTeamId": null,
+      "note": "에레디아 · SSG · 좌익수"
+    },
+    {
+      "awardId": "award:archive-2023:kbo-수비상-중견수:박해민",
+      "seasonId": "archive-2023",
+      "label": "KBO 수비상 중견수",
+      "playerId": "player:kbo-2026:kbo-2026:lg:박해민",
+      "seasonTeamId": null,
+      "note": "박해민 · LG · 중견수"
+    },
+    {
+      "awardId": "award:archive-2023:kbo-수비상-투수:페디",
+      "seasonId": "archive-2023",
+      "label": "KBO 수비상 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "페디 · NC · 투수"
+    },
+    {
+      "awardId": "award:archive-2023:kbo-수비상-포수:양의지",
+      "seasonId": "archive-2023",
+      "label": "KBO 수비상 포수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": null,
+      "note": "양의지 · 두산 · 포수"
+    },
+    {
+      "awardId": "award:archive-2023:kbo-신인상:문동주",
+      "seasonId": "archive-2023",
+      "label": "KBO 신인상",
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:문동주",
+      "seasonTeamId": null,
+      "note": "문동주 · 한화 · 투수"
+    },
+    {
+      "awardId": "award:archive-2023:kbo-올스타전-mvp:채은성",
+      "seasonId": "archive-2023",
+      "label": "KBO 올스타전 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:채은성",
+      "seasonTeamId": null,
+      "note": "채은성 · 한화 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2023:kbo-한국시리즈-mvp:오지환",
+      "seasonId": "archive-2023",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:lg:오지환",
+      "seasonTeamId": null,
+      "note": "오지환 · LG · 내야수"
+    },
+    {
+      "awardId": "award:archive-2023:kbo-mvp:페디",
+      "seasonId": "archive-2023",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "페디 · NC · 투수"
+    },
+    {
+      "awardId": "award:archive-2022:골든글러브-1루수:박병호",
+      "seasonId": "archive-2022",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박병호 · KT · 1루수"
+    },
+    {
+      "awardId": "award:archive-2022:골든글러브-2루수:김혜성",
+      "seasonId": "archive-2022",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김혜성 · 키움 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2022:골든글러브-3루수:최정",
+      "seasonId": "archive-2022",
+      "label": "골든글러브 3루수",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:최정",
+      "seasonTeamId": null,
+      "note": "최정 · SSG · 3루수"
+    },
+    {
+      "awardId": "award:archive-2022:골든글러브-외야수:나성범",
+      "seasonId": "archive-2022",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:kia:나성범",
+      "seasonTeamId": null,
+      "note": "나성범 · KIA · 외야수"
+    },
+    {
+      "awardId": "award:archive-2022:골든글러브-외야수:이정후",
+      "seasonId": "archive-2022",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이정후 · 키움 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2022:골든글러브-외야수:피렐라",
+      "seasonId": "archive-2022",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "피렐라 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2022:골든글러브-유격수:오지환",
+      "seasonId": "archive-2022",
+      "label": "골든글러브 유격수",
+      "playerId": "player:kbo-2026:kbo-2026:lg:오지환",
+      "seasonTeamId": null,
+      "note": "오지환 · LG · 유격수"
+    },
+    {
+      "awardId": "award:archive-2022:골든글러브-지명타자:이대호",
+      "seasonId": "archive-2022",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이대호 · 롯데 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2022:골든글러브-투수:안우진",
+      "seasonId": "archive-2022",
+      "label": "골든글러브 투수",
+      "playerId": "player:kbo-2026:kbo-2026:heroes:안우진",
+      "seasonTeamId": null,
+      "note": "안우진 · 키움 · 투수"
+    },
+    {
+      "awardId": "award:archive-2022:골든글러브-포수:양의지",
+      "seasonId": "archive-2022",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": null,
+      "note": "양의지 · 두산 · 포수"
+    },
+    {
+      "awardId": "award:archive-2022:kbo-신인상:정철원",
+      "seasonId": "archive-2022",
+      "label": "KBO 신인상",
+      "playerId": "player:kbo-2026:kbo-2026:lotte:정철원",
+      "seasonTeamId": null,
+      "note": "정철원 · 두산 · 투수"
+    },
+    {
+      "awardId": "award:archive-2022:kbo-올스타전-mvp:정은원",
+      "seasonId": "archive-2022",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정은원 · 한화 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2022:kbo-한국시리즈-mvp:김강민",
+      "seasonId": "archive-2022",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김강민 · SSG · 외야수"
+    },
+    {
+      "awardId": "award:archive-2022:kbo-mvp:이정후",
+      "seasonId": "archive-2022",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이정후 · 키움 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2021:골든글러브-1루수:강백호",
+      "seasonId": "archive-2021",
+      "label": "골든글러브 1루수",
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:강백호",
+      "seasonTeamId": null,
+      "note": "강백호 · KT · 1루수"
+    },
+    {
+      "awardId": "award:archive-2021:골든글러브-2루수:정은원",
+      "seasonId": "archive-2021",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정은원 · 한화 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2021:골든글러브-3루수:최정",
+      "seasonId": "archive-2021",
+      "label": "골든글러브 3루수",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:최정",
+      "seasonTeamId": null,
+      "note": "최정 · SSG · 3루수"
+    },
+    {
+      "awardId": "award:archive-2021:골든글러브-외야수:구자욱",
+      "seasonId": "archive-2021",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:62404",
+      "seasonTeamId": null,
+      "note": "구자욱 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2021:골든글러브-외야수:이정후",
+      "seasonId": "archive-2021",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이정후 · 키움 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2021:골든글러브-외야수:홍창기",
+      "seasonId": "archive-2021",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:lg:홍창기",
+      "seasonTeamId": null,
+      "note": "홍창기 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-2021:골든글러브-유격수:김혜성",
+      "seasonId": "archive-2021",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김혜성 · 키움 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2021:골든글러브-지명타자:양의지",
+      "seasonId": "archive-2021",
+      "label": "골든글러브 지명타자",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": null,
+      "note": "양의지 · NC · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2021:골든글러브-투수:미란다",
+      "seasonId": "archive-2021",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "미란다 · 두산 · 투수"
+    },
+    {
+      "awardId": "award:archive-2021:골든글러브-포수:강민호",
+      "seasonId": "archive-2021",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:강민호",
+      "seasonTeamId": null,
+      "note": "강민호 · 삼성 · 포수"
+    },
+    {
+      "awardId": "award:archive-2021:kbo-신인상:이의리",
+      "seasonId": "archive-2021",
+      "label": "KBO 신인상",
+      "playerId": "player:kbo-2026:kbo-2026:kia:이의리",
+      "seasonTeamId": null,
+      "note": "이의리 · KIA · 투수"
+    },
+    {
+      "awardId": "award:archive-2021:kbo-한국시리즈-mvp:박경수",
+      "seasonId": "archive-2021",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박경수 · KT · 내야수"
+    },
+    {
+      "awardId": "award:archive-2021:kbo-mvp:미란다",
+      "seasonId": "archive-2021",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "미란다 · 두산 · 투수"
+    },
+    {
+      "awardId": "award:archive-2020:골든글러브-1루수:강백호",
+      "seasonId": "archive-2020",
+      "label": "골든글러브 1루수",
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:강백호",
+      "seasonTeamId": null,
+      "note": "강백호 · KT · 1루수"
+    },
+    {
+      "awardId": "award:archive-2020:골든글러브-2루수:박민우",
+      "seasonId": "archive-2020",
+      "label": "골든글러브 2루수",
+      "playerId": "player:kbo-2026:kbo-2026:nc:박민우",
+      "seasonTeamId": null,
+      "note": "박민우 · NC · 2루수"
+    },
+    {
+      "awardId": "award:archive-2020:골든글러브-3루수:황재균",
+      "seasonId": "archive-2020",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "황재균 · KT · 3루수"
+    },
+    {
+      "awardId": "award:archive-2020:골든글러브-외야수:김현수",
+      "seasonId": "archive-2020",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:kt:김현수",
+      "seasonTeamId": null,
+      "note": "김현수 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-2020:골든글러브-외야수:로하스",
+      "seasonId": "archive-2020",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "로하스 · KT · 외야수"
+    },
+    {
+      "awardId": "award:archive-2020:골든글러브-외야수:이정후",
+      "seasonId": "archive-2020",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이정후 · 키움 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2020:골든글러브-유격수:김하성",
+      "seasonId": "archive-2020",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김하성 · 키움 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2020:골든글러브-지명타자:최형우",
+      "seasonId": "archive-2020",
+      "label": "골든글러브 지명타자",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:최형우",
+      "seasonTeamId": null,
+      "note": "최형우 · KIA · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2020:골든글러브-투수:알칸타라",
+      "seasonId": "archive-2020",
+      "label": "골든글러브 투수",
+      "playerId": "player:kbo-2026:kbo-2026:heroes:알칸타라",
+      "seasonTeamId": null,
+      "note": "알칸타라 · 두산 · 투수"
+    },
+    {
+      "awardId": "award:archive-2020:골든글러브-포수:양의지",
+      "seasonId": "archive-2020",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": null,
+      "note": "양의지 · NC · 포수"
+    },
+    {
+      "awardId": "award:archive-2020:kbo-신인상:소형준",
+      "seasonId": "archive-2020",
+      "label": "KBO 신인상",
+      "playerId": "player:kbo-2026:kbo-2026:kt:소형준",
+      "seasonTeamId": null,
+      "note": "소형준 · KT · 투수"
+    },
+    {
+      "awardId": "award:archive-2020:kbo-올스타전-mvp:양의지",
+      "seasonId": "archive-2020",
+      "label": "KBO 올스타전 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": null,
+      "note": "양의지 · NC · 포수"
+    },
+    {
+      "awardId": "award:archive-2020:kbo-한국시리즈-mvp:양의지",
+      "seasonId": "archive-2020",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": null,
+      "note": "양의지 · NC · 포수"
+    },
+    {
+      "awardId": "award:archive-2020:kbo-mvp:로하스",
+      "seasonId": "archive-2020",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "로하스 · KT · 외야수"
+    },
+    {
+      "awardId": "award:archive-2019:골든글러브-1루수:박병호",
+      "seasonId": "archive-2019",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박병호 · 키움 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2019:골든글러브-2루수:박민우",
+      "seasonId": "archive-2019",
+      "label": "골든글러브 2루수",
+      "playerId": "player:kbo-2026:kbo-2026:nc:박민우",
+      "seasonTeamId": null,
+      "note": "박민우 · NC · 2루수"
+    },
+    {
+      "awardId": "award:archive-2019:골든글러브-3루수:최정",
+      "seasonId": "archive-2019",
+      "label": "골든글러브 3루수",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:최정",
+      "seasonTeamId": null,
+      "note": "최정 · SK · 3루수"
+    },
+    {
+      "awardId": "award:archive-2019:골든글러브-외야수:로하스",
+      "seasonId": "archive-2019",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "로하스 · KT · 외야수"
+    },
+    {
+      "awardId": "award:archive-2019:골든글러브-외야수:샌즈",
+      "seasonId": "archive-2019",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "샌즈 · 키움 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2019:골든글러브-외야수:이정후",
+      "seasonId": "archive-2019",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이정후 · 키움 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2019:골든글러브-유격수:김하성",
+      "seasonId": "archive-2019",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김하성 · 키움 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2019:골든글러브-지명타자:페르난데스",
+      "seasonId": "archive-2019",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "페르난데스 · 두산 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2019:골든글러브-투수:린드블럼",
+      "seasonId": "archive-2019",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "린드블럼 · 두산 · 투수"
+    },
+    {
+      "awardId": "award:archive-2019:골든글러브-포수:양의지",
+      "seasonId": "archive-2019",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": null,
+      "note": "양의지 · NC · 포수"
+    },
+    {
+      "awardId": "award:archive-2019:kbo-신인상:정우영",
+      "seasonId": "archive-2019",
+      "label": "KBO 신인상",
+      "playerId": "player:official-kbo-en:69159",
+      "seasonTeamId": null,
+      "note": "정우영 · LG · 투수"
+    },
+    {
+      "awardId": "award:archive-2019:kbo-올스타전-mvp:한유섬",
+      "seasonId": "archive-2019",
+      "label": "KBO 올스타전 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:한유섬",
+      "seasonTeamId": null,
+      "note": "한유섬 · SK · 외야수"
+    },
+    {
+      "awardId": "award:archive-2019:kbo-한국시리즈-mvp:오재일",
+      "seasonId": "archive-2019",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "오재일 · 두산 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2019:kbo-mvp:린드블럼",
+      "seasonId": "archive-2019",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "린드블럼 · 두산 · 투수"
+    },
+    {
+      "awardId": "award:archive-2018:골든글러브-1루수:박병호",
+      "seasonId": "archive-2018",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박병호 · 넥센 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2018:골든글러브-2루수:안치홍",
+      "seasonId": "archive-2018",
+      "label": "골든글러브 2루수",
+      "playerId": "player:kbo-2026:kbo-2026:heroes:안치홍",
+      "seasonTeamId": null,
+      "note": "안치홍 · KIA · 2루수"
+    },
+    {
+      "awardId": "award:archive-2018:골든글러브-3루수:허경민",
+      "seasonId": "archive-2018",
+      "label": "골든글러브 3루수",
+      "playerId": "player:official-kbo-en:79240",
+      "seasonTeamId": null,
+      "note": "허경민 · 두산 · 3루수"
+    },
+    {
+      "awardId": "award:archive-2018:골든글러브-외야수:김재환",
+      "seasonId": "archive-2018",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:김재환",
+      "seasonTeamId": null,
+      "note": "김재환 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2018:골든글러브-외야수:이정후",
+      "seasonId": "archive-2018",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이정후 · 넥센 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2018:골든글러브-외야수:전준우",
+      "seasonId": "archive-2018",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:lotte:전준우",
+      "seasonTeamId": null,
+      "note": "전준우 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2018:골든글러브-유격수:김하성",
+      "seasonId": "archive-2018",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김하성 · 넥센 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2018:골든글러브-지명타자:이대호",
+      "seasonId": "archive-2018",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이대호 · 롯데 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2018:골든글러브-투수:린드블럼",
+      "seasonId": "archive-2018",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "린드블럼 · 두산 · 투수"
+    },
+    {
+      "awardId": "award:archive-2018:골든글러브-포수:양의지",
+      "seasonId": "archive-2018",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": null,
+      "note": "양의지 · 두산 · 포수"
+    },
+    {
+      "awardId": "award:archive-2018:kbo-신인상:강백호",
+      "seasonId": "archive-2018",
+      "label": "KBO 신인상",
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:강백호",
+      "seasonTeamId": null,
+      "note": "강백호 · KT · 외야수"
+    },
+    {
+      "awardId": "award:archive-2018:kbo-올스타전-mvp:김하성",
+      "seasonId": "archive-2018",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김하성 · 넥센 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2018:kbo-한국시리즈-mvp:한유섬",
+      "seasonId": "archive-2018",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:한유섬",
+      "seasonTeamId": null,
+      "note": "한유섬 · SK · 외야수"
+    },
+    {
+      "awardId": "award:archive-2018:kbo-mvp:김재환",
+      "seasonId": "archive-2018",
+      "label": "KBO MVP",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:김재환",
+      "seasonTeamId": null,
+      "note": "김재환 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2016:골든글러브-1루수:테임즈",
+      "seasonId": "archive-2016",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "테임즈 · NC · 1루수"
+    },
+    {
+      "awardId": "award:archive-2016:골든글러브-2루수:서건창",
+      "seasonId": "archive-2016",
+      "label": "골든글러브 2루수",
+      "playerId": "player:official-kbo-en:78168",
+      "seasonTeamId": null,
+      "note": "서건창 · 넥센 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2016:골든글러브-3루수:최정",
+      "seasonId": "archive-2016",
+      "label": "골든글러브 3루수",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:최정",
+      "seasonTeamId": null,
+      "note": "최정 · SK · 3루수"
+    },
+    {
+      "awardId": "award:archive-2016:골든글러브-외야수:김재환",
+      "seasonId": "archive-2016",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:김재환",
+      "seasonTeamId": null,
+      "note": "김재환 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2016:골든글러브-외야수:김주찬",
+      "seasonId": "archive-2016",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김주찬 · KIA · 외야수"
+    },
+    {
+      "awardId": "award:archive-2016:골든글러브-외야수:최형우",
+      "seasonId": "archive-2016",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:최형우",
+      "seasonTeamId": null,
+      "note": "최형우 · KIA · 외야수"
+    },
+    {
+      "awardId": "award:archive-2016:골든글러브-유격수:김재호",
+      "seasonId": "archive-2016",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김재호 · 두산 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2016:골든글러브-지명타자:김태균",
+      "seasonId": "archive-2016",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김태균 · 한화 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2016:골든글러브-투수:니퍼트",
+      "seasonId": "archive-2016",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "니퍼트 · 두산 · 투수"
+    },
+    {
+      "awardId": "award:archive-2016:골든글러브-포수:양의지",
+      "seasonId": "archive-2016",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": null,
+      "note": "양의지 · 두산 · 포수"
+    },
+    {
+      "awardId": "award:archive-2016:kbo-신인상:신재영",
+      "seasonId": "archive-2016",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "신재영 · 넥센 · 투수"
+    },
+    {
+      "awardId": "award:archive-2016:kbo-올스타전-mvp:민병헌",
+      "seasonId": "archive-2016",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "민병헌 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2016:kbo-한국시리즈-mvp:양의지",
+      "seasonId": "archive-2016",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": null,
+      "note": "양의지 · 두산 · 포수"
+    },
+    {
+      "awardId": "award:archive-2016:kbo-mvp:니퍼트",
+      "seasonId": "archive-2016",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "니퍼트 · 두산 · 투수"
+    },
+    {
+      "awardId": "award:archive-2015:골든글러브-1루수:테임즈",
+      "seasonId": "archive-2015",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "테임즈 · NC · 1루수"
+    },
+    {
+      "awardId": "award:archive-2015:골든글러브-2루수:나바로",
+      "seasonId": "archive-2015",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "나바로 · 삼성 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2015:골든글러브-3루수:박석민",
+      "seasonId": "archive-2015",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박석민 · NC · 3루수"
+    },
+    {
+      "awardId": "award:archive-2015:골든글러브-외야수:김현수",
+      "seasonId": "archive-2015",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:kt:김현수",
+      "seasonTeamId": null,
+      "note": "김현수 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2015:골든글러브-외야수:나성범",
+      "seasonId": "archive-2015",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:kia:나성범",
+      "seasonTeamId": null,
+      "note": "나성범 · NC · 외야수"
+    },
+    {
+      "awardId": "award:archive-2015:골든글러브-외야수:유한준",
+      "seasonId": "archive-2015",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "유한준 · KT · 외야수"
+    },
+    {
+      "awardId": "award:archive-2015:골든글러브-유격수:김재호",
+      "seasonId": "archive-2015",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김재호 · 두산 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2015:골든글러브-지명타자:이승엽",
+      "seasonId": "archive-2015",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2015:골든글러브-투수:해커",
+      "seasonId": "archive-2015",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "해커 · NC · 투수"
+    },
+    {
+      "awardId": "award:archive-2015:골든글러브-포수:양의지",
+      "seasonId": "archive-2015",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": null,
+      "note": "양의지 · 두산 · 포수"
+    },
+    {
+      "awardId": "award:archive-2015:kbo-신인상:구자욱",
+      "seasonId": "archive-2015",
+      "label": "KBO 신인상",
+      "playerId": "player:official-kbo-en:62404",
+      "seasonTeamId": null,
+      "note": "구자욱 · 삼성 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2015:kbo-올스타전-mvp:강민호",
+      "seasonId": "archive-2015",
+      "label": "KBO 올스타전 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:강민호",
+      "seasonTeamId": null,
+      "note": "강민호 · 롯데 · 포수"
+    },
+    {
+      "awardId": "award:archive-2015:kbo-한국시리즈-mvp:정수빈",
+      "seasonId": "archive-2015",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:정수빈",
+      "seasonTeamId": null,
+      "note": "정수빈 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2015:kbo-mvp:테임즈",
+      "seasonId": "archive-2015",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "테임즈 · NC · 내야수"
+    },
+    {
+      "awardId": "award:archive-2014:골든글러브-1루수:박병호",
+      "seasonId": "archive-2014",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박병호 · 넥센 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2014:골든글러브-2루수:서건창",
+      "seasonId": "archive-2014",
+      "label": "골든글러브 2루수",
+      "playerId": "player:official-kbo-en:78168",
+      "seasonTeamId": null,
+      "note": "서건창 · 넥센 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2014:골든글러브-3루수:박석민",
+      "seasonId": "archive-2014",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박석민 · 삼성 · 3루수"
+    },
+    {
+      "awardId": "award:archive-2014:골든글러브-외야수:나성범",
+      "seasonId": "archive-2014",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:kia:나성범",
+      "seasonTeamId": null,
+      "note": "나성범 · NC · 외야수"
+    },
+    {
+      "awardId": "award:archive-2014:골든글러브-외야수:손아섭",
+      "seasonId": "archive-2014",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:손아섭",
+      "seasonTeamId": null,
+      "note": "손아섭 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2014:골든글러브-외야수:최형우",
+      "seasonId": "archive-2014",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:최형우",
+      "seasonTeamId": null,
+      "note": "최형우 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2014:골든글러브-유격수:강정호",
+      "seasonId": "archive-2014",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "강정호 · 넥센 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2014:골든글러브-지명타자:이승엽",
+      "seasonId": "archive-2014",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2014:골든글러브-투수:밴헤켄",
+      "seasonId": "archive-2014",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "밴헤켄 · 넥센 · 투수"
+    },
+    {
+      "awardId": "award:archive-2014:골든글러브-포수:양의지",
+      "seasonId": "archive-2014",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": null,
+      "note": "양의지 · 두산 · 포수"
+    },
+    {
+      "awardId": "award:archive-2014:kbo-신인상:박민우",
+      "seasonId": "archive-2014",
+      "label": "KBO 신인상",
+      "playerId": "player:kbo-2026:kbo-2026:nc:박민우",
+      "seasonTeamId": null,
+      "note": "박민우 · NC · 내야수"
+    },
+    {
+      "awardId": "award:archive-2014:kbo-올스타전-mvp:박병호",
+      "seasonId": "archive-2014",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박병호 · 넥센 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2014:kbo-한국시리즈-mvp:나바로",
+      "seasonId": "archive-2014",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "나바로 · 삼성 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2014:kbo-mvp:서건창",
+      "seasonId": "archive-2014",
+      "label": "KBO MVP",
+      "playerId": "player:official-kbo-en:78168",
+      "seasonTeamId": null,
+      "note": "서건창 · 넥센 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2013:골든글러브-1루수:박병호",
+      "seasonId": "archive-2013",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박병호 · 넥센 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2013:골든글러브-2루수:정근우",
+      "seasonId": "archive-2013",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정근우 · 한화 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2013:골든글러브-3루수:최정",
+      "seasonId": "archive-2013",
+      "label": "골든글러브 3루수",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:최정",
+      "seasonTeamId": null,
+      "note": "최정 · SK · 3루수"
+    },
+    {
+      "awardId": "award:archive-2013:골든글러브-외야수:박용택",
+      "seasonId": "archive-2013",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박용택 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-2013:골든글러브-외야수:손아섭",
+      "seasonId": "archive-2013",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:손아섭",
+      "seasonTeamId": null,
+      "note": "손아섭 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2013:골든글러브-외야수:최형우",
+      "seasonId": "archive-2013",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:최형우",
+      "seasonTeamId": null,
+      "note": "최형우 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2013:골든글러브-유격수:강정호",
+      "seasonId": "archive-2013",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "강정호 · 넥센 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2013:골든글러브-지명타자:이병규",
+      "seasonId": "archive-2013",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이병규 · LG · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2013:골든글러브-투수:손승락",
+      "seasonId": "archive-2013",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "손승락 · 넥센 · 투수"
+    },
+    {
+      "awardId": "award:archive-2013:골든글러브-포수:강민호",
+      "seasonId": "archive-2013",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:강민호",
+      "seasonTeamId": null,
+      "note": "강민호 · 롯데 · 포수"
+    },
+    {
+      "awardId": "award:archive-2013:kbo-신인상:이재학",
+      "seasonId": "archive-2013",
+      "label": "KBO 신인상",
+      "playerId": "player:official-kbo-en:60263",
+      "seasonTeamId": null,
+      "note": "이재학 · NC · 투수"
+    },
+    {
+      "awardId": "award:archive-2013:kbo-올스타전-mvp:전준우",
+      "seasonId": "archive-2013",
+      "label": "KBO 올스타전 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:lotte:전준우",
+      "seasonTeamId": null,
+      "note": "전준우 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2013:kbo-한국시리즈-mvp:박한이",
+      "seasonId": "archive-2013",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박한이 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2013:kbo-mvp:박병호",
+      "seasonId": "archive-2013",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박병호 · 넥센 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2012:골든글러브-1루수:박병호",
+      "seasonId": "archive-2012",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박병호 · 넥센 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2012:골든글러브-2루수:서건창",
+      "seasonId": "archive-2012",
+      "label": "골든글러브 2루수",
+      "playerId": "player:official-kbo-en:78168",
+      "seasonTeamId": null,
+      "note": "서건창 · 넥센 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2012:골든글러브-3루수:최정",
+      "seasonId": "archive-2012",
+      "label": "골든글러브 3루수",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:최정",
+      "seasonTeamId": null,
+      "note": "최정 · SK · 3루수"
+    },
+    {
+      "awardId": "award:archive-2012:골든글러브-외야수:박용택",
+      "seasonId": "archive-2012",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박용택 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-2012:골든글러브-외야수:손아섭",
+      "seasonId": "archive-2012",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:손아섭",
+      "seasonTeamId": null,
+      "note": "손아섭 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2012:골든글러브-외야수:이용규",
+      "seasonId": "archive-2012",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:74163",
+      "seasonTeamId": null,
+      "note": "이용규 · KIA · 외야수"
+    },
+    {
+      "awardId": "award:archive-2012:골든글러브-유격수:강정호",
+      "seasonId": "archive-2012",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "강정호 · 넥센 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2012:골든글러브-지명타자:이승엽",
+      "seasonId": "archive-2012",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2012:골든글러브-투수:장원삼",
+      "seasonId": "archive-2012",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장원삼 · 삼성 · 투수"
+    },
+    {
+      "awardId": "award:archive-2012:골든글러브-포수:강민호",
+      "seasonId": "archive-2012",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:강민호",
+      "seasonTeamId": null,
+      "note": "강민호 · 롯데 · 포수"
+    },
+    {
+      "awardId": "award:archive-2012:kbo-신인상:서건창",
+      "seasonId": "archive-2012",
+      "label": "KBO 신인상",
+      "playerId": "player:official-kbo-en:78168",
+      "seasonTeamId": null,
+      "note": "서건창 · 넥센 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2012:kbo-올스타전-mvp:황재균",
+      "seasonId": "archive-2012",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "황재균 · 롯데 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2012:kbo-한국시리즈-mvp:이승엽",
+      "seasonId": "archive-2012",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2012:kbo-mvp:박병호",
+      "seasonId": "archive-2012",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박병호 · 넥센 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2011:골든글러브-1루수:이대호",
+      "seasonId": "archive-2011",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이대호 · 롯데 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2011:골든글러브-2루수:안치홍",
+      "seasonId": "archive-2011",
+      "label": "골든글러브 2루수",
+      "playerId": "player:kbo-2026:kbo-2026:heroes:안치홍",
+      "seasonTeamId": null,
+      "note": "안치홍 · KIA · 2루수"
+    },
+    {
+      "awardId": "award:archive-2011:골든글러브-3루수:최정",
+      "seasonId": "archive-2011",
+      "label": "골든글러브 3루수",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:최정",
+      "seasonTeamId": null,
+      "note": "최정 · SK · 3루수"
+    },
+    {
+      "awardId": "award:archive-2011:골든글러브-외야수:손아섭",
+      "seasonId": "archive-2011",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:손아섭",
+      "seasonTeamId": null,
+      "note": "손아섭 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2011:골든글러브-외야수:이용규",
+      "seasonId": "archive-2011",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:74163",
+      "seasonTeamId": null,
+      "note": "이용규 · KIA · 외야수"
+    },
+    {
+      "awardId": "award:archive-2011:골든글러브-외야수:최형우",
+      "seasonId": "archive-2011",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:최형우",
+      "seasonTeamId": null,
+      "note": "최형우 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2011:골든글러브-유격수:이대수",
+      "seasonId": "archive-2011",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이대수 · 한화 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2011:골든글러브-지명타자:홍성흔",
+      "seasonId": "archive-2011",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "홍성흔 · 롯데 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2011:골든글러브-투수:윤석민",
+      "seasonId": "archive-2011",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "윤석민 · KIA · 투수"
+    },
+    {
+      "awardId": "award:archive-2011:골든글러브-포수:강민호",
+      "seasonId": "archive-2011",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:강민호",
+      "seasonTeamId": null,
+      "note": "강민호 · 롯데 · 포수"
+    },
+    {
+      "awardId": "award:archive-2011:kbo-신인상:배영섭",
+      "seasonId": "archive-2011",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "배영섭 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2011:kbo-올스타전-mvp:이병규",
+      "seasonId": "archive-2011",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이병규 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-2011:kbo-한국시리즈-mvp:오승환",
+      "seasonId": "archive-2011",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "오승환 · 삼성 · 투수"
+    },
+    {
+      "awardId": "award:archive-2011:kbo-mvp:윤석민",
+      "seasonId": "archive-2011",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "윤석민 · KIA · 투수"
+    },
+    {
+      "awardId": "award:archive-2010:골든글러브-1루수:최준석",
+      "seasonId": "archive-2010",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "최준석 · 두산 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2010:골든글러브-2루수:조성환",
+      "seasonId": "archive-2010",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "조성환 · 롯데 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2010:골든글러브-3루수:이대호",
+      "seasonId": "archive-2010",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이대호 · 롯데 · 3루수"
+    },
+    {
+      "awardId": "award:archive-2010:골든글러브-외야수:김강민",
+      "seasonId": "archive-2010",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김강민 · SK · 외야수"
+    },
+    {
+      "awardId": "award:archive-2010:골든글러브-외야수:김현수",
+      "seasonId": "archive-2010",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:kt:김현수",
+      "seasonTeamId": null,
+      "note": "김현수 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2010:골든글러브-외야수:이종욱",
+      "seasonId": "archive-2010",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이종욱 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2010:골든글러브-유격수:강정호",
+      "seasonId": "archive-2010",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "강정호 · 넥센 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2010:골든글러브-지명타자:홍성흔",
+      "seasonId": "archive-2010",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "홍성흔 · 롯데 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2010:골든글러브-투수:류현진",
+      "seasonId": "archive-2010",
+      "label": "골든글러브 투수",
+      "playerId": "player:official-kbo-en:76715",
+      "seasonTeamId": null,
+      "note": "류현진 · 한화 · 투수"
+    },
+    {
+      "awardId": "award:archive-2010:골든글러브-포수:조인성",
+      "seasonId": "archive-2010",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "조인성 · LG · 포수"
+    },
+    {
+      "awardId": "award:archive-2010:kbo-신인상:양의지",
+      "seasonId": "archive-2010",
+      "label": "KBO 신인상",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "seasonTeamId": null,
+      "note": "양의지 · 두산 · 포수"
+    },
+    {
+      "awardId": "award:archive-2010:kbo-올스타전-mvp:홍성흔",
+      "seasonId": "archive-2010",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "홍성흔 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2010:kbo-한국시리즈-mvp:박정권",
+      "seasonId": "archive-2010",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박정권 · SK · 내야수"
+    },
+    {
+      "awardId": "award:archive-2010:kbo-mvp:이대호",
+      "seasonId": "archive-2010",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이대호 · 롯데 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2009:골든글러브-1루수:최희섭",
+      "seasonId": "archive-2009",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "최희섭 · KIA · 1루수"
+    },
+    {
+      "awardId": "award:archive-2009:골든글러브-2루수:정근우",
+      "seasonId": "archive-2009",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정근우 · SK · 2루수"
+    },
+    {
+      "awardId": "award:archive-2009:골든글러브-3루수:김상현",
+      "seasonId": "archive-2009",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김상현 · KIA · 3루수"
+    },
+    {
+      "awardId": "award:archive-2009:골든글러브-외야수:김현수",
+      "seasonId": "archive-2009",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:kt:김현수",
+      "seasonTeamId": null,
+      "note": "김현수 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2009:골든글러브-외야수:박용택",
+      "seasonId": "archive-2009",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박용택 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-2009:골든글러브-외야수:이택근",
+      "seasonId": "archive-2009",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이택근 · 히어로즈 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2009:골든글러브-유격수:손시헌",
+      "seasonId": "archive-2009",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "손시헌 · 두산 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2009:골든글러브-지명타자:홍성흔",
+      "seasonId": "archive-2009",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "홍성흔 · 롯데 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2009:골든글러브-투수:로페즈",
+      "seasonId": "archive-2009",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "로페즈 · KIA · 투수"
+    },
+    {
+      "awardId": "award:archive-2009:골든글러브-포수:김상훈",
+      "seasonId": "archive-2009",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김상훈 · KIA · 포수"
+    },
+    {
+      "awardId": "award:archive-2009:kbo-신인상:이용찬",
+      "seasonId": "archive-2009",
+      "label": "KBO 신인상",
+      "playerId": "player:official-kbo-en:77211",
+      "seasonTeamId": null,
+      "note": "이용찬 · 두산 · 투수"
+    },
+    {
+      "awardId": "award:archive-2009:kbo-올스타전-mvp:안치홍",
+      "seasonId": "archive-2009",
+      "label": "KBO 올스타전 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:heroes:안치홍",
+      "seasonTeamId": null,
+      "note": "안치홍 · KIA · 내야수"
+    },
+    {
+      "awardId": "award:archive-2009:kbo-한국시리즈-mvp:나지완",
+      "seasonId": "archive-2009",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "나지완 · KIA · 외야수"
+    },
+    {
+      "awardId": "award:archive-2009:kbo-mvp:김상현",
+      "seasonId": "archive-2009",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김상현 · KIA · 내야수"
+    },
+    {
+      "awardId": "award:archive-2008:골든글러브-1루수:김태균",
+      "seasonId": "archive-2008",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김태균 · 한화 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2008:골든글러브-2루수:조성환",
+      "seasonId": "archive-2008",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "조성환 · 롯데 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2008:골든글러브-3루수:김동주",
+      "seasonId": "archive-2008",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김동주 · 두산 · 3루수"
+    },
+    {
+      "awardId": "award:archive-2008:골든글러브-외야수:가르시아",
+      "seasonId": "archive-2008",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "가르시아 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2008:골든글러브-외야수:김현수",
+      "seasonId": "archive-2008",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:kt:김현수",
+      "seasonTeamId": null,
+      "note": "김현수 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2008:골든글러브-외야수:이종욱",
+      "seasonId": "archive-2008",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이종욱 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2008:골든글러브-유격수:박기혁",
+      "seasonId": "archive-2008",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박기혁 · 롯데 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2008:골든글러브-지명타자:홍성흔",
+      "seasonId": "archive-2008",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "홍성흔 · 롯데 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2008:골든글러브-투수:김광현",
+      "seasonId": "archive-2008",
+      "label": "골든글러브 투수",
+      "playerId": "player:official-kbo-en:77829",
+      "seasonTeamId": null,
+      "note": "김광현 · SK · 투수"
+    },
+    {
+      "awardId": "award:archive-2008:골든글러브-포수:강민호",
+      "seasonId": "archive-2008",
+      "label": "골든글러브 포수",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:강민호",
+      "seasonTeamId": null,
+      "note": "강민호 · 롯데 · 포수"
+    },
+    {
+      "awardId": "award:archive-2008:kbo-신인상:최형우",
+      "seasonId": "archive-2008",
+      "label": "KBO 신인상",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:최형우",
+      "seasonTeamId": null,
+      "note": "최형우 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2008:kbo-올스타전-mvp:이대호",
+      "seasonId": "archive-2008",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이대호 · 롯데 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2008:kbo-한국시리즈-mvp:최정",
+      "seasonId": "archive-2008",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:최정",
+      "seasonTeamId": null,
+      "note": "최정 · SK · 내야수"
+    },
+    {
+      "awardId": "award:archive-2008:kbo-mvp:김광현",
+      "seasonId": "archive-2008",
+      "label": "KBO MVP",
+      "playerId": "player:official-kbo-en:77829",
+      "seasonTeamId": null,
+      "note": "김광현 · SK · 투수"
+    },
+    {
+      "awardId": "award:archive-2007:골든글러브-1루수:이대호",
+      "seasonId": "archive-2007",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이대호 · 롯데 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2007:골든글러브-2루수:고영민",
+      "seasonId": "archive-2007",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "고영민 · 두산 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2007:골든글러브-3루수:김동주",
+      "seasonId": "archive-2007",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김동주 · 두산 · 3루수"
+    },
+    {
+      "awardId": "award:archive-2007:골든글러브-외야수:심정수",
+      "seasonId": "archive-2007",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "심정수 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2007:골든글러브-외야수:이대형",
+      "seasonId": "archive-2007",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이대형 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-2007:골든글러브-외야수:이종욱",
+      "seasonId": "archive-2007",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이종욱 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2007:골든글러브-유격수:박진만",
+      "seasonId": "archive-2007",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박진만 · 삼성 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2007:골든글러브-지명타자:양준혁",
+      "seasonId": "archive-2007",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "양준혁 · 삼성 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2007:골든글러브-투수:리오스",
+      "seasonId": "archive-2007",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "리오스 · 두산 · 투수"
+    },
+    {
+      "awardId": "award:archive-2007:골든글러브-포수:박경완",
+      "seasonId": "archive-2007",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박경완 · SK · 포수"
+    },
+    {
+      "awardId": "award:archive-2007:kbo-신인상:임태훈",
+      "seasonId": "archive-2007",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "임태훈 · 두산 · 투수"
+    },
+    {
+      "awardId": "award:archive-2007:kbo-올스타전-mvp:정수근",
+      "seasonId": "archive-2007",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정수근 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2007:kbo-한국시리즈-mvp:김재현",
+      "seasonId": "archive-2007",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": "player:official-kbo-en:62332",
+      "seasonTeamId": null,
+      "note": "김재현 · SK · 외야수"
+    },
+    {
+      "awardId": "award:archive-2007:kbo-mvp:리오스",
+      "seasonId": "archive-2007",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "리오스 · 두산 · 투수"
+    },
+    {
+      "awardId": "award:archive-2006:골든글러브-1루수:이대호",
+      "seasonId": "archive-2006",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이대호 · 롯데 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2006:골든글러브-2루수:정근우",
+      "seasonId": "archive-2006",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정근우 · SK · 2루수"
+    },
+    {
+      "awardId": "award:archive-2006:골든글러브-3루수:이범호",
+      "seasonId": "archive-2006",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이범호 · 한화 · 3루수"
+    },
+    {
+      "awardId": "award:archive-2006:골든글러브-외야수:박한이",
+      "seasonId": "archive-2006",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박한이 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2006:골든글러브-외야수:이용규",
+      "seasonId": "archive-2006",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:74163",
+      "seasonTeamId": null,
+      "note": "이용규 · KIA · 외야수"
+    },
+    {
+      "awardId": "award:archive-2006:골든글러브-외야수:이택근",
+      "seasonId": "archive-2006",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이택근 · 현대 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2006:골든글러브-유격수:박진만",
+      "seasonId": "archive-2006",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박진만 · 삼성 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2006:골든글러브-지명타자:양준혁",
+      "seasonId": "archive-2006",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "양준혁 · 삼성 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2006:골든글러브-투수:류현진",
+      "seasonId": "archive-2006",
+      "label": "골든글러브 투수",
+      "playerId": "player:official-kbo-en:76715",
+      "seasonTeamId": null,
+      "note": "류현진 · 한화 · 투수"
+    },
+    {
+      "awardId": "award:archive-2006:골든글러브-포수:진갑용",
+      "seasonId": "archive-2006",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "진갑용 · 삼성 · 포수"
+    },
+    {
+      "awardId": "award:archive-2006:kbo-신인상:류현진",
+      "seasonId": "archive-2006",
+      "label": "KBO 신인상",
+      "playerId": "player:official-kbo-en:76715",
+      "seasonTeamId": null,
+      "note": "류현진 · 한화 · 투수"
+    },
+    {
+      "awardId": "award:archive-2006:kbo-올스타전-mvp:홍성흔",
+      "seasonId": "archive-2006",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "홍성흔 · 두산 · 포수"
+    },
+    {
+      "awardId": "award:archive-2006:kbo-한국시리즈-mvp:박진만",
+      "seasonId": "archive-2006",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박진만 · 삼성 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2006:kbo-mvp:류현진",
+      "seasonId": "archive-2006",
+      "label": "KBO MVP",
+      "playerId": "player:official-kbo-en:76715",
+      "seasonTeamId": null,
+      "note": "류현진 · 한화 · 투수"
+    },
+    {
+      "awardId": "award:archive-2005:골든글러브-1루수:김태균",
+      "seasonId": "archive-2005",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김태균 · 한화 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2005:골든글러브-2루수:안경현",
+      "seasonId": "archive-2005",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "안경현 · 두산 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2005:골든글러브-3루수:이범호",
+      "seasonId": "archive-2005",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이범호 · 한화 · 3루수"
+    },
+    {
+      "awardId": "award:archive-2005:골든글러브-외야수:데이비스",
+      "seasonId": "archive-2005",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "데이비스 · 한화 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2005:골든글러브-외야수:서튼",
+      "seasonId": "archive-2005",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "서튼 · 현대 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2005:골든글러브-외야수:이병규",
+      "seasonId": "archive-2005",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이병규 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-2005:골든글러브-유격수:손시헌",
+      "seasonId": "archive-2005",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "손시헌 · 두산 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2005:골든글러브-지명타자:김재현",
+      "seasonId": "archive-2005",
+      "label": "골든글러브 지명타자",
+      "playerId": "player:official-kbo-en:62332",
+      "seasonTeamId": null,
+      "note": "김재현 · SK · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2005:골든글러브-투수:손민한",
+      "seasonId": "archive-2005",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "손민한 · 롯데 · 투수"
+    },
+    {
+      "awardId": "award:archive-2005:골든글러브-포수:진갑용",
+      "seasonId": "archive-2005",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "진갑용 · 삼성 · 포수"
+    },
+    {
+      "awardId": "award:archive-2005:kbo-신인상:오승환",
+      "seasonId": "archive-2005",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "오승환 · 삼성 · 투수"
+    },
+    {
+      "awardId": "award:archive-2005:kbo-올스타전-mvp:이대호",
+      "seasonId": "archive-2005",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이대호 · 롯데 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2005:kbo-한국시리즈-mvp:오승환",
+      "seasonId": "archive-2005",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "오승환 · 삼성 · 투수"
+    },
+    {
+      "awardId": "award:archive-2005:kbo-mvp:손민한",
+      "seasonId": "archive-2005",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "손민한 · 롯데 · 투수"
+    },
+    {
+      "awardId": "award:archive-2004:골든글러브-1루수:양준혁",
+      "seasonId": "archive-2004",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "양준혁 · 삼성 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2004:골든글러브-2루수:박종호",
+      "seasonId": "archive-2004",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박종호 · 삼성 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2004:골든글러브-3루수:김한수",
+      "seasonId": "archive-2004",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김한수 · 삼성 · 3루수"
+    },
+    {
+      "awardId": "award:archive-2004:골든글러브-외야수:박한이",
+      "seasonId": "archive-2004",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박한이 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2004:골든글러브-외야수:브룸바",
+      "seasonId": "archive-2004",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "브룸바 · 현대 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2004:골든글러브-외야수:이병규",
+      "seasonId": "archive-2004",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이병규 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-2004:골든글러브-외야수:이진영",
+      "seasonId": "archive-2004",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:66657",
+      "seasonTeamId": null,
+      "note": "이진영 · SK · 외야수"
+    },
+    {
+      "awardId": "award:archive-2004:골든글러브-유격수:박진만",
+      "seasonId": "archive-2004",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박진만 · 삼성 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2004:골든글러브-지명타자:김기태",
+      "seasonId": "archive-2004",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김기태 · SK · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2004:골든글러브-투수:배영수",
+      "seasonId": "archive-2004",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "배영수 · 삼성 · 투수"
+    },
+    {
+      "awardId": "award:archive-2004:골든글러브-포수:홍성흔",
+      "seasonId": "archive-2004",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "홍성흔 · 두산 · 포수"
+    },
+    {
+      "awardId": "award:archive-2004:kbo-신인상:오주원",
+      "seasonId": "archive-2004",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "오주원 · 현대 · 투수"
+    },
+    {
+      "awardId": "award:archive-2004:kbo-올스타전-mvp:정수근",
+      "seasonId": "archive-2004",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정수근 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2004:kbo-한국시리즈-mvp:조용준",
+      "seasonId": "archive-2004",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "조용준 · 현대 · 투수"
+    },
+    {
+      "awardId": "award:archive-2004:kbo-mvp:배영수",
+      "seasonId": "archive-2004",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "배영수 · 삼성 · 투수"
+    },
+    {
+      "awardId": "award:archive-2003:골든글러브-1루수:이승엽",
+      "seasonId": "archive-2003",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2003:골든글러브-2루수:안경현",
+      "seasonId": "archive-2003",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "안경현 · 두산 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2003:골든글러브-3루수:김한수",
+      "seasonId": "archive-2003",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김한수 · 삼성 · 3루수"
+    },
+    {
+      "awardId": "award:archive-2003:골든글러브-외야수:심정수",
+      "seasonId": "archive-2003",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "심정수 · 현대 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2003:골든글러브-외야수:양준혁",
+      "seasonId": "archive-2003",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "양준혁 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2003:골든글러브-외야수:이종범",
+      "seasonId": "archive-2003",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이종범 · KIA · 외야수"
+    },
+    {
+      "awardId": "award:archive-2003:골든글러브-유격수:홍세완",
+      "seasonId": "archive-2003",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "홍세완 · KIA · 유격수"
+    },
+    {
+      "awardId": "award:archive-2003:골든글러브-지명타자:김동주",
+      "seasonId": "archive-2003",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김동주 · 두산 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2003:골든글러브-투수:정민태",
+      "seasonId": "archive-2003",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정민태 · 현대 · 투수"
+    },
+    {
+      "awardId": "award:archive-2003:골든글러브-포수:김동수",
+      "seasonId": "archive-2003",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김동수 · 현대 · 포수"
+    },
+    {
+      "awardId": "award:archive-2003:kbo-신인상:이동학",
+      "seasonId": "archive-2003",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이동학 · 현대 · 투수"
+    },
+    {
+      "awardId": "award:archive-2003:kbo-올스타전-mvp:이종범",
+      "seasonId": "archive-2003",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이종범 · KIA · 외야수"
+    },
+    {
+      "awardId": "award:archive-2003:kbo-한국시리즈-mvp:정민태",
+      "seasonId": "archive-2003",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정민태 · 현대 · 투수"
+    },
+    {
+      "awardId": "award:archive-2003:kbo-mvp:이승엽",
+      "seasonId": "archive-2003",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2002:골든글러브-1루수:이승엽",
+      "seasonId": "archive-2002",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2002:골든글러브-2루수:김종국",
+      "seasonId": "archive-2002",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김종국 · KIA · 2루수"
+    },
+    {
+      "awardId": "award:archive-2002:골든글러브-3루수:김한수",
+      "seasonId": "archive-2002",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김한수 · 삼성 · 3루수"
+    },
+    {
+      "awardId": "award:archive-2002:골든글러브-외야수:송지만",
+      "seasonId": "archive-2002",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "송지만 · 한화 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2002:골든글러브-외야수:심정수",
+      "seasonId": "archive-2002",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "심정수 · 현대 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2002:골든글러브-외야수:이종범",
+      "seasonId": "archive-2002",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이종범 · KIA · 외야수"
+    },
+    {
+      "awardId": "award:archive-2002:골든글러브-유격수:브리또",
+      "seasonId": "archive-2002",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "브리또 · 삼성 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2002:골든글러브-지명타자:마해영",
+      "seasonId": "archive-2002",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "마해영 · 삼성 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2002:골든글러브-투수:송진우",
+      "seasonId": "archive-2002",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "송진우 · 한화 · 투수"
+    },
+    {
+      "awardId": "award:archive-2002:골든글러브-포수:진갑용",
+      "seasonId": "archive-2002",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "진갑용 · 삼성 · 포수"
+    },
+    {
+      "awardId": "award:archive-2002:kbo-신인상:조용준",
+      "seasonId": "archive-2002",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "조용준 · 현대 · 투수"
+    },
+    {
+      "awardId": "award:archive-2002:kbo-올스타전-mvp:박재홍",
+      "seasonId": "archive-2002",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박재홍 · 현대 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2002:kbo-한국시리즈-mvp:마해영",
+      "seasonId": "archive-2002",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "마해영 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2002:kbo-mvp:이승엽",
+      "seasonId": "archive-2002",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2001:골든글러브-1루수:이승엽",
+      "seasonId": "archive-2001",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2001:골든글러브-2루수:안경현",
+      "seasonId": "archive-2001",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "안경현 · 두산 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2001:골든글러브-3루수:김한수",
+      "seasonId": "archive-2001",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김한수 · 삼성 · 3루수"
+    },
+    {
+      "awardId": "award:archive-2001:골든글러브-외야수:심재학",
+      "seasonId": "archive-2001",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "심재학 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2001:골든글러브-외야수:이병규",
+      "seasonId": "archive-2001",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이병규 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-2001:골든글러브-외야수:정수근",
+      "seasonId": "archive-2001",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정수근 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2001:골든글러브-유격수:박진만",
+      "seasonId": "archive-2001",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박진만 · 현대 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2001:골든글러브-지명타자:양준혁",
+      "seasonId": "archive-2001",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "양준혁 · LG · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2001:골든글러브-투수:신윤호",
+      "seasonId": "archive-2001",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "신윤호 · LG · 투수"
+    },
+    {
+      "awardId": "award:archive-2001:골든글러브-포수:홍성흔",
+      "seasonId": "archive-2001",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "홍성흔 · 두산 · 포수"
+    },
+    {
+      "awardId": "award:archive-2001:kbo-신인상:김태균",
+      "seasonId": "archive-2001",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김태균 · 한화 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2001:kbo-올스타전-mvp:우즈",
+      "seasonId": "archive-2001",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "우즈 · 두산 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2001:kbo-한국시리즈-mvp:우즈",
+      "seasonId": "archive-2001",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "우즈 · 두산 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2001:kbo-mvp:이승엽",
+      "seasonId": "archive-2001",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2000:골든글러브-1루수:이승엽",
+      "seasonId": "archive-2000",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 1루수"
+    },
+    {
+      "awardId": "award:archive-2000:골든글러브-2루수:박종호",
+      "seasonId": "archive-2000",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박종호 · 현대 · 2루수"
+    },
+    {
+      "awardId": "award:archive-2000:골든글러브-3루수:김동주",
+      "seasonId": "archive-2000",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김동주 · 두산 · 3루수"
+    },
+    {
+      "awardId": "award:archive-2000:골든글러브-외야수:박재홍",
+      "seasonId": "archive-2000",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박재홍 · 현대 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2000:골든글러브-외야수:송지만",
+      "seasonId": "archive-2000",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "송지만 · 한화 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2000:골든글러브-외야수:이병규",
+      "seasonId": "archive-2000",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이병규 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-2000:골든글러브-유격수:박진만",
+      "seasonId": "archive-2000",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박진만 · 현대 · 유격수"
+    },
+    {
+      "awardId": "award:archive-2000:골든글러브-지명타자:우즈",
+      "seasonId": "archive-2000",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "우즈 · 두산 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-2000:골든글러브-투수:임선동",
+      "seasonId": "archive-2000",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "임선동 · 현대 · 투수"
+    },
+    {
+      "awardId": "award:archive-2000:골든글러브-포수:박경완",
+      "seasonId": "archive-2000",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박경완 · 현대 · 포수"
+    },
+    {
+      "awardId": "award:archive-2000:kbo-신인상:이승호",
+      "seasonId": "archive-2000",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승호 · SK · 투수"
+    },
+    {
+      "awardId": "award:archive-2000:kbo-올스타전-mvp:송지만",
+      "seasonId": "archive-2000",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "송지만 · 한화 · 외야수"
+    },
+    {
+      "awardId": "award:archive-2000:kbo-한국시리즈-mvp:퀸란",
+      "seasonId": "archive-2000",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "퀸란 · 현대 · 내야수"
+    },
+    {
+      "awardId": "award:archive-2000:kbo-mvp:박경완",
+      "seasonId": "archive-2000",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박경완 · 현대 · 포수"
+    },
+    {
+      "awardId": "award:archive-1999:골든글러브-1루수:이승엽",
+      "seasonId": "archive-1999",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 1루수"
+    },
+    {
+      "awardId": "award:archive-1999:골든글러브-2루수:박정태",
+      "seasonId": "archive-1999",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박정태 · 롯데 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1999:골든글러브-3루수:김한수",
+      "seasonId": "archive-1999",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김한수 · 삼성 · 3루수"
+    },
+    {
+      "awardId": "award:archive-1999:골든글러브-외야수:이병규",
+      "seasonId": "archive-1999",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이병규 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-1999:골든글러브-외야수:정수근",
+      "seasonId": "archive-1999",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정수근 · 두산 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1999:골든글러브-외야수:호세",
+      "seasonId": "archive-1999",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "호세 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1999:골든글러브-유격수:류지현",
+      "seasonId": "archive-1999",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "류지현 · LG · 유격수"
+    },
+    {
+      "awardId": "award:archive-1999:골든글러브-지명타자:로마이어",
+      "seasonId": "archive-1999",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "로마이어 · 한화 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1999:골든글러브-투수:정민태",
+      "seasonId": "archive-1999",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정민태 · 현대 · 투수"
+    },
+    {
+      "awardId": "award:archive-1999:골든글러브-포수:김동수",
+      "seasonId": "archive-1999",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김동수 · 삼성 · 포수"
+    },
+    {
+      "awardId": "award:archive-1999:kbo-신인상:홍성흔",
+      "seasonId": "archive-1999",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "홍성흔 · 두산 · 포수"
+    },
+    {
+      "awardId": "award:archive-1999:kbo-올스타전-mvp:박정태",
+      "seasonId": "archive-1999",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박정태 · 롯데 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1999:kbo-한국시리즈-mvp:구대성",
+      "seasonId": "archive-1999",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "구대성 · 한화 · 투수"
+    },
+    {
+      "awardId": "award:archive-1999:kbo-mvp:이승엽",
+      "seasonId": "archive-1999",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1998:골든글러브-1루수:이승엽",
+      "seasonId": "archive-1998",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 1루수"
+    },
+    {
+      "awardId": "award:archive-1998:골든글러브-2루수:박정태",
+      "seasonId": "archive-1998",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박정태 · 롯데 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1998:골든글러브-3루수:김한수",
+      "seasonId": "archive-1998",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김한수 · 삼성 · 3루수"
+    },
+    {
+      "awardId": "award:archive-1998:골든글러브-외야수:김재현",
+      "seasonId": "archive-1998",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:62332",
+      "seasonTeamId": null,
+      "note": "김재현 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-1998:골든글러브-외야수:박재홍",
+      "seasonId": "archive-1998",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박재홍 · 현대 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1998:골든글러브-외야수:전준호",
+      "seasonId": "archive-1998",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "전준호 · 현대 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1998:골든글러브-유격수:류지현",
+      "seasonId": "archive-1998",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "류지현 · LG · 유격수"
+    },
+    {
+      "awardId": "award:archive-1998:골든글러브-지명타자:양준혁",
+      "seasonId": "archive-1998",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "양준혁 · 삼성 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1998:골든글러브-투수:정민태",
+      "seasonId": "archive-1998",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정민태 · 현대 · 투수"
+    },
+    {
+      "awardId": "award:archive-1998:골든글러브-포수:박경완",
+      "seasonId": "archive-1998",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박경완 · 현대 · 포수"
+    },
+    {
+      "awardId": "award:archive-1998:kbo-신인상:김수경",
+      "seasonId": "archive-1998",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김수경 · 현대 · 투수"
+    },
+    {
+      "awardId": "award:archive-1998:kbo-올스타전-mvp:박정태",
+      "seasonId": "archive-1998",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박정태 · 롯데 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1998:kbo-한국시리즈-mvp:정민태",
+      "seasonId": "archive-1998",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정민태 · 현대 · 투수"
+    },
+    {
+      "awardId": "award:archive-1998:kbo-mvp:우즈",
+      "seasonId": "archive-1998",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "우즈 · OB · 내야수"
+    },
+    {
+      "awardId": "award:archive-1997:골든글러브-1루수:이승엽",
+      "seasonId": "archive-1997",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 1루수"
+    },
+    {
+      "awardId": "award:archive-1997:골든글러브-2루수:최태원",
+      "seasonId": "archive-1997",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "최태원 · 쌍방울 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1997:골든글러브-3루수:홍현우",
+      "seasonId": "archive-1997",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "홍현우 · 해태 · 3루수"
+    },
+    {
+      "awardId": "award:archive-1997:골든글러브-외야수:박재홍",
+      "seasonId": "archive-1997",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박재홍 · 현대 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1997:골든글러브-외야수:양준혁",
+      "seasonId": "archive-1997",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "양준혁 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1997:골든글러브-외야수:이병규",
+      "seasonId": "archive-1997",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이병규 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-1997:골든글러브-유격수:이종범",
+      "seasonId": "archive-1997",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이종범 · 해태 · 유격수"
+    },
+    {
+      "awardId": "award:archive-1997:골든글러브-지명타자:박재용",
+      "seasonId": "archive-1997",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박재용 · 해태 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1997:골든글러브-투수:이대진",
+      "seasonId": "archive-1997",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이대진 · 해태 · 투수"
+    },
+    {
+      "awardId": "award:archive-1997:골든글러브-포수:김동수",
+      "seasonId": "archive-1997",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김동수 · LG · 포수"
+    },
+    {
+      "awardId": "award:archive-1997:kbo-신인상:이병규",
+      "seasonId": "archive-1997",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이병규 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-1997:kbo-올스타전-mvp:류지현",
+      "seasonId": "archive-1997",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "류지현 · LG · 내야수"
+    },
+    {
+      "awardId": "award:archive-1997:kbo-한국시리즈-mvp:이종범",
+      "seasonId": "archive-1997",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이종범 · 해태 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1997:kbo-mvp:이승엽",
+      "seasonId": "archive-1997",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이승엽 · 삼성 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1996:골든글러브-1루수:김경기",
+      "seasonId": "archive-1996",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김경기 · 현대 · 1루수"
+    },
+    {
+      "awardId": "award:archive-1996:골든글러브-2루수:박정태",
+      "seasonId": "archive-1996",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박정태 · 롯데 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1996:골든글러브-3루수:홍현우",
+      "seasonId": "archive-1996",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "홍현우 · 해태 · 3루수"
+    },
+    {
+      "awardId": "award:archive-1996:골든글러브-외야수:김응국",
+      "seasonId": "archive-1996",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김응국 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1996:골든글러브-외야수:박재홍",
+      "seasonId": "archive-1996",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박재홍 · 현대 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1996:골든글러브-외야수:양준혁",
+      "seasonId": "archive-1996",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "양준혁 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1996:골든글러브-유격수:이종범",
+      "seasonId": "archive-1996",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이종범 · 해태 · 유격수"
+    },
+    {
+      "awardId": "award:archive-1996:골든글러브-지명타자:박재용",
+      "seasonId": "archive-1996",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박재용 · 해태 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1996:골든글러브-투수:구대성",
+      "seasonId": "archive-1996",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "구대성 · 한화 · 투수"
+    },
+    {
+      "awardId": "award:archive-1996:골든글러브-포수:박경완",
+      "seasonId": "archive-1996",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박경완 · 쌍방울 · 포수"
+    },
+    {
+      "awardId": "award:archive-1996:kbo-신인상:박재홍",
+      "seasonId": "archive-1996",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박재홍 · 현대 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1996:kbo-올스타전-mvp:김광림",
+      "seasonId": "archive-1996",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김광림 · 쌍방울 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1996:kbo-한국시리즈-mvp:이강철",
+      "seasonId": "archive-1996",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이강철 · 해태 · 투수"
+    },
+    {
+      "awardId": "award:archive-1996:kbo-mvp:구대성",
+      "seasonId": "archive-1996",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "구대성 · 한화 · 투수"
+    },
+    {
+      "awardId": "award:archive-1995:골든글러브-1루수:장종훈",
+      "seasonId": "archive-1995",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장종훈 · 한화 · 1루수"
+    },
+    {
+      "awardId": "award:archive-1995:골든글러브-2루수:이명수",
+      "seasonId": "archive-1995",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이명수 · OB · 2루수"
+    },
+    {
+      "awardId": "award:archive-1995:골든글러브-3루수:홍현우",
+      "seasonId": "archive-1995",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "홍현우 · 해태 · 3루수"
+    },
+    {
+      "awardId": "award:archive-1995:골든글러브-외야수:김광림",
+      "seasonId": "archive-1995",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김광림 · 쌍방울 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1995:골든글러브-외야수:김상호",
+      "seasonId": "archive-1995",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:56467",
+      "seasonTeamId": null,
+      "note": "김상호 · OB · 외야수"
+    },
+    {
+      "awardId": "award:archive-1995:골든글러브-외야수:전준호",
+      "seasonId": "archive-1995",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "전준호 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1995:골든글러브-유격수:김민호",
+      "seasonId": "archive-1995",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김민호 · OB · 유격수"
+    },
+    {
+      "awardId": "award:archive-1995:골든글러브-지명타자:김형석",
+      "seasonId": "archive-1995",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김형석 · OB · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1995:골든글러브-투수:이상훈",
+      "seasonId": "archive-1995",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이상훈 · LG · 투수"
+    },
+    {
+      "awardId": "award:archive-1995:골든글러브-포수:김동수",
+      "seasonId": "archive-1995",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김동수 · LG · 포수"
+    },
+    {
+      "awardId": "award:archive-1995:kbo-신인상:이동수",
+      "seasonId": "archive-1995",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이동수 · 삼성 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1995:kbo-올스타전-mvp:정경훈",
+      "seasonId": "archive-1995",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정경훈 · 한화 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1995:kbo-한국시리즈-mvp:김민호",
+      "seasonId": "archive-1995",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김민호 · OB · 내야수"
+    },
+    {
+      "awardId": "award:archive-1995:kbo-mvp:김상호",
+      "seasonId": "archive-1995",
+      "label": "KBO MVP",
+      "playerId": "player:official-kbo-en:56467",
+      "seasonTeamId": null,
+      "note": "김상호 · OB · 외야수"
+    },
+    {
+      "awardId": "award:archive-1994:골든글러브-1루수:서용빈",
+      "seasonId": "archive-1994",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "서용빈 · LG · 1루수"
+    },
+    {
+      "awardId": "award:archive-1994:골든글러브-2루수:박종호",
+      "seasonId": "archive-1994",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박종호 · LG · 2루수"
+    },
+    {
+      "awardId": "award:archive-1994:골든글러브-3루수:한대화",
+      "seasonId": "archive-1994",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "한대화 · LG · 3루수"
+    },
+    {
+      "awardId": "award:archive-1994:골든글러브-외야수:김재현",
+      "seasonId": "archive-1994",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:62332",
+      "seasonTeamId": null,
+      "note": "김재현 · LG · 외야수"
+    },
+    {
+      "awardId": "award:archive-1994:골든글러브-외야수:박노준",
+      "seasonId": "archive-1994",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박노준 · 쌍방울 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1994:골든글러브-외야수:윤덕규",
+      "seasonId": "archive-1994",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "윤덕규 · 태평양 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1994:골든글러브-유격수:이종범",
+      "seasonId": "archive-1994",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이종범 · 해태 · 유격수"
+    },
+    {
+      "awardId": "award:archive-1994:골든글러브-지명타자:김기태",
+      "seasonId": "archive-1994",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김기태 · 쌍방울 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1994:골든글러브-투수:정명원",
+      "seasonId": "archive-1994",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정명원 · 태평양 · 투수"
+    },
+    {
+      "awardId": "award:archive-1994:골든글러브-포수:김동수",
+      "seasonId": "archive-1994",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김동수 · LG · 포수"
+    },
+    {
+      "awardId": "award:archive-1994:kbo-신인상:류지현",
+      "seasonId": "archive-1994",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "류지현 · LG · 내야수"
+    },
+    {
+      "awardId": "award:archive-1994:kbo-올스타전-mvp:정명원",
+      "seasonId": "archive-1994",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정명원 · 태평양 · 투수"
+    },
+    {
+      "awardId": "award:archive-1994:kbo-한국시리즈-mvp:김용수",
+      "seasonId": "archive-1994",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김용수 · LG · 투수"
+    },
+    {
+      "awardId": "award:archive-1994:kbo-mvp:이종범",
+      "seasonId": "archive-1994",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이종범 · 해태 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1993:골든글러브-1루수:김성래",
+      "seasonId": "archive-1993",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성래 · 삼성 · 1루수"
+    },
+    {
+      "awardId": "award:archive-1993:골든글러브-2루수:강기웅",
+      "seasonId": "archive-1993",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "강기웅 · 삼성 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1993:골든글러브-3루수:한대화",
+      "seasonId": "archive-1993",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "한대화 · LG · 3루수"
+    },
+    {
+      "awardId": "award:archive-1993:골든글러브-외야수:김광림",
+      "seasonId": "archive-1993",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김광림 · 쌍방울 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1993:골든글러브-외야수:이순철",
+      "seasonId": "archive-1993",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이순철 · 해태 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1993:골든글러브-외야수:전준호",
+      "seasonId": "archive-1993",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "전준호 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1993:골든글러브-유격수:이종범",
+      "seasonId": "archive-1993",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이종범 · 해태 · 유격수"
+    },
+    {
+      "awardId": "award:archive-1993:골든글러브-지명타자:김기태",
+      "seasonId": "archive-1993",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김기태 · 쌍방울 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1993:골든글러브-투수:선동열",
+      "seasonId": "archive-1993",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "선동열 · 해태 · 투수"
+    },
+    {
+      "awardId": "award:archive-1993:골든글러브-포수:김동수",
+      "seasonId": "archive-1993",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김동수 · LG · 포수"
+    },
+    {
+      "awardId": "award:archive-1993:kbo-신인상:양준혁",
+      "seasonId": "archive-1993",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "양준혁 · 삼성 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1993:kbo-올스타전-mvp:이강돈",
+      "seasonId": "archive-1993",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이강돈 · 빙그레 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1993:kbo-한국시리즈-mvp:이종범",
+      "seasonId": "archive-1993",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이종범 · 해태 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1993:kbo-mvp:김성래",
+      "seasonId": "archive-1993",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성래 · 삼성 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1992:골든글러브-1루수:장종훈",
+      "seasonId": "archive-1992",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장종훈 · 빙그레 · 1루수"
+    },
+    {
+      "awardId": "award:archive-1992:골든글러브-2루수:박정태",
+      "seasonId": "archive-1992",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박정태 · 롯데 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1992:골든글러브-3루수:송구홍",
+      "seasonId": "archive-1992",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "송구홍 · LG · 3루수"
+    },
+    {
+      "awardId": "award:archive-1992:골든글러브-외야수:김응국",
+      "seasonId": "archive-1992",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김응국 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1992:골든글러브-외야수:이순철",
+      "seasonId": "archive-1992",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이순철 · 해태 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1992:골든글러브-외야수:이정훈",
+      "seasonId": "archive-1992",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:kt:이정훈",
+      "seasonTeamId": null,
+      "note": "이정훈 · 빙그레 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1992:골든글러브-유격수:박계원",
+      "seasonId": "archive-1992",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박계원 · 롯데 · 유격수"
+    },
+    {
+      "awardId": "award:archive-1992:골든글러브-지명타자:김기태",
+      "seasonId": "archive-1992",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김기태 · 쌍방울 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1992:골든글러브-투수:염종석",
+      "seasonId": "archive-1992",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "염종석 · 롯데 · 투수"
+    },
+    {
+      "awardId": "award:archive-1992:골든글러브-포수:장채근",
+      "seasonId": "archive-1992",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장채근 · 해태 · 포수"
+    },
+    {
+      "awardId": "award:archive-1992:kbo-신인상:염종석",
+      "seasonId": "archive-1992",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "염종석 · 롯데 · 투수"
+    },
+    {
+      "awardId": "award:archive-1992:kbo-올스타전-mvp:김성한",
+      "seasonId": "archive-1992",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성한 · 해태 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1992:kbo-한국시리즈-mvp:박동희",
+      "seasonId": "archive-1992",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박동희 · 롯데 · 투수"
+    },
+    {
+      "awardId": "award:archive-1992:kbo-mvp:장종훈",
+      "seasonId": "archive-1992",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장종훈 · 빙그레 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1991:골든글러브-1루수:김성한",
+      "seasonId": "archive-1991",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성한 · 해태 · 1루수"
+    },
+    {
+      "awardId": "award:archive-1991:골든글러브-2루수:박정태",
+      "seasonId": "archive-1991",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박정태 · 롯데 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1991:골든글러브-3루수:한대화",
+      "seasonId": "archive-1991",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "한대화 · 해태 · 3루수"
+    },
+    {
+      "awardId": "award:archive-1991:골든글러브-외야수:이순철",
+      "seasonId": "archive-1991",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이순철 · 해태 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1991:골든글러브-외야수:이정훈",
+      "seasonId": "archive-1991",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:kt:이정훈",
+      "seasonTeamId": null,
+      "note": "이정훈 · 빙그레 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1991:골든글러브-외야수:이호성",
+      "seasonId": "archive-1991",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:53455",
+      "seasonTeamId": null,
+      "note": "이호성 · 해태 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1991:골든글러브-유격수:류중일",
+      "seasonId": "archive-1991",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "류중일 · 삼성 · 유격수"
+    },
+    {
+      "awardId": "award:archive-1991:골든글러브-지명타자:장종훈",
+      "seasonId": "archive-1991",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장종훈 · 빙그레 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1991:골든글러브-투수:선동열",
+      "seasonId": "archive-1991",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "선동열 · 해태 · 투수"
+    },
+    {
+      "awardId": "award:archive-1991:골든글러브-포수:장채근",
+      "seasonId": "archive-1991",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장채근 · 해태 · 포수"
+    },
+    {
+      "awardId": "award:archive-1991:kbo-신인상:조규제",
+      "seasonId": "archive-1991",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "조규제 · 쌍방울 · 투수"
+    },
+    {
+      "awardId": "award:archive-1991:kbo-올스타전-mvp:김응국",
+      "seasonId": "archive-1991",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김응국 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1991:kbo-한국시리즈-mvp:장채근",
+      "seasonId": "archive-1991",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장채근 · 해태 · 포수"
+    },
+    {
+      "awardId": "award:archive-1991:kbo-mvp:장종훈",
+      "seasonId": "archive-1991",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장종훈 · 빙그레 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1990:골든글러브-1루수:김상훈",
+      "seasonId": "archive-1990",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김상훈 · LG · 1루수"
+    },
+    {
+      "awardId": "award:archive-1990:골든글러브-2루수:강기웅",
+      "seasonId": "archive-1990",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "강기웅 · 삼성 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1990:골든글러브-3루수:한대화",
+      "seasonId": "archive-1990",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "한대화 · 해태 · 3루수"
+    },
+    {
+      "awardId": "award:archive-1990:골든글러브-외야수:이강돈",
+      "seasonId": "archive-1990",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이강돈 · 빙그레 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1990:골든글러브-외야수:이정훈",
+      "seasonId": "archive-1990",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:kt:이정훈",
+      "seasonTeamId": null,
+      "note": "이정훈 · 빙그레 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1990:골든글러브-외야수:이호성",
+      "seasonId": "archive-1990",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:53455",
+      "seasonTeamId": null,
+      "note": "이호성 · 해태 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1990:골든글러브-유격수:장종훈",
+      "seasonId": "archive-1990",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장종훈 · 빙그레 · 유격수"
+    },
+    {
+      "awardId": "award:archive-1990:골든글러브-지명타자:박승호",
+      "seasonId": "archive-1990",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박승호 · 삼성 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1990:골든글러브-투수:선동열",
+      "seasonId": "archive-1990",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "선동열 · 해태 · 투수"
+    },
+    {
+      "awardId": "award:archive-1990:골든글러브-포수:김동수",
+      "seasonId": "archive-1990",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김동수 · LG · 포수"
+    },
+    {
+      "awardId": "award:archive-1990:kbo-신인상:김동수",
+      "seasonId": "archive-1990",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김동수 · LG · 포수"
+    },
+    {
+      "awardId": "award:archive-1990:kbo-올스타전-mvp:김민호",
+      "seasonId": "archive-1990",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김민호 · 롯데 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1990:kbo-한국시리즈-mvp:김용수",
+      "seasonId": "archive-1990",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김용수 · LG · 투수"
+    },
+    {
+      "awardId": "award:archive-1990:kbo-mvp:선동열",
+      "seasonId": "archive-1990",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "선동열 · 해태 · 투수"
+    },
+    {
+      "awardId": "award:archive-1989:골든글러브-1루수:김성한",
+      "seasonId": "archive-1989",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성한 · 해태 · 1루수"
+    },
+    {
+      "awardId": "award:archive-1989:골든글러브-2루수:강기웅",
+      "seasonId": "archive-1989",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "강기웅 · 삼성 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1989:골든글러브-3루수:한대화",
+      "seasonId": "archive-1989",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "한대화 · 해태 · 3루수"
+    },
+    {
+      "awardId": "award:archive-1989:골든글러브-외야수:고원부",
+      "seasonId": "archive-1989",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "고원부 · 빙그레 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1989:골든글러브-외야수:김일권",
+      "seasonId": "archive-1989",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김일권 · 태평양 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1989:골든글러브-외야수:이강돈",
+      "seasonId": "archive-1989",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이강돈 · 빙그레 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1989:골든글러브-유격수:김재박",
+      "seasonId": "archive-1989",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김재박 · MBC · 유격수"
+    },
+    {
+      "awardId": "award:archive-1989:골든글러브-지명타자:박철우",
+      "seasonId": "archive-1989",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박철우 · 해태 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1989:골든글러브-투수:선동열",
+      "seasonId": "archive-1989",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "선동열 · 해태 · 투수"
+    },
+    {
+      "awardId": "award:archive-1989:골든글러브-포수:유승안",
+      "seasonId": "archive-1989",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "유승안 · 빙그레 · 포수"
+    },
+    {
+      "awardId": "award:archive-1989:kbo-신인상:박정현",
+      "seasonId": "archive-1989",
+      "label": "KBO 신인상",
+      "playerId": "player:official-kbo-en:50709",
+      "seasonTeamId": null,
+      "note": "박정현 · 태평양 · 투수"
+    },
+    {
+      "awardId": "award:archive-1989:kbo-올스타전-mvp:허규옥",
+      "seasonId": "archive-1989",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "허규옥 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1989:kbo-한국시리즈-mvp:박철우",
+      "seasonId": "archive-1989",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박철우 · 해태 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1989:kbo-mvp:선동열",
+      "seasonId": "archive-1989",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "선동열 · 해태 · 투수"
+    },
+    {
+      "awardId": "award:archive-1988:골든글러브-1루수:김성한",
+      "seasonId": "archive-1988",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성한 · 해태 · 1루수"
+    },
+    {
+      "awardId": "award:archive-1988:골든글러브-2루수:김성래",
+      "seasonId": "archive-1988",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성래 · 삼성 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1988:골든글러브-3루수:한대화",
+      "seasonId": "archive-1988",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "한대화 · 해태 · 3루수"
+    },
+    {
+      "awardId": "award:archive-1988:골든글러브-외야수:이강돈",
+      "seasonId": "archive-1988",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이강돈 · 빙그레 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1988:골든글러브-외야수:이순철",
+      "seasonId": "archive-1988",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이순철 · 해태 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1988:골든글러브-외야수:이정훈",
+      "seasonId": "archive-1988",
+      "label": "골든글러브 외야수",
+      "playerId": "player:kbo-2026:kbo-2026:kt:이정훈",
+      "seasonTeamId": null,
+      "note": "이정훈 · 빙그레 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1988:골든글러브-유격수:장종훈",
+      "seasonId": "archive-1988",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장종훈 · 빙그레 · 유격수"
+    },
+    {
+      "awardId": "award:archive-1988:골든글러브-지명타자:김용철",
+      "seasonId": "archive-1988",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김용철 · 롯데 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1988:골든글러브-투수:선동열",
+      "seasonId": "archive-1988",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "선동열 · 해태 · 투수"
+    },
+    {
+      "awardId": "award:archive-1988:골든글러브-포수:장채근",
+      "seasonId": "archive-1988",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장채근 · 해태 · 포수"
+    },
+    {
+      "awardId": "award:archive-1988:kbo-신인상:이용철",
+      "seasonId": "archive-1988",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이용철 · MBC · 투수"
+    },
+    {
+      "awardId": "award:archive-1988:kbo-올스타전-mvp:한대화",
+      "seasonId": "archive-1988",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "한대화 · 해태 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1988:kbo-한국시리즈-mvp:문희수",
+      "seasonId": "archive-1988",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "문희수 · 해태 · 투수"
+    },
+    {
+      "awardId": "award:archive-1988:kbo-mvp:김성한",
+      "seasonId": "archive-1988",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성한 · 해태 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1987:골든글러브-1루수:김성한",
+      "seasonId": "archive-1987",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성한 · 해태 · 1루수"
+    },
+    {
+      "awardId": "award:archive-1987:골든글러브-2루수:김성래",
+      "seasonId": "archive-1987",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성래 · 삼성 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1987:골든글러브-3루수:한대화",
+      "seasonId": "archive-1987",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "한대화 · 해태 · 3루수"
+    },
+    {
+      "awardId": "award:archive-1987:골든글러브-외야수:김종모",
+      "seasonId": "archive-1987",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김종모 · 해태 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1987:골든글러브-외야수:이광은",
+      "seasonId": "archive-1987",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이광은 · MBC · 외야수"
+    },
+    {
+      "awardId": "award:archive-1987:골든글러브-외야수:장효조",
+      "seasonId": "archive-1987",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장효조 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1987:골든글러브-유격수:류중일",
+      "seasonId": "archive-1987",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "류중일 · 삼성 · 유격수"
+    },
+    {
+      "awardId": "award:archive-1987:골든글러브-지명타자:유승안",
+      "seasonId": "archive-1987",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "유승안 · 빙그레 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1987:골든글러브-투수:김시진",
+      "seasonId": "archive-1987",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김시진 · 삼성 · 투수"
+    },
+    {
+      "awardId": "award:archive-1987:골든글러브-포수:이만수",
+      "seasonId": "archive-1987",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이만수 · 삼성 · 포수"
+    },
+    {
+      "awardId": "award:archive-1987:kbo-신인상:이정훈",
+      "seasonId": "archive-1987",
+      "label": "KBO 신인상",
+      "playerId": "player:kbo-2026:kbo-2026:kt:이정훈",
+      "seasonTeamId": null,
+      "note": "이정훈 · 빙그레 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1987:kbo-올스타전-mvp:김종모",
+      "seasonId": "archive-1987",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김종모 · 해태 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1987:kbo-한국시리즈-mvp:김준환",
+      "seasonId": "archive-1987",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김준환 · 해태 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1987:kbo-mvp:장효조",
+      "seasonId": "archive-1987",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장효조 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1986:골든글러브-1루수:김성한",
+      "seasonId": "archive-1986",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성한 · 해태 · 1루수"
+    },
+    {
+      "awardId": "award:archive-1986:골든글러브-2루수:김성래",
+      "seasonId": "archive-1986",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성래 · 삼성 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1986:골든글러브-3루수:한대화",
+      "seasonId": "archive-1986",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "한대화 · 해태 · 3루수"
+    },
+    {
+      "awardId": "award:archive-1986:골든글러브-외야수:김종모",
+      "seasonId": "archive-1986",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김종모 · 해태 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1986:골든글러브-외야수:이광은",
+      "seasonId": "archive-1986",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이광은 · MBC · 외야수"
+    },
+    {
+      "awardId": "award:archive-1986:골든글러브-외야수:장효조",
+      "seasonId": "archive-1986",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장효조 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1986:골든글러브-유격수:김재박",
+      "seasonId": "archive-1986",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김재박 · MBC · 유격수"
+    },
+    {
+      "awardId": "award:archive-1986:골든글러브-지명타자:김봉연",
+      "seasonId": "archive-1986",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김봉연 · 해태 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1986:골든글러브-투수:선동열",
+      "seasonId": "archive-1986",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "선동열 · 해태 · 투수"
+    },
+    {
+      "awardId": "award:archive-1986:골든글러브-포수:이만수",
+      "seasonId": "archive-1986",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이만수 · 삼성 · 포수"
+    },
+    {
+      "awardId": "award:archive-1986:kbo-신인상:김건우",
+      "seasonId": "archive-1986",
+      "label": "KBO 신인상",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:김건우",
+      "seasonTeamId": null,
+      "note": "김건우 · MBC · 투수"
+    },
+    {
+      "awardId": "award:archive-1986:kbo-올스타전-mvp:김무종",
+      "seasonId": "archive-1986",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김무종 · 해태 · 포수"
+    },
+    {
+      "awardId": "award:archive-1986:kbo-한국시리즈-mvp:김정수",
+      "seasonId": "archive-1986",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김정수 · 해태 · 투수"
+    },
+    {
+      "awardId": "award:archive-1986:kbo-mvp:선동열",
+      "seasonId": "archive-1986",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "선동열 · 해태 · 투수"
+    },
+    {
+      "awardId": "award:archive-1985:골든글러브-1루수:김성한",
+      "seasonId": "archive-1985",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성한 · 해태 · 1루수"
+    },
+    {
+      "awardId": "award:archive-1985:골든글러브-2루수:정구선",
+      "seasonId": "archive-1985",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정구선 · 청보 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1985:골든글러브-3루수:이순철",
+      "seasonId": "archive-1985",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이순철 · 해태 · 3루수"
+    },
+    {
+      "awardId": "award:archive-1985:골든글러브-외야수:박종훈",
+      "seasonId": "archive-1985",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:60841",
+      "seasonTeamId": null,
+      "note": "박종훈 · OB · 외야수"
+    },
+    {
+      "awardId": "award:archive-1985:골든글러브-외야수:이광은",
+      "seasonId": "archive-1985",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이광은 · MBC · 외야수"
+    },
+    {
+      "awardId": "award:archive-1985:골든글러브-외야수:장효조",
+      "seasonId": "archive-1985",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장효조 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1985:골든글러브-유격수:김재박",
+      "seasonId": "archive-1985",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김재박 · MBC · 유격수"
+    },
+    {
+      "awardId": "award:archive-1985:골든글러브-지명타자:김용희",
+      "seasonId": "archive-1985",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김용희 · 롯데 · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1985:골든글러브-투수:김시진",
+      "seasonId": "archive-1985",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김시진 · 삼성 · 투수"
+    },
+    {
+      "awardId": "award:archive-1985:골든글러브-포수:이만수",
+      "seasonId": "archive-1985",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이만수 · 삼성 · 포수"
+    },
+    {
+      "awardId": "award:archive-1985:kbo-신인상:이순철",
+      "seasonId": "archive-1985",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이순철 · 해태 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1985:kbo-올스타전-mvp:김시진",
+      "seasonId": "archive-1985",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김시진 · 삼성 · 투수"
+    },
+    {
+      "awardId": "award:archive-1985:kbo-mvp:김성한",
+      "seasonId": "archive-1985",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성한 · 해태 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1984:골든글러브-1루수:김용철",
+      "seasonId": "archive-1984",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김용철 · 롯데 · 1루수"
+    },
+    {
+      "awardId": "award:archive-1984:골든글러브-2루수:정구선",
+      "seasonId": "archive-1984",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정구선 · 삼미 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1984:골든글러브-3루수:이광은",
+      "seasonId": "archive-1984",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이광은 · MBC · 3루수"
+    },
+    {
+      "awardId": "award:archive-1984:골든글러브-외야수:김종모",
+      "seasonId": "archive-1984",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김종모 · 해태 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1984:골든글러브-외야수:장효조",
+      "seasonId": "archive-1984",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장효조 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1984:골든글러브-외야수:홍문종",
+      "seasonId": "archive-1984",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "홍문종 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1984:골든글러브-유격수:김재박",
+      "seasonId": "archive-1984",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김재박 · MBC · 유격수"
+    },
+    {
+      "awardId": "award:archive-1984:골든글러브-지명타자:양세종",
+      "seasonId": "archive-1984",
+      "label": "골든글러브 지명타자",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "양세종 · OB · 지명타자"
+    },
+    {
+      "awardId": "award:archive-1984:골든글러브-투수:최동원",
+      "seasonId": "archive-1984",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "최동원 · 롯데 · 투수"
+    },
+    {
+      "awardId": "award:archive-1984:골든글러브-포수:이만수",
+      "seasonId": "archive-1984",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이만수 · 삼성 · 포수"
+    },
+    {
+      "awardId": "award:archive-1984:kbo-신인상:윤석환",
+      "seasonId": "archive-1984",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "윤석환 · OB · 투수"
+    },
+    {
+      "awardId": "award:archive-1984:kbo-올스타전-mvp:김용희",
+      "seasonId": "archive-1984",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김용희 · 롯데 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1984:kbo-한국시리즈-mvp:유두열",
+      "seasonId": "archive-1984",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "유두열 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1984:kbo-mvp:최동원",
+      "seasonId": "archive-1984",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "최동원 · 롯데 · 투수"
+    },
+    {
+      "awardId": "award:archive-1983:골든글러브-1루수:신경식",
+      "seasonId": "archive-1983",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "신경식 · OB · 1루수"
+    },
+    {
+      "awardId": "award:archive-1983:골든글러브-2루수:정구선",
+      "seasonId": "archive-1983",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "정구선 · 삼미 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1983:골든글러브-3루수:김용희",
+      "seasonId": "archive-1983",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김용희 · 롯데 · 3루수"
+    },
+    {
+      "awardId": "award:archive-1983:골든글러브-외야수:김종모",
+      "seasonId": "archive-1983",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김종모 · 해태 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1983:골든글러브-외야수:박종훈",
+      "seasonId": "archive-1983",
+      "label": "골든글러브 외야수",
+      "playerId": "player:official-kbo-en:60841",
+      "seasonTeamId": null,
+      "note": "박종훈 · OB · 외야수"
+    },
+    {
+      "awardId": "award:archive-1983:골든글러브-외야수:장효조",
+      "seasonId": "archive-1983",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장효조 · 삼성 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1983:골든글러브-유격수:김재박",
+      "seasonId": "archive-1983",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김재박 · MBC · 유격수"
+    },
+    {
+      "awardId": "award:archive-1983:골든글러브-투수:장명부",
+      "seasonId": "archive-1983",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "장명부 · 삼미 · 투수"
+    },
+    {
+      "awardId": "award:archive-1983:골든글러브-포수:이만수",
+      "seasonId": "archive-1983",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이만수 · 삼성 · 포수"
+    },
+    {
+      "awardId": "award:archive-1983:kbo-신인상:박종훈",
+      "seasonId": "archive-1983",
+      "label": "KBO 신인상",
+      "playerId": "player:official-kbo-en:60841",
+      "seasonTeamId": null,
+      "note": "박종훈 · OB · 외야수"
+    },
+    {
+      "awardId": "award:archive-1983:kbo-올스타전-mvp:신경식",
+      "seasonId": "archive-1983",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "신경식 · OB · 내야수"
+    },
+    {
+      "awardId": "award:archive-1983:kbo-한국시리즈-mvp:김봉연",
+      "seasonId": "archive-1983",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김봉연 · 해태 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1983:kbo-mvp:이만수",
+      "seasonId": "archive-1983",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "이만수 · 삼성 · 포수"
+    },
+    {
+      "awardId": "award:archive-1982:골든글러브-1루수:김용달",
+      "seasonId": "archive-1982",
+      "label": "골든글러브 1루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김용달 · MBC · 1루수"
+    },
+    {
+      "awardId": "award:archive-1982:골든글러브-2루수:차영화",
+      "seasonId": "archive-1982",
+      "label": "골든글러브 2루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "차영화 · 해태 · 2루수"
+    },
+    {
+      "awardId": "award:archive-1982:골든글러브-3루수:김용희",
+      "seasonId": "archive-1982",
+      "label": "골든글러브 3루수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김용희 · 롯데 · 3루수"
+    },
+    {
+      "awardId": "award:archive-1982:골든글러브-외야수:김성관",
+      "seasonId": "archive-1982",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김성관 · 롯데 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1982:골든글러브-외야수:김준환",
+      "seasonId": "archive-1982",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김준환 · 해태 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1982:골든글러브-외야수:양승관",
+      "seasonId": "archive-1982",
+      "label": "골든글러브 외야수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "양승관 · 삼미 · 외야수"
+    },
+    {
+      "awardId": "award:archive-1982:골든글러브-유격수:오대석",
+      "seasonId": "archive-1982",
+      "label": "골든글러브 유격수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "오대석 · 삼성 · 유격수"
+    },
+    {
+      "awardId": "award:archive-1982:골든글러브-투수:황태환",
+      "seasonId": "archive-1982",
+      "label": "골든글러브 투수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "황태환 · OB · 투수"
+    },
+    {
+      "awardId": "award:archive-1982:골든글러브-포수:김용운",
+      "seasonId": "archive-1982",
+      "label": "골든글러브 포수",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김용운 · MBC · 포수"
+    },
+    {
+      "awardId": "award:archive-1982:kbo-신인상:",
+      "seasonId": "archive-1982",
+      "label": "KBO 신인상",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "- · - · -"
+    },
+    {
+      "awardId": "award:archive-1982:kbo-올스타전-mvp:김용희",
+      "seasonId": "archive-1982",
+      "label": "KBO 올스타전 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김용희 · 롯데 · 내야수"
+    },
+    {
+      "awardId": "award:archive-1982:kbo-한국시리즈-mvp:김유동",
+      "seasonId": "archive-1982",
+      "label": "KBO 한국시리즈 MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "김유동 · OB · 외야수"
+    },
+    {
+      "awardId": "award:archive-1982:kbo-mvp:박철순",
+      "seasonId": "archive-1982",
+      "label": "KBO MVP",
+      "playerId": null,
+      "seasonTeamId": null,
+      "note": "박철순 · OB · 투수"
+    }
+  ]
+}

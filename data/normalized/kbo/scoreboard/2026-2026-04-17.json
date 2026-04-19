@@ -1,0 +1,160 @@
+{
+  "generatedAt": "2026-04-17T14:46:03.066Z",
+  "seasonId": "kbo-2026",
+  "sources": [
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "scoreboard",
+      "snapshotKey": "2026-04-17",
+      "parserVersion": "2026-04-15-en-scoreboard-v2"
+    }
+  ],
+  "games": [
+    {
+      "gameId": "game:official-kbo-en:20260417-KIA-DOOSAN-JAMSIL",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-en:2026-04-17:kbo-2026:doosan:kbo-2026:kia",
+      "homeSeasonTeamId": "kbo-2026:doosan",
+      "awaySeasonTeamId": "kbo-2026:kia",
+      "scheduledAt": "2026-04-17T18:30:00+09:00",
+      "status": "final",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": 3,
+      "awayScore": 7,
+      "innings": 9,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260417-KIWOOM-KT-SUWON",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-en:2026-04-17:kbo-2026:kt:kbo-2026:heroes",
+      "homeSeasonTeamId": "kbo-2026:kt",
+      "awaySeasonTeamId": "kbo-2026:heroes",
+      "scheduledAt": "2026-04-17T18:30:00+09:00",
+      "status": "final",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": 5,
+      "awayScore": 0,
+      "innings": 9,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": []
+    }
+  ],
+  "boxScores": [
+    {
+      "gameId": "game:official-kbo-en:20260417-KIA-DOOSAN-JAMSIL",
+      "winningPitcherId": "unmapped-player:lee-eui-lee",
+      "losingPitcherId": "unmapped-player:logue-zach",
+      "savePitcherId": null,
+      "lineScore": [
+        {
+          "inning": 1,
+          "home": 0,
+          "away": 3
+        },
+        {
+          "inning": 2,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 3,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 4,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 5,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 6,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 7,
+          "home": 2,
+          "away": 2
+        },
+        {
+          "inning": 8,
+          "home": 1,
+          "away": 0
+        },
+        {
+          "inning": 9,
+          "home": 0,
+          "away": 2
+        }
+      ],
+      "highlights": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260417-KIWOOM-KT-SUWON",
+      "winningPitcherId": "unmapped-player:so-hyeong-jun",
+      "losingPitcherId": "unmapped-player:wiles-nathan",
+      "savePitcherId": null,
+      "lineScore": [
+        {
+          "inning": 1,
+          "home": 2,
+          "away": 0
+        },
+        {
+          "inning": 2,
+          "home": 1,
+          "away": 0
+        },
+        {
+          "inning": 3,
+          "home": 2,
+          "away": 0
+        },
+        {
+          "inning": 4,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 5,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 6,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 7,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 8,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 9,
+          "home": 0,
+          "away": 0
+        }
+      ],
+      "highlights": []
+    }
+  ]
+}

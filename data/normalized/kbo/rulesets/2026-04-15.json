@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-04-15T05:35:26.060Z",
+  "sources": [
+    {
+      "sourceId": "official-kbo-ko",
+      "datasetId": "rules",
+      "snapshotKey": "2026-04-15",
+      "parserVersion": "2026-04-15-ko-rules-v1"
+    }
+  ],
+  "rulesets": [
+    {
+      "rulesetId": "kbo-rules-2026",
+      "label": "2026 KBO 정규시즌 및 포스트시즌 운영 규정와일드카드 결정전준플레이오프플레이오프한국시리즈",
+      "regularSeasonGamesPerTeam": 144,
+      "gamesPerOpponent": 16,
+      "tiesAllowed": true,
+      "tiebreakerOrder": [
+        "headToHead",
+        "runDifferential",
+        "runScored",
+        "teamCode"
+      ],
+      "specialPlayoffGamePositions": [
+        1,
+        5
+      ],
+      "postseasonFormat": [
+        {
+          "round": "wildcard",
+          "label": "와일드카드 결정전",
+          "bestOf": 2,
+          "higherSeedAdvantageWins": 1
+        },
+        {
+          "round": "semipo",
+          "label": "준플레이오프",
+          "bestOf": 5,
+          "higherSeedAdvantageWins": 0
+        },
+        {
+          "round": "po",
+          "label": "플레이오프",
+          "bestOf": 5,
+          "higherSeedAdvantageWins": 0
+        },
+        {
+          "round": "ks",
+          "label": "한국시리즈",
+          "bestOf": 7,
+          "higherSeedAdvantageWins": 0
+        }
+      ],
+      "notes": [
+        "정규시즌 동률 시 승자승 우선",
+        "5위 동률은 필요 시 결정전 가능성을 별도 메모로 관리"
+      ]
+    }
+  ]
+}

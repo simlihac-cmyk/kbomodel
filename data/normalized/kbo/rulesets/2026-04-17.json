@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-04-17T06:19:29.506Z",
+  "sources": [
+    {
+      "sourceId": "official-kbo-ko",
+      "datasetId": "rules",
+      "snapshotKey": "2026-04-17",
+      "parserVersion": "2026-04-15-ko-rules-v1"
+    }
+  ],
+  "rulesets": []
+}

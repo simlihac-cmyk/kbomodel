@@ -1,0 +1,246 @@
+{
+  "generatedAt": "2026-04-15T10:37:59.162Z",
+  "seasonId": "kbo-2026",
+  "sources": [
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "scoreboard",
+      "snapshotKey": "2026-04-15",
+      "parserVersion": "2026-04-15-en-scoreboard-v2"
+    }
+  ],
+  "games": [
+    {
+      "gameId": "game:official-kbo-en:20260415-LOTTE-LG-JAMSIL",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-en:2026-04-15:kbo-2026:lg:kbo-2026:lotte",
+      "homeSeasonTeamId": "kbo-2026:lg",
+      "awaySeasonTeamId": "kbo-2026:lotte",
+      "scheduledAt": "2026-04-15T18:30:00+09:00",
+      "status": "scheduled",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": 0,
+      "awayScore": 1,
+      "innings": 5,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260415-DOOSAN-SSG-MUNHAK",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-en:2026-04-15:kbo-2026:ssg:kbo-2026:doosan",
+      "homeSeasonTeamId": "kbo-2026:ssg",
+      "awaySeasonTeamId": "kbo-2026:doosan",
+      "scheduledAt": "2026-04-15T18:30:00+09:00",
+      "status": "scheduled",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": 3,
+      "awayScore": 0,
+      "innings": 4,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260415-KT-NC-CHANGWON",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-en:2026-04-15:kbo-2026:nc:kbo-2026:kt",
+      "homeSeasonTeamId": "kbo-2026:nc",
+      "awaySeasonTeamId": "kbo-2026:kt",
+      "scheduledAt": "2026-04-15T18:30:00+09:00",
+      "status": "scheduled",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": 0,
+      "awayScore": 4,
+      "innings": 5,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260415-KIWOOM-KIA-GWANGJU",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-en:2026-04-15:kbo-2026:kia:kbo-2026:heroes",
+      "homeSeasonTeamId": "kbo-2026:kia",
+      "awaySeasonTeamId": "kbo-2026:heroes",
+      "scheduledAt": "2026-04-15T18:30:00+09:00",
+      "status": "scheduled",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": 6,
+      "awayScore": 3,
+      "innings": 3,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260415-SAMSUNG-HANWHA-DAEJEON",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-en:2026-04-15:kbo-2026:hanwha:kbo-2026:samsung",
+      "homeSeasonTeamId": "kbo-2026:hanwha",
+      "awaySeasonTeamId": "kbo-2026:samsung",
+      "scheduledAt": "2026-04-15T18:30:00+09:00",
+      "status": "scheduled",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": 3,
+      "awayScore": 7,
+      "innings": 2,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": []
+    }
+  ],
+  "boxScores": [
+    {
+      "gameId": "game:official-kbo-en:20260415-LOTTE-LG-JAMSIL",
+      "winningPitcherId": null,
+      "losingPitcherId": null,
+      "savePitcherId": null,
+      "lineScore": [
+        {
+          "inning": 1,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 2,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 3,
+          "home": 0,
+          "away": 1
+        },
+        {
+          "inning": 4,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 5,
+          "home": 0,
+          "away": 0
+        }
+      ],
+      "highlights": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260415-DOOSAN-SSG-MUNHAK",
+      "winningPitcherId": null,
+      "losingPitcherId": null,
+      "savePitcherId": null,
+      "lineScore": [
+        {
+          "inning": 1,
+          "home": 3,
+          "away": 0
+        },
+        {
+          "inning": 2,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 3,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 4,
+          "home": 0,
+          "away": 0
+        }
+      ],
+      "highlights": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260415-KT-NC-CHANGWON",
+      "winningPitcherId": null,
+      "losingPitcherId": null,
+      "savePitcherId": null,
+      "lineScore": [
+        {
+          "inning": 1,
+          "home": 0,
+          "away": 2
+        },
+        {
+          "inning": 2,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 3,
+          "home": 0,
+          "away": 2
+        },
+        {
+          "inning": 4,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 5,
+          "home": 0,
+          "away": 0
+        }
+      ],
+      "highlights": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260415-KIWOOM-KIA-GWANGJU",
+      "winningPitcherId": null,
+      "losingPitcherId": null,
+      "savePitcherId": null,
+      "lineScore": [
+        {
+          "inning": 1,
+          "home": 1,
+          "away": 1
+        },
+        {
+          "inning": 2,
+          "home": 5,
+          "away": 0
+        },
+        {
+          "inning": 3,
+          "home": 0,
+          "away": 2
+        }
+      ],
+      "highlights": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260415-SAMSUNG-HANWHA-DAEJEON",
+      "winningPitcherId": null,
+      "losingPitcherId": null,
+      "savePitcherId": null,
+      "lineScore": [
+        {
+          "inning": 1,
+          "home": 0,
+          "away": 7
+        },
+        {
+          "inning": 2,
+          "home": 3,
+          "away": 0
+        }
+      ],
+      "highlights": []
+    }
+  ]
+}

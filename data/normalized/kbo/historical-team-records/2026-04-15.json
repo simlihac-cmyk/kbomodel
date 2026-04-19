@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2026-04-17T01:15:46.148Z",
+  "sources": [
+    {
+      "sourceId": "official-kbo-ko",
+      "datasetId": "historical-team-record",
+      "snapshotKey": "2026-04-15",
+      "parserVersion": "2026-04-15-ko-history-v1"
+    }
+  ],
+  "rows": [
+    {
+      "year": 2025,
+      "franchiseId": "lg",
+      "brandLabel": "LG 트윈스",
+      "rank": 1,
+      "wins": 87,
+      "losses": 53,
+      "ties": 4,
+      "postseasonResult": "한국시리즈 진출"
+    },
+    {
+      "year": 2025,
+      "franchiseId": "doosan",
+      "brandLabel": "두산 베어스",
+      "rank": 4,
+      "wins": 72,
+      "losses": 67,
+      "ties": 5,
+      "postseasonResult": "준플레이오프"
+    },
+    {
+      "year": 2024,
+      "franchiseId": "kia",
+      "brandLabel": "KIA 타이거즈",
+      "rank": 1,
+      "wins": 86,
+      "losses": 56,
+      "ties": 2,
+      "postseasonResult": "우승"
+    }
+  ]
+}

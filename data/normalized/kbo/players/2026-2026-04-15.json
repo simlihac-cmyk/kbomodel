@@ -1,0 +1,4654 @@
+{
+  "generatedAt": "2026-04-15T10:37:59.598Z",
+  "seasonId": "kbo-2026",
+  "sources": [
+    {
+      "sourceId": "official-kbo-ko",
+      "datasetId": "player-register-all",
+      "snapshotKey": "2026-04-15",
+      "parserVersion": "2026-04-15-ko-register-all-v2"
+    }
+  ],
+  "players": [
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:김유영",
+      "slug": "김유영",
+      "nameKo": "김유영",
+      "nameEn": "김유영",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "김유영의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:임찬규",
+      "slug": "임찬규",
+      "nameKo": "임찬규",
+      "nameEn": "임찬규",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "임찬규의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:함덕주",
+      "slug": "함덕주",
+      "nameKo": "함덕주",
+      "nameEn": "함덕주",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "함덕주의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:송승기",
+      "slug": "송승기",
+      "nameKo": "송승기",
+      "nameEn": "송승기",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "송승기의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:우강훈",
+      "slug": "우강훈",
+      "nameKo": "우강훈",
+      "nameEn": "우강훈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "우강훈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:톨허스트",
+      "slug": "톨허스트",
+      "nameKo": "톨허스트",
+      "nameEn": "톨허스트",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "톨허스트의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:이정용",
+      "slug": "이정용",
+      "nameKo": "이정용",
+      "nameEn": "이정용",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "이정용의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:성동현",
+      "slug": "성동현",
+      "nameKo": "성동현",
+      "nameEn": "성동현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "성동현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:김진성",
+      "slug": "김진성",
+      "nameKo": "김진성",
+      "nameEn": "김진성",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "김진성의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:김진수",
+      "slug": "김진수",
+      "nameKo": "김진수",
+      "nameEn": "김진수",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "김진수의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:치리노스",
+      "slug": "치리노스",
+      "nameKo": "치리노스",
+      "nameEn": "치리노스",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "치리노스의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:장현식",
+      "slug": "장현식",
+      "nameKo": "장현식",
+      "nameEn": "장현식",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "장현식의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:유영찬",
+      "slug": "유영찬",
+      "nameKo": "유영찬",
+      "nameEn": "유영찬",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "유영찬의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:김영우",
+      "slug": "김영우",
+      "nameKo": "김영우",
+      "nameEn": "김영우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "김영우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:웰스",
+      "slug": "웰스",
+      "nameKo": "웰스",
+      "nameEn": "웰스",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "웰스의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:박동원",
+      "slug": "박동원",
+      "nameKo": "박동원",
+      "nameEn": "박동원",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "박동원의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:이주헌",
+      "slug": "이주헌",
+      "nameKo": "이주헌",
+      "nameEn": "이주헌",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "이주헌의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:오지환",
+      "slug": "오지환",
+      "nameKo": "오지환",
+      "nameEn": "오지환",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "오지환의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:문보경",
+      "slug": "문보경",
+      "nameKo": "문보경",
+      "nameEn": "문보경",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "문보경의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:오스틴",
+      "slug": "오스틴",
+      "nameKo": "오스틴",
+      "nameEn": "오스틴",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "오스틴의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:신민재",
+      "slug": "신민재",
+      "nameKo": "신민재",
+      "nameEn": "신민재",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "신민재의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:천성호",
+      "slug": "천성호",
+      "nameKo": "천성호",
+      "nameEn": "천성호",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "천성호의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:구본혁",
+      "slug": "구본혁",
+      "nameKo": "구본혁",
+      "nameEn": "구본혁",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "구본혁의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:이영빈",
+      "slug": "이영빈",
+      "nameKo": "이영빈",
+      "nameEn": "이영빈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "이영빈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:박해민",
+      "slug": "박해민",
+      "nameKo": "박해민",
+      "nameEn": "박해민",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "박해민의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:최원영",
+      "slug": "최원영",
+      "nameKo": "최원영",
+      "nameEn": "최원영",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "최원영의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:홍창기",
+      "slug": "홍창기",
+      "nameKo": "홍창기",
+      "nameEn": "홍창기",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "홍창기의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:이재원",
+      "slug": "이재원",
+      "nameKo": "이재원",
+      "nameEn": "이재원",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "이재원의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:문성주",
+      "slug": "문성주",
+      "nameKo": "문성주",
+      "nameEn": "문성주",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "문성주의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:최지광",
+      "slug": "최지광",
+      "nameKo": "최지광",
+      "nameEn": "최지광",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "최지광의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:미야지",
+      "slug": "미야지",
+      "nameKo": "미야지",
+      "nameEn": "미야지",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "미야지의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:원태인",
+      "slug": "원태인",
+      "nameKo": "원태인",
+      "nameEn": "원태인",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "원태인의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:최원태",
+      "slug": "최원태",
+      "nameKo": "최원태",
+      "nameEn": "최원태",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "최원태의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:이승현",
+      "slug": "이승현",
+      "nameKo": "이승현",
+      "nameEn": "이승현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "이승현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:이승민",
+      "slug": "이승민",
+      "nameKo": "이승민",
+      "nameEn": "이승민",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "이승민의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:백정현",
+      "slug": "백정현",
+      "nameKo": "백정현",
+      "nameEn": "백정현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "백정현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:임기영",
+      "slug": "임기영",
+      "nameKo": "임기영",
+      "nameEn": "임기영",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "임기영의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:양창섭",
+      "slug": "양창섭",
+      "nameKo": "양창섭",
+      "nameEn": "양창섭",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "양창섭의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:배찬승",
+      "slug": "배찬승",
+      "nameKo": "배찬승",
+      "nameEn": "배찬승",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "배찬승의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:장찬희",
+      "slug": "장찬희",
+      "nameKo": "장찬희",
+      "nameEn": "장찬희",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "장찬희의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:김재윤",
+      "slug": "김재윤",
+      "nameKo": "김재윤",
+      "nameEn": "김재윤",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "김재윤의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:오러클린",
+      "slug": "오러클린",
+      "nameKo": "오러클린",
+      "nameEn": "오러클린",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "오러클린의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:후라도",
+      "slug": "후라도",
+      "nameKo": "후라도",
+      "nameEn": "후라도",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "후라도의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:강민호",
+      "slug": "강민호",
+      "nameKo": "강민호",
+      "nameEn": "강민호",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "강민호의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:박세혁",
+      "slug": "박세혁",
+      "nameKo": "박세혁",
+      "nameEn": "박세혁",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "박세혁의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:디아즈",
+      "slug": "디아즈",
+      "nameKo": "디아즈",
+      "nameEn": "디아즈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "디아즈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:김재상",
+      "slug": "김재상",
+      "nameKo": "김재상",
+      "nameEn": "김재상",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "김재상의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:류지혁",
+      "slug": "류지혁",
+      "nameKo": "류지혁",
+      "nameEn": "류지혁",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "류지혁의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:이해승",
+      "slug": "이해승",
+      "nameKo": "이해승",
+      "nameEn": "이해승",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "이해승의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:양우현",
+      "slug": "양우현",
+      "nameKo": "양우현",
+      "nameEn": "양우현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "양우현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:전병우",
+      "slug": "전병우",
+      "nameKo": "전병우",
+      "nameEn": "전병우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "전병우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:이재현",
+      "slug": "이재현",
+      "nameKo": "이재현",
+      "nameEn": "이재현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "이재현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:이성규",
+      "slug": "이성규",
+      "nameKo": "이성규",
+      "nameEn": "이성규",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "이성규의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:김헌곤",
+      "slug": "김헌곤",
+      "nameKo": "김헌곤",
+      "nameEn": "김헌곤",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "김헌곤의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:최형우",
+      "slug": "최형우",
+      "nameKo": "최형우",
+      "nameEn": "최형우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "최형우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:홍현빈",
+      "slug": "홍현빈",
+      "nameKo": "홍현빈",
+      "nameEn": "홍현빈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "홍현빈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:김지찬",
+      "slug": "김지찬",
+      "nameKo": "김지찬",
+      "nameEn": "김지찬",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "김지찬의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:박승규",
+      "slug": "박승규",
+      "nameKo": "박승규",
+      "nameEn": "박승규",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "박승규의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:고영표",
+      "slug": "고영표",
+      "nameKo": "고영표",
+      "nameEn": "고영표",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "고영표의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:스기모토",
+      "slug": "스기모토",
+      "nameKo": "스기모토",
+      "nameEn": "스기모토",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "스기모토의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:우규민",
+      "slug": "우규민",
+      "nameKo": "우규민",
+      "nameEn": "우규민",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "우규민의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:김민수",
+      "slug": "김민수",
+      "nameKo": "김민수",
+      "nameEn": "김민수",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "김민수의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:전용주",
+      "slug": "전용주",
+      "nameKo": "전용주",
+      "nameEn": "전용주",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "전용주의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:소형준",
+      "slug": "소형준",
+      "nameKo": "소형준",
+      "nameEn": "소형준",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "소형준의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:사우어",
+      "slug": "사우어",
+      "nameKo": "사우어",
+      "nameEn": "사우어",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "사우어의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:한승혁",
+      "slug": "한승혁",
+      "nameKo": "한승혁",
+      "nameEn": "한승혁",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "한승혁의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:보쉴리",
+      "slug": "보쉴리",
+      "nameKo": "보쉴리",
+      "nameEn": "보쉴리",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "보쉴리의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:주권",
+      "slug": "주권",
+      "nameKo": "주권",
+      "nameEn": "주권",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "주권의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:손동현",
+      "slug": "손동현",
+      "nameKo": "손동현",
+      "nameEn": "손동현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "손동현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:오원석",
+      "slug": "오원석",
+      "nameKo": "오원석",
+      "nameEn": "오원석",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "오원석의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:박영현",
+      "slug": "박영현",
+      "nameKo": "박영현",
+      "nameEn": "박영현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "박영현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:장성우",
+      "slug": "장성우",
+      "nameKo": "장성우",
+      "nameEn": "장성우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "장성우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:한승택",
+      "slug": "한승택",
+      "nameKo": "한승택",
+      "nameEn": "한승택",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "한승택의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:강현우",
+      "slug": "강현우",
+      "nameKo": "강현우",
+      "nameEn": "강현우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "강현우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:허경민",
+      "slug": "허경민",
+      "nameKo": "허경민",
+      "nameEn": "허경민",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "허경민의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:힐리어드",
+      "slug": "힐리어드",
+      "nameKo": "힐리어드",
+      "nameEn": "힐리어드",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "힐리어드의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:오윤석",
+      "slug": "오윤석",
+      "nameKo": "오윤석",
+      "nameEn": "오윤석",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "오윤석의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:권동진",
+      "slug": "권동진",
+      "nameKo": "권동진",
+      "nameEn": "권동진",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "권동진의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:이강민",
+      "slug": "이강민",
+      "nameKo": "이강민",
+      "nameEn": "이강민",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "이강민의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:김상수",
+      "slug": "김상수",
+      "nameKo": "김상수",
+      "nameEn": "김상수",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "김상수의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:류현인",
+      "slug": "류현인",
+      "nameKo": "류현인",
+      "nameEn": "류현인",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "류현인의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:김현수",
+      "slug": "김현수",
+      "nameKo": "김현수",
+      "nameEn": "김현수",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "김현수의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:안현민",
+      "slug": "안현민",
+      "nameKo": "안현민",
+      "nameEn": "안현민",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "안현민의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:배정대",
+      "slug": "배정대",
+      "nameKo": "배정대",
+      "nameEn": "배정대",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "배정대의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:최원준",
+      "slug": "최원준",
+      "nameKo": "최원준",
+      "nameEn": "최원준",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "최원준의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:이정훈",
+      "slug": "이정훈",
+      "nameKo": "이정훈",
+      "nameEn": "이정훈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "이정훈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:유준규",
+      "slug": "유준규",
+      "nameKo": "유준규",
+      "nameEn": "유준규",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "유준규의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:김민",
+      "slug": "김민",
+      "nameKo": "김민",
+      "nameEn": "김민",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "김민의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:조병현",
+      "slug": "조병현",
+      "nameKo": "조병현",
+      "nameEn": "조병현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "조병현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:장지훈",
+      "slug": "장지훈",
+      "nameKo": "장지훈",
+      "nameEn": "장지훈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "장지훈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:전영준",
+      "slug": "전영준",
+      "nameKo": "전영준",
+      "nameEn": "전영준",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "전영준의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:최민준",
+      "slug": "최민준",
+      "nameKo": "최민준",
+      "nameEn": "최민준",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "최민준의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:한두솔",
+      "slug": "한두솔",
+      "nameKo": "한두솔",
+      "nameEn": "한두솔",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "한두솔의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:노경은",
+      "slug": "노경은",
+      "nameKo": "노경은",
+      "nameEn": "노경은",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "노경은의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:김건우",
+      "slug": "김건우",
+      "nameKo": "김건우",
+      "nameEn": "김건우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "김건우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:베니지아노",
+      "slug": "베니지아노",
+      "nameKo": "베니지아노",
+      "nameEn": "베니지아노",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "베니지아노의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:문승원",
+      "slug": "문승원",
+      "nameKo": "문승원",
+      "nameEn": "문승원",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "문승원의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:정동윤",
+      "slug": "정동윤",
+      "nameKo": "정동윤",
+      "nameEn": "정동윤",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "정동윤의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:화이트",
+      "slug": "화이트",
+      "nameKo": "화이트",
+      "nameEn": "화이트",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "화이트의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:박시후",
+      "slug": "박시후",
+      "nameKo": "박시후",
+      "nameEn": "박시후",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "박시후의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:이로운",
+      "slug": "이로운",
+      "nameKo": "이로운",
+      "nameEn": "이로운",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "이로운의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:조형우",
+      "slug": "조형우",
+      "nameKo": "조형우",
+      "nameEn": "조형우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "조형우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:이지영",
+      "slug": "이지영",
+      "nameKo": "이지영",
+      "nameEn": "이지영",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "이지영의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:최정",
+      "slug": "최정",
+      "nameKo": "최정",
+      "nameEn": "최정",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "최정의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:고명준",
+      "slug": "고명준",
+      "nameKo": "고명준",
+      "nameEn": "고명준",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "고명준의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:박성한",
+      "slug": "박성한",
+      "nameKo": "박성한",
+      "nameEn": "박성한",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "박성한의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:정준재",
+      "slug": "정준재",
+      "nameKo": "정준재",
+      "nameEn": "정준재",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "정준재의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:석정우",
+      "slug": "석정우",
+      "nameKo": "석정우",
+      "nameEn": "석정우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "석정우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:홍대인",
+      "slug": "홍대인",
+      "nameKo": "홍대인",
+      "nameEn": "홍대인",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "홍대인의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:채현우",
+      "slug": "채현우",
+      "nameKo": "채현우",
+      "nameEn": "채현우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "채현우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:에레디아",
+      "slug": "에레디아",
+      "nameKo": "에레디아",
+      "nameEn": "에레디아",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "에레디아의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:김성욱",
+      "slug": "김성욱",
+      "nameKo": "김성욱",
+      "nameEn": "김성욱",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "김성욱의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:김재환",
+      "slug": "김재환",
+      "nameKo": "김재환",
+      "nameEn": "김재환",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "김재환의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:한유섬",
+      "slug": "한유섬",
+      "nameKo": "한유섬",
+      "nameEn": "한유섬",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "한유섬의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:오태곤",
+      "slug": "오태곤",
+      "nameKo": "오태곤",
+      "nameEn": "오태곤",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "오태곤의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:최지훈",
+      "slug": "최지훈",
+      "nameKo": "최지훈",
+      "nameEn": "최지훈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "최지훈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:토다",
+      "slug": "토다",
+      "nameKo": "토다",
+      "nameEn": "토다",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "토다의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:김영규",
+      "slug": "김영규",
+      "nameKo": "김영규",
+      "nameEn": "김영규",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "김영규의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:신민혁",
+      "slug": "신민혁",
+      "nameKo": "신민혁",
+      "nameEn": "신민혁",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "신민혁의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:임지민",
+      "slug": "임지민",
+      "nameKo": "임지민",
+      "nameEn": "임지민",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "임지민의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:목지훈",
+      "slug": "목지훈",
+      "nameKo": "목지훈",
+      "nameEn": "목지훈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "목지훈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:버하겐",
+      "slug": "버하겐",
+      "nameKo": "버하겐",
+      "nameEn": "버하겐",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "버하겐의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:이준혁",
+      "slug": "이준혁",
+      "nameKo": "이준혁",
+      "nameEn": "이준혁",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "이준혁의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:류진욱",
+      "slug": "류진욱",
+      "nameKo": "류진욱",
+      "nameEn": "류진욱",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "류진욱의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:김진호",
+      "slug": "김진호",
+      "nameKo": "김진호",
+      "nameEn": "김진호",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "김진호의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:전사민",
+      "slug": "전사민",
+      "nameKo": "전사민",
+      "nameEn": "전사민",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "전사민의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:구창모",
+      "slug": "구창모",
+      "nameKo": "구창모",
+      "nameEn": "구창모",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "구창모의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:배재환",
+      "slug": "배재환",
+      "nameKo": "배재환",
+      "nameEn": "배재환",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "배재환의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:테일러",
+      "slug": "테일러",
+      "nameKo": "테일러",
+      "nameEn": "테일러",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "테일러의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:김형준",
+      "slug": "김형준",
+      "nameKo": "김형준",
+      "nameEn": "김형준",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "김형준의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:김정호",
+      "slug": "김정호",
+      "nameKo": "김정호",
+      "nameEn": "김정호",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "김정호의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:최정원",
+      "slug": "최정원",
+      "nameKo": "최정원",
+      "nameEn": "최정원",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "최정원의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:박민우",
+      "slug": "박민우",
+      "nameKo": "박민우",
+      "nameEn": "박민우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "박민우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:데이비슨",
+      "slug": "데이비슨",
+      "nameKo": "데이비슨",
+      "nameEn": "데이비슨",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "데이비슨의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:오영수",
+      "slug": "오영수",
+      "nameKo": "오영수",
+      "nameEn": "오영수",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "오영수의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:허윤",
+      "slug": "허윤",
+      "nameKo": "허윤",
+      "nameEn": "허윤",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "허윤의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:김휘집",
+      "slug": "김휘집",
+      "nameKo": "김휘집",
+      "nameEn": "김휘집",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "김휘집의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:서호철",
+      "slug": "서호철",
+      "nameKo": "서호철",
+      "nameEn": "서호철",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "서호철의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:오태양",
+      "slug": "오태양",
+      "nameKo": "오태양",
+      "nameEn": "오태양",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "오태양의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:김주원",
+      "slug": "김주원",
+      "nameKo": "김주원",
+      "nameEn": "김주원",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "김주원의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:신재인",
+      "slug": "신재인",
+      "nameKo": "신재인",
+      "nameEn": "신재인",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "신재인의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:천재환",
+      "slug": "천재환",
+      "nameKo": "천재환",
+      "nameEn": "천재환",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "천재환의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:한석현",
+      "slug": "한석현",
+      "nameKo": "한석현",
+      "nameEn": "한석현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "한석현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:박건우",
+      "slug": "박건우",
+      "nameKo": "박건우",
+      "nameEn": "박건우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "박건우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:이우성",
+      "slug": "이우성",
+      "nameKo": "이우성",
+      "nameEn": "이우성",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "이우성의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:김태형",
+      "slug": "김태형",
+      "nameKo": "김태형",
+      "nameEn": "김태형",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "김태형의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:조상우",
+      "slug": "조상우",
+      "nameKo": "조상우",
+      "nameEn": "조상우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "조상우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:올러",
+      "slug": "올러",
+      "nameKo": "올러",
+      "nameEn": "올러",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "올러의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:네일",
+      "slug": "네일",
+      "nameKo": "네일",
+      "nameEn": "네일",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "네일의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:황동하",
+      "slug": "황동하",
+      "nameKo": "황동하",
+      "nameEn": "황동하",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "황동하의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:이태양",
+      "slug": "이태양",
+      "nameKo": "이태양",
+      "nameEn": "이태양",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "이태양의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:이의리",
+      "slug": "이의리",
+      "nameKo": "이의리",
+      "nameEn": "이의리",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "이의리의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:김범수",
+      "slug": "김범수",
+      "nameKo": "김범수",
+      "nameEn": "김범수",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "김범수의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:홍건희",
+      "slug": "홍건희",
+      "nameKo": "홍건희",
+      "nameEn": "홍건희",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "홍건희의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:김기훈",
+      "slug": "김기훈",
+      "nameKo": "김기훈",
+      "nameEn": "김기훈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "김기훈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:양현종",
+      "slug": "양현종",
+      "nameKo": "양현종",
+      "nameEn": "양현종",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "양현종의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:한재승",
+      "slug": "한재승",
+      "nameKo": "한재승",
+      "nameEn": "한재승",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "한재승의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:성영탁",
+      "slug": "성영탁",
+      "nameKo": "성영탁",
+      "nameEn": "성영탁",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "성영탁의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:홍민규",
+      "slug": "홍민규",
+      "nameKo": "홍민규",
+      "nameEn": "홍민규",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "홍민규의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:주효상",
+      "slug": "주효상",
+      "nameKo": "주효상",
+      "nameEn": "주효상",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "주효상의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:한준수",
+      "slug": "한준수",
+      "nameKo": "한준수",
+      "nameEn": "한준수",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "한준수의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:정현창",
+      "slug": "정현창",
+      "nameKo": "정현창",
+      "nameEn": "정현창",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "정현창의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:김규성",
+      "slug": "김규성",
+      "nameKo": "김규성",
+      "nameEn": "김규성",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "김규성의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:박민",
+      "slug": "박민",
+      "nameKo": "박민",
+      "nameEn": "박민",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "박민의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:김선빈",
+      "slug": "김선빈",
+      "nameKo": "김선빈",
+      "nameEn": "김선빈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "김선빈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:데일",
+      "slug": "데일",
+      "nameKo": "데일",
+      "nameEn": "데일",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "데일의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:김도영",
+      "slug": "김도영",
+      "nameKo": "김도영",
+      "nameEn": "김도영",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "김도영의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:박상준",
+      "slug": "박상준",
+      "nameKo": "박상준",
+      "nameEn": "박상준",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "박상준의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:박정우",
+      "slug": "박정우",
+      "nameKo": "박정우",
+      "nameEn": "박정우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "박정우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:박재현",
+      "slug": "박재현",
+      "nameKo": "박재현",
+      "nameEn": "박재현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "박재현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:카스트로",
+      "slug": "카스트로",
+      "nameKo": "카스트로",
+      "nameEn": "카스트로",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "카스트로의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:김호령",
+      "slug": "김호령",
+      "nameKo": "김호령",
+      "nameEn": "김호령",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "김호령의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:나성범",
+      "slug": "나성범",
+      "nameKo": "나성범",
+      "nameEn": "나성범",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "나성범의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:고종욱",
+      "slug": "고종욱",
+      "nameKo": "고종욱",
+      "nameEn": "고종욱",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "고종욱의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:문동주",
+      "slug": "문동주",
+      "nameKo": "문동주",
+      "nameEn": "문동주",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "문동주의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:에르난데스",
+      "slug": "에르난데스",
+      "nameKo": "에르난데스",
+      "nameEn": "에르난데스",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "에르난데스의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:이상규",
+      "slug": "이상규",
+      "nameKo": "이상규",
+      "nameEn": "이상규",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "이상규의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:왕옌청",
+      "slug": "왕옌청",
+      "nameKo": "왕옌청",
+      "nameEn": "왕옌청",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "왕옌청의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:이민우",
+      "slug": "이민우",
+      "nameKo": "이민우",
+      "nameEn": "이민우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "이민우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:황준서",
+      "slug": "황준서",
+      "nameKo": "황준서",
+      "nameEn": "황준서",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "황준서의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:김종수",
+      "slug": "김종수",
+      "nameKo": "김종수",
+      "nameEn": "김종수",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "김종수의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:김서현",
+      "slug": "김서현",
+      "nameKo": "김서현",
+      "nameEn": "김서현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "김서현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:조동욱",
+      "slug": "조동욱",
+      "nameKo": "조동욱",
+      "nameEn": "조동욱",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "조동욱의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:박상원",
+      "slug": "박상원",
+      "nameKo": "박상원",
+      "nameEn": "박상원",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "박상원의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:쿠싱",
+      "slug": "쿠싱",
+      "nameKo": "쿠싱",
+      "nameEn": "쿠싱",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "쿠싱의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:정우주",
+      "slug": "정우주",
+      "nameKo": "정우주",
+      "nameEn": "정우주",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "정우주의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:강건우",
+      "slug": "강건우",
+      "nameKo": "강건우",
+      "nameEn": "강건우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "강건우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:박준영",
+      "slug": "박준영",
+      "nameKo": "박준영",
+      "nameEn": "박준영",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "박준영의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:최재훈",
+      "slug": "최재훈",
+      "nameKo": "최재훈",
+      "nameEn": "최재훈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "최재훈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:허인서",
+      "slug": "허인서",
+      "nameKo": "허인서",
+      "nameEn": "허인서",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "허인서의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:하주석",
+      "slug": "하주석",
+      "nameKo": "하주석",
+      "nameEn": "하주석",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "하주석의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:채은성",
+      "slug": "채은성",
+      "nameKo": "채은성",
+      "nameEn": "채은성",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "채은성의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:이도윤",
+      "slug": "이도윤",
+      "nameKo": "이도윤",
+      "nameEn": "이도윤",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "이도윤의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:강백호",
+      "slug": "강백호",
+      "nameKo": "강백호",
+      "nameEn": "강백호",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "강백호의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:박정현",
+      "slug": "박정현",
+      "nameKo": "박정현",
+      "nameEn": "박정현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "박정현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:심우준",
+      "slug": "심우준",
+      "nameKo": "심우준",
+      "nameEn": "심우준",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "심우준의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:최유빈",
+      "slug": "최유빈",
+      "nameKo": "최유빈",
+      "nameEn": "최유빈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "최유빈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:김태연",
+      "slug": "김태연",
+      "nameKo": "김태연",
+      "nameEn": "김태연",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "김태연의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:페라자",
+      "slug": "페라자",
+      "nameKo": "페라자",
+      "nameEn": "페라자",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "페라자의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:이원석",
+      "slug": "이원석",
+      "nameKo": "이원석",
+      "nameEn": "이원석",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "이원석의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:최인호",
+      "slug": "최인호",
+      "nameKo": "최인호",
+      "nameEn": "최인호",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "최인호의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:문현빈",
+      "slug": "문현빈",
+      "nameKo": "문현빈",
+      "nameEn": "문현빈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "문현빈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:오재원",
+      "slug": "오재원",
+      "nameKo": "오재원",
+      "nameEn": "오재원",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "오재원의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:김정우",
+      "slug": "김정우",
+      "nameKo": "김정우",
+      "nameEn": "김정우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "김정우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:박정수",
+      "slug": "박정수",
+      "nameKo": "박정수",
+      "nameEn": "박정수",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "박정수의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:타무라",
+      "slug": "타무라",
+      "nameKo": "타무라",
+      "nameEn": "타무라",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "타무라의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:최승용",
+      "slug": "최승용",
+      "nameKo": "최승용",
+      "nameEn": "최승용",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "최승용의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:이병헌",
+      "slug": "이병헌",
+      "nameKo": "이병헌",
+      "nameEn": "이병헌",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "이병헌의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양재훈",
+      "slug": "양재훈",
+      "nameKo": "양재훈",
+      "nameEn": "양재훈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "양재훈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:잭로그",
+      "slug": "잭로그",
+      "nameKo": "잭로그",
+      "nameEn": "잭로그",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "잭로그의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:이용찬",
+      "slug": "이용찬",
+      "nameKo": "이용찬",
+      "nameEn": "이용찬",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "이용찬의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:곽빈",
+      "slug": "곽빈",
+      "nameKo": "곽빈",
+      "nameEn": "곽빈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "곽빈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:박신지",
+      "slug": "박신지",
+      "nameKo": "박신지",
+      "nameEn": "박신지",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "박신지의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:이영하",
+      "slug": "이영하",
+      "nameKo": "이영하",
+      "nameEn": "이영하",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "이영하의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:김택연",
+      "slug": "김택연",
+      "nameKo": "김택연",
+      "nameEn": "김택연",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "김택연의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:윤태호",
+      "slug": "윤태호",
+      "nameKo": "윤태호",
+      "nameEn": "윤태호",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "윤태호의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:최민석",
+      "slug": "최민석",
+      "nameKo": "최민석",
+      "nameEn": "최민석",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "최민석의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양의지",
+      "slug": "양의지",
+      "nameKo": "양의지",
+      "nameEn": "양의지",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "양의지의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:윤준호",
+      "slug": "윤준호",
+      "nameKo": "윤준호",
+      "nameEn": "윤준호",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "윤준호의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:이유찬",
+      "slug": "이유찬",
+      "nameKo": "이유찬",
+      "nameEn": "이유찬",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "이유찬의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:강승호",
+      "slug": "강승호",
+      "nameKo": "강승호",
+      "nameEn": "강승호",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "강승호의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:박지훈",
+      "slug": "박지훈",
+      "nameKo": "박지훈",
+      "nameEn": "박지훈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "박지훈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:박준순",
+      "slug": "박준순",
+      "nameKo": "박준순",
+      "nameEn": "박준순",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "박준순의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:양석환",
+      "slug": "양석환",
+      "nameKo": "양석환",
+      "nameEn": "양석환",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "양석환의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:안재석",
+      "slug": "안재석",
+      "nameKo": "안재석",
+      "nameEn": "안재석",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "안재석의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:박찬호",
+      "slug": "박찬호",
+      "nameKo": "박찬호",
+      "nameEn": "박찬호",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "박찬호의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:김민석",
+      "slug": "김민석",
+      "nameKo": "김민석",
+      "nameEn": "김민석",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "김민석의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:카메론",
+      "slug": "카메론",
+      "nameKo": "카메론",
+      "nameEn": "카메론",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "카메론의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:정수빈",
+      "slug": "정수빈",
+      "nameKo": "정수빈",
+      "nameEn": "정수빈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "정수빈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:김인태",
+      "slug": "김인태",
+      "nameKo": "김인태",
+      "nameEn": "김인태",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "김인태의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:조수행",
+      "slug": "조수행",
+      "nameKo": "조수행",
+      "nameEn": "조수행",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "조수행의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:손아섭",
+      "slug": "손아섭",
+      "nameKo": "손아섭",
+      "nameEn": "손아섭",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "손아섭의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:김진욱",
+      "slug": "김진욱",
+      "nameKo": "김진욱",
+      "nameEn": "김진욱",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "김진욱의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:현도훈",
+      "slug": "현도훈",
+      "nameKo": "현도훈",
+      "nameEn": "현도훈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "현도훈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:박세웅",
+      "slug": "박세웅",
+      "nameKo": "박세웅",
+      "nameEn": "박세웅",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "박세웅의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:비슬리",
+      "slug": "비슬리",
+      "nameKo": "비슬리",
+      "nameEn": "비슬리",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "비슬리의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:로드리게스",
+      "slug": "로드리게스",
+      "nameKo": "로드리게스",
+      "nameEn": "로드리게스",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "로드리게스의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:김원중",
+      "slug": "김원중",
+      "nameKo": "김원중",
+      "nameEn": "김원중",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "김원중의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:박정민",
+      "slug": "박정민",
+      "nameKo": "박정민",
+      "nameEn": "박정민",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "박정민의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:나균안",
+      "slug": "나균안",
+      "nameKo": "나균안",
+      "nameEn": "나균안",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "나균안의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:쿄야마",
+      "slug": "쿄야마",
+      "nameKo": "쿄야마",
+      "nameEn": "쿄야마",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "쿄야마의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:최이준",
+      "slug": "최이준",
+      "nameKo": "최이준",
+      "nameEn": "최이준",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "최이준의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:최준용",
+      "slug": "최준용",
+      "nameKo": "최준용",
+      "nameEn": "최준용",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "최준용의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:박준우",
+      "slug": "박준우",
+      "nameKo": "박준우",
+      "nameEn": "박준우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "박준우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:정철원",
+      "slug": "정철원",
+      "nameKo": "정철원",
+      "nameEn": "정철원",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "정철원의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:유강남",
+      "slug": "유강남",
+      "nameKo": "유강남",
+      "nameEn": "유강남",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "유강남의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:손성빈",
+      "slug": "손성빈",
+      "nameKo": "손성빈",
+      "nameEn": "손성빈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "손성빈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:전민재",
+      "slug": "전민재",
+      "nameKo": "전민재",
+      "nameEn": "전민재",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "전민재의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:김민성",
+      "slug": "김민성",
+      "nameKo": "김민성",
+      "nameEn": "김민성",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "김민성의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:한동희",
+      "slug": "한동희",
+      "nameKo": "한동희",
+      "nameEn": "한동희",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "한동희의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:이호준",
+      "slug": "이호준",
+      "nameKo": "이호준",
+      "nameEn": "이호준",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "이호준의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:노진혁",
+      "slug": "노진혁",
+      "nameKo": "노진혁",
+      "nameEn": "노진혁",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "노진혁의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:박승욱",
+      "slug": "박승욱",
+      "nameKo": "박승욱",
+      "nameEn": "박승욱",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "박승욱의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:한태양",
+      "slug": "한태양",
+      "nameKo": "한태양",
+      "nameEn": "한태양",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "한태양의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:황성빈",
+      "slug": "황성빈",
+      "nameKo": "황성빈",
+      "nameEn": "황성빈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "황성빈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:레이예스",
+      "slug": "레이예스",
+      "nameKo": "레이예스",
+      "nameEn": "레이예스",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "레이예스의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:신윤후",
+      "slug": "신윤후",
+      "nameKo": "신윤후",
+      "nameEn": "신윤후",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "신윤후의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:손호영",
+      "slug": "손호영",
+      "nameKo": "손호영",
+      "nameEn": "손호영",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "손호영의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:장두성",
+      "slug": "장두성",
+      "nameKo": "장두성",
+      "nameEn": "장두성",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "장두성의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:전준우",
+      "slug": "전준우",
+      "nameKo": "전준우",
+      "nameEn": "전준우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "전준우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:윤동희",
+      "slug": "윤동희",
+      "nameKo": "윤동희",
+      "nameEn": "윤동희",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "윤동희의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:김성진",
+      "slug": "김성진",
+      "nameKo": "김성진",
+      "nameEn": "김성진",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "김성진의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:김재웅",
+      "slug": "김재웅",
+      "nameKo": "김재웅",
+      "nameEn": "김재웅",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "김재웅의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:오석주",
+      "slug": "오석주",
+      "nameKo": "오석주",
+      "nameEn": "오석주",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "오석주의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:와일스",
+      "slug": "와일스",
+      "nameKo": "와일스",
+      "nameEn": "와일스",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "와일스의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:박진형",
+      "slug": "박진형",
+      "nameKo": "박진형",
+      "nameEn": "박진형",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "박진형의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:안우진",
+      "slug": "안우진",
+      "nameKo": "안우진",
+      "nameEn": "안우진",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "안우진의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:이준우",
+      "slug": "이준우",
+      "nameKo": "이준우",
+      "nameEn": "이준우",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "이준우의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:정다훈",
+      "slug": "정다훈",
+      "nameKo": "정다훈",
+      "nameEn": "정다훈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "정다훈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:원종현",
+      "slug": "원종현",
+      "nameKo": "원종현",
+      "nameEn": "원종현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "원종현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:유토",
+      "slug": "유토",
+      "nameKo": "유토",
+      "nameEn": "유토",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "유토의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:하영민",
+      "slug": "하영민",
+      "nameKo": "하영민",
+      "nameEn": "하영민",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "하영민의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:알칸타라",
+      "slug": "알칸타라",
+      "nameKo": "알칸타라",
+      "nameEn": "알칸타라",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "알칸타라의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:배동현",
+      "slug": "배동현",
+      "nameKo": "배동현",
+      "nameEn": "배동현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "배동현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:정세영",
+      "slug": "정세영",
+      "nameKo": "정세영",
+      "nameEn": "정세영",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "정세영의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:박정훈",
+      "slug": "박정훈",
+      "nameKo": "박정훈",
+      "nameEn": "박정훈",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "박정훈의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:김건희",
+      "slug": "김건희",
+      "nameKo": "김건희",
+      "nameEn": "김건희",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "김건희의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:김재현",
+      "slug": "김재현",
+      "nameKo": "김재현",
+      "nameEn": "김재현",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "김재현의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:김지석",
+      "slug": "김지석",
+      "nameKo": "김지석",
+      "nameEn": "김지석",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "김지석의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:염승원",
+      "slug": "염승원",
+      "nameKo": "염승원",
+      "nameEn": "염승원",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "염승원의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:박한결",
+      "slug": "박한결",
+      "nameKo": "박한결",
+      "nameEn": "박한결",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "박한결의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:최주환",
+      "slug": "최주환",
+      "nameKo": "최주환",
+      "nameEn": "최주환",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "최주환의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:오선진",
+      "slug": "오선진",
+      "nameKo": "오선진",
+      "nameEn": "오선진",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "오선진의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:안치홍",
+      "slug": "안치홍",
+      "nameKo": "안치홍",
+      "nameEn": "안치홍",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "안치홍의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:이주형",
+      "slug": "이주형",
+      "nameKo": "이주형",
+      "nameEn": "이주형",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "이주형의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:브룩스",
+      "slug": "브룩스",
+      "nameKo": "브룩스",
+      "nameEn": "브룩스",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "브룩스의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:임지열",
+      "slug": "임지열",
+      "nameKo": "임지열",
+      "nameEn": "임지열",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "임지열의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:이형종",
+      "slug": "이형종",
+      "nameKo": "이형종",
+      "nameEn": "이형종",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "이형종의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:박찬혁",
+      "slug": "박찬혁",
+      "nameKo": "박찬혁",
+      "nameEn": "박찬혁",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "박찬혁의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:박주홍",
+      "slug": "박주홍",
+      "nameKo": "박주홍",
+      "nameEn": "박주홍",
+      "birthDate": null,
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "박주홍의 기본 프로필은 KBO 공식 전체 등록 현황을 바탕으로 구성했습니다."
+    }
+  ]
+}

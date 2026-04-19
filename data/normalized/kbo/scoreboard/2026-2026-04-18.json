@@ -1,0 +1,381 @@
+{
+  "generatedAt": "2026-04-18T13:36:03.910Z",
+  "seasonId": "kbo-2026",
+  "sources": [
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "scoreboard",
+      "snapshotKey": "2026-04-18",
+      "parserVersion": "2026-04-15-en-scoreboard-v2"
+    }
+  ],
+  "games": [
+    {
+      "gameId": "game:official-kbo-en:20260418-KIA-DOOSAN-JAMSIL",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-en:2026-04-18:kbo-2026:doosan:kbo-2026:kia",
+      "homeSeasonTeamId": "kbo-2026:doosan",
+      "awaySeasonTeamId": "kbo-2026:kia",
+      "scheduledAt": "2026-04-18T17:00:00+09:00",
+      "status": "final",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": 5,
+      "awayScore": 4,
+      "innings": 10,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260418-HANWHA-LOTTE-SAJIK",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-en:2026-04-18:kbo-2026:lotte:kbo-2026:hanwha",
+      "homeSeasonTeamId": "kbo-2026:lotte",
+      "awaySeasonTeamId": "kbo-2026:hanwha",
+      "scheduledAt": "2026-04-18T17:00:00+09:00",
+      "status": "final",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": 0,
+      "awayScore": 5,
+      "innings": 9,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260418-LG-SAMSUNG-DAEGU",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-en:2026-04-18:kbo-2026:samsung:kbo-2026:lg",
+      "homeSeasonTeamId": "kbo-2026:samsung",
+      "awaySeasonTeamId": "kbo-2026:lg",
+      "scheduledAt": "2026-04-18T14:00:00+09:00",
+      "status": "final",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": 7,
+      "awayScore": 2,
+      "innings": 9,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260418-SSG-NC-CHANGWON",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-en:2026-04-18:kbo-2026:nc:kbo-2026:ssg",
+      "homeSeasonTeamId": "kbo-2026:nc",
+      "awaySeasonTeamId": "kbo-2026:ssg",
+      "scheduledAt": "2026-04-18T17:00:00+09:00",
+      "status": "final",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": 3,
+      "awayScore": 11,
+      "innings": 9,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260418-KIWOOM-KT-SUWON",
+      "seasonId": "kbo-2026",
+      "seriesId": "series:official-kbo-en:2026-04-18:kbo-2026:kt:kbo-2026:heroes",
+      "homeSeasonTeamId": "kbo-2026:kt",
+      "awaySeasonTeamId": "kbo-2026:heroes",
+      "scheduledAt": "2026-04-18T17:00:00+09:00",
+      "status": "final",
+      "originalScheduledAt": null,
+      "rescheduledFromGameId": null,
+      "homeScore": 4,
+      "awayScore": 2,
+      "innings": 9,
+      "isTie": false,
+      "note": null,
+      "attendance": null,
+      "externalLinks": []
+    }
+  ],
+  "boxScores": [
+    {
+      "gameId": "game:official-kbo-en:20260418-KIA-DOOSAN-JAMSIL",
+      "winningPitcherId": "player:kbo-2026:kbo-2026:doosan:윤태호",
+      "losingPitcherId": "player:kbo-2026:kbo-2026:kia:홍민규",
+      "savePitcherId": null,
+      "lineScore": [
+        {
+          "inning": 1,
+          "home": 1,
+          "away": 0
+        },
+        {
+          "inning": 2,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 3,
+          "home": 1,
+          "away": 0
+        },
+        {
+          "inning": 4,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 5,
+          "home": 0,
+          "away": 2
+        },
+        {
+          "inning": 6,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 7,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 8,
+          "home": 2,
+          "away": 2
+        },
+        {
+          "inning": 9,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 10,
+          "home": 1,
+          "away": 0
+        }
+      ],
+      "highlights": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260418-HANWHA-LOTTE-SAJIK",
+      "winningPitcherId": "player:official-kbo-en:76715",
+      "losingPitcherId": "player:kbo-2026:kbo-2026:lotte:비슬리",
+      "savePitcherId": null,
+      "lineScore": [
+        {
+          "inning": 1,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 2,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 3,
+          "home": 0,
+          "away": 3
+        },
+        {
+          "inning": 4,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 5,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 6,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 7,
+          "home": 0,
+          "away": 1
+        },
+        {
+          "inning": 8,
+          "home": 0,
+          "away": 1
+        },
+        {
+          "inning": 9,
+          "home": 0,
+          "away": 0
+        }
+      ],
+      "highlights": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260418-LG-SAMSUNG-DAEGU",
+      "winningPitcherId": "player:official-kbo-en:54806",
+      "losingPitcherId": "player:kbo-2026:kbo-2026:lg:임찬규",
+      "savePitcherId": null,
+      "lineScore": [
+        {
+          "inning": 1,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 2,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 3,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 4,
+          "home": 5,
+          "away": 0
+        },
+        {
+          "inning": 5,
+          "home": 1,
+          "away": 0
+        },
+        {
+          "inning": 6,
+          "home": 1,
+          "away": 0
+        },
+        {
+          "inning": 7,
+          "home": 0,
+          "away": 2
+        },
+        {
+          "inning": 8,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 9,
+          "home": 0,
+          "away": 0
+        }
+      ],
+      "highlights": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260418-SSG-NC-CHANGWON",
+      "winningPitcherId": "player:kbo-2026:kbo-2026:ssg:김건우",
+      "losingPitcherId": "player:kbo-2026:kbo-2026:nc:테일러",
+      "savePitcherId": null,
+      "lineScore": [
+        {
+          "inning": 1,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 2,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 3,
+          "home": 2,
+          "away": 0
+        },
+        {
+          "inning": 4,
+          "home": 0,
+          "away": 4
+        },
+        {
+          "inning": 5,
+          "home": 0,
+          "away": 1
+        },
+        {
+          "inning": 6,
+          "home": 1,
+          "away": 0
+        },
+        {
+          "inning": 7,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 8,
+          "home": 0,
+          "away": 2
+        },
+        {
+          "inning": 9,
+          "home": 0,
+          "away": 4
+        }
+      ],
+      "highlights": []
+    },
+    {
+      "gameId": "game:official-kbo-en:20260418-KIWOOM-KT-SUWON",
+      "winningPitcherId": "player:kbo-2026:kbo-2026:kt:보쉴리",
+      "losingPitcherId": "player:kbo-2026:kbo-2026:heroes:안우진",
+      "savePitcherId": "player:kbo-2026:kbo-2026:kt:박영현",
+      "lineScore": [
+        {
+          "inning": 1,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 2,
+          "home": 1,
+          "away": 0
+        },
+        {
+          "inning": 3,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 4,
+          "home": 2,
+          "away": 0
+        },
+        {
+          "inning": 5,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 6,
+          "home": 0,
+          "away": 2
+        },
+        {
+          "inning": 7,
+          "home": 1,
+          "away": 0
+        },
+        {
+          "inning": 8,
+          "home": 0,
+          "away": 0
+        },
+        {
+          "inning": 9,
+          "home": 0,
+          "away": 0
+        }
+      ],
+      "highlights": []
+    }
+  ]
+}

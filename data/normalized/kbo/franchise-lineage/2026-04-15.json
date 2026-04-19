@@ -1,0 +1,93 @@
+{
+  "generatedAt": "2026-04-15T05:35:26.057Z",
+  "sources": [
+    {
+      "sourceId": "official-kbo-ko",
+      "datasetId": "team-history",
+      "snapshotKey": "2026-04-15",
+      "parserVersion": "2026-04-15-ko-team-history-v1"
+    }
+  ],
+  "franchises": [
+    {
+      "franchiseId": "heroes",
+      "slug": "키움-히어로즈",
+      "canonicalNameKo": "키움 히어로즈",
+      "shortNameKo": "키움넥센키움",
+      "regionKo": "서울",
+      "foundedYear": 2008,
+      "primaryVenueId": "gocheok",
+      "championships": 0,
+      "brandHistorySummary": "우리-서울-넥센-키움으로 이어지는 히어로즈 계보다."
+    },
+    {
+      "franchiseId": "ssg",
+      "slug": "ssg-랜더스",
+      "canonicalNameKo": "SSG 랜더스",
+      "shortNameKo": "SSGSKSSG",
+      "regionKo": "인천",
+      "foundedYear": 2000,
+      "primaryVenueId": "incheon",
+      "championships": 5,
+      "brandHistorySummary": "SK 와이번스를 잇는 인천 프랜차이즈다."
+    }
+  ],
+  "teamBrands": [
+    {
+      "brandId": "nexen-heroes",
+      "franchiseId": "heroes",
+      "displayNameKo": "넥센 히어로즈",
+      "shortNameKo": "넥센",
+      "shortCode": "NEX",
+      "seasonStartYear": 2010,
+      "seasonEndYear": 2018,
+      "primaryColor": "#6b21a8",
+      "secondaryColor": "#f59e0b",
+      "wordmarkText": "HEROES",
+      "logoPath": "/logos/nexen-heroes.svg",
+      "notes": "메인 스폰서 변경 전"
+    },
+    {
+      "brandId": "kiwoom-heroes",
+      "franchiseId": "heroes",
+      "displayNameKo": "키움 히어로즈",
+      "shortNameKo": "키움",
+      "shortCode": "KIW",
+      "seasonStartYear": 2019,
+      "seasonEndYear": null,
+      "primaryColor": "#7a1f3d",
+      "secondaryColor": "#c4c7cc",
+      "wordmarkText": "HEROES",
+      "logoPath": "/logos/kiwoom-heroes.svg",
+      "notes": "현재 브랜드"
+    },
+    {
+      "brandId": "sk-wyverns",
+      "franchiseId": "ssg",
+      "displayNameKo": "SK 와이번스",
+      "shortNameKo": "SK",
+      "shortCode": "SK",
+      "seasonStartYear": 2000,
+      "seasonEndYear": 2020,
+      "primaryColor": "#e11d48",
+      "secondaryColor": "#fb7185",
+      "wordmarkText": "WYVERNS",
+      "logoPath": "/logos/sk-wyverns.svg",
+      "notes": "이전 브랜드"
+    },
+    {
+      "brandId": "ssg-landers",
+      "franchiseId": "ssg",
+      "displayNameKo": "SSG 랜더스",
+      "shortNameKo": "SSG",
+      "shortCode": "SSG",
+      "seasonStartYear": 2021,
+      "seasonEndYear": null,
+      "primaryColor": "#ce0e2d",
+      "secondaryColor": "#f2a900",
+      "wordmarkText": "LANDERS",
+      "logoPath": "/logos/ssg-landers.svg",
+      "notes": "현재 브랜드"
+    }
+  ]
+}

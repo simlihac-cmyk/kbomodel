@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-04-17T06:19:29.217Z",
+  "sources": [
+    {
+      "sourceId": "official-kbo-ko",
+      "datasetId": "team-history",
+      "snapshotKey": "2026-04-17",
+      "parserVersion": "2026-04-15-ko-team-history-v1"
+    }
+  ],
+  "franchises": [],
+  "teamBrands": []
+}

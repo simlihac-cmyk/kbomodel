@@ -1,0 +1,830 @@
+{
+  "generatedAt": "2026-04-15T12:45:36.309Z",
+  "seasonId": "kbo-2026",
+  "sources": [
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-lg-pitcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-lg-catcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-lg-infielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-lg-outfielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-ss-pitcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-ss-catcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-ss-infielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-ss-outfielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-kt-pitcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-kt-catcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-kt-infielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-kt-outfielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-sk-pitcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-sk-catcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-sk-infielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-sk-outfielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-nc-pitcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-nc-catcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-nc-infielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-nc-outfielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-ht-pitcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-ht-catcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-ht-infielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-ht-outfielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-hh-pitcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-hh-catcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-hh-infielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-hh-outfielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-ob-pitcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-ob-catcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-ob-infielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-ob-outfielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-lt-pitcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-lt-catcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-lt-infielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-lt-outfielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-wo-pitcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-wo-catcher",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-wo-infielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-search",
+      "snapshotKey": "2026-04-15-wo-outfielder",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-53123",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-69100",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-56011",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-50106",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-68900",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-65207",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-66108",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-61666",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-62415",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-64995",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-52902",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-56034",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-63950",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-68119",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-78548",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-65048",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-76290",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-52060",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-51526",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-56006",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-68912",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-75867",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-69047",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-69992",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-69041",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-63145",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-52992",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-51344",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-67954",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-51907",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-79215",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-69995",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-pitcher",
+      "snapshotKey": "2026-04-15-65949",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-69102",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-79365",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-50054",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-79109",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-53036",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-game-logs-hitter",
+      "snapshotKey": "2026-04-15-79402",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    },
+    {
+      "sourceId": "official-kbo-ko",
+      "datasetId": "player-register-all",
+      "snapshotKey": "2026-04-15",
+      "parserVersion": "2026-04-15-en-player-game-logs-v1"
+    }
+  ],
+  "rows": [
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:lg:오스틴:game:official-kbo-ko:20260404LGWO0:hitter",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:오스틴",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "hitter",
+      "summaryLine": "KIWOOM전 4타수 1안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:lg:구본혁:game:official-kbo-ko:20260404LGWO0:hitter",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:구본혁",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "hitter",
+      "summaryLine": "KIWOOM전 0타수 0안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:lg:신민재:game:official-kbo-ko:20260404LGWO0:hitter",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:신민재",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "hitter",
+      "summaryLine": "KIWOOM전 4타수 1안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:lg:홍창기:game:official-kbo-ko:20260404LGWO0:hitter",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:홍창기",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "hitter",
+      "summaryLine": "KIWOOM전 4타수 1안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:lg:문성주:game:official-kbo-ko:20260404LGWO0:hitter",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:문성주",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "hitter",
+      "summaryLine": "KIWOOM전 4타수 1안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:lg:박해민:game:official-kbo-ko:20260404LGWO0:hitter",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:박해민",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "hitter",
+      "summaryLine": "KIWOOM전 4타수 1안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:kt:장성우:game:official-kbo-ko:20260404SSKT0:hitter",
+      "gameId": "game:official-kbo-ko:20260404SSKT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:장성우",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "hitter",
+      "summaryLine": "SAMSUNG전 4타수 0안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:kt:힐리어드:game:official-kbo-ko:20260404SSKT0:hitter",
+      "gameId": "game:official-kbo-ko:20260404SSKT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:힐리어드",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "hitter",
+      "summaryLine": "SAMSUNG전 2타수 1안타 0홈런 1타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:kt:이강민:game:official-kbo-ko:20260404SSKT0:hitter",
+      "gameId": "game:official-kbo-ko:20260404SSKT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:이강민",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "hitter",
+      "summaryLine": "SAMSUNG전 3타수 0안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:kt:김현수:game:official-kbo-ko:20260404SSKT0:hitter",
+      "gameId": "game:official-kbo-ko:20260404SSKT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:김현수",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "hitter",
+      "summaryLine": "SAMSUNG전 4타수 2안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:nc:김형준:game:official-kbo-ko:20260404NCHT0:hitter",
+      "gameId": "game:official-kbo-ko:20260404NCHT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:nc:김형준",
+      "seasonTeamId": "kbo-2026:nc",
+      "statType": "hitter",
+      "summaryLine": "KIA전 0타수 0안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:nc:최정원:game:official-kbo-ko:20260404NCHT0:hitter",
+      "gameId": "game:official-kbo-ko:20260404NCHT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:nc:최정원",
+      "seasonTeamId": "kbo-2026:nc",
+      "statType": "hitter",
+      "summaryLine": "KIA전 3타수 0안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:nc:김주원:game:official-kbo-ko:20260404NCHT0:hitter",
+      "gameId": "game:official-kbo-ko:20260404NCHT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:nc:김주원",
+      "seasonTeamId": "kbo-2026:nc",
+      "statType": "hitter",
+      "summaryLine": "KIA전 4타수 0안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:nc:김휘집:game:official-kbo-ko:20260404NCHT0:hitter",
+      "gameId": "game:official-kbo-ko:20260404NCHT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:nc:김휘집",
+      "seasonTeamId": "kbo-2026:nc",
+      "statType": "hitter",
+      "summaryLine": "KIA전 2타수 0안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:nc:서호철:game:official-kbo-ko:20260404NCHT0:hitter",
+      "gameId": "game:official-kbo-ko:20260404NCHT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:nc:서호철",
+      "seasonTeamId": "kbo-2026:nc",
+      "statType": "hitter",
+      "summaryLine": "KIA전 2타수 0안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:nc:박건우:game:official-kbo-ko:20260404NCHT0:hitter",
+      "gameId": "game:official-kbo-ko:20260404NCHT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:nc:박건우",
+      "seasonTeamId": "kbo-2026:nc",
+      "statType": "hitter",
+      "summaryLine": "KIA전 4타수 0안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:lg:박동원:game:official-kbo-ko:20260404LGWO0:hitter",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:박동원",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "hitter",
+      "summaryLine": "KIWOOM전 4타수 1안타 0홈런 1타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:lg:천성호:game:official-kbo-ko:20260404LGWO0:hitter",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:천성호",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "hitter",
+      "summaryLine": "KIWOOM전 4타수 3안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:lg:문보경:game:official-kbo-ko:20260404LGWO0:hitter",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:문보경",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "hitter",
+      "summaryLine": "KIWOOM전 5타수 3안타 1홈런 2타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:lg:오지환:game:official-kbo-ko:20260404LGWO0:hitter",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:오지환",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "hitter",
+      "summaryLine": "KIWOOM전 5타수 3안타 0홈런 3타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:kt:김상수:game:official-kbo-ko:20260404SSKT0:hitter",
+      "gameId": "game:official-kbo-ko:20260404SSKT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:김상수",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "hitter",
+      "summaryLine": "SAMSUNG전 3타수 0안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:kt:류현인:game:official-kbo-ko:20260404SSKT0:hitter",
+      "gameId": "game:official-kbo-ko:20260404SSKT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:류현인",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "hitter",
+      "summaryLine": "SAMSUNG전 0타수 0안타 0홈런 0타점"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:nc:김영규:game:official-kbo-ko:20260404NCHT0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404NCHT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:nc:김영규",
+      "seasonTeamId": "kbo-2026:nc",
+      "statType": "pitcher",
+      "summaryLine": "KIA전 1이닝 1자책 0K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:lg:유영찬:game:official-kbo-ko:20260404LGWO0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:유영찬",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "pitcher",
+      "summaryLine": "KIWOOM전 S 1이닝 0자책 1K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:kt:한승혁:game:official-kbo-ko:20260404SSKT0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404SSKT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:한승혁",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "pitcher",
+      "summaryLine": "SAMSUNG전 H 1이닝 0자책 1K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:kt:스기모토:game:official-kbo-ko:20260404SSKT0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404SSKT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:스기모토",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "pitcher",
+      "summaryLine": "SAMSUNG전 1이닝 1자책 1K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:nc:배재환:game:official-kbo-ko:20260404NCHT0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404NCHT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:nc:배재환",
+      "seasonTeamId": "kbo-2026:nc",
+      "statType": "pitcher",
+      "summaryLine": "KIA전 1이닝 0자책 0K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:nc:임지민:game:official-kbo-ko:20260404NCHT0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404NCHT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:nc:임지민",
+      "seasonTeamId": "kbo-2026:nc",
+      "statType": "pitcher",
+      "summaryLine": "KIA전 2이닝 0자책 0K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:kt:김민수:game:official-kbo-ko:20260404SSKT0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404SSKT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:김민수",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "pitcher",
+      "summaryLine": "SAMSUNG전 H 1이닝 0자책 1K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:lg:장현식:game:official-kbo-ko:20260404LGWO0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:장현식",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "pitcher",
+      "summaryLine": "KIWOOM전 H 1이닝 0자책 1K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:lg:김진성:game:official-kbo-ko:20260404LGWO0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:김진성",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "pitcher",
+      "summaryLine": "KIWOOM전 H 1이닝 0자책 0K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:lg:우강훈:game:official-kbo-ko:20260404LGWO0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:우강훈",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "pitcher",
+      "summaryLine": "KIWOOM전 H 1이닝 0자책 3K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:kt:전용주:game:official-kbo-ko:20260404SSKT0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404SSKT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:전용주",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "pitcher",
+      "summaryLine": "SAMSUNG전 L 1이닝 1자책 0K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:kt:박영현:game:official-kbo-ko:20260404SSKT0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404SSKT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:박영현",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "pitcher",
+      "summaryLine": "SAMSUNG전 S 1이닝 0자책 0K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:kt:손동현:game:official-kbo-ko:20260404SSKT0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404SSKT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:손동현",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "pitcher",
+      "summaryLine": "SAMSUNG전 1이닝 0자책 1K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:nc:이준혁:game:official-kbo-ko:20260404NCHT0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404NCHT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:nc:이준혁",
+      "seasonTeamId": "kbo-2026:nc",
+      "statType": "pitcher",
+      "summaryLine": "KIA전 1이닝 0자책 1K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:official-kbo-en:63145:game:official-kbo-ko:20260404LGWO0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404LGWO0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:official-kbo-en:63145",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "pitcher",
+      "summaryLine": "KIWOOM전 W 1이닝 0자책 0K"
+    },
+    {
+      "playerGameStatId": "pgs:kbo-2026:player:kbo-2026:kbo-2026:nc:김진호:game:official-kbo-ko:20260404NCHT0:pitcher",
+      "gameId": "game:official-kbo-ko:20260404NCHT0",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:nc:김진호",
+      "seasonTeamId": "kbo-2026:nc",
+      "statType": "pitcher",
+      "summaryLine": "KIA전 H 1이닝 0자책 1K"
+    }
+  ]
+}

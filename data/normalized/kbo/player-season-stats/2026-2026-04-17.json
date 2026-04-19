@@ -1,0 +1,1750 @@
+{
+  "generatedAt": "2026-04-17T14:46:11.183Z",
+  "seasonId": "kbo-2026",
+  "sources": [
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "batting-top5",
+      "snapshotKey": "2026-04-17",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "pitching-top5",
+      "snapshotKey": "2026-04-17",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-67893",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-53123",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-55252",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-62234",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-78548",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-52605",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-51868",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-54529",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-64646",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-56626",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-68050",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-76290",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-53764",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-54730",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-52001",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-hitter",
+      "snapshotKey": "2026-04-17-72443",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-55633",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-56719",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-55268",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-56036",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-50859",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-60146",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-68043",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-75867",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-51897",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-50106",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-65062",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-52060",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-51526",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-50556",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-63950",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-64995",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-51111",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-55743",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-63145",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-65769",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-68220",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-55239",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-76715",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-69045",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-en",
+      "datasetId": "player-summary-pitcher",
+      "snapshotKey": "2026-04-17-50030",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    },
+    {
+      "sourceId": "official-kbo-ko",
+      "datasetId": "player-register-all",
+      "snapshotKey": "2026-04-17",
+      "parserVersion": "2026-04-15-en-player-stats-v1"
+    }
+  ],
+  "players": [
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:박성한",
+      "slug": "박성한",
+      "nameKo": "박성한",
+      "nameEn": "PARK Seong Han",
+      "birthDate": "1998-03-30",
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2017,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "박성한의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:류지혁",
+      "slug": "류지혁",
+      "nameKo": "류지혁",
+      "nameEn": "RYU Ji Hyuk",
+      "birthDate": "1994-01-13",
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2012,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "류지혁의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:박준순",
+      "slug": "박준순",
+      "nameKo": "박준순",
+      "nameEn": "PARK Jun Soon",
+      "birthDate": "2006-07-13",
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2025,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "박준순의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:오스틴",
+      "slug": "오스틴",
+      "nameKo": "오스틴",
+      "nameEn": "DEAN Austin",
+      "birthDate": "1993-10-14",
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2023,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "오스틴의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:고명준",
+      "slug": "고명준",
+      "nameKo": "고명준",
+      "nameEn": "KO Myeong Jun",
+      "birthDate": "2002-07-08",
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2021,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "고명준의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:장성우",
+      "slug": "장성우",
+      "nameKo": "장성우",
+      "nameEn": "JANG Sung Woo",
+      "birthDate": "1990-01-17",
+      "batsThrows": null,
+      "primaryPositions": [
+        "C"
+      ],
+      "debutYear": 2008,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "장성우의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:레이예스",
+      "slug": "레이예스",
+      "nameKo": "레이예스",
+      "nameEn": "REYES Victor",
+      "birthDate": "1994-10-05",
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2024,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "레이예스의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:김도영",
+      "slug": "김도영",
+      "nameKo": "김도영",
+      "nameEn": "KIM Do Yeong",
+      "birthDate": "2003-10-02",
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2022,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "김도영의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:강백호",
+      "slug": "강백호",
+      "nameKo": "강백호",
+      "nameEn": "KANG Baek Ho",
+      "birthDate": "1999-07-29",
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2018,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "강백호의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:김현수",
+      "slug": "김현수",
+      "nameKo": "김현수",
+      "nameEn": "KIM Hyun Soo",
+      "birthDate": "1988-01-12",
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2006,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "김현수의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:카스트로",
+      "slug": "카스트로",
+      "nameKo": "카스트로",
+      "nameEn": "CASTRO Harold",
+      "birthDate": "1993-11-30",
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "카스트로의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:박찬호",
+      "slug": "박찬호",
+      "nameKo": "박찬호",
+      "nameEn": "PARK Chan Ho",
+      "birthDate": "1995-06-05",
+      "batsThrows": null,
+      "primaryPositions": [
+        "IF"
+      ],
+      "debutYear": 2014,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "박찬호의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:페라자",
+      "slug": "페라자",
+      "nameKo": "페라자",
+      "nameEn": "PERLAZA Yonathan",
+      "birthDate": "1998-11-10",
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2024,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "페라자의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:official-kbo-en:52001",
+      "slug": "ahn-hyun-min",
+      "nameKo": "AHN Hyun Min",
+      "nameEn": "AHN Hyun Min",
+      "birthDate": "2003-08-22",
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2022,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "AHN Hyun Min의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:문현빈",
+      "slug": "문현빈",
+      "nameKo": "문현빈",
+      "nameEn": "MOON Hyun Bin",
+      "birthDate": "2004-04-20",
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2023,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "문현빈의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:최형우",
+      "slug": "최형우",
+      "nameKo": "최형우",
+      "nameEn": "CHOI Hyoung Woo",
+      "birthDate": "1983-12-16",
+      "batsThrows": null,
+      "primaryPositions": [
+        "OF"
+      ],
+      "debutYear": 2002,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "최형우의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:보쉴리",
+      "slug": "보쉴리",
+      "nameKo": "보쉴리",
+      "nameEn": "BOUSHLEY Caleb",
+      "birthDate": "1993-10-01",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "보쉴리의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:최민석",
+      "slug": "최민석",
+      "nameKo": "최민석",
+      "nameEn": "CHOI Min Seok",
+      "birthDate": "2006-07-02",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2025,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "최민석의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:올러",
+      "slug": "올러",
+      "nameKo": "올러",
+      "nameEn": "OLLER Adam",
+      "birthDate": "1994-10-17",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2025,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "올러의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:왕옌청",
+      "slug": "왕옌청",
+      "nameKo": "왕옌청",
+      "nameEn": "WANG Yan-Cheng",
+      "birthDate": "2001-02-14",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2026,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "왕옌청의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:오원석",
+      "slug": "오원석",
+      "nameKo": "오원석",
+      "nameEn": "OH Won Seok",
+      "birthDate": "2001-04-23",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2020,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "오원석의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:김진성",
+      "slug": "김진성",
+      "nameKo": "김진성",
+      "nameEn": "KIM Jin Sung",
+      "birthDate": "1985-03-07",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2005,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "김진성의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:김민",
+      "slug": "김민",
+      "nameKo": "김민",
+      "nameEn": "KIM Min",
+      "birthDate": "1999-04-14",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2018,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "김민의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:이승현",
+      "slug": "이승현",
+      "nameKo": "이승현",
+      "nameEn": "LEE Seung Hyun",
+      "birthDate": "1991-11-20",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2010,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "이승현의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:유영찬",
+      "slug": "유영찬",
+      "nameKo": "유영찬",
+      "nameEn": "YOU Young Chan",
+      "birthDate": "1997-03-07",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2023,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "유영찬의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:박영현",
+      "slug": "박영현",
+      "nameKo": "박영현",
+      "nameEn": "PARK Yeong Hyun",
+      "birthDate": "2003-10-11",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2022,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "박영현의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:samsung:김재윤",
+      "slug": "김재윤",
+      "nameKo": "김재윤",
+      "nameEn": "KIM Jae Yoon",
+      "birthDate": "1990-09-16",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2009,
+      "franchiseIds": [
+        "samsung"
+      ],
+      "bio": "김재윤의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:ssg:조병현",
+      "slug": "조병현",
+      "nameKo": "조병현",
+      "nameEn": "JO Byeong Hyeon",
+      "birthDate": "2002-05-08",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2021,
+      "franchiseIds": [
+        "ssg"
+      ],
+      "bio": "조병현의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lotte:최준용",
+      "slug": "최준용",
+      "nameKo": "최준용",
+      "nameEn": "CHOI Jun Yong",
+      "birthDate": "2001-10-10",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2020,
+      "franchiseIds": [
+        "lotte"
+      ],
+      "bio": "최준용의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:우강훈",
+      "slug": "우강훈",
+      "nameKo": "우강훈",
+      "nameEn": "WOO Kang Hoon",
+      "birthDate": "2002-10-03",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2023,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "우강훈의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:장현식",
+      "slug": "장현식",
+      "nameKo": "장현식",
+      "nameEn": "JANG Hyun Sik",
+      "birthDate": "1995-02-24",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2013,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "장현식의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:nc:배재환",
+      "slug": "배재환",
+      "nameKo": "배재환",
+      "nameEn": "BAE Jae Whan",
+      "birthDate": "1995-02-24",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2014,
+      "franchiseIds": [
+        "nc"
+      ],
+      "bio": "배재환의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kia:김범수",
+      "slug": "김범수",
+      "nameKo": "김범수",
+      "nameEn": "KIM Beom Su",
+      "birthDate": "1995-10-03",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2015,
+      "franchiseIds": [
+        "kia"
+      ],
+      "bio": "김범수의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:정우주",
+      "slug": "정우주",
+      "nameKo": "정우주",
+      "nameEn": "JEONG Woo Joo",
+      "birthDate": "2006-11-07",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2025,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "정우주의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:official-kbo-en:63145",
+      "slug": "bae-jae-june",
+      "nameKo": "BAE Jae June",
+      "nameEn": "BAE Jae June",
+      "birthDate": "1994-11-24",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2016,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "BAE Jae June의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:lg:송승기",
+      "slug": "송승기",
+      "nameKo": "송승기",
+      "nameEn": "SONG Seung Ki",
+      "birthDate": "2002-04-10",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2022,
+      "franchiseIds": [
+        "lg"
+      ],
+      "bio": "송승기의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:official-kbo-en:76715",
+      "slug": "ryu-hyun-jin",
+      "nameKo": "RYU Hyun Jin",
+      "nameEn": "RYU Hyun Jin",
+      "birthDate": "1987-03-25",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2006,
+      "franchiseIds": [
+        "hanwha"
+      ],
+      "bio": "RYU Hyun Jin의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:heroes:알칸타라",
+      "slug": "알칸타라",
+      "nameKo": "알칸타라",
+      "nameEn": "ALCANTARA Raul",
+      "birthDate": "1992-12-04",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2019,
+      "franchiseIds": [
+        "heroes"
+      ],
+      "bio": "알칸타라의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:곽빈",
+      "slug": "곽빈",
+      "nameKo": "곽빈",
+      "nameEn": "GWAK Been",
+      "birthDate": "1999-05-28",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2018,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "곽빈의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:doosan:잭로그",
+      "slug": "잭로그",
+      "nameKo": "잭로그",
+      "nameEn": "LOGUE Zach",
+      "birthDate": "1996-04-23",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2025,
+      "franchiseIds": [
+        "doosan"
+      ],
+      "bio": "잭로그의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    },
+    {
+      "playerId": "player:kbo-2026:kbo-2026:kt:소형준",
+      "slug": "소형준",
+      "nameKo": "소형준",
+      "nameEn": "SO Hyeong Jun",
+      "birthDate": "2001-09-16",
+      "batsThrows": null,
+      "primaryPositions": [
+        "P"
+      ],
+      "debutYear": 2020,
+      "franchiseIds": [
+        "kt"
+      ],
+      "bio": "소형준의 공식 선수 요약 페이지를 바탕으로 정리한 프로필입니다."
+    }
+  ],
+  "stats": [
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:ssg:박성한:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:박성한",
+      "seasonTeamId": "kbo-2026:ssg",
+      "statType": "hitter",
+      "games": 16,
+      "plateAppearances": 74,
+      "atBats": 58,
+      "hits": 28,
+      "homeRuns": 1,
+      "ops": 1.319,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:samsung:류지혁:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:류지혁",
+      "seasonTeamId": "kbo-2026:samsung",
+      "statType": "hitter",
+      "games": 16,
+      "plateAppearances": 71,
+      "atBats": 58,
+      "hits": 25,
+      "homeRuns": 2,
+      "ops": 1.225,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:doosan:박준순:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:박준순",
+      "seasonTeamId": "kbo-2026:doosan",
+      "statType": "hitter",
+      "games": 15,
+      "plateAppearances": 60,
+      "atBats": 58,
+      "hits": 22,
+      "homeRuns": 1,
+      "ops": 0.952,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:lg:오스틴:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:오스틴",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "hitter",
+      "games": 16,
+      "plateAppearances": 74,
+      "atBats": 62,
+      "hits": 23,
+      "homeRuns": 5,
+      "ops": 1.12,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:ssg:고명준:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:고명준",
+      "seasonTeamId": "kbo-2026:ssg",
+      "statType": "hitter",
+      "games": 16,
+      "plateAppearances": 67,
+      "atBats": 62,
+      "hits": 23,
+      "homeRuns": 4,
+      "ops": 1.063,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:kt:장성우:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:장성우",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "hitter",
+      "games": 17,
+      "plateAppearances": 71,
+      "atBats": 59,
+      "hits": 18,
+      "homeRuns": 6,
+      "ops": 1.103,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:lotte:레이예스:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lotte:레이예스",
+      "seasonTeamId": "kbo-2026:lotte",
+      "statType": "hitter",
+      "games": 16,
+      "plateAppearances": 73,
+      "atBats": 62,
+      "hits": 22,
+      "homeRuns": 5,
+      "ops": 1.083,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:kia:김도영:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kia:김도영",
+      "seasonTeamId": "kbo-2026:kia",
+      "statType": "hitter",
+      "games": 17,
+      "plateAppearances": 75,
+      "atBats": 62,
+      "hits": 16,
+      "homeRuns": 5,
+      "ops": 0.938,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:hanwha:강백호:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:강백호",
+      "seasonTeamId": "kbo-2026:hanwha",
+      "statType": "hitter",
+      "games": 16,
+      "plateAppearances": 75,
+      "atBats": 67,
+      "hits": 19,
+      "homeRuns": 4,
+      "ops": 0.854,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:kt:김현수:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:김현수",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "hitter",
+      "games": 17,
+      "plateAppearances": 81,
+      "atBats": 74,
+      "hits": 22,
+      "homeRuns": 2,
+      "ops": 0.817,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:kia:카스트로:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kia:카스트로",
+      "seasonTeamId": "kbo-2026:kia",
+      "statType": "hitter",
+      "games": 16,
+      "plateAppearances": 71,
+      "atBats": 67,
+      "hits": 19,
+      "homeRuns": 2,
+      "ops": 0.803,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:doosan:박찬호:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:박찬호",
+      "seasonTeamId": "kbo-2026:doosan",
+      "statType": "hitter",
+      "games": 17,
+      "plateAppearances": 75,
+      "atBats": 63,
+      "hits": 18,
+      "homeRuns": 1,
+      "ops": 0.805,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:hanwha:페라자:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:페라자",
+      "seasonTeamId": "kbo-2026:hanwha",
+      "statType": "hitter",
+      "games": 16,
+      "plateAppearances": 77,
+      "atBats": 65,
+      "hits": 23,
+      "homeRuns": 1,
+      "ops": 0.937,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:official-kbo-en:52001:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:official-kbo-en:52001",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "hitter",
+      "games": 14,
+      "plateAppearances": 67,
+      "atBats": 52,
+      "hits": 19,
+      "homeRuns": 3,
+      "ops": 1.161,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:hanwha:문현빈:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:문현빈",
+      "seasonTeamId": "kbo-2026:hanwha",
+      "statType": "hitter",
+      "games": 15,
+      "plateAppearances": 73,
+      "atBats": 58,
+      "hits": 21,
+      "homeRuns": 3,
+      "ops": 1.148,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:samsung:최형우:hitter",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:최형우",
+      "seasonTeamId": "kbo-2026:samsung",
+      "statType": "hitter",
+      "games": 16,
+      "plateAppearances": 76,
+      "atBats": 56,
+      "hits": 17,
+      "homeRuns": 4,
+      "ops": 1.028,
+      "era": null,
+      "inningsPitched": null,
+      "strikeouts": null,
+      "saves": null,
+      "wins": null,
+      "losses": null,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:kt:보쉴리:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:보쉴리",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "pitcher",
+      "games": 3,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 0,
+      "inningsPitched": 17,
+      "strikeouts": 17,
+      "saves": 0,
+      "wins": 3,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:doosan:최민석:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:최민석",
+      "seasonTeamId": "kbo-2026:doosan",
+      "statType": "pitcher",
+      "games": 3,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 0.51,
+      "inningsPitched": 17.666666666666668,
+      "strikeouts": 14,
+      "saves": 0,
+      "wins": 2,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:kia:올러:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kia:올러",
+      "seasonTeamId": "kbo-2026:kia",
+      "statType": "pitcher",
+      "games": 3,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 1,
+      "inningsPitched": 18,
+      "strikeouts": 15,
+      "saves": 0,
+      "wins": 3,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:hanwha:왕옌청:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:왕옌청",
+      "seasonTeamId": "kbo-2026:hanwha",
+      "statType": "pitcher",
+      "games": 4,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 1.59,
+      "inningsPitched": 22.666666666666668,
+      "strikeouts": 20,
+      "saves": 0,
+      "wins": 2,
+      "losses": 1,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:kt:오원석:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:오원석",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "pitcher",
+      "games": 3,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 1.59,
+      "inningsPitched": 17,
+      "strikeouts": 18,
+      "saves": 0,
+      "wins": 2,
+      "losses": 1,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:lg:김진성:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:김진성",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "pitcher",
+      "games": 8,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 4.7,
+      "inningsPitched": 7.666666666666667,
+      "strikeouts": 6,
+      "saves": 0,
+      "wins": 3,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:ssg:김민:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:김민",
+      "seasonTeamId": "kbo-2026:ssg",
+      "statType": "pitcher",
+      "games": 8,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 0.96,
+      "inningsPitched": 9.333333333333334,
+      "strikeouts": 11,
+      "saves": 0,
+      "wins": 3,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:samsung:이승현:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:이승현",
+      "seasonTeamId": "kbo-2026:samsung",
+      "statType": "pitcher",
+      "games": 8,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 1.29,
+      "inningsPitched": 7,
+      "strikeouts": 6,
+      "saves": 0,
+      "wins": 3,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:lg:유영찬:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:유영찬",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "pitcher",
+      "games": 10,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 0.93,
+      "inningsPitched": 9.666666666666666,
+      "strikeouts": 8,
+      "saves": 9,
+      "wins": 0,
+      "losses": 1,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:kt:박영현:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:박영현",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "pitcher",
+      "games": 8,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 1.93,
+      "inningsPitched": 9.333333333333334,
+      "strikeouts": 9,
+      "saves": 6,
+      "wins": 1,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:samsung:김재윤:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:samsung:김재윤",
+      "seasonTeamId": "kbo-2026:samsung",
+      "statType": "pitcher",
+      "games": 6,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 1.5,
+      "inningsPitched": 6,
+      "strikeouts": 5,
+      "saves": 4,
+      "wins": 0,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:ssg:조병현:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:ssg:조병현",
+      "seasonTeamId": "kbo-2026:ssg",
+      "statType": "pitcher",
+      "games": 6,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 0,
+      "inningsPitched": 6.333333333333333,
+      "strikeouts": 6,
+      "saves": 3,
+      "wins": 0,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:lotte:최준용:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lotte:최준용",
+      "seasonTeamId": "kbo-2026:lotte",
+      "statType": "pitcher",
+      "games": 8,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 1.13,
+      "inningsPitched": 8,
+      "strikeouts": 9,
+      "saves": 3,
+      "wins": 0,
+      "losses": 1,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:lg:우강훈:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:우강훈",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "pitcher",
+      "games": 8,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 2.25,
+      "inningsPitched": 8,
+      "strikeouts": 13,
+      "saves": 0,
+      "wins": 0,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:lg:장현식:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:장현식",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "pitcher",
+      "games": 8,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 3.38,
+      "inningsPitched": 8,
+      "strikeouts": 6,
+      "saves": 0,
+      "wins": 2,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:nc:배재환:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:nc:배재환",
+      "seasonTeamId": "kbo-2026:nc",
+      "statType": "pitcher",
+      "games": 10,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 1.23,
+      "inningsPitched": 7.333333333333333,
+      "strikeouts": 6,
+      "saves": 0,
+      "wins": 0,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:kia:김범수:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kia:김범수",
+      "seasonTeamId": "kbo-2026:kia",
+      "statType": "pitcher",
+      "games": 10,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 2.84,
+      "inningsPitched": 6.333333333333333,
+      "strikeouts": 8,
+      "saves": 1,
+      "wins": 0,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:hanwha:정우주:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:hanwha:정우주",
+      "seasonTeamId": "kbo-2026:hanwha",
+      "statType": "pitcher",
+      "games": 11,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 9.82,
+      "inningsPitched": 7.333333333333333,
+      "strikeouts": 12,
+      "saves": 0,
+      "wins": 0,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:official-kbo-en:63145:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:official-kbo-en:63145",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "pitcher",
+      "games": 6,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 2.84,
+      "inningsPitched": 6.333333333333333,
+      "strikeouts": 7,
+      "saves": 0,
+      "wins": 1,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:lg:송승기:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:lg:송승기",
+      "seasonTeamId": "kbo-2026:lg",
+      "statType": "pitcher",
+      "games": 3,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 0.59,
+      "inningsPitched": 15.333333333333334,
+      "strikeouts": 13,
+      "saves": 0,
+      "wins": 1,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:official-kbo-en:76715:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:official-kbo-en:76715",
+      "seasonTeamId": "kbo-2026:hanwha",
+      "statType": "pitcher",
+      "games": 2,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 2.45,
+      "inningsPitched": 11,
+      "strikeouts": 14,
+      "saves": 0,
+      "wins": 1,
+      "losses": 0,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:heroes:알칸타라:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:heroes:알칸타라",
+      "seasonTeamId": "kbo-2026:heroes",
+      "statType": "pitcher",
+      "games": 4,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 3.8,
+      "inningsPitched": 23.666666666666668,
+      "strikeouts": 29,
+      "saves": 0,
+      "wins": 1,
+      "losses": 2,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:doosan:곽빈:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:곽빈",
+      "seasonTeamId": "kbo-2026:doosan",
+      "statType": "pitcher",
+      "games": 4,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 3.74,
+      "inningsPitched": 21.666666666666668,
+      "strikeouts": 28,
+      "saves": 0,
+      "wins": 0,
+      "losses": 2,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:doosan:잭로그:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:doosan:잭로그",
+      "seasonTeamId": "kbo-2026:doosan",
+      "statType": "pitcher",
+      "games": 4,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 3.46,
+      "inningsPitched": 26,
+      "strikeouts": 24,
+      "saves": 0,
+      "wins": 1,
+      "losses": 2,
+      "war": null
+    },
+    {
+      "statId": "stat:kbo-2026:player:kbo-2026:kbo-2026:kt:소형준:pitcher",
+      "seasonId": "kbo-2026",
+      "playerId": "player:kbo-2026:kbo-2026:kt:소형준",
+      "seasonTeamId": "kbo-2026:kt",
+      "statType": "pitcher",
+      "games": 4,
+      "plateAppearances": null,
+      "atBats": null,
+      "hits": null,
+      "homeRuns": null,
+      "ops": null,
+      "era": 4.5,
+      "inningsPitched": 22,
+      "strikeouts": 22,
+      "saves": 0,
+      "wins": 2,
+      "losses": 0,
+      "war": null
+    }
+  ]
+}

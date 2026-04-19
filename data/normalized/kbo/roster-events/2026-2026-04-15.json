@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-04-15T05:35:26.050Z",
+  "seasonId": "kbo-2026",
+  "sources": [
+    {
+      "sourceId": "official-kbo-ko",
+      "datasetId": "roster-movement",
+      "snapshotKey": "2026-04-15",
+      "parserVersion": "2026-04-15-ko-trade-v1"
+    }
+  ],
+  "events": [
+    {
+      "rosterEventId": "roster:20260414-lg-1",
+      "seasonId": "kbo-2026",
+      "playerId": "lg-h-1",
+      "seasonTeamId": "kbo-2026:lg",
+      "type": "activated",
+      "date": "2026-04-14",
+      "note": "1군 등록"
+    },
+    {
+      "rosterEventId": "roster:20260414-doosan-1",
+      "seasonId": "kbo-2026",
+      "playerId": "doo-h-1",
+      "seasonTeamId": "kbo-2026:doosan",
+      "type": "injured",
+      "date": "2026-04-14",
+      "note": "좌측 햄스트링 불편"
+    },
+    {
+      "rosterEventId": "roster:20260413-lg-2",
+      "seasonId": "kbo-2026",
+      "playerId": "lg-p-1",
+      "seasonTeamId": "kbo-2026:lg",
+      "type": "transferred",
+      "date": "2026-04-13",
+      "note": "현금 트레이드 발표"
+    }
+  ]
+}
