@@ -7,6 +7,9 @@
 - `/season/[year]/teams/[teamSlug]` 시즌 팀 상세
 - `/season/[year]/postseason` 포스트시즌 odds
 - `/season/[year]/records` 기록실
+- `/season/[year]/records/teams` 팀기록
+- `/season/[year]/records/pitchers` 투수기록
+- `/season/[year]/records/hitters` 타자기록
 - `/archive` 아카이브 허브
 - `/archive/[year]` 시즌 아카이브
 - `/teams/[teamSlug]` 구단 아카이브

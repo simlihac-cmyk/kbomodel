@@ -5,7 +5,6 @@ import "@/app/globals.css";
 import { getCurrentAdminSession } from "@/lib/auth/server";
 import { PageShell } from "@/components/shared/page-shell";
 import { kboRepository } from "@/lib/repositories/kbo";
-import { getAutomationStatusView } from "@/lib/repositories/kbo/view-models";
 
 export const metadata: Metadata = {
   title: "KBO Race Lab",
@@ -21,12 +20,11 @@ export default async function RootLayout({
     kboRepository.getCurrentSeason(),
     getCurrentAdminSession(),
   ]);
-  const automationStatus = await getAutomationStatusView();
 
   return (
     <html lang="ko">
       <body>
-        <PageShell currentYear={currentSeason.year} isAdmin={Boolean(session)} automationStatus={automationStatus}>
+        <PageShell currentYear={currentSeason.year} isAdmin={Boolean(session)}>
           {children}
         </PageShell>
       </body>

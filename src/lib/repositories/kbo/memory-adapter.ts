@@ -326,6 +326,7 @@ export class MemoryKboRepository implements KboRepository {
     return {
       player,
       seasonStats: bundle.playerSeasonStats.filter((item) => item.playerId === playerId),
+      careerStats: [],
       gameStats: bundle.playerGameStats.filter((item) => item.playerId === playerId),
       splitStats: bundle.playerSplitStats.filter((item) => item.playerId === playerId),
     };

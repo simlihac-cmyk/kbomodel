@@ -1,6 +1,15 @@
 import { beforeAll, describe, expect, it, vi } from "vitest";
 
-import type { PlayerSeasonStat } from "@/lib/domain/kbo/types";
+import type {
+  Award,
+  Franchise,
+  Player,
+  PlayerCareerStat,
+  PlayerSeasonStat,
+  Season,
+  SeasonTeam,
+  TeamBrand,
+} from "@/lib/domain/kbo/types";
 
 vi.mock("react", async () => {
   const actual = await vi.importActual<typeof import("react")>("react");
@@ -12,11 +21,13 @@ vi.mock("react", async () => {
 
 let buildPlayerSeasonRankingContext: typeof import("@/lib/repositories/kbo/view-models").buildPlayerSeasonRankingContext;
 let buildSituationSplitGroups: typeof import("@/lib/repositories/kbo/view-models").buildSituationSplitGroups;
+let buildPlayerAwardHistory: typeof import("@/lib/repositories/kbo/view-models").buildPlayerAwardHistory;
 
 beforeAll(async () => {
   const viewModelModule = await import("@/lib/repositories/kbo/view-models");
   buildPlayerSeasonRankingContext = viewModelModule.buildPlayerSeasonRankingContext;
   buildSituationSplitGroups = viewModelModule.buildSituationSplitGroups;
+  buildPlayerAwardHistory = viewModelModule.buildPlayerAwardHistory;
 });
 
 describe("player view-model helpers", () => {
@@ -195,5 +206,245 @@ describe("player view-model helpers", () => {
     ]);
     expect(groups[0]?.splits.map((item) => item.splitLabel)).toEqual(["좌투 상대", "우투 상대"]);
     expect(groups[5]?.splits[0]?.splitLabel).toBe("타순 3번");
+  });
+
+  it("builds player award history from direct ids and fallback name/team matching", () => {
+    const player: Player = {
+      playerId: "player:kbo-2026:kbo-2026:lg:박동원",
+      slug: "park-dong-won",
+      nameKo: "박동원",
+      nameEn: "PARK Dong Won",
+      officialPlayerCode: "79365",
+      birthDate: "1990-04-07",
+      batsThrows: "R/R",
+      heightWeight: "178cm/92kg",
+      careerHistory: "수창초-강릉중-강릉고-LG",
+      draftInfo: "09 LG 2차 3라운드 19순위",
+      joinInfo: "09LG",
+      primaryPositions: ["C"],
+      debutYear: 2009,
+      franchiseIds: ["lg"],
+      bio: "테스트 선수",
+    };
+    const seasons: Season[] = [
+      {
+        seasonId: "kbo-2026",
+        year: 2026,
+        label: "2026 KBO",
+        status: "ongoing",
+        phase: "regular",
+        rulesetId: "rules-2026",
+        openingDay: "2026-03-21T05:00:00.000Z",
+        regularSeasonStart: "2026-03-21T05:00:00.000Z",
+        regularSeasonEnd: "2026-09-30T05:00:00.000Z",
+        postseasonStart: "2026-10-02T05:00:00.000Z",
+        postseasonEnd: "2026-11-15T05:00:00.000Z",
+        updatedAt: "2026-04-18T00:00:00.000Z",
+      },
+      {
+        seasonId: "kbo-2025",
+        year: 2025,
+        label: "2025 KBO",
+        status: "completed",
+        phase: "completed",
+        rulesetId: "rules-2025",
+        openingDay: "2025-03-22T05:00:00.000Z",
+        regularSeasonStart: "2025-03-22T05:00:00.000Z",
+        regularSeasonEnd: "2025-09-29T05:00:00.000Z",
+        postseasonStart: "2025-10-01T05:00:00.000Z",
+        postseasonEnd: "2025-11-13T05:00:00.000Z",
+        updatedAt: "2026-04-18T00:00:00.000Z",
+      },
+    ];
+    const franchises: Franchise[] = [
+      {
+        franchiseId: "lg",
+        slug: "lg",
+        canonicalNameKo: "LG 트윈스",
+        shortNameKo: "LG",
+        regionKo: "서울",
+        foundedYear: 1982,
+        primaryVenueId: "jamsil",
+        championships: 3,
+        brandHistorySummary: "테스트",
+      },
+      {
+        franchiseId: "kt",
+        slug: "kt",
+        canonicalNameKo: "KT 위즈",
+        shortNameKo: "KT",
+        regionKo: "수원",
+        foundedYear: 2015,
+        primaryVenueId: "suwon",
+        championships: 1,
+        brandHistorySummary: "테스트",
+      },
+    ];
+    const teamBrands: TeamBrand[] = [
+      {
+        brandId: "lg-brand",
+        franchiseId: "lg",
+        displayNameKo: "LG 트윈스",
+        shortNameKo: "LG",
+        shortCode: "LG",
+        seasonStartYear: 1990,
+        seasonEndYear: null,
+        primaryColor: "#000",
+        secondaryColor: "#fff",
+        wordmarkText: "LG",
+        logoPath: "/lg.svg",
+      },
+      {
+        brandId: "kt-brand",
+        franchiseId: "kt",
+        displayNameKo: "KT 위즈",
+        shortNameKo: "KT",
+        shortCode: "KT",
+        seasonStartYear: 2015,
+        seasonEndYear: null,
+        primaryColor: "#000",
+        secondaryColor: "#fff",
+        wordmarkText: "KT",
+        logoPath: "/kt.svg",
+      },
+    ];
+    const seasonTeams: SeasonTeam[] = [
+      {
+        seasonTeamId: "kbo-2025:lg",
+        seasonId: "kbo-2025",
+        franchiseId: "lg",
+        brandId: "lg-brand",
+        venueId: "jamsil",
+        managerNameKo: "감독A",
+        preseasonPriors: { offenseRating: 0, starterRating: 0, bullpenRating: 0 },
+        manualAdjustments: [],
+        preseasonOutlook: "테스트",
+      },
+      {
+        seasonTeamId: "kbo-2025:kt",
+        seasonId: "kbo-2025",
+        franchiseId: "kt",
+        brandId: "kt-brand",
+        venueId: "suwon",
+        managerNameKo: "감독B",
+        preseasonPriors: { offenseRating: 0, starterRating: 0, bullpenRating: 0 },
+        manualAdjustments: [],
+        preseasonOutlook: "테스트",
+      },
+      {
+        seasonTeamId: "kbo-2026:lg",
+        seasonId: "kbo-2026",
+        franchiseId: "lg",
+        brandId: "lg-brand",
+        venueId: "jamsil",
+        managerNameKo: "감독C",
+        preseasonPriors: { offenseRating: 0, starterRating: 0, bullpenRating: 0 },
+        manualAdjustments: [],
+        preseasonOutlook: "테스트",
+      },
+    ];
+    const seasonStats: PlayerSeasonStat[] = [
+      {
+        statId: "ps-2026",
+        seasonId: "kbo-2026",
+        playerId: player.playerId,
+        seasonTeamId: "kbo-2026:lg",
+        statType: "hitter",
+        games: 12,
+        plateAppearances: 48,
+        atBats: 41,
+        hits: 13,
+        homeRuns: 2,
+        ops: 0.911,
+        era: null,
+        inningsPitched: null,
+        strikeouts: null,
+        saves: null,
+        wins: null,
+        losses: null,
+        war: null,
+      },
+    ];
+    const careerStats: PlayerCareerStat[] = [
+      {
+        playerCareerStatId: "career-2025-lg",
+        playerId: player.playerId,
+        year: 2025,
+        teamLabel: "LG",
+        statType: "hitter",
+        games: 130,
+        plateAppearances: null,
+        battingAverage: 0.301,
+        atBats: 430,
+        runs: 58,
+        hits: 129,
+        homeRuns: 20,
+        rbi: 72,
+        stolenBases: 0,
+        walks: 44,
+        onBasePct: null,
+        sluggingPct: null,
+        ops: null,
+        era: null,
+        inningsPitched: null,
+        strikeouts: 78,
+        saves: null,
+        wins: null,
+        losses: null,
+        holds: null,
+        whip: null,
+        hitsAllowed: null,
+        homeRunsAllowed: null,
+        runsAllowed: null,
+        earnedRuns: null,
+        opponentAvg: null,
+      },
+    ];
+    const awards: Award[] = [
+      {
+        awardId: "award-1",
+        seasonId: "kbo-2025",
+        label: "KBO 올스타전 MVP",
+        playerId: null,
+        seasonTeamId: "kbo-2025:lg",
+        note: "박동원 · LG · 포수",
+      },
+      {
+        awardId: "award-2",
+        seasonId: "kbo-2026",
+        label: "주간 MVP",
+        playerId: player.playerId,
+        seasonTeamId: "kbo-2026:lg",
+        note: "박동원 · LG · 포수",
+      },
+      {
+        awardId: "award-3",
+        seasonId: "kbo-2025",
+        label: "동명이인 체크",
+        playerId: null,
+        seasonTeamId: "kbo-2025:kt",
+        note: "박동원 · KT · 포수",
+      },
+    ];
+
+    const history = buildPlayerAwardHistory({
+      player,
+      awards,
+      seasons,
+      seasonTeams,
+      teamBrands,
+      franchises,
+      seasonStats,
+      careerStats,
+    });
+
+    expect(history).toHaveLength(2);
+    expect(history.map((award) => award.awardId)).toEqual(["award-2", "award-1"]);
+    expect(history.find((award) => award.awardId === "award-1")).toMatchObject({
+      label: "KBO 올스타전 MVP",
+      teamLabel: "LG 트윈스",
+      directMatch: false,
+    });
+    expect(history.find((award) => award.awardId === "award-2")?.directMatch).toBe(true);
   });
 });

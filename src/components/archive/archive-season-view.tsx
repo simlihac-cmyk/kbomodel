@@ -167,7 +167,7 @@ export function ArchiveSeasonView({ year, data }: ArchiveSeasonViewProps) {
                 className="flex flex-col gap-2 rounded-2xl border border-line/80 px-4 py-3 text-sm hover:border-accent sm:flex-row sm:items-center sm:justify-between"
               >
                 <span className="font-medium text-ink">
-                  {data.displayById[game.awaySeasonTeamId].shortNameKo} @ {data.displayById[game.homeSeasonTeamId].shortNameKo}
+                  {data.displayById[game.awaySeasonTeamId].shortNameKo} vs {data.displayById[game.homeSeasonTeamId].shortNameKo}
                 </span>
                 <span className="text-muted sm:text-right">{game.status === "final" ? `${game.awayScore}:${game.homeScore}` : "예정"}</span>
               </Link>
@@ -189,7 +189,7 @@ export function ArchiveSeasonView({ year, data }: ArchiveSeasonViewProps) {
               >
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                   <p className="font-medium text-ink">
-                    {data.displayById[game.awaySeasonTeamId].shortNameKo} @ {data.displayById[game.homeSeasonTeamId].shortNameKo}
+                    {data.displayById[game.awaySeasonTeamId].shortNameKo} vs {data.displayById[game.homeSeasonTeamId].shortNameKo}
                   </p>
                   <span className="text-sm text-muted sm:text-right">
                     {game.awayScore}:{game.homeScore}

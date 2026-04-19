@@ -10,6 +10,7 @@ import type {
   PostseasonOdds,
   ScenarioOverride,
   SeasonTeam,
+  ShortTermRankVolatility,
   SimulationInput,
   SimulationSnapshot,
   StandingRow,
@@ -321,6 +322,72 @@ export type QualificationByWinsRow = {
   champion: number;
 };
 
+type ShortTermMovementAccumulator = {
+  totalRank: number;
+  totalAbsMove: number;
+  moveCount: number;
+  bigMoveCount: number;
+  riseCount: number;
+  fallCount: number;
+};
+
+function buildRankMap(rows: StandingRow[]): Record<string, number> {
+  return Object.fromEntries(
+    rows.map((row, index) => [row.seasonTeamId, index + 1]),
+  );
+}
+
+function buildRankedRowsSnapshot(args: {
+  seasonId: string;
+  seasonTeams: SeasonTeam[];
+  recordMap: Record<string, MutableRecord>;
+  displayById: Record<string, TeamDisplay>;
+  ruleset: KboSeasonRuleset;
+  simulatedGames: Game[];
+}) {
+  const rows = args.seasonTeams.map((seasonTeam) =>
+    buildSimulationRow(
+      seasonTeam.seasonTeamId,
+      args.recordMap[seasonTeam.seasonTeamId],
+      args.displayById[seasonTeam.seasonTeamId],
+    ),
+  );
+  const rankingStats = args.seasonTeams.map((seasonTeam) =>
+    buildTeamStatForRanking(
+      args.seasonId,
+      seasonTeam.seasonTeamId,
+      args.recordMap[seasonTeam.seasonTeamId],
+    ),
+  );
+
+  return sortStandingRowsWithTiebreakers(
+    rows,
+    args.simulatedGames,
+    args.ruleset,
+    rankingStats,
+  ).rows;
+}
+
+function summarizeShortTermRankVolatility(args: {
+  seasonTeamIds: string[];
+  accumulatorById: Record<string, ShortTermMovementAccumulator>;
+  iterations: number;
+}): ShortTermRankVolatility[] {
+  return args.seasonTeamIds.map((seasonTeamId) => {
+    const accumulator = args.accumulatorById[seasonTeamId];
+
+    return {
+      seasonTeamId,
+      averageRank: Number((accumulator.totalRank / args.iterations).toFixed(2)),
+      avgAbsMove: Number((accumulator.totalAbsMove / args.iterations).toFixed(3)),
+      moveProb: Number((accumulator.moveCount / args.iterations).toFixed(4)),
+      bigMoveProb: Number((accumulator.bigMoveCount / args.iterations).toFixed(4)),
+      riseProb: Number((accumulator.riseCount / args.iterations).toFixed(4)),
+      fallProb: Number((accumulator.fallCount / args.iterations).toFixed(4)),
+    };
+  });
+}
+
 function buildSimulationEnvironment(input: SimulationInput) {
   const playerImpactContext = buildPlayerImpactContext({
     seasonTeams: input.seasonTeams,
@@ -392,10 +459,27 @@ export function simulateSeason(input: SimulationInput, iterations = 1200): Simul
   const displayById = Object.fromEntries(teamDisplays.map((item) => [item.seasonTeamId, item]));
 
   const baseRecordMap = createInitialRecordMap(input.games, input.teamSeasonStats, input.seasonTeams);
+  const completedGames = input.games
+    .filter((game) => game.status === "final")
+    .map((game) => ({ ...game }));
   const remainingGames = input.games
     .filter((game) => game.status !== "final")
     .sort((left, right) => left.scheduledAt.localeCompare(right.scheduledAt));
+  const shortTermWindowEnd = new Date(input.season.updatedAt).getTime() + 14 * 86_400_000;
+  const shortTermGameCount = remainingGames.filter(
+    (game) => new Date(game.scheduledAt).getTime() <= shortTermWindowEnd,
+  ).length;
   const seriesById = Object.fromEntries(input.series.map((item) => [item.seriesId, item]));
+  const currentRankById = buildRankMap(
+    buildRankedRowsSnapshot({
+      seasonId: input.season.seasonId,
+      seasonTeams: input.seasonTeams,
+      recordMap: baseRecordMap,
+      displayById,
+      ruleset: input.ruleset,
+      simulatedGames: completedGames,
+    }),
+  );
 
   const rankCounts = Object.fromEntries(
     input.seasonTeams.map((seasonTeam) => [seasonTeam.seasonTeamId, Array.from({ length: input.seasonTeams.length }, () => 0)]),
@@ -416,6 +500,19 @@ export function simulateSeason(input: SimulationInput, iterations = 1200): Simul
     ]),
   ) as Record<string, Omit<ExpectedRecord, "seasonTeamId">>;
   const tieAccumulator: Record<string, number> = {};
+  const shortTermAccumulator = Object.fromEntries(
+    input.seasonTeams.map((seasonTeam) => [
+      seasonTeam.seasonTeamId,
+      {
+        totalRank: 0,
+        totalAbsMove: 0,
+        moveCount: 0,
+        bigMoveCount: 0,
+        riseCount: 0,
+        fallCount: 0,
+      },
+    ]),
+  ) as Record<string, ShortTermMovementAccumulator>;
 
   for (let iteration = 0; iteration < iterations; iteration += 1) {
     const random = mulberry32(hashSeed(`${input.season.seasonId}:${iteration}`));
@@ -425,11 +522,50 @@ export function simulateSeason(input: SimulationInput, iterations = 1200): Simul
         { ...record },
       ]),
     ) as Record<string, MutableRecord>;
-    const simulatedGames: Game[] = input.games
-      .filter((game) => game.status === "final")
-      .map((game) => ({ ...game }));
+    const simulatedGames: Game[] = completedGames.map((game) => ({ ...game }));
+    let shortTermCaptured = false;
 
-    for (const game of remainingGames) {
+    const captureShortTermRanks = () => {
+      const rankedRows = buildRankedRowsSnapshot({
+        seasonId: input.season.seasonId,
+        seasonTeams: input.seasonTeams,
+        recordMap,
+        displayById,
+        ruleset: input.ruleset,
+        simulatedGames,
+      });
+
+      rankedRows.forEach((row, index) => {
+        const currentRank = currentRankById[row.seasonTeamId] ?? index + 1;
+        const nextRank = index + 1;
+        const movement = nextRank - currentRank;
+        const absoluteMovement = Math.abs(movement);
+        const accumulator = shortTermAccumulator[row.seasonTeamId];
+
+        accumulator.totalRank += nextRank;
+        accumulator.totalAbsMove += absoluteMovement;
+        if (absoluteMovement >= 1) {
+          accumulator.moveCount += 1;
+        }
+        if (absoluteMovement >= 2) {
+          accumulator.bigMoveCount += 1;
+        }
+        if (movement < 0) {
+          accumulator.riseCount += 1;
+        }
+        if (movement > 0) {
+          accumulator.fallCount += 1;
+        }
+      });
+
+      shortTermCaptured = true;
+    };
+
+    if (shortTermGameCount === 0) {
+      captureShortTermRanks();
+    }
+
+    for (const [gameIndex, game] of remainingGames.entries()) {
       const probability = probabilitiesById[game.gameId];
       const forced = resolveForcedOutcomeForGame(
         game,
@@ -491,6 +627,9 @@ export function simulateSeason(input: SimulationInput, iterations = 1200): Simul
           innings: 9,
           isTie: sampled.isTie,
         });
+        if (!shortTermCaptured && gameIndex + 1 === shortTermGameCount) {
+          captureShortTermRanks();
+        }
         continue;
       }
 
@@ -502,28 +641,31 @@ export function simulateSeason(input: SimulationInput, iterations = 1200): Simul
         input.ruleset.tiesAllowed,
         random,
       );
+      if (!shortTermCaptured && gameIndex + 1 === shortTermGameCount) {
+        captureShortTermRanks();
+      }
     }
 
-    const rows = input.seasonTeams.map((seasonTeam) =>
-      buildSimulationRow(
-        seasonTeam.seasonTeamId,
-        recordMap[seasonTeam.seasonTeamId],
-        displayById[seasonTeam.seasonTeamId],
-      ),
-    );
-    const rankingStats = input.seasonTeams.map((seasonTeam) =>
-      buildTeamStatForRanking(
-        input.season.seasonId,
-        seasonTeam.seasonTeamId,
-        recordMap[seasonTeam.seasonTeamId],
-      ),
-    );
-    const { rows: rankedRows, tieAlerts } = sortStandingRowsWithTiebreakers(
-      rows,
+    const rankedRows = buildRankedRowsSnapshot({
+      seasonId: input.season.seasonId,
+      seasonTeams: input.seasonTeams,
+      recordMap,
+      displayById,
+      ruleset: input.ruleset,
+      simulatedGames,
+    });
+    const tieAlerts = sortStandingRowsWithTiebreakers(
+      rankedRows,
       simulatedGames,
       input.ruleset,
-      rankingStats,
-    );
+      input.seasonTeams.map((seasonTeam) =>
+        buildTeamStatForRanking(
+          input.season.seasonId,
+          seasonTeam.seasonTeamId,
+          recordMap[seasonTeam.seasonTeamId],
+        ),
+      ),
+    ).tieAlerts;
 
     tieAlerts.forEach((alert) => {
       const key = JSON.stringify({
@@ -576,6 +718,12 @@ export function simulateSeason(input: SimulationInput, iterations = 1200): Simul
     });
   }
 
+  const shortTermRankVolatility = summarizeShortTermRankVolatility({
+    seasonTeamIds: input.seasonTeams.map((seasonTeam) => seasonTeam.seasonTeamId),
+    accumulatorById: shortTermAccumulator,
+    iterations,
+  });
+
   return {
     seasonId: input.season.seasonId,
     generatedAt: new Date().toISOString(),
@@ -624,6 +772,7 @@ export function simulateSeason(input: SimulationInput, iterations = 1200): Simul
       })
       .sort((left, right) => right.probability - left.probability)
       .slice(0, 5),
+    shortTermRankVolatility,
     gameProbabilities,
     teamStrengths,
   };

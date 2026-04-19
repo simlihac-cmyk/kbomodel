@@ -18,8 +18,8 @@ import { checksumHtml } from "@/lib/data-sources/kbo/fetch/fetch-cache";
 import { fetchOfficialEnPlayerSearchFiltered } from "@/lib/data-sources/kbo/fetch/fetch-english-player-search";
 import { fetchHtml } from "@/lib/data-sources/kbo/fetch/fetch-html";
 import { normalizePlayerSplitStats } from "@/lib/data-sources/kbo/normalize/player-split-stats";
-import type { PlayerSeasonStat } from "@/lib/domain/kbo/types";
 import type {
+  NormalizedPlayerSplitStats,
   NormalizedSourceReference,
   ParsedPlayerSearchRow,
   ParsedPlayerSituationHitterRow,
@@ -41,10 +41,66 @@ const POSITION_CODES = [
   { key: "infielder", value: "3,4,5,6" },
   { key: "outfielder", value: "7,8,9" },
 ] as const;
-const FULL_MODE_HITTER_SPLIT_LIMIT = 60;
-const FULL_MODE_PITCHER_SPLIT_LIMIT = 40;
 const REGISTER_ALL_URL = "https://www.koreabaseball.com/Player/RegisterAll.aspx";
 const PLAYER_SPLITS_PARSER_VERSION = "2026-04-15-en-player-splits-month-v1";
+
+function parsePositiveInt(value: string | undefined) {
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed) || parsed <= 0) {
+    return null;
+  }
+  return Math.floor(parsed);
+}
+
+async function loadLatestSeasonPlayerSplitStats(
+  normalizedRepository: FileNormalizedKboRepository,
+  seasonYear: number,
+) {
+  const keys = await normalizedRepository.listDatasetKeys("player-split-stats");
+  const latestKey = keys
+    .filter((item) => item.startsWith(`${seasonYear}-`))
+    .sort()
+    .at(-1);
+  if (!latestKey) {
+    return null;
+  }
+  return normalizedRepository.getDatasetOutput("player-split-stats", latestKey);
+}
+
+function mergeNormalizedSplitStats(
+  existing: NormalizedPlayerSplitStats | null,
+  incoming: NormalizedPlayerSplitStats,
+  scope: "full" | "month-only",
+) {
+  if (!existing) {
+    return incoming;
+  }
+
+  const targetedPlayerIds = new Set(incoming.rows.map((row) => row.playerId));
+  const preservedRows = existing.rows.filter((row) => {
+    if (!targetedPlayerIds.has(row.playerId)) {
+      return true;
+    }
+    if (scope === "month-only" && row.splitType !== "month") {
+      return true;
+    }
+    return false;
+  });
+  const mergedSources = Array.from(
+    new Map(
+      [...existing.sources, ...incoming.sources].map((source) => [
+        `${source.sourceId}:${source.datasetId}:${source.snapshotKey}:${source.parserVersion}`,
+        source,
+      ]),
+    ).values(),
+  );
+
+  return {
+    ...incoming,
+    sources: mergedSources,
+    rows: [...preservedRows, ...incoming.rows],
+  };
+}
 
 function normalizeName(value: string | null | undefined) {
   return (value ?? "").toLowerCase().replace(/\s+/g, " ").trim();
@@ -108,12 +164,16 @@ async function fetchInBatches<TEntry extends { pcode: string; playerUrl: string 
   snapshotKey: string,
   rawRepository: FileRawSourceRepository,
   sourceRefs: NormalizedSourceReference[],
+  logger?: (message: string) => void,
 ) {
   const rows: TRow[] = [];
   const batchSize = 4;
+  const totalBatches = Math.ceil(entries.length / batchSize);
 
   for (let index = 0; index < entries.length; index += batchSize) {
     const batch = entries.slice(index, index + batchSize);
+    const batchNumber = Math.floor(index / batchSize) + 1;
+    logger?.(`[${datasetId}] ${batchNumber}/${totalBatches} 배치 수집 중 (${batch.length}명)`);
     const results = await Promise.all(
       batch.map(async (entry) => {
         try {
@@ -148,16 +208,11 @@ async function fetchInBatches<TEntry extends { pcode: string; playerUrl: string 
     for (const result of results) {
       rows.push(...result);
     }
+
+    logger?.(`[${datasetId}] ${batchNumber}/${totalBatches} 배치 완료`);
   }
 
   return rows;
-}
-
-function pickTopStats(stats: PlayerSeasonStat[], statType: "hitter" | "pitcher", limit: number) {
-  return stats
-    .filter((item) => item.statType === statType)
-    .sort((left, right) => right.games - left.games)
-    .slice(0, limit);
 }
 
 async function main() {
@@ -172,6 +227,17 @@ async function main() {
   ]);
   const snapshotKey = getKboDateKey();
   const sourceRefs: NormalizedSourceReference[] = [];
+  const limit = parsePositiveInt(process.env.KBO_PLAYER_SPLITS_LIMIT);
+  const scope = process.env.KBO_PLAYER_SPLITS_SCOPE === "month-only" ? "month-only" : "full";
+  const statTypeFilter =
+    process.env.KBO_PLAYER_SPLITS_STAT_TYPE === "hitter" || process.env.KBO_PLAYER_SPLITS_STAT_TYPE === "pitcher"
+      ? process.env.KBO_PLAYER_SPLITS_STAT_TYPE
+      : "all";
+  const log = (message: string) => console.log(`[player-splits] ${message}`);
+
+  log(
+    `${season.year} 시즌 공식 선수 split 수집을 시작합니다. scope=${scope}, statType=${statTypeFilter}, limit=${limit ?? "all"}`,
+  );
 
   const searchRows: ParsedPlayerSearchRow[] = [];
   for (const teamCode of TEAM_CODES) {
@@ -201,77 +267,52 @@ async function main() {
   }
 
   const uniqueSearchRows = Array.from(new Map(searchRows.map((row) => [row.pcode, row] as const)).values());
-  const playersById = Object.fromEntries(bundle.players.map((player) => [player.playerId, player]));
-  const seasonTeamById = Object.fromEntries(bundle.seasonTeams.map((team) => [team.seasonTeamId, team]));
-  const brandById = Object.fromEntries(bundle.teamBrands.map((brand) => [brand.brandId, brand]));
-  const currentSeasonStats = bundle.playerSeasonStats.filter((item) => item.seasonId === season.seasonId);
+  const uniqueEntries = uniqueSearchRows
+    .filter((row) => (statTypeFilter === "all" ? true : row.statType === statTypeFilter))
+    .filter((row): row is ParsedPlayerSearchRow => row.playerUrl !== null);
+  const scopedEntries = limit ? uniqueEntries.slice(0, limit) : uniqueEntries;
+  log(`split 대상 선수 ${scopedEntries.length}명`);
 
-  const desiredStats = [
-    ...pickTopStats(currentSeasonStats, "hitter", FULL_MODE_HITTER_SPLIT_LIMIT),
-    ...pickTopStats(currentSeasonStats, "pitcher", FULL_MODE_PITCHER_SPLIT_LIMIT),
-  ];
-
-  const matchedEntries = desiredStats
-    .map((stat) => {
-      const player = playersById[stat.playerId];
-      const seasonTeam = seasonTeamById[stat.seasonTeamId];
-      const teamCode = brandById[seasonTeam?.brandId ?? ""]?.shortCode?.toLowerCase() ?? "";
-      if (!player || !teamCode) {
-        return null;
-      }
-      return (
-        uniqueSearchRows.find(
-          (row) =>
-            row.statType === stat.statType &&
-            row.teamName.toLowerCase() === teamCode &&
-            normalizeName(row.playerName) === normalizeName(player.nameEn),
-        ) ?? null
-      );
-    })
-    .filter((row): row is ParsedPlayerSearchRow => row !== null && row.playerUrl !== null);
-
-  const uniqueEntries = Array.from(new Map(matchedEntries.map((row) => [row.pcode, row] as const)).values());
-
-  const hitterEntries = uniqueEntries
+  const hitterEntries = scopedEntries
     .filter((row) => row.statType === "hitter")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildSplitsMonthUrl(row.playerUrl!) }));
-  const pitcherEntries = uniqueEntries
+  const pitcherEntries = scopedEntries
     .filter((row) => row.statType === "pitcher")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildSplitsMonthUrl(row.playerUrl!) }));
-  const hitterSituationEntries = uniqueEntries
+  const hitterSituationEntries = scopedEntries
     .filter((row) => row.statType === "hitter")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildSituationsUrl(row.playerUrl!, "hitter") }));
-  const pitcherSituationEntries = uniqueEntries
+  const pitcherSituationEntries = scopedEntries
     .filter((row) => row.statType === "pitcher")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildSituationsUrl(row.playerUrl!, "pitcher") }));
-  const hitterCountEntries = uniqueEntries
+  const hitterCountEntries = scopedEntries
     .filter((row) => row.statType === "hitter")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildSituationsCountUrl(row.playerUrl!) }));
-  const pitcherCountEntries = uniqueEntries
+  const pitcherCountEntries = scopedEntries
     .filter((row) => row.statType === "pitcher")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildSituationsCountUrl(row.playerUrl!) }));
-  const hitterRunnerEntries = uniqueEntries
+  const hitterRunnerEntries = scopedEntries
     .filter((row) => row.statType === "hitter")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildSituationsRunnerUrl(row.playerUrl!) }));
-  const pitcherRunnerEntries = uniqueEntries
+  const pitcherRunnerEntries = scopedEntries
     .filter((row) => row.statType === "pitcher")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildSituationsRunnerUrl(row.playerUrl!) }));
-  const hitterOutEntries = uniqueEntries
+  const hitterOutEntries = scopedEntries
     .filter((row) => row.statType === "hitter")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildSituationsOutUrl(row.playerUrl!) }));
-  const pitcherOutEntries = uniqueEntries
+  const pitcherOutEntries = scopedEntries
     .filter((row) => row.statType === "pitcher")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildSituationsOutUrl(row.playerUrl!) }));
-  const hitterInningEntries = uniqueEntries
+  const hitterInningEntries = scopedEntries
     .filter((row) => row.statType === "hitter")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildSituationsInningUrl(row.playerUrl!) }));
-  const pitcherInningEntries = uniqueEntries
+  const pitcherInningEntries = scopedEntries
     .filter((row) => row.statType === "pitcher")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildSituationsInningUrl(row.playerUrl!) }));
-  const hitterBattingOrderEntries = uniqueEntries
+  const hitterBattingOrderEntries = scopedEntries
     .filter((row) => row.statType === "hitter")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildSituationsBattingOrderUrl(row.playerUrl!) }));
-  const pitcherBattingOrderEntries = uniqueEntries
+  const pitcherBattingOrderEntries = scopedEntries
     .filter((row) => row.statType === "pitcher")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildSituationsBattingOrderUrl(row.playerUrl!) }));
 
@@ -283,6 +324,7 @@ async function main() {
       snapshotKey,
       rawRepository,
       sourceRefs,
+      log,
     ),
     fetchInBatches<typeof pitcherEntries[number], ParsedPlayerSplitMonthPitcherRow>(
       pitcherEntries,
@@ -291,6 +333,7 @@ async function main() {
       snapshotKey,
       rawRepository,
       sourceRefs,
+      log,
     ),
     fetchHtml(REGISTER_ALL_URL),
   ]);
@@ -308,104 +351,119 @@ async function main() {
     pitcherInningRows,
     hitterBattingOrderRows,
     pitcherBattingOrderRows,
-  ] = await Promise.all([
-    fetchInBatches<typeof hitterEntries[number], ParsedPlayerSituationHitterRow>(
-      hitterSituationEntries,
-      "player-situations-hitter",
-      parseOfficialEnPlayerSituationsHitter,
-      snapshotKey,
-      rawRepository,
-      sourceRefs,
-    ),
-    fetchInBatches<typeof pitcherEntries[number], ParsedPlayerSituationPitcherRow>(
-      pitcherSituationEntries,
-      "player-situations-pitcher",
-      parseOfficialEnPlayerSituationsPitcher,
-      snapshotKey,
-      rawRepository,
-      sourceRefs,
-    ),
-    fetchInBatches<typeof hitterEntries[number], ParsedPlayerSituationHitterRow>(
-      hitterCountEntries,
-      "player-situations-count-hitter",
-      parseOfficialEnPlayerSituationsCountHitter,
-      snapshotKey,
-      rawRepository,
-      sourceRefs,
-    ),
-    fetchInBatches<typeof pitcherEntries[number], ParsedPlayerSituationPitcherRow>(
-      pitcherCountEntries,
-      "player-situations-count-pitcher",
-      parseOfficialEnPlayerSituationsCountPitcher,
-      snapshotKey,
-      rawRepository,
-      sourceRefs,
-    ),
-    fetchInBatches<typeof hitterEntries[number], ParsedPlayerSituationHitterRow>(
-      hitterRunnerEntries,
-      "player-situations-runner-hitter",
-      parseOfficialEnPlayerSituationsRunnerHitter,
-      snapshotKey,
-      rawRepository,
-      sourceRefs,
-    ),
-    fetchInBatches<typeof pitcherEntries[number], ParsedPlayerSituationPitcherRow>(
-      pitcherRunnerEntries,
-      "player-situations-runner-pitcher",
-      parseOfficialEnPlayerSituationsRunnerPitcher,
-      snapshotKey,
-      rawRepository,
-      sourceRefs,
-    ),
-    fetchInBatches<typeof hitterEntries[number], ParsedPlayerSituationHitterRow>(
-      hitterOutEntries,
-      "player-situations-out-hitter",
-      parseOfficialEnPlayerSituationsOutHitter,
-      snapshotKey,
-      rawRepository,
-      sourceRefs,
-    ),
-    fetchInBatches<typeof pitcherEntries[number], ParsedPlayerSituationPitcherRow>(
-      pitcherOutEntries,
-      "player-situations-out-pitcher",
-      parseOfficialEnPlayerSituationsOutPitcher,
-      snapshotKey,
-      rawRepository,
-      sourceRefs,
-    ),
-    fetchInBatches<typeof hitterEntries[number], ParsedPlayerSituationHitterRow>(
-      hitterInningEntries,
-      "player-situations-inning-hitter",
-      parseOfficialEnPlayerSituationsInningHitter,
-      snapshotKey,
-      rawRepository,
-      sourceRefs,
-    ),
-    fetchInBatches<typeof pitcherEntries[number], ParsedPlayerSituationPitcherRow>(
-      pitcherInningEntries,
-      "player-situations-inning-pitcher",
-      parseOfficialEnPlayerSituationsInningPitcher,
-      snapshotKey,
-      rawRepository,
-      sourceRefs,
-    ),
-    fetchInBatches<typeof hitterEntries[number], ParsedPlayerSituationHitterRow>(
-      hitterBattingOrderEntries,
-      "player-situations-batting-order-hitter",
-      parseOfficialEnPlayerSituationsBattingOrderHitter,
-      snapshotKey,
-      rawRepository,
-      sourceRefs,
-    ),
-    fetchInBatches<typeof pitcherEntries[number], ParsedPlayerSituationPitcherRow>(
-      pitcherBattingOrderEntries,
-      "player-situations-batting-order-pitcher",
-      parseOfficialEnPlayerSituationsBattingOrderPitcher,
-      snapshotKey,
-      rawRepository,
-      sourceRefs,
-    ),
-  ]);
+  ] =
+    scope === "full"
+      ? await Promise.all([
+          fetchInBatches<typeof hitterEntries[number], ParsedPlayerSituationHitterRow>(
+            hitterSituationEntries,
+            "player-situations-hitter",
+            parseOfficialEnPlayerSituationsHitter,
+            snapshotKey,
+            rawRepository,
+            sourceRefs,
+            log,
+          ),
+          fetchInBatches<typeof pitcherEntries[number], ParsedPlayerSituationPitcherRow>(
+            pitcherSituationEntries,
+            "player-situations-pitcher",
+            parseOfficialEnPlayerSituationsPitcher,
+            snapshotKey,
+            rawRepository,
+            sourceRefs,
+            log,
+          ),
+          fetchInBatches<typeof hitterEntries[number], ParsedPlayerSituationHitterRow>(
+            hitterCountEntries,
+            "player-situations-count-hitter",
+            parseOfficialEnPlayerSituationsCountHitter,
+            snapshotKey,
+            rawRepository,
+            sourceRefs,
+            log,
+          ),
+          fetchInBatches<typeof pitcherEntries[number], ParsedPlayerSituationPitcherRow>(
+            pitcherCountEntries,
+            "player-situations-count-pitcher",
+            parseOfficialEnPlayerSituationsCountPitcher,
+            snapshotKey,
+            rawRepository,
+            sourceRefs,
+            log,
+          ),
+          fetchInBatches<typeof hitterEntries[number], ParsedPlayerSituationHitterRow>(
+            hitterRunnerEntries,
+            "player-situations-runner-hitter",
+            parseOfficialEnPlayerSituationsRunnerHitter,
+            snapshotKey,
+            rawRepository,
+            sourceRefs,
+            log,
+          ),
+          fetchInBatches<typeof pitcherEntries[number], ParsedPlayerSituationPitcherRow>(
+            pitcherRunnerEntries,
+            "player-situations-runner-pitcher",
+            parseOfficialEnPlayerSituationsRunnerPitcher,
+            snapshotKey,
+            rawRepository,
+            sourceRefs,
+            log,
+          ),
+          fetchInBatches<typeof hitterEntries[number], ParsedPlayerSituationHitterRow>(
+            hitterOutEntries,
+            "player-situations-out-hitter",
+            parseOfficialEnPlayerSituationsOutHitter,
+            snapshotKey,
+            rawRepository,
+            sourceRefs,
+            log,
+          ),
+          fetchInBatches<typeof pitcherEntries[number], ParsedPlayerSituationPitcherRow>(
+            pitcherOutEntries,
+            "player-situations-out-pitcher",
+            parseOfficialEnPlayerSituationsOutPitcher,
+            snapshotKey,
+            rawRepository,
+            sourceRefs,
+            log,
+          ),
+          fetchInBatches<typeof hitterEntries[number], ParsedPlayerSituationHitterRow>(
+            hitterInningEntries,
+            "player-situations-inning-hitter",
+            parseOfficialEnPlayerSituationsInningHitter,
+            snapshotKey,
+            rawRepository,
+            sourceRefs,
+            log,
+          ),
+          fetchInBatches<typeof pitcherEntries[number], ParsedPlayerSituationPitcherRow>(
+            pitcherInningEntries,
+            "player-situations-inning-pitcher",
+            parseOfficialEnPlayerSituationsInningPitcher,
+            snapshotKey,
+            rawRepository,
+            sourceRefs,
+            log,
+          ),
+          fetchInBatches<typeof hitterEntries[number], ParsedPlayerSituationHitterRow>(
+            hitterBattingOrderEntries,
+            "player-situations-batting-order-hitter",
+            parseOfficialEnPlayerSituationsBattingOrderHitter,
+            snapshotKey,
+            rawRepository,
+            sourceRefs,
+            log,
+          ),
+          fetchInBatches<typeof pitcherEntries[number], ParsedPlayerSituationPitcherRow>(
+            pitcherBattingOrderEntries,
+            "player-situations-batting-order-pitcher",
+            parseOfficialEnPlayerSituationsBattingOrderPitcher,
+            snapshotKey,
+            rawRepository,
+            sourceRefs,
+            log,
+          ),
+        ])
+      : [[], [], [], [], [], [], [], [], [], [], [], []];
 
   await rawRepository.saveSnapshot({
     sourceId: "official-kbo-ko",
@@ -448,15 +506,26 @@ async function main() {
       ...pitcherBattingOrderRows,
     ],
     registerRows: parseOfficialKoRegisterAll(registerResult.html),
+    searchRows: uniqueSearchRows,
     bundle,
     patches,
     sourceRefs,
   });
 
-  await normalizedRepository.saveDatasetOutput("player-split-stats", `${season.year}-${snapshotKey}`, normalized);
+  const shouldMergeWithExisting = scope !== "full" || limit !== null || statTypeFilter !== "all";
+  const mergedNormalized =
+    shouldMergeWithExisting
+      ? mergeNormalizedSplitStats(
+          await loadLatestSeasonPlayerSplitStats(normalizedRepository, season.year),
+          normalized,
+          scope,
+        )
+      : normalized;
+
+  await normalizedRepository.saveDatasetOutput("player-split-stats", `${season.year}-${snapshotKey}`, mergedNormalized);
   const publishedBundle = await buildPublishedKboBundleFromNormalized();
   await writePublishedKboBundle(publishedBundle);
-  console.log(`Published ${normalized.rows.length} official player split rows into the current KBO bundle.`);
+  log(`Published ${mergedNormalized.rows.length} official player split rows into the current KBO bundle.`);
 }
 
 main().catch((error) => {

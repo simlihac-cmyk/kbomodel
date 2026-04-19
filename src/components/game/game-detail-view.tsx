@@ -40,7 +40,7 @@ export function GameDetailView({ data }: GameDetailViewProps) {
     <div className="space-y-6">
       <PageHeader
         eyebrow="경기 상세"
-        title={`${away.label} @ ${home.label}`}
+        title={`${away.label} vs ${home.label}`}
         description="라인스코어, 박스스코어, 승리/패전/세이브, 관중 수, 시즌 내 문맥과 같은 흐름까지 함께 읽는 KBO 경기 상세 페이지입니다."
       />
 
@@ -199,7 +199,7 @@ export function GameDetailView({ data }: GameDetailViewProps) {
               >
                 <div className="flex items-center justify-between">
                   <span className="font-medium text-ink">
-                    {data.displayById[game.awaySeasonTeamId]?.label} @ {data.displayById[game.homeSeasonTeamId]?.label}
+                    {data.displayById[game.awaySeasonTeamId]?.label} vs {data.displayById[game.homeSeasonTeamId]?.label}
                   </span>
                   <span className="text-muted">{game.status === "final" ? `${game.awayScore}:${game.homeScore}` : game.status}</span>
                 </div>
@@ -218,7 +218,7 @@ export function GameDetailView({ data }: GameDetailViewProps) {
               >
                 <div className="flex items-center justify-between">
                   <span className="font-medium text-ink">
-                    {data.displayById[game.awaySeasonTeamId]?.label} @ {data.displayById[game.homeSeasonTeamId]?.label}
+                    {data.displayById[game.awaySeasonTeamId]?.label} vs {data.displayById[game.homeSeasonTeamId]?.label}
                   </span>
                   <span className="text-muted">{formatDateTimeLabel(game.scheduledAt)}</span>
                 </div>

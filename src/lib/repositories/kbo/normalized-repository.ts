@@ -3,7 +3,9 @@ import path from "node:path";
 
 import {
   normalizedDatasetFileNameSchema,
+  normalizedAwardsSchema,
   normalizedFranchiseLineageSchema,
+  normalizedPlayerCareerStatsSchema,
   normalizedPlayerGameStatsSchema,
   normalizedPlayerSplitStatsSchema,
   normalizedHistoricalTeamRecordsSchema,
@@ -28,7 +30,9 @@ const schemaMap = {
   scoreboard: normalizedScoreboardSchema,
   standings: normalizedStandingsSchema,
   players: normalizedPlayersSchema,
+  awards: normalizedAwardsSchema,
   "player-season-stats": normalizedPlayerSeasonStatsSchema,
+  "player-career-stats": normalizedPlayerCareerStatsSchema,
   "player-game-stats": normalizedPlayerGameStatsSchema,
   "player-split-stats": normalizedPlayerSplitStatsSchema,
   "roster-events": normalizedRosterEventsSchema,

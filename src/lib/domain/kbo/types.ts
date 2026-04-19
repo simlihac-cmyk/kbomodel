@@ -194,8 +194,13 @@ export type Player = {
   slug: string;
   nameKo: string;
   nameEn: string;
+  officialPlayerCode?: string | null;
   birthDate: string | null;
   batsThrows: string | null;
+  heightWeight: string | null;
+  careerHistory: string | null;
+  draftInfo: string | null;
+  joinInfo: string | null;
   primaryPositions: string[];
   debutYear: number;
   franchiseIds: string[];
@@ -220,9 +225,16 @@ export type PlayerSeasonStat = {
   statType: PlayerStatType;
   games: number;
   plateAppearances: number | null;
+  battingAverage?: number | null;
   atBats: number | null;
+  runs?: number | null;
   hits: number | null;
   homeRuns: number | null;
+  rbi?: number | null;
+  stolenBases?: number | null;
+  walks?: number | null;
+  onBasePct?: number | null;
+  sluggingPct?: number | null;
   ops: number | null;
   era: number | null;
   inningsPitched: number | null;
@@ -230,7 +242,48 @@ export type PlayerSeasonStat = {
   saves: number | null;
   wins: number | null;
   losses: number | null;
+  holds?: number | null;
+  whip?: number | null;
+  hitsAllowed?: number | null;
+  homeRunsAllowed?: number | null;
+  runsAllowed?: number | null;
+  earnedRuns?: number | null;
+  opponentAvg?: number | null;
   war: number | null;
+};
+
+export type PlayerCareerStat = {
+  playerCareerStatId: string;
+  playerId: string;
+  year: number;
+  teamLabel: string;
+  statType: PlayerStatType;
+  games: number;
+  plateAppearances: number | null;
+  battingAverage?: number | null;
+  atBats: number | null;
+  runs?: number | null;
+  hits: number | null;
+  homeRuns: number | null;
+  rbi?: number | null;
+  stolenBases?: number | null;
+  walks?: number | null;
+  onBasePct?: number | null;
+  sluggingPct?: number | null;
+  ops: number | null;
+  era: number | null;
+  inningsPitched: number | null;
+  strikeouts: number | null;
+  saves: number | null;
+  wins: number | null;
+  losses: number | null;
+  holds?: number | null;
+  whip?: number | null;
+  hitsAllowed?: number | null;
+  homeRunsAllowed?: number | null;
+  runsAllowed?: number | null;
+  earnedRuns?: number | null;
+  opponentAvg?: number | null;
 };
 
 export type PlayerGameStat = {
@@ -240,6 +293,24 @@ export type PlayerGameStat = {
   playerId: string;
   seasonTeamId: string;
   statType: PlayerStatType;
+  battingAverage?: number | null;
+  atBats?: number | null;
+  runs?: number | null;
+  hits?: number | null;
+  homeRuns?: number | null;
+  rbi?: number | null;
+  stolenBases?: number | null;
+  walks?: number | null;
+  era?: number | null;
+  result?: string | null;
+  plateAppearances?: number | null;
+  inningsPitched?: number | null;
+  hitsAllowed?: number | null;
+  homeRunsAllowed?: number | null;
+  runsAllowed?: number | null;
+  earnedRuns?: number | null;
+  opponentAvg?: number | null;
+  strikeouts?: number | null;
   summaryLine: string;
 };
 
@@ -254,9 +325,14 @@ export type PlayerSplitStat = {
   splitLabel: string;
   games: number;
   plateAppearances: number | null;
+  battingAverage?: number | null;
   atBats: number | null;
+  runs?: number | null;
   hits: number | null;
   homeRuns: number | null;
+  rbi?: number | null;
+  stolenBases?: number | null;
+  walks?: number | null;
   ops: number | null;
   era: number | null;
   inningsPitched: number | null;
@@ -264,6 +340,12 @@ export type PlayerSplitStat = {
   saves: number | null;
   wins: number | null;
   losses: number | null;
+  holds?: number | null;
+  hitsAllowed?: number | null;
+  homeRunsAllowed?: number | null;
+  runsAllowed?: number | null;
+  earnedRuns?: number | null;
+  opponentAvg?: number | null;
   summaryLine: string;
 };
 
@@ -412,6 +494,16 @@ export type TieAlert = {
   note: string;
 };
 
+export type ShortTermRankVolatility = {
+  seasonTeamId: string;
+  averageRank: number;
+  avgAbsMove: number;
+  moveProb: number;
+  bigMoveProb: number;
+  riseProb: number;
+  fallProb: number;
+};
+
 export type SimulationSnapshot = {
   seasonId: string;
   generatedAt: string;
@@ -421,6 +513,7 @@ export type SimulationSnapshot = {
   postseasonOdds: PostseasonOdds[];
   expectedRecords: ExpectedRecord[];
   tieAlerts: TieAlert[];
+  shortTermRankVolatility?: ShortTermRankVolatility[];
   gameProbabilities: GameProbabilitySnapshot[];
   teamStrengths: TeamStrengthSnapshot[];
 };

@@ -30,6 +30,31 @@ pnpm test
 pnpm dev
 ```
 
+## 개발에서 배포까지
+- 개발 레포: `/Users/sg_mac/kbo`
+- 현재 로컬 배포 앱 폴더: `/Users/sg_mac/kbo_prod/app`
+- 배포 직전 검증은 아래 한 줄로 실행합니다.
+
+```bash
+pnpm verify:release
+```
+
+- 버전은 `package.json`의 `version`으로 관리합니다.
+- 릴리스 이름은 `v1.0.1`처럼 `v`를 붙여 쓰고, `package.json` 값은 `1.0.1`처럼 숫자만 넣습니다.
+- 개발이 끝나면 아래 명령으로 개발 레포 내용을 배포 폴더로 동기화하고 앱을 재빌드/재시작합니다.
+
+```bash
+cd /Users/sg_mac/kbo_prod
+./deploy-from-dev.sh
+```
+
+- 위 스크립트는 실행 시 배포 버전을 입력받고, 그 값을 개발 레포의 `package.json`에 반영한 뒤 개발 레포를 배포 폴더로 복사하고, `pnpm install --frozen-lockfile`, `pnpm build`, 운영 앱 재시작까지 한 번에 처리합니다.
+- 프롬프트에서 엔터만 치면 현재 버전을 유지합니다.
+- 필요하면 `./deploy-from-dev.sh 1.0.2`처럼 버전을 인자로 넘겨 비대화식으로 실행할 수 있습니다.
+- 배포가 끝나면 `/Users/sg_mac/kbo_prod/deploy-history.log`에 배포 시각, 버전, 소스 커밋이 기록되고, 현재 운영 버전은 `/Users/sg_mac/kbo_prod/DEPLOYED_VERSION`에서 바로 확인할 수 있습니다.
+- UI 코드 변경만 있으면 위 절차면 충분합니다.
+- 데이터까지 새로 반영해야 하는 날은 별도로 `pnpm ingest:kbo:current`, `pnpm publish:kbo:current` 흐름을 봅니다.
+
 ## 관리자 보안 설정
 ```bash
 pnpm auth:hash-password -- your-strong-password

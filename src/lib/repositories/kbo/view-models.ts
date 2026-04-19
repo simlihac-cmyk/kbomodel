@@ -13,15 +13,18 @@ import {
 import { buildStandingsTable } from "@/lib/domain/kbo/standings";
 import type {
   Award,
+  Franchise,
   Game,
   Player,
   PlayerSeasonStat,
+  RecordOutcome,
   ScenarioOverride,
   Season,
   SeasonTeam,
   Series,
   StandingRow,
   SimulationInput,
+  TeamBrand,
   TeamDisplay,
   TeamSeasonStat,
   TeamSplitStat,
@@ -65,6 +68,57 @@ function parseDate(input: string): number {
   return new Date(input).getTime();
 }
 
+function buildRecentOutcomeMap(games: Game[]): Record<string, RecordOutcome[]> {
+  const outcomesByTeamId: Record<string, RecordOutcome[]> = {};
+  const finalGames = games
+    .filter((game) => game.status === "final" && game.homeScore !== null && game.awayScore !== null)
+    .sort((left, right) => left.scheduledAt.localeCompare(right.scheduledAt));
+
+  for (const game of finalGames) {
+    const isTieGame = game.isTie || game.homeScore === game.awayScore;
+    const homeOutcome: RecordOutcome = isTieGame
+      ? "T"
+      : (game.homeScore ?? 0) > (game.awayScore ?? 0)
+        ? "W"
+        : "L";
+    const awayOutcome: RecordOutcome = isTieGame
+      ? "T"
+      : (game.homeScore ?? 0) > (game.awayScore ?? 0)
+        ? "L"
+        : "W";
+
+    if (!outcomesByTeamId[game.homeSeasonTeamId]) {
+      outcomesByTeamId[game.homeSeasonTeamId] = [];
+    }
+    if (!outcomesByTeamId[game.awaySeasonTeamId]) {
+      outcomesByTeamId[game.awaySeasonTeamId] = [];
+    }
+
+    outcomesByTeamId[game.homeSeasonTeamId].push(homeOutcome);
+    outcomesByTeamId[game.awaySeasonTeamId].push(awayOutcome);
+  }
+
+  return Object.fromEntries(
+    Object.entries(outcomesByTeamId).map(([seasonTeamId, outcomes]) => [
+      seasonTeamId,
+      outcomes.slice(-10),
+    ]),
+  );
+}
+
+function formatDashboardStreak(streak: string): string {
+  if (streak.startsWith("W")) {
+    return `승${streak.slice(1)}`;
+  }
+  if (streak.startsWith("L")) {
+    return `패${streak.slice(1)}`;
+  }
+  if (streak.startsWith("T")) {
+    return `무${streak.slice(1)}`;
+  }
+  return streak;
+}
+
 function monthOrderKey(splitKey: string) {
   const order = ["MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV"];
   const index = order.indexOf(splitKey.toUpperCase());
@@ -88,6 +142,15 @@ type PlayerSplitPageStat = {
   teamLabel: string;
   summaryLine: string;
   games: number;
+  statType?: "hitter" | "pitcher";
+  battingAverage?: number | null;
+  hits?: number | null;
+  homeRuns?: number | null;
+  rbi?: number | null;
+  era?: number | null;
+  inningsPitched?: number | null;
+  opponentAvg?: number | null;
+  strikeouts?: number | null;
 };
 
 type PlayerSituationSplitGroup = {
@@ -96,11 +159,196 @@ type PlayerSituationSplitGroup = {
   splits: PlayerSplitPageStat[];
 };
 
-type PlayerSeasonPageStat = PlayerSeasonStat & {
+type PlayerSeasonPageStat = {
+  statId: string;
+  statType: "hitter" | "pitcher";
   seasonLabel: string;
   seasonYear: number;
   teamLabel: string;
+  teamCode: string | null;
+  games: number;
+  battingAverage?: number | null;
+  hits?: number | null;
+  homeRuns?: number | null;
+  rbi?: number | null;
+  ops?: number | null;
+  era?: number | null;
+  inningsPitched?: number | null;
+  strikeouts?: number | null;
+  wins?: number | null;
+  losses?: number | null;
+  saves?: number | null;
+  holds?: number | null;
+  whip?: number | null;
 };
+
+type PlayerAwardHistoryItem = {
+  awardId: string;
+  seasonId: string;
+  seasonYear: number;
+  seasonLabel: string;
+  label: string;
+  teamLabel: string;
+  note: string;
+  directMatch: boolean;
+};
+
+function normalizeLookupToken(value: string | null | undefined) {
+  if (!value) {
+    return null;
+  }
+  return value
+    .toLowerCase()
+    .replace(/[\s()_.-]+/g, "")
+    .trim();
+}
+
+function tokensMatch(left: string, right: string) {
+  if (left === right) {
+    return true;
+  }
+
+  if (left.length < 2 || right.length < 2) {
+    return false;
+  }
+
+  return left.includes(right) || right.includes(left);
+}
+
+function parseSeasonYearFromSeasonId(seasonId: string) {
+  const match = seasonId.match(/(19|20)\d{2}/);
+  return match ? Number.parseInt(match[0], 10) : 0;
+}
+
+function parseAwardNoteParts(note: string) {
+  const [playerName = "", teamName = "", position = ""] = note.split(" · ").map((item) => item.trim());
+  return {
+    playerName,
+    teamName,
+    position,
+  };
+}
+
+function collectSeasonTeamTokens(
+  seasonTeamId: string | null,
+  seasonTeamById: Record<string, SeasonTeam>,
+  brandById: Record<string, TeamBrand>,
+  franchiseById: Record<string, Franchise>,
+) {
+  if (!seasonTeamId) {
+    return [];
+  }
+
+  const seasonTeam = seasonTeamById[seasonTeamId];
+  if (!seasonTeam) {
+    return [];
+  }
+
+  const brand = brandById[seasonTeam.brandId];
+  const franchise = franchiseById[seasonTeam.franchiseId];
+  return [
+    normalizeLookupToken(brand?.displayNameKo),
+    normalizeLookupToken(brand?.shortNameKo),
+    normalizeLookupToken(brand?.shortCode),
+    normalizeLookupToken(franchise?.canonicalNameKo),
+    normalizeLookupToken(franchise?.shortNameKo),
+    normalizeLookupToken(seasonTeam.franchiseId),
+  ].filter((item): item is string => item !== null);
+}
+
+export function buildPlayerAwardHistory(args: {
+  player: Player;
+  awards: Award[];
+  seasons: Season[];
+  seasonTeams: SeasonTeam[];
+  teamBrands: TeamBrand[];
+  franchises: Franchise[];
+  seasonStats: PlayerSeasonStat[];
+  careerStats: { year: number; teamLabel: string }[];
+}) {
+  const { player, awards, seasons, seasonTeams, teamBrands, franchises, seasonStats, careerStats } = args;
+  const seasonById = Object.fromEntries(seasons.map((season) => [season.seasonId, season] as const));
+  const seasonTeamById = Object.fromEntries(seasonTeams.map((seasonTeam) => [seasonTeam.seasonTeamId, seasonTeam] as const));
+  const brandById = Object.fromEntries(teamBrands.map((brand) => [brand.brandId, brand] as const));
+  const franchiseById = Object.fromEntries(franchises.map((franchise) => [franchise.franchiseId, franchise] as const));
+  const playerTeamTokensByYear = new Map<number, Set<string>>();
+
+  const addYearToken = (year: number, token: string | null | undefined) => {
+    const normalizedToken = normalizeLookupToken(token);
+    if (!normalizedToken || year <= 0) {
+      return;
+    }
+    if (!playerTeamTokensByYear.has(year)) {
+      playerTeamTokensByYear.set(year, new Set<string>());
+    }
+    playerTeamTokensByYear.get(year)?.add(normalizedToken);
+  };
+
+  for (const stat of seasonStats) {
+    const seasonYear = seasonById[stat.seasonId]?.year ?? parseSeasonYearFromSeasonId(stat.seasonId);
+    for (const token of collectSeasonTeamTokens(stat.seasonTeamId, seasonTeamById, brandById, franchiseById)) {
+      addYearToken(seasonYear, token);
+    }
+  }
+
+  for (const stat of careerStats) {
+    addYearToken(stat.year, stat.teamLabel);
+  }
+
+  const matchedAwards = awards
+    .filter((award) => {
+      if (award.playerId) {
+        return award.playerId === player.playerId;
+      }
+
+      const noteParts = parseAwardNoteParts(award.note);
+      if (noteParts.playerName !== player.nameKo) {
+        return false;
+      }
+
+      const seasonYear = seasonById[award.seasonId]?.year ?? parseSeasonYearFromSeasonId(award.seasonId);
+      const knownTokens = playerTeamTokensByYear.get(seasonYear);
+      if (!knownTokens || knownTokens.size === 0) {
+        return false;
+      }
+
+      const awardTokens = new Set<string>([
+        ...collectSeasonTeamTokens(award.seasonTeamId, seasonTeamById, brandById, franchiseById),
+        ...(normalizeLookupToken(noteParts.teamName) ? [normalizeLookupToken(noteParts.teamName)!] : []),
+      ]);
+
+      return [...awardTokens].some((awardToken) =>
+        [...knownTokens].some((playerToken) => tokensMatch(awardToken, playerToken)),
+      );
+    })
+    .map((award) => {
+      const noteParts = parseAwardNoteParts(award.note);
+      const season = seasonById[award.seasonId];
+      const seasonYear = season?.year ?? parseSeasonYearFromSeasonId(award.seasonId);
+      const seasonTeam = award.seasonTeamId ? seasonTeamById[award.seasonTeamId] : null;
+      const brand = seasonTeam ? brandById[seasonTeam.brandId] : null;
+
+      return {
+        awardId: award.awardId,
+        seasonId: award.seasonId,
+        seasonYear,
+        seasonLabel: season ? season.label : `${seasonYear}`,
+        label: award.label,
+        teamLabel: (brand?.displayNameKo ?? noteParts.teamName) || "-",
+        note: award.note,
+        directMatch: award.playerId === player.playerId,
+      } satisfies PlayerAwardHistoryItem;
+    });
+
+  return Array.from(
+    new Map(matchedAwards.map((award) => [award.awardId, award] as const)).values(),
+  ).sort(
+    (left, right) =>
+      right.seasonYear - left.seasonYear ||
+      left.label.localeCompare(right.label, "ko") ||
+      left.teamLabel.localeCompare(right.teamLabel, "ko"),
+  );
+}
 
 export function buildPlayerSeasonRankingContext(
   stat: PlayerSeasonStat,
@@ -115,6 +363,13 @@ export function buildPlayerSeasonRankingContext(
     stat.statType === "hitter"
       ? [
           {
+            key: "battingAverage",
+            label: "타율",
+            valueOf: (item: PlayerSeasonStat) => item.battingAverage ?? -1,
+            valueLabel: (item: PlayerSeasonStat) => (item.battingAverage ?? 0).toFixed(3),
+            descending: true,
+          },
+          {
             key: "ops",
             label: "OPS",
             valueOf: (item: PlayerSeasonStat) => item.ops ?? -1,
@@ -126,6 +381,13 @@ export function buildPlayerSeasonRankingContext(
             label: "홈런",
             valueOf: (item: PlayerSeasonStat) => item.homeRuns ?? -1,
             valueLabel: (item: PlayerSeasonStat) => String(item.homeRuns ?? 0),
+            descending: true,
+          },
+          {
+            key: "rbi",
+            label: "타점",
+            valueOf: (item: PlayerSeasonStat) => item.rbi ?? -1,
+            valueLabel: (item: PlayerSeasonStat) => String(item.rbi ?? 0),
             descending: true,
           },
           {
@@ -142,6 +404,13 @@ export function buildPlayerSeasonRankingContext(
             label: "ERA",
             valueOf: (item: PlayerSeasonStat) => item.era ?? Number.POSITIVE_INFINITY,
             valueLabel: (item: PlayerSeasonStat) => (item.era ?? 0).toFixed(2),
+            descending: false,
+          },
+          {
+            key: "whip",
+            label: "WHIP",
+            valueOf: (item: PlayerSeasonStat) => item.whip ?? Number.POSITIVE_INFINITY,
+            valueLabel: (item: PlayerSeasonStat) => (item.whip ?? 0).toFixed(2),
             descending: false,
           },
           {
@@ -163,6 +432,13 @@ export function buildPlayerSeasonRankingContext(
             label: "세이브",
             valueOf: (item: PlayerSeasonStat) => item.saves ?? -1,
             valueLabel: (item: PlayerSeasonStat) => String(item.saves ?? 0),
+            descending: true,
+          },
+          {
+            key: "holds",
+            label: "홀드",
+            valueOf: (item: PlayerSeasonStat) => item.holds ?? -1,
+            valueLabel: (item: PlayerSeasonStat) => String(item.holds ?? 0),
             descending: true,
           },
         ];
@@ -327,36 +603,34 @@ function getCurrentMoment(seasonUpdatedAt: string): number {
   return parseDate(seasonUpdatedAt);
 }
 
-function createSeriesLabel(series: Series, displayById: Record<string, TeamDisplay>): string {
-  return `${displayById[series.awaySeasonTeamId]?.shortNameKo ?? series.awaySeasonTeamId} @ ${displayById[series.homeSeasonTeamId]?.shortNameKo ?? series.homeSeasonTeamId}`;
+function createGameMatchupLabel(game: Game, displayById: Record<string, TeamDisplay>): string {
+  return `${displayById[game.awaySeasonTeamId]?.shortNameKo ?? game.awaySeasonTeamId} vs ${displayById[game.homeSeasonTeamId]?.shortNameKo ?? game.homeSeasonTeamId}`;
 }
 
-function summarizeSeriesReason(
-  homeSeasonTeamId: string,
-  awaySeasonTeamId: string,
-  bucketById: Record<string, { first: number; fifth: number; missPostseason: number }>,
-  teamStrengthById: Record<string, TeamStrengthSnapshot>,
-  displayById: Record<string, TeamDisplay>,
-): string {
-  const homeBucket = bucketById[homeSeasonTeamId];
-  const awayBucket = bucketById[awaySeasonTeamId];
-  const homeStrength = teamStrengthById[homeSeasonTeamId];
-  const awayStrength = teamStrengthById[awaySeasonTeamId];
-  const firstRace =
-    (homeBucket?.first ?? 0) + (awayBucket?.first ?? 0) >= 0.18;
-  const bubbleRace =
-    (homeBucket?.fifth ?? 0) + (awayBucket?.fifth ?? 0) + (homeBucket?.missPostseason ?? 0) + (awayBucket?.missPostseason ?? 0) >=
-    0.45;
+function createMatchupPairKey(homeSeasonTeamId: string, awaySeasonTeamId: string): string {
+  return [homeSeasonTeamId, awaySeasonTeamId].sort().join(":");
+}
 
-  if (firstRace) {
-    return `${displayById[homeSeasonTeamId].shortNameKo}와 ${displayById[awaySeasonTeamId].shortNameKo} 모두 상위권 압축 구간에 있어 1위 레이스 레버리지가 큽니다.`;
+function normalizeHeadToHeadShares(probability: {
+  homeWinProb: number;
+  awayWinProb: number;
+  tieProb: number;
+}) {
+  const denominator = probability.homeWinProb + probability.awayWinProb;
+
+  if (denominator <= Number.EPSILON) {
+    return {
+      awayShare: 0.5,
+      homeShare: 0.5,
+      tieProb: probability.tieProb,
+    };
   }
 
-  if (bubbleRace) {
-    return `${displayById[homeSeasonTeamId].shortNameKo}와 ${displayById[awaySeasonTeamId].shortNameKo}의 맞대결은 5위선과 탈락선 사이를 직접 흔드는 시리즈입니다.`;
-  }
-
-  return `잔여 일정 난이도는 홈 ${homeStrength?.scheduleDifficulty.toFixed(2) ?? "0.00"}, 원정 ${awayStrength?.scheduleDifficulty.toFixed(2) ?? "0.00"}로 시리즈 한 번의 영향이 작지 않습니다.`;
+  return {
+    awayShare: Number((probability.awayWinProb / denominator).toFixed(4)),
+    homeShare: Number((probability.homeWinProb / denominator).toFixed(4)),
+    tieProb: probability.tieProb,
+  };
 }
 
 function filterPreviousSeasonStats(
@@ -577,69 +851,136 @@ export const getSeasonDashboardData = cache(async (year: number) => {
   const hasCompleteArchivePlayerCoverage =
     seasonContext.season.status !== "completed" ||
     seasonContext.playerSeasonStats.length >= seasonContext.teamDisplays.length * 10;
-  const importantSeries = seasonContext.series
-    .filter(
-      (series) =>
-        series.status !== "final" &&
-        parseDate(`${series.startDate}T00:00:00+09:00`) >= currentMoment - 86400000,
-    )
-    .map((series) => {
-      const remainingGames = seasonContext.games.filter(
-        (game) => game.seriesId === series.seriesId && game.status !== "final",
-      ).length;
-      const probabilityFocus =
-        (simulation.bucketOdds.find((item) => item.seasonTeamId === series.homeSeasonTeamId)?.first ?? 0) +
-        (simulation.bucketOdds.find((item) => item.seasonTeamId === series.awaySeasonTeamId)?.first ?? 0) +
-        (simulation.bucketOdds.find((item) => item.seasonTeamId === series.homeSeasonTeamId)?.fifth ?? 0) +
-        (simulation.bucketOdds.find((item) => item.seasonTeamId === series.awaySeasonTeamId)?.fifth ?? 0) +
-        (teamStrengthById[series.homeSeasonTeamId]?.headToHeadLeverage ?? 0) +
-        (teamStrengthById[series.awaySeasonTeamId]?.headToHeadLeverage ?? 0) +
-        remainingGames * 0.04;
+  const closeGameWindowEnd = currentMoment + 14 * 86400000;
+  const probabilityByGameId = Object.fromEntries(
+    simulation.gameProbabilities.map((item) => [item.gameId, item]),
+  );
+  const seenMatchupKeys = new Set<string>();
+  const closeGames = seasonContext.games
+    .filter((game) => {
+      const scheduledAt = parseDate(game.scheduledAt);
+      return (
+        game.status !== "final" &&
+        game.status !== "postponed" &&
+        scheduledAt >= currentMoment &&
+        scheduledAt <= closeGameWindowEnd
+      );
+    })
+    .map((game) => {
+      const probability = probabilityByGameId[game.gameId];
+      if (!probability) {
+        return null;
+      }
+
+      const { awayShare, homeShare, tieProb } = normalizeHeadToHeadShares(probability);
       return {
-        series,
-        label: createSeriesLabel(series, displayById),
-        probabilityFocus,
-        remainingGames,
-        reason: summarizeSeriesReason(
-          series.homeSeasonTeamId,
-          series.awaySeasonTeamId,
-          bucketById,
-          teamStrengthById,
-          displayById,
-        ),
+        gameId: game.gameId,
+        scheduledAt: game.scheduledAt,
+        awaySeasonTeamId: game.awaySeasonTeamId,
+        homeSeasonTeamId: game.homeSeasonTeamId,
+        label: createGameMatchupLabel(game, displayById),
+        awayShare,
+        homeShare,
+        tieProb,
+        probabilityGap: Number(Math.abs(awayShare - homeShare).toFixed(4)),
       };
     })
-    .sort((left, right) => right.probabilityFocus - left.probabilityFocus || left.series.startDate.localeCompare(right.series.startDate))
-    .slice(0, 6)
-    .map((item) => item);
+    .filter((item) => item !== null)
+    .sort(
+      (left, right) =>
+        left.probabilityGap - right.probabilityGap ||
+        left.scheduledAt.localeCompare(right.scheduledAt),
+    )
+    .filter((item) => {
+      const matchupKey = createMatchupPairKey(item.homeSeasonTeamId, item.awaySeasonTeamId);
+      if (seenMatchupKeys.has(matchupKey)) {
+        return false;
+      }
+      seenMatchupKeys.add(matchupKey);
+      return true;
+    })
+    .slice(0, 3);
   const finalGamesYesterday = seasonContext.games
     .filter((game) => game.status === "final")
     .sort((left, right) => right.scheduledAt.localeCompare(left.scheduledAt))
     .slice(0, 5);
+  const standingsById = Object.fromEntries(
+    standings.rows.map((row) => [row.seasonTeamId, row]),
+  );
+  const recentOutcomeMap = buildRecentOutcomeMap(seasonContext.games);
+  const shortTermVolatilityById = Object.fromEntries(
+    (simulation.shortTermRankVolatility ?? []).map((item) => [item.seasonTeamId, item]),
+  );
+  const shakeupTeams =
+    simulation.shortTermRankVolatility && simulation.shortTermRankVolatility.length > 0
+      ? standings.rows
+          .map((row) => {
+            const volatility = shortTermVolatilityById[row.seasonTeamId];
+            if (!volatility) {
+              return null;
+            }
 
-  const shakeupTeams = [...simulation.teamStrengths]
-    .sort(
-      (left, right) =>
-        Math.abs(right.recentFormAdjustment) + Math.abs(right.scheduleDifficulty) -
-        (Math.abs(left.recentFormAdjustment) + Math.abs(left.scheduleDifficulty)),
-    )
-    .slice(0, 3);
-  const todayChangeCards = simulation.teamStrengths
-    .slice()
-    .sort(
-      (left, right) =>
-        Math.abs(right.recentFormAdjustment) +
-          Math.abs(right.scheduleDifficulty) +
-          Math.abs(right.headToHeadLeverage) -
-        (Math.abs(left.recentFormAdjustment) +
-          Math.abs(left.scheduleDifficulty) +
-          Math.abs(left.headToHeadLeverage)),
-    )
-    .slice(0, 4)
-    .map((item) => ({
+            return {
+              seasonTeamId: row.seasonTeamId,
+              currentRank: row.rank,
+              averageRank: volatility.averageRank,
+              avgAbsMove: volatility.avgAbsMove,
+              moveProb: volatility.moveProb,
+              bigMoveProb: volatility.bigMoveProb,
+              riseProb: volatility.riseProb,
+              fallProb: volatility.fallProb,
+            };
+          })
+          .filter((item) => item !== null)
+          .sort(
+            (left, right) =>
+              right.moveProb - left.moveProb ||
+              right.bigMoveProb - left.bigMoveProb ||
+              right.avgAbsMove - left.avgAbsMove,
+          )
+          .slice(0, 3)
+      : [...simulation.teamStrengths]
+          .sort(
+            (left, right) =>
+              Math.abs(right.recentFormAdjustment) + Math.abs(right.scheduleDifficulty) -
+              (Math.abs(left.recentFormAdjustment) + Math.abs(left.scheduleDifficulty)),
+          )
+          .slice(0, 3)
+          .map((item) => ({
+            seasonTeamId: item.seasonTeamId,
+            currentRank: standingsById[item.seasonTeamId]?.rank ?? 0,
+            averageRank: standingsById[item.seasonTeamId]?.rank ?? 0,
+            avgAbsMove: 0,
+            moveProb: 0,
+            bigMoveProb: 0,
+            riseProb: 0,
+            fallProb: 0,
+          }));
+  const buildTodayChangeCard = (
+    item: TeamStrengthSnapshot,
+    trend: "positive" | "negative",
+  ) => {
+    const standingRow = standingsById[item.seasonTeamId];
+    return {
       seasonTeamId: item.seasonTeamId,
-      summary: item.explanationReasons[0]?.sentence ?? "현재 흐름을 설명하는 데이터가 있습니다.",
-    }));
+      trend,
+      recentOutcomes: recentOutcomeMap[item.seasonTeamId] ?? [],
+      recent10Label: standingRow?.recent10 ?? "-",
+      streakLabel: formatDashboardStreak(standingRow?.streak ?? "-"),
+    };
+  };
+  const todayChangeCards = {
+    positive: simulation.teamStrengths
+      .slice()
+      .sort((left, right) => right.recentFormAdjustment - left.recentFormAdjustment)
+      .slice(0, 2)
+      .map((item) => buildTodayChangeCard(item, "positive")),
+    negative: simulation.teamStrengths
+      .slice()
+      .sort((left, right) => left.recentFormAdjustment - right.recentFormAdjustment)
+      .slice(0, 2)
+      .map((item) => buildTodayChangeCard(item, "negative")),
+  };
 
   return {
     ...seasonContext,
@@ -649,7 +990,7 @@ export const getSeasonDashboardData = cache(async (year: number) => {
     simulation,
     baselineInput,
     displayById,
-    importantSeries,
+    closeGames,
     finalGamesYesterday,
     bucketById,
     expectedById,
@@ -933,15 +1274,20 @@ export const getPlayerPageData = cache(async (playerId: string) => {
     })
     .filter((item): item is NonNullable<typeof item> => item !== null)
     .sort((left, right) => right.game.scheduledAt.localeCompare(left.game.scheduledAt));
-  const careerSummary = playerContext.seasonStats.reduce(
+  const careerSummarySource = playerContext.careerStats.length > 0 ? playerContext.careerStats : playerContext.seasonStats;
+  const careerSummary = careerSummarySource.reduce(
     (accumulator, stat) => {
       accumulator.seasons += 1;
-      accumulator.totalWar += stat.war ?? 0;
+      accumulator.totalWar += "war" in stat ? stat.war ?? 0 : 0;
       accumulator.hitterGames += stat.statType === "hitter" ? stat.games : 0;
       accumulator.pitcherGames += stat.statType === "pitcher" ? stat.games : 0;
+      accumulator.hits += stat.hits ?? 0;
       accumulator.homeRuns += stat.homeRuns ?? 0;
+      accumulator.rbi += stat.rbi ?? 0;
       accumulator.strikeouts += stat.strikeouts ?? 0;
       accumulator.wins += stat.wins ?? 0;
+      accumulator.saves += stat.saves ?? 0;
+      accumulator.holds += stat.holds ?? 0;
       return accumulator;
     },
     {
@@ -949,23 +1295,86 @@ export const getPlayerPageData = cache(async (playerId: string) => {
       totalWar: 0,
       hitterGames: 0,
       pitcherGames: 0,
+      hits: 0,
       homeRuns: 0,
+      rbi: 0,
       strikeouts: 0,
       wins: 0,
+      saves: 0,
+      holds: 0,
     },
   );
-  const sortedStatsBySeason: PlayerSeasonPageStat[] = playerContext.seasonStats
-    .map((stat) => ({
-      ...stat,
-      seasonLabel: seasonById[stat.seasonId]?.label ?? stat.seasonId,
-      seasonYear: seasonById[stat.seasonId]?.year ?? 0,
-      teamLabel: brandById[seasonTeamById[stat.seasonTeamId]?.brandId]?.displayNameKo ?? stat.seasonTeamId,
-    }))
+  const seasonStatRows = playerContext.seasonStats
+    .map((stat) => {
+      const seasonTeam = seasonTeamById[stat.seasonTeamId];
+      const brand = brandById[seasonTeam?.brandId];
+      return {
+        ...stat,
+        seasonLabel: seasonById[stat.seasonId]?.label ?? stat.seasonId,
+        seasonYear: seasonById[stat.seasonId]?.year ?? 0,
+        teamLabel: brand?.displayNameKo ?? stat.seasonTeamId,
+        teamCode: brand?.shortCode ?? null,
+      };
+    })
     .sort((left, right) => right.seasonYear - left.seasonYear);
-  const currentSeasonFocus: (PlayerSeasonPageStat & { rankingMetrics: PlayerRankingMetric[] }) | null = sortedStatsBySeason[0]
+  const seasonStatByHistoryKey = new Map(
+    seasonStatRows.map((stat) => [`${stat.statType}:${stat.seasonYear}:${stat.teamCode ?? stat.teamLabel}`, stat] as const),
+  );
+  const historyRowsFromCareer = playerContext.careerStats.map((stat) => {
+    const overlay = seasonStatByHistoryKey.get(`${stat.statType}:${stat.year}:${stat.teamLabel}`);
+    return {
+      statId: stat.playerCareerStatId,
+      statType: stat.statType,
+      seasonLabel: String(stat.year),
+      seasonYear: stat.year,
+      teamLabel: overlay?.teamLabel ?? stat.teamLabel,
+      teamCode: stat.teamLabel,
+      games: overlay?.games ?? stat.games,
+      battingAverage: overlay?.battingAverage ?? stat.battingAverage,
+      hits: overlay?.hits ?? stat.hits,
+      homeRuns: overlay?.homeRuns ?? stat.homeRuns,
+      rbi: overlay?.rbi ?? stat.rbi,
+      ops: overlay?.ops ?? stat.ops,
+      era: overlay?.era ?? stat.era,
+      inningsPitched: overlay?.inningsPitched ?? stat.inningsPitched,
+      strikeouts: overlay?.strikeouts ?? stat.strikeouts,
+      wins: overlay?.wins ?? stat.wins,
+      losses: overlay?.losses ?? stat.losses,
+      saves: overlay?.saves ?? stat.saves,
+      holds: overlay?.holds ?? stat.holds,
+      whip: overlay?.whip ?? stat.whip,
+    } satisfies PlayerSeasonPageStat;
+  });
+  const historyRows =
+    historyRowsFromCareer.length > 0
+      ? historyRowsFromCareer
+      : seasonStatRows.map((stat) => ({
+          statId: stat.statId,
+          statType: stat.statType,
+          seasonLabel: stat.seasonLabel,
+          seasonYear: stat.seasonYear,
+          teamLabel: stat.teamLabel,
+          teamCode: stat.teamCode,
+          games: stat.games,
+          battingAverage: stat.battingAverage,
+          hits: stat.hits,
+          homeRuns: stat.homeRuns,
+          rbi: stat.rbi,
+          ops: stat.ops,
+          era: stat.era,
+          inningsPitched: stat.inningsPitched,
+          strikeouts: stat.strikeouts,
+          wins: stat.wins,
+          losses: stat.losses,
+          saves: stat.saves,
+          holds: stat.holds,
+          whip: stat.whip,
+        } satisfies PlayerSeasonPageStat));
+  const sortedStatsBySeason: PlayerSeasonPageStat[] = historyRows.sort((left, right) => right.seasonYear - left.seasonYear);
+  const currentSeasonFocus: (typeof seasonStatRows[number] & { rankingMetrics: PlayerRankingMetric[] }) | null = seasonStatRows[0]
     ? {
-        ...sortedStatsBySeason[0],
-        rankingMetrics: buildPlayerSeasonRankingContext(sortedStatsBySeason[0], bundle.playerSeasonStats),
+        ...seasonStatRows[0],
+        rankingMetrics: buildPlayerSeasonRankingContext(seasonStatRows[0], bundle.playerSeasonStats),
       }
     : null;
   const monthlySplits = playerContext.splitStats
@@ -984,6 +1393,16 @@ export const getPlayerPageData = cache(async (playerId: string) => {
       teamLabel: brandById[seasonTeamById[split.seasonTeamId]?.brandId]?.displayNameKo ?? split.seasonTeamId,
     }));
   const situationSplitGroups = buildSituationSplitGroups(situationSplits);
+  const awardHistory = buildPlayerAwardHistory({
+    player: playerContext.player,
+    awards: bundle.awards,
+    seasons: bundle.seasons,
+    seasonTeams: bundle.seasonTeams,
+    teamBrands: bundle.teamBrands,
+    franchises: bundle.franchises,
+    seasonStats: playerContext.seasonStats,
+    careerStats: playerContext.careerStats,
+  });
   return {
     ...playerContext,
     statsBySeason: sortedStatsBySeason,
@@ -999,6 +1418,7 @@ export const getPlayerPageData = cache(async (playerId: string) => {
     monthlySplits,
     situationSplits,
     situationSplitGroups,
+    awardHistory,
   };
 });
 

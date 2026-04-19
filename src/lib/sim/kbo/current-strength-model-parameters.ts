@@ -4,19 +4,19 @@ import {
 } from "@/lib/sim/kbo/strength-model-parameters";
 
 export const CURRENT_STRENGTH_MODEL_PARAMETERS_SOURCE = {
-  trainedAt: "2026-04-17T06:09:57.104Z",
+  trainedAt: "2026-04-17T12:58:32.261Z",
   fitYears: [2021, 2022, 2023],
   tuneYears: [2024],
   validationYears: [2025],
-  sourcePath: "trained-results/kbo-training-fit-20260417T060948Z/parameters.json",
+  sourcePath: "trained-results/kbo-training-fit-20260417T125803Z/parameters.json",
 } as const;
 
 export const CURRENT_STRENGTH_MODEL_PARAMETERS: StrengthModelParameterSet = strengthModelParameterSetSchema.parse({
-  currentWeightProgressExponent: 1.5900000000000003,
-  currentWeightProgressMix: 0.55,
+  currentWeightProgressExponent: 1.7100000000000004,
+  currentWeightProgressMix: 0.6000000000000001,
   currentWeightShrinkageMultiplier: 2.2,
   currentWeightOpponentPriorPctWeight: 0.18,
-  currentWeightMin: 0.08,
+  currentWeightMin: 0.092,
   currentWeightMax: 0.84,
   offenseRunsWeight: 9.4,
   offenseRunDiffWeight: 2.6,

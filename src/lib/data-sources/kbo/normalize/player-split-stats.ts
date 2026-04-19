@@ -4,6 +4,7 @@ import {
   type ManualSourcePatchBundle,
   type NormalizedSourceReference,
   type ParsedPlayerRegisterRow,
+  type ParsedPlayerSearchRow,
   type ParsedPlayerSituationHitterRow,
   type ParsedPlayerSituationPitcherRow,
   type ParsedPlayerSplitMonthHitterRow,
@@ -11,6 +12,7 @@ import {
   type SourceId,
 } from "@/lib/data-sources/kbo/dataset-types";
 import {
+  buildOfficialPlayerSearchLookup,
   buildOfficialRegisterLookup,
   resolveOfficialPlayerIdentity,
 } from "@/lib/data-sources/kbo/normalize/player-season-stats";
@@ -23,6 +25,7 @@ type NormalizePlayerSplitStatsArgs = {
   hitterSituations?: ParsedPlayerSituationHitterRow[];
   pitcherSituations?: ParsedPlayerSituationPitcherRow[];
   registerRows: ParsedPlayerRegisterRow[];
+  searchRows?: ParsedPlayerSearchRow[];
   bundle: KboDataBundle;
   patches: ManualSourcePatchBundle;
   sourceRefs: NormalizedSourceReference[];
@@ -54,7 +57,7 @@ function createPlayerSplitId(
 }
 
 function summarizeHitterRow(row: ParsedPlayerSplitMonthHitterRow) {
-  return `${monthLabel(row.monthKey)} ${row.avg.toFixed(3)} · ${row.hits}안타 · ${row.homeRuns}홈런`;
+  return `${monthLabel(row.monthKey)} ${row.avg.toFixed(3)} · ${row.hits}안타 · ${row.homeRuns}홈런 · ${row.rbi}타점`;
 }
 
 function summarizePitcherRow(row: ParsedPlayerSplitMonthPitcherRow) {
@@ -102,7 +105,7 @@ function situationLabel(statType: "hitter" | "pitcher", situationKey: string) {
 }
 
 function summarizeHitterSituation(row: ParsedPlayerSituationHitterRow) {
-  return `${situationLabel("hitter", row.situationKey)} ${row.avg.toFixed(3)} · ${row.hits}안타 · ${row.homeRuns}홈런`;
+  return `${situationLabel("hitter", row.situationKey)} ${row.avg.toFixed(3)} · ${row.hits}안타 · ${row.homeRuns}홈런 · ${row.rbi}타점`;
 }
 
 function summarizePitcherSituation(row: ParsedPlayerSituationPitcherRow) {
@@ -117,11 +120,13 @@ export function normalizePlayerSplitStats({
   hitterSituations = [],
   pitcherSituations = [],
   registerRows,
+  searchRows = [],
   bundle,
   patches,
   sourceRefs,
 }: NormalizePlayerSplitStatsArgs) {
   const registerLookup = buildOfficialRegisterLookup(registerRows, seasonId, bundle, patches);
+  const searchLookup = buildOfficialPlayerSearchLookup(searchRows);
   const rows: PlayerSplitStat[] = [];
 
   for (const row of hitters) {
@@ -130,6 +135,7 @@ export function normalizePlayerSplitStats({
       sourceId,
       payload: row,
       registerLookup,
+      searchLookup,
       bundle,
       patches,
     });
@@ -148,9 +154,14 @@ export function normalizePlayerSplitStats({
       splitLabel: monthLabel(row.monthKey),
       games: row.games,
       plateAppearances: row.atBats + row.walks + row.hitByPitch,
+      battingAverage: row.avg,
       atBats: row.atBats,
+      runs: row.runs,
       hits: row.hits,
       homeRuns: row.homeRuns,
+      rbi: row.rbi,
+      stolenBases: row.stolenBases,
+      walks: row.walks,
       ops: null,
       era: null,
       inningsPitched: null,
@@ -158,6 +169,12 @@ export function normalizePlayerSplitStats({
       saves: null,
       wins: null,
       losses: null,
+      holds: null,
+      hitsAllowed: null,
+      homeRunsAllowed: null,
+      runsAllowed: null,
+      earnedRuns: null,
+      opponentAvg: null,
       summaryLine: summarizeHitterRow(row),
     });
   }
@@ -168,6 +185,7 @@ export function normalizePlayerSplitStats({
       sourceId,
       payload: row,
       registerLookup,
+      searchLookup,
       bundle,
       patches,
     });
@@ -186,9 +204,14 @@ export function normalizePlayerSplitStats({
       splitLabel: monthLabel(row.monthKey),
       games: row.games,
       plateAppearances: row.plateAppearances,
+      battingAverage: null,
       atBats: null,
+      runs: null,
       hits: row.hitsAllowed,
       homeRuns: row.homeRunsAllowed,
+      rbi: null,
+      stolenBases: null,
+      walks: row.walks,
       ops: null,
       era: row.era,
       inningsPitched: row.inningsPitched,
@@ -196,6 +219,12 @@ export function normalizePlayerSplitStats({
       saves: row.saves,
       wins: row.wins,
       losses: row.losses,
+      holds: row.holds,
+      hitsAllowed: row.hitsAllowed,
+      homeRunsAllowed: row.homeRunsAllowed,
+      runsAllowed: row.runsAllowed,
+      earnedRuns: row.earnedRuns,
+      opponentAvg: row.opponentAvg,
       summaryLine: summarizePitcherRow(row),
     });
   }
@@ -206,6 +235,7 @@ export function normalizePlayerSplitStats({
       sourceId,
       payload: row,
       registerLookup,
+      searchLookup,
       bundle,
       patches,
     });
@@ -224,9 +254,14 @@ export function normalizePlayerSplitStats({
       splitLabel: situationLabel("hitter", row.situationKey),
       games: 0,
       plateAppearances: row.atBats + row.walks + row.hitByPitch,
+      battingAverage: row.avg,
       atBats: row.atBats,
+      runs: null,
       hits: row.hits,
       homeRuns: row.homeRuns,
+      rbi: row.rbi,
+      stolenBases: null,
+      walks: row.walks,
       ops: null,
       era: null,
       inningsPitched: null,
@@ -234,6 +269,12 @@ export function normalizePlayerSplitStats({
       saves: null,
       wins: null,
       losses: null,
+      holds: null,
+      hitsAllowed: null,
+      homeRunsAllowed: null,
+      runsAllowed: null,
+      earnedRuns: null,
+      opponentAvg: null,
       summaryLine: summarizeHitterSituation(row),
     });
   }
@@ -244,6 +285,7 @@ export function normalizePlayerSplitStats({
       sourceId,
       payload: row,
       registerLookup,
+      searchLookup,
       bundle,
       patches,
     });
@@ -262,9 +304,14 @@ export function normalizePlayerSplitStats({
       splitLabel: situationLabel("pitcher", row.situationKey),
       games: 0,
       plateAppearances: null,
+      battingAverage: null,
       atBats: null,
+      runs: null,
       hits: row.hitsAllowed,
       homeRuns: row.homeRunsAllowed,
+      rbi: null,
+      stolenBases: null,
+      walks: row.walks,
       ops: null,
       era: null,
       inningsPitched: null,
@@ -272,6 +319,12 @@ export function normalizePlayerSplitStats({
       saves: null,
       wins: null,
       losses: null,
+      holds: null,
+      hitsAllowed: row.hitsAllowed,
+      homeRunsAllowed: row.homeRunsAllowed,
+      runsAllowed: null,
+      earnedRuns: null,
+      opponentAvg: row.opponentAvg,
       summaryLine: summarizePitcherSituation(row),
     });
   }

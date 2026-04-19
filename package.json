@@ -1,6 +1,6 @@
 {
   "name": "kbo-race-lab",
-  "version": "0.1.0",
+  "version": "1.0.25",
   "private": true,
   "packageManager": "pnpm@10.1.0",
   "scripts": {
@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "eslint . --ext .js,.ts,.tsx",
     "typecheck": "tsc --noEmit",
+    "verify:release": "pnpm lint && pnpm typecheck && pnpm build",
     "test": "vitest run",
     "test:watch": "vitest",
     "bootstrap:kbo": "node scripts/bootstrap-kbo-data.mjs",
@@ -23,8 +24,9 @@
     "ingest:kbo:player-stats": "tsx scripts/ingest/refresh-kbo-player-stats.ts",
     "ingest:kbo:player-game-logs": "tsx scripts/ingest/refresh-kbo-player-game-logs.ts",
     "ingest:kbo:player-splits": "tsx scripts/ingest/refresh-kbo-player-splits.ts",
+    "ingest:kbo:player-full": "pnpm ingest:kbo:player-stats && pnpm ingest:kbo:player-game-logs && pnpm ingest:kbo:player-splits",
     "ingest:kbo:roster": "ALLOW_FIXTURE_PUBLISH=true tsx scripts/ingest/fetch-kbo-source.ts roster-movement --fixture && ALLOW_FIXTURE_PUBLISH=true tsx scripts/ingest/normalize-kbo-source.ts roster-movement",
-    "ingest:kbo:history": "tsx scripts/ingest/fetch-kbo-source.ts historical-team-record && tsx scripts/ingest/normalize-kbo-source.ts historical-team-record && tsx scripts/ingest/fetch-kbo-source.ts team-history && tsx scripts/ingest/normalize-kbo-source.ts team-history && tsx scripts/ingest/fetch-kbo-source.ts rules && tsx scripts/ingest/normalize-kbo-source.ts rules",
+    "ingest:kbo:history": "tsx scripts/ingest/fetch-kbo-source.ts historical-team-record && tsx scripts/ingest/normalize-kbo-source.ts historical-team-record && tsx scripts/ingest/fetch-kbo-source.ts team-history && tsx scripts/ingest/normalize-kbo-source.ts team-history && tsx scripts/ingest/fetch-kbo-source.ts rules && tsx scripts/ingest/normalize-kbo-source.ts rules && tsx scripts/ingest/fetch-kbo-source.ts player-awards-mvp-rookie && tsx scripts/ingest/normalize-kbo-source.ts player-awards-mvp-rookie && tsx scripts/ingest/fetch-kbo-source.ts player-awards-golden-glove && tsx scripts/ingest/normalize-kbo-source.ts player-awards-golden-glove && tsx scripts/ingest/fetch-kbo-source.ts player-awards-defense-prize && tsx scripts/ingest/normalize-kbo-source.ts player-awards-defense-prize && tsx scripts/ingest/fetch-kbo-source.ts player-awards-series-prize && tsx scripts/ingest/normalize-kbo-source.ts player-awards-series-prize",
     "ingest:kbo:history-backfill": "tsx scripts/ingest/backfill-kbo-history.ts",
     "ingest:kbo:history-training": "tsx scripts/ingest/build-kbo-history-training.ts",
     "ingest:kbo:training-corpus": "tsx scripts/ingest/build-kbo-training-corpus.ts",

@@ -6,8 +6,8 @@ import { checksumHtml } from "@/lib/data-sources/kbo/fetch/fetch-cache";
 import { fetchOfficialEnPlayerSearchFiltered } from "@/lib/data-sources/kbo/fetch/fetch-english-player-search";
 import { fetchHtml } from "@/lib/data-sources/kbo/fetch/fetch-html";
 import { normalizePlayerGameStats } from "@/lib/data-sources/kbo/normalize/player-game-stats";
-import type { PlayerSeasonStat } from "@/lib/domain/kbo/types";
 import type {
+  NormalizedPlayerGameStats,
   NormalizedSourceReference,
   ParsedPlayerGameLogHitterRow,
   ParsedPlayerGameLogPitcherRow,
@@ -27,10 +27,16 @@ const POSITION_CODES = [
   { key: "infielder", value: "3,4,5,6" },
   { key: "outfielder", value: "7,8,9" },
 ] as const;
-const FULL_MODE_HITTER_GAME_LOG_LIMIT = 60;
-const FULL_MODE_PITCHER_GAME_LOG_LIMIT = 40;
 const REGISTER_ALL_URL = "https://www.koreabaseball.com/Player/RegisterAll.aspx";
 const GAME_LOGS_PARSER_VERSION = "2026-04-15-en-player-game-logs-v1";
+
+function parsePositiveInt(value: string | undefined) {
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed) || parsed <= 0) {
+    return null;
+  }
+  return Math.floor(parsed);
+}
 
 function normalizeName(value: string | null | undefined) {
   return (value ?? "").toLowerCase().replace(/\s+/g, " ").trim();
@@ -93,11 +99,41 @@ async function fetchInBatches<TEntry extends { pcode: string; playerUrl: string 
   return rows;
 }
 
-function pickTopStats(stats: PlayerSeasonStat[], statType: "hitter" | "pitcher", limit: number) {
-  return stats
-    .filter((item) => item.statType === statType)
-    .sort((left, right) => right.games - left.games)
-    .slice(0, limit);
+async function loadLatestSeasonPlayerGameStats(
+  normalizedRepository: FileNormalizedKboRepository,
+  seasonYear: number,
+) {
+  const keys = await normalizedRepository.listDatasetKeys("player-game-stats");
+  const latestKey = keys
+    .filter((item) => item.startsWith(`${seasonYear}-`))
+    .sort()
+    .at(-1);
+  if (!latestKey) {
+    return null;
+  }
+  return normalizedRepository.getDatasetOutput("player-game-stats", latestKey);
+}
+
+function mergeNormalizedGameStats(existing: NormalizedPlayerGameStats | null, incoming: NormalizedPlayerGameStats) {
+  if (!existing) {
+    return incoming;
+  }
+
+  const targetedPlayerIds = new Set(incoming.rows.map((row) => row.playerId));
+  const mergedSources = Array.from(
+    new Map(
+      [...existing.sources, ...incoming.sources].map((source) => [
+        `${source.sourceId}:${source.datasetId}:${source.snapshotKey}:${source.parserVersion}`,
+        source,
+      ]),
+    ).values(),
+  );
+
+  return {
+    ...incoming,
+    sources: mergedSources,
+    rows: [...existing.rows.filter((row) => !targetedPlayerIds.has(row.playerId)), ...incoming.rows],
+  };
 }
 
 async function main() {
@@ -112,6 +148,14 @@ async function main() {
   ]);
   const snapshotKey = getKboDateKey();
   const sourceRefs: NormalizedSourceReference[] = [];
+  const limit = parsePositiveInt(process.env.KBO_PLAYER_GAME_LOGS_LIMIT);
+  const statTypeFilter =
+    process.env.KBO_PLAYER_GAME_LOGS_STAT_TYPE === "hitter" || process.env.KBO_PLAYER_GAME_LOGS_STAT_TYPE === "pitcher"
+      ? process.env.KBO_PLAYER_GAME_LOGS_STAT_TYPE
+      : "all";
+  console.log(
+    `[player-game-logs] ${season.year} 시즌 공식 경기 로그 수집을 시작합니다. statType=${statTypeFilter}, limit=${limit ?? "all"}`,
+  );
 
   const searchRows: ParsedPlayerSearchRow[] = [];
   for (const teamCode of TEAM_CODES) {
@@ -141,41 +185,16 @@ async function main() {
   }
 
   const uniqueSearchRows = Array.from(new Map(searchRows.map((row) => [row.pcode, row] as const)).values());
-  const playersById = Object.fromEntries(bundle.players.map((player) => [player.playerId, player]));
-  const seasonTeamById = Object.fromEntries(bundle.seasonTeams.map((team) => [team.seasonTeamId, team]));
-  const brandById = Object.fromEntries(bundle.teamBrands.map((brand) => [brand.brandId, brand]));
-  const currentSeasonStats = bundle.playerSeasonStats.filter((item) => item.seasonId === season.seasonId);
+  const uniqueEntries = uniqueSearchRows
+    .filter((row) => (statTypeFilter === "all" ? true : row.statType === statTypeFilter))
+    .filter((row): row is ParsedPlayerSearchRow => row.playerUrl !== null);
+  const scopedEntries = limit ? uniqueEntries.slice(0, limit) : uniqueEntries;
+  console.log(`[player-game-logs] 경기 로그 대상 선수 ${uniqueEntries.length}명`);
 
-  const desiredStats = [
-    ...pickTopStats(currentSeasonStats, "hitter", FULL_MODE_HITTER_GAME_LOG_LIMIT),
-    ...pickTopStats(currentSeasonStats, "pitcher", FULL_MODE_PITCHER_GAME_LOG_LIMIT),
-  ];
-
-  const matchedEntries = desiredStats
-    .map((stat) => {
-      const player = playersById[stat.playerId];
-      const seasonTeam = seasonTeamById[stat.seasonTeamId];
-      const teamCode = brandById[seasonTeam?.brandId ?? ""]?.shortCode?.toLowerCase() ?? "";
-      if (!player || !teamCode) {
-        return null;
-      }
-      return (
-        uniqueSearchRows.find(
-          (row) =>
-            row.statType === stat.statType &&
-            row.teamName.toLowerCase() === teamCode &&
-            normalizeName(row.playerName) === normalizeName(player.nameEn),
-        ) ?? null
-      );
-    })
-    .filter((row): row is ParsedPlayerSearchRow => row !== null && row.playerUrl !== null);
-
-  const uniqueEntries = Array.from(new Map(matchedEntries.map((row) => [row.pcode, row] as const)).values());
-
-  const hitterEntries = uniqueEntries
+  const hitterEntries = scopedEntries
     .filter((row) => row.statType === "hitter")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildGameLogsUrl(row.playerUrl!) }));
-  const pitcherEntries = uniqueEntries
+  const pitcherEntries = scopedEntries
     .filter((row) => row.statType === "pitcher")
     .map((row) => ({ pcode: row.pcode, playerUrl: buildGameLogsUrl(row.playerUrl!) }));
 
@@ -224,15 +243,25 @@ async function main() {
     hitters: hitterRows,
     pitchers: pitcherRows,
     registerRows: parseOfficialKoRegisterAll(registerResult.html),
+    searchRows: uniqueSearchRows,
     bundle,
     patches,
     sourceRefs,
   });
 
-  await normalizedRepository.saveDatasetOutput("player-game-stats", `${season.year}-${snapshotKey}`, normalized);
+  const shouldMergeWithExisting = limit !== null || statTypeFilter !== "all";
+  const mergedNormalized =
+    shouldMergeWithExisting
+      ? mergeNormalizedGameStats(
+          await loadLatestSeasonPlayerGameStats(normalizedRepository, season.year),
+          normalized,
+        )
+      : normalized;
+
+  await normalizedRepository.saveDatasetOutput("player-game-stats", `${season.year}-${snapshotKey}`, mergedNormalized);
   const publishedBundle = await buildPublishedKboBundleFromNormalized();
   await writePublishedKboBundle(publishedBundle);
-  console.log(`Published ${normalized.rows.length} official player game log rows into the current KBO bundle.`);
+  console.log(`[player-game-logs] Published ${mergedNormalized.rows.length} official player game log rows into the current KBO bundle.`);
 }
 
 main().catch((error) => {

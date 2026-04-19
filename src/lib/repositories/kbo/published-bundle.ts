@@ -5,6 +5,7 @@ import { kboDataBundleSchema } from "@/lib/domain/kbo/schemas";
 import type { KboDataBundle } from "@/lib/domain/kbo/types";
 import {
   kboSourceFeatureFlags,
+  type NormalizedAwards,
   type NormalizedFranchiseLineage,
   type NormalizedPlayerGameStats,
   type NormalizedPlayerSplitStats,
@@ -34,6 +35,7 @@ export const PUBLISHED_BUNDLE_PATH = path.join(
 
 export type PublishedBundleBuildOptions = {
   allowFixturePublish?: boolean;
+  includePlayerDetailDatasets?: boolean;
 };
 
 type CurrentSeasonCoreDataset =
@@ -73,7 +75,7 @@ async function loadLatestCurrentSeasonDataset<T>(
 
 async function loadLatestDataset<T>(
   repository: FileNormalizedKboRepository,
-  datasetName: "franchise-lineage" | "rulesets",
+  datasetName: "franchise-lineage" | "rulesets" | "awards",
 ): Promise<T | null> {
   const keys = await repository.listDatasetKeys(datasetName);
   const latestKey = keys.sort().at(-1);
@@ -133,6 +135,7 @@ async function coerceOptionalDatasetToLiveOnly<T extends CurrentSeasonCoreDatase
 function pruneSampleDependentBundleSections(
   bundle: KboDataBundle,
   options: {
+    preserveAwards: boolean;
     preserveRosterEvents: boolean;
     preservePlayerSeasonStats: boolean;
     preservePlayerGameStats: boolean;
@@ -150,7 +153,7 @@ function pruneSampleDependentBundleSections(
     playerGameStats: options.preservePlayerGameStats ? bundle.playerGameStats : [],
     playerSplitStats: options.preservePlayerSplitStats ? bundle.playerSplitStats : [],
     teamSplitStats: bundle.teamSplitStats.filter((item) => item.splitType === "home" || item.splitType === "away"),
-    awards: [],
+    awards: options.preserveAwards ? bundle.awards : [],
     seasonSummaries: [],
     postseasonResults: [],
   };
@@ -161,19 +164,25 @@ export async function buildPublishedKboBundleFromNormalized(
 ): Promise<KboDataBundle> {
   const fixtureSourceBundle = await loadFixtureSourceKboBundle();
   const normalizedRepository = new FileNormalizedKboRepository();
+  const includePlayerDetailDatasets = options.includePlayerDetailDatasets ?? false;
   const currentSeason =
     [...fixtureSourceBundle.seasons].sort((left, right) => right.year - left.year).find((season) => season.status === "ongoing") ??
     [...fixtureSourceBundle.seasons].sort((left, right) => right.year - left.year)[0];
 
-  const [franchiseLineage, standings, seriesGames, scoreboard, players, playerSeasonStats, playerGameStats, playerSplitStats, rosterEvents, rulesets, teamHitterStats, teamPitcherStats] = await Promise.all([
+  const [franchiseLineage, standings, seriesGames, scoreboard, players, awards, playerSeasonStats, playerGameStats, playerSplitStats, rosterEvents, rulesets, teamHitterStats, teamPitcherStats] = await Promise.all([
     loadLatestDataset<NormalizedFranchiseLineage>(normalizedRepository, "franchise-lineage"),
     loadLatestCurrentSeasonDataset<NormalizedStandings>(normalizedRepository, "standings", currentSeason.year),
     loadLatestCurrentSeasonDataset<NormalizedSeriesGames>(normalizedRepository, "series-games", currentSeason.year),
     loadLatestCurrentSeasonDataset<NormalizedScoreboard>(normalizedRepository, "scoreboard", currentSeason.year),
     loadLatestCurrentSeasonDataset<NormalizedPlayers>(normalizedRepository, "players", currentSeason.year),
+    loadLatestDataset<NormalizedAwards>(normalizedRepository, "awards"),
     loadLatestCurrentSeasonDataset<NormalizedPlayerSeasonStats>(normalizedRepository, "player-season-stats", currentSeason.year),
-    loadLatestCurrentSeasonDataset<NormalizedPlayerGameStats>(normalizedRepository, "player-game-stats", currentSeason.year),
-    loadLatestCurrentSeasonDataset<NormalizedPlayerSplitStats>(normalizedRepository, "player-split-stats", currentSeason.year),
+    includePlayerDetailDatasets
+      ? loadLatestCurrentSeasonDataset<NormalizedPlayerGameStats>(normalizedRepository, "player-game-stats", currentSeason.year)
+      : Promise.resolve(null),
+    includePlayerDetailDatasets
+      ? loadLatestCurrentSeasonDataset<NormalizedPlayerSplitStats>(normalizedRepository, "player-split-stats", currentSeason.year)
+      : Promise.resolve(null),
     loadLatestCurrentSeasonDataset<NormalizedRosterEvents>(normalizedRepository, "roster-events", currentSeason.year),
     loadLatestDataset<NormalizedRulesets>(normalizedRepository, "rulesets"),
     loadLatestCurrentSeasonDataset<NormalizedTeamHitterStats>(normalizedRepository, "team-hitter-stats", currentSeason.year),
@@ -188,12 +197,17 @@ export async function buildPublishedKboBundleFromNormalized(
     await assertDatasetUsesLiveSnapshots("scoreboard", scoreboard);
   }
 
-  const [livePlayers, livePlayerSeasonStats, livePlayerGameStats, livePlayerSplitStats] = await Promise.all([
+  const [livePlayers, liveAwards, livePlayerSeasonStats] = await Promise.all([
     coerceOptionalDatasetToLiveOnly(players),
+    coerceOptionalDatasetToLiveOnly(awards),
     coerceOptionalDatasetToLiveOnly(playerSeasonStats),
-    coerceOptionalDatasetToLiveOnly(playerGameStats),
-    coerceOptionalDatasetToLiveOnly(playerSplitStats),
   ]);
+  const [livePlayerGameStats, livePlayerSplitStats] = includePlayerDetailDatasets
+    ? await Promise.all([
+        coerceOptionalDatasetToLiveOnly(playerGameStats),
+        coerceOptionalDatasetToLiveOnly(playerSplitStats),
+      ])
+    : [null, null];
   const liveRosterEvents =
     kboSourceFeatureFlags.officialKboOnly
       ? null
@@ -204,6 +218,7 @@ export async function buildPublishedKboBundleFromNormalized(
       applyNormalizedIngestOverlay(fixtureSourceBundle, {
         franchiseLineage,
         players: livePlayers,
+        awards: liveAwards,
         playerSeasonStats: livePlayerSeasonStats,
         playerGameStats: livePlayerGameStats,
         playerSplitStats: livePlayerSplitStats,
@@ -216,6 +231,7 @@ export async function buildPublishedKboBundleFromNormalized(
         teamPitcherStats: await coerceOptionalDatasetToLiveOnly(teamPitcherStats),
       }),
       {
+        preserveAwards: liveAwards !== null,
         preserveRosterEvents: liveRosterEvents !== null,
         preservePlayerSeasonStats: livePlayerSeasonStats !== null,
         preservePlayerGameStats: livePlayerGameStats !== null,

@@ -2,6 +2,8 @@ import { revalidatePath } from "next/cache";
 
 import {
   buildGameRoute,
+  buildSeasonRecordsRoute,
+  buildSeasonTeamConditionRoute,
   buildSeasonTeamRoute,
   buildTeamArchiveRoute,
   normalizeTeamSlug,
@@ -38,12 +40,16 @@ export function collectKboPublicRevalidationPaths({
     paths.add(`/season/${year}`);
     paths.add(`/season/${year}/race`);
     paths.add(`/season/${year}/scenario`);
-    paths.add(`/season/${year}/records`);
+    paths.add(buildSeasonRecordsRoute(year));
+    paths.add(buildSeasonRecordsRoute(year, "teams"));
+    paths.add(buildSeasonRecordsRoute(year, "pitchers"));
+    paths.add(buildSeasonRecordsRoute(year, "hitters"));
     paths.add(`/season/${year}/postseason`);
     paths.add(`/archive/${year}`);
 
     for (const teamSlug of normalizedTeamSlugs) {
       paths.add(buildSeasonTeamRoute(year, teamSlug));
+      paths.add(buildSeasonTeamConditionRoute(year, teamSlug));
     }
   }
 

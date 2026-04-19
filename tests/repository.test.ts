@@ -18,13 +18,33 @@ describe("FileKboRepository", () => {
 
   it("overlays normalized ingest outputs onto the current season bundle", async () => {
     const repository = new FileKboRepository();
+    const bundle = await repository.getBundle();
     const seasonContext = await repository.getSeasonContext(2026);
 
+    expect(bundle.playerGameStats).toEqual([]);
+    expect(bundle.playerSplitStats).toEqual([]);
     expect(seasonContext?.games).toHaveLength(672);
     expect(seasonContext?.series).toHaveLength(224);
     expect(seasonContext?.games[0]?.gameId).toBe("game:official-kbo-ko:20260328KTLG0");
     expect(seasonContext?.teamSeasonStats.find((item) => item.seasonTeamId === "kbo-2026:lg")?.wins).toBeGreaterThan(0);
     expect(seasonContext?.players.some((item) => item.nameKo === "임찬규")).toBe(true);
+    expect(seasonContext?.playerGameStats.length).toBeGreaterThan(0);
+    expect(seasonContext?.playerSplitStats.length).toBeGreaterThan(0);
+  });
+
+  it("loads player detail datasets on demand from normalized storage", async () => {
+    const repository = new FileKboRepository();
+    const seasonContext = await repository.getSeasonContext(2026);
+    const playerId = seasonContext?.playerGameStats.find((gameStat) =>
+      seasonContext.playerSplitStats.some((splitStat) => splitStat.playerId === gameStat.playerId),
+    )?.playerId;
+    expect(playerId).toBeTruthy();
+
+    const playerContext = await repository.getPlayerContext(playerId!);
+
+    expect(playerContext?.seasonStats.length).toBeGreaterThan(0);
+    expect(playerContext?.gameStats.length).toBeGreaterThan(0);
+    expect(playerContext?.splitStats.length).toBeGreaterThan(0);
   });
 
   it("applies in-memory game schedule patches on top of the bundle", async () => {

@@ -4,6 +4,7 @@ import {
   buildGameRoute,
   buildPlayerRoute,
   buildScenarioRoute,
+  buildSeasonTeamConditionRoute,
   buildSeasonTeamRoute,
   buildTeamArchiveRoute,
   decodeRouteEntityParam,
@@ -21,6 +22,9 @@ describe("route utils", () => {
     );
     expect(buildSeasonTeamRoute(2026, "ssg-랜더스")).toBe(
       "/season/2026/teams/ssg-landers",
+    );
+    expect(buildSeasonTeamConditionRoute(2026, "ssg-랜더스")).toBe(
+      "/season/2026/teams/ssg-landers/condition",
     );
     expect(buildTeamArchiveRoute("키움-히어로즈")).toBe(
       "/teams/kiwoom-heroes",

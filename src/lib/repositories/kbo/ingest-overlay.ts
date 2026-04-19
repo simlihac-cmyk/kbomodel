@@ -1,4 +1,5 @@
 import type {
+  Award,
   KboDataBundle,
   KboSeasonRuleset,
   PlayerGameStat,
@@ -7,6 +8,7 @@ import type {
   TeamSplitStat,
 } from "@/lib/domain/kbo/types";
 import type {
+  NormalizedAwards,
   NormalizedFranchiseLineage,
   NormalizedPlayerGameStats,
   NormalizedPlayerSplitStats,
@@ -24,6 +26,7 @@ import type {
 type IngestOverlayInputs = {
   franchiseLineage: NormalizedFranchiseLineage | null;
   players: NormalizedPlayers | null;
+  awards: NormalizedAwards | null;
   playerSeasonStats: NormalizedPlayerSeasonStats | null;
   playerGameStats: NormalizedPlayerGameStats | null;
   playerSplitStats: NormalizedPlayerSplitStats | null;
@@ -91,6 +94,52 @@ function parseRecord(record: string) {
   };
 }
 
+function buildRecentOutcomeMap(bundle: KboDataBundle, seasonId: string) {
+  const outcomesBySeasonTeamId = new Map<string, string[]>();
+  const finalGames = bundle.games
+    .filter(
+      (game) =>
+        game.seasonId === seasonId &&
+        game.status === "final" &&
+        game.homeScore !== null &&
+        game.awayScore !== null,
+    )
+    .sort((left, right) => left.scheduledAt.localeCompare(right.scheduledAt));
+
+  for (const game of finalGames) {
+    const homeOutcomes = outcomesBySeasonTeamId.get(game.homeSeasonTeamId) ?? [];
+    const awayOutcomes = outcomesBySeasonTeamId.get(game.awaySeasonTeamId) ?? [];
+
+    if (game.isTie || game.homeScore === game.awayScore) {
+      homeOutcomes.push("T");
+      awayOutcomes.push("T");
+    } else if ((game.homeScore ?? 0) > (game.awayScore ?? 0)) {
+      homeOutcomes.push("W");
+      awayOutcomes.push("L");
+    } else {
+      homeOutcomes.push("L");
+      awayOutcomes.push("W");
+    }
+
+    outcomesBySeasonTeamId.set(game.homeSeasonTeamId, homeOutcomes);
+    outcomesBySeasonTeamId.set(game.awaySeasonTeamId, awayOutcomes);
+  }
+
+  return outcomesBySeasonTeamId;
+}
+
+function formatRecent10(outcomes: string[]) {
+  const sample = outcomes.slice(-10);
+  const wins = sample.filter((outcome) => outcome === "W").length;
+  const losses = sample.filter((outcome) => outcome === "L").length;
+  const ties = sample.filter((outcome) => outcome === "T").length;
+  return `${wins}-${losses}${ties > 0 ? `-${ties}` : ""}`;
+}
+
+function looksMissingRecent10(record: string) {
+  return record === "-" || record === "0-0" || record === "0-0-0";
+}
+
 function buildTeamSeasonStatsFromStandings(
   bundle: KboDataBundle,
   standings: NormalizedStandings,
@@ -99,6 +148,7 @@ function buildTeamSeasonStatsFromStandings(
     bundle.teamSeasonStats.map((item) => [item.seasonTeamId, item] as const),
   );
   const runsBySeasonTeamId = new Map<string, { scored: number; allowed: number }>();
+  const recentOutcomesBySeasonTeamId = buildRecentOutcomeMap(bundle, standings.seasonId);
 
   for (const game of bundle.games) {
     if (game.seasonId !== standings.seasonId || game.status !== "final") {
@@ -125,6 +175,8 @@ function buildTeamSeasonStatsFromStandings(
     const homeRecord = parseRecord(row.homeRecord);
     const awayRecord = parseRecord(row.awayRecord);
     const runs = runsBySeasonTeamId.get(row.seasonTeamId);
+    const recentOutcomes = recentOutcomesBySeasonTeamId.get(row.seasonTeamId) ?? [];
+    const derivedLast10 = formatRecent10(recentOutcomes);
 
     return {
       seasonId: standings.seasonId,
@@ -138,7 +190,7 @@ function buildTeamSeasonStatsFromStandings(
       homeLosses: homeRecord.losses,
       awayWins: awayRecord.wins,
       awayLosses: awayRecord.losses,
-      last10: row.last10,
+      last10: looksMissingRecent10(row.last10) && recentOutcomes.length > 0 ? derivedLast10 : row.last10,
       streak: row.streak,
       offensePlus: previous?.offensePlus ?? 100,
       pitchingPlus: previous?.pitchingPlus ?? 100,
@@ -216,6 +268,12 @@ function mergeRulesets(bundle: KboDataBundle, normalizedRulesets: NormalizedRule
   }
 
   return merged;
+}
+
+function mergeAwards(bundle: KboDataBundle, normalizedAwards: NormalizedAwards): Award[] {
+  return [...normalizedAwards.awards].sort(
+    (left, right) => right.seasonId.localeCompare(left.seasonId) || left.label.localeCompare(right.label, "ko"),
+  );
 }
 
 function mergePlayers(bundle: KboDataBundle, normalizedPlayers: NormalizedPlayers) {
@@ -364,6 +422,13 @@ export function applyNormalizedIngestOverlay(
     nextBundle = {
       ...nextBundle,
       players: mergePlayers(nextBundle, inputs.players),
+    };
+  }
+
+  if (inputs.awards) {
+    nextBundle = {
+      ...nextBundle,
+      awards: mergeAwards(nextBundle, inputs.awards),
     };
   }
 

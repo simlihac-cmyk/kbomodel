@@ -36,12 +36,19 @@ export function buildStrengthReasons(snapshot: TeamStrengthSnapshot): Explanatio
     {
       key: "schedule-difficulty",
       label: "잔여 일정 난이도",
-      direction: snapshot.scheduleDifficulty < 0 ? "positive" : "negative",
-      magnitude: Number(Math.abs(snapshot.scheduleDifficulty).toFixed(2)),
+      direction:
+        snapshot.scheduleDifficulty < 99.8
+          ? "positive"
+          : snapshot.scheduleDifficulty > 100.2
+            ? "negative"
+            : "neutral",
+      magnitude: Number(Math.abs(snapshot.scheduleDifficulty - 100).toFixed(2)),
       sentence:
-        snapshot.scheduleDifficulty <= 0
-          ? "남은 일정 난이도가 리그 평균보다 약간 편한 편입니다."
-          : "남은 일정 난이도가 리그 평균보다 다소 빡빡합니다.",
+        snapshot.scheduleDifficulty < 99.8
+          ? "남은 상대 전력 평균이 비교적 낮아 일정이 조금 수월한 편입니다."
+          : snapshot.scheduleDifficulty > 100.2
+            ? "남은 상대 전력 평균이 비교적 높아 일정이 다소 빡빡합니다."
+            : "남은 상대 전력 평균이 리그 중간권에 가까워 일정 난이도는 대체로 보통입니다.",
     },
   ];
 }

@@ -51,8 +51,13 @@ function createPlayerRecord(
     slug: existing?.slug ?? slugifyFragment(row.playerName),
     nameKo: row.playerName,
     nameEn: existing?.nameEn ?? row.playerName,
+    officialPlayerCode: existing?.officialPlayerCode ?? null,
     birthDate: existing?.birthDate ?? null,
     batsThrows: existing?.batsThrows ?? null,
+    heightWeight: existing?.heightWeight ?? null,
+    careerHistory: existing?.careerHistory ?? null,
+    draftInfo: existing?.draftInfo ?? null,
+    joinInfo: existing?.joinInfo ?? null,
     primaryPositions: existing?.primaryPositions?.length ? existing.primaryPositions : PLAYER_POSITION_MAP[row.position ?? ""] ?? ["UTIL"],
     debutYear: existing?.debutYear ?? Number.parseInt(seasonId.replace(/\D/g, "").slice(0, 4), 10),
     franchiseIds: Array.from(new Set([...(existing?.franchiseIds ?? []), franchiseId])),
@@ -90,11 +95,22 @@ export function normalizePlayerDirectory({
   const dedupedPlayers = Array.from(
     new Map(players.map((player) => [player.playerId, player] as const)).values(),
   );
+  const mergedPlayers = Array.from(
+    new Map(
+      [...bundle.players, ...dedupedPlayers].map((player) => [
+        player.playerId,
+        {
+          ...player,
+          officialPlayerCode: player.officialPlayerCode ?? null,
+        },
+      ] as const),
+    ).values(),
+  ).sort((left, right) => left.nameKo.localeCompare(right.nameKo, "ko"));
 
   return normalizedPlayersSchema.parse({
     generatedAt: new Date().toISOString(),
     seasonId,
     sources: [sourceRef],
-    players: dedupedPlayers,
+    players: mergedPlayers,
   });
 }

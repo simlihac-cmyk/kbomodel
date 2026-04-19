@@ -2,6 +2,7 @@ export type YearRouteParams = Promise<{ year: string }>;
 export type TeamRouteParams = Promise<{ teamSlug: string }>;
 export type GameRouteParams = Promise<{ gameId: string }>;
 export type PlayerRouteParams = Promise<{ playerId: string }>;
+export type SeasonRecordsCategory = "teams" | "pitchers" | "hitters";
 
 const TEAM_SLUG_ALIASES: Record<string, string> = {
   "ssg-랜더스": "ssg-landers",
@@ -14,6 +15,17 @@ export function normalizeTeamSlug(teamSlug: string): string {
 
 export function buildSeasonTeamRoute(year: number, teamSlug: string): string {
   return `/season/${year}/teams/${encodeURIComponent(normalizeTeamSlug(teamSlug))}`;
+}
+
+export function buildSeasonTeamConditionRoute(year: number, teamSlug: string): string {
+  return `${buildSeasonTeamRoute(year, teamSlug)}/condition`;
+}
+
+export function buildSeasonRecordsRoute(
+  year: number,
+  category?: SeasonRecordsCategory,
+): string {
+  return category ? `/season/${year}/records/${category}` : `/season/${year}/records`;
 }
 
 export function buildScenarioRoute(

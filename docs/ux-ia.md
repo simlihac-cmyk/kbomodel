@@ -14,7 +14,13 @@
 - `/season/[year]/postseason`
   - projected bracket / round odds
 - `/season/[year]/records`
-  - 기록실
+  - 기록실 허브
+- `/season/[year]/records/teams`
+  - 팀기록
+- `/season/[year]/records/pitchers`
+  - 투수기록
+- `/season/[year]/records/hitters`
+  - 타자기록
 - `/archive`
   - 시즌 아카이브 허브
 - `/archive/[year]`

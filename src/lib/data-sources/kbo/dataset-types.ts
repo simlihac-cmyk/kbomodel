@@ -1,10 +1,12 @@
 import { z } from "zod";
 
 import {
+  awardSchema,
   franchiseSchema,
   gameBoxScoreSchema,
   gameSchema,
   playerSchema,
+  playerCareerStatSchema,
   playerGameStatSchema,
   playerSplitStatSchema,
   playerSeasonStatSchema,
@@ -42,6 +44,12 @@ export const datasetIdSchema = z.enum([
   "player-situations-inning-pitcher",
   "player-situations-batting-order-hitter",
   "player-situations-batting-order-pitcher",
+  "player-awards-mvp-rookie",
+  "player-awards-golden-glove",
+  "player-awards-defense-prize",
+  "player-awards-series-prize",
+  "player-profile-hitter",
+  "player-profile-pitcher",
   "player-register",
   "player-register-all",
   "roster-movement",
@@ -64,7 +72,9 @@ export const normalizedDatasetFileNameSchema = z.enum([
   "scoreboard",
   "standings",
   "players",
+  "awards",
   "player-season-stats",
+  "player-career-stats",
   "player-game-stats",
   "player-split-stats",
   "roster-events",
@@ -173,6 +183,31 @@ export const parsedPlayerRegisterRowSchema = z.object({
   statusLabel: z.string().nullable(),
 });
 export type ParsedPlayerRegisterRow = z.infer<typeof parsedPlayerRegisterRowSchema>;
+
+export const parsedPlayerAwardRowSchema = z.object({
+  year: z.number().int().positive(),
+  awardLabel: z.string(),
+  playerName: z.string(),
+  teamName: z.string(),
+  position: z.string(),
+});
+export type ParsedPlayerAwardRow = z.infer<typeof parsedPlayerAwardRowSchema>;
+
+export const parsedPlayerProfileRowSchema = z.object({
+  pcode: z.string(),
+  statType: z.enum(["hitter", "pitcher"]),
+  teamName: z.string().nullable(),
+  playerName: z.string(),
+  backNumber: z.string().nullable(),
+  birthDate: z.string().nullable(),
+  positionLabel: z.string().nullable(),
+  batsThrows: z.string().nullable(),
+  heightWeight: z.string().nullable(),
+  career: z.string().nullable(),
+  draftInfo: z.string().nullable(),
+  joinInfo: z.string().nullable(),
+});
+export type ParsedPlayerProfileRow = z.infer<typeof parsedPlayerProfileRowSchema>;
 
 export const parsedRosterMovementRowSchema = z.object({
   movementId: z.string(),
@@ -324,10 +359,34 @@ export const parsedPlayerSummaryHitterRowSchema = z.object({
   debutYear: z.number().int(),
   games: z.number().int().nonnegative(),
   plateAppearances: z.number().int().nonnegative(),
+  battingAverage: z.number().nonnegative(),
   atBats: z.number().int().nonnegative(),
+  runs: z.number().int().nonnegative(),
   hits: z.number().int().nonnegative(),
   homeRuns: z.number().int().nonnegative(),
+  rbi: z.number().int().nonnegative(),
+  stolenBases: z.number().int().nonnegative(),
+  walks: z.number().int().nonnegative(),
+  strikeouts: z.number().int().nonnegative(),
+  sluggingPct: z.number().nonnegative(),
+  onBasePct: z.number().nonnegative(),
   ops: z.number().nonnegative(),
+  careerStats: z.array(
+    z.object({
+      year: z.number().int().positive(),
+      teamName: z.string(),
+      games: z.number().int().nonnegative(),
+      battingAverage: z.number().nonnegative(),
+      atBats: z.number().int().nonnegative(),
+      runs: z.number().int().nonnegative(),
+      hits: z.number().int().nonnegative(),
+      homeRuns: z.number().int().nonnegative(),
+      rbi: z.number().int().nonnegative(),
+      stolenBases: z.number().int().nonnegative(),
+      walks: z.number().int().nonnegative(),
+      strikeouts: z.number().int().nonnegative(),
+    }),
+  ).optional().default([]),
 });
 export type ParsedPlayerSummaryHitterRow = z.infer<typeof parsedPlayerSummaryHitterRowSchema>;
 
@@ -346,6 +405,33 @@ export const parsedPlayerSummaryPitcherRowSchema = z.object({
   saves: z.number().int().nonnegative(),
   wins: z.number().int().nonnegative(),
   losses: z.number().int().nonnegative(),
+  holds: z.number().int().nonnegative(),
+  walks: z.number().int().nonnegative(),
+  hitsAllowed: z.number().int().nonnegative(),
+  homeRunsAllowed: z.number().int().nonnegative(),
+  runsAllowed: z.number().int().nonnegative(),
+  earnedRuns: z.number().int().nonnegative(),
+  whip: z.number().nonnegative(),
+  opponentAvg: z.number().nonnegative(),
+  careerStats: z.array(
+    z.object({
+      year: z.number().int().positive(),
+      teamName: z.string(),
+      games: z.number().int().nonnegative(),
+      era: z.number().nonnegative(),
+      inningsPitched: z.number().nonnegative(),
+      strikeouts: z.number().int().nonnegative(),
+      saves: z.number().int().nonnegative(),
+      wins: z.number().int().nonnegative(),
+      losses: z.number().int().nonnegative(),
+      holds: z.number().int().nonnegative(),
+      walks: z.number().int().nonnegative(),
+      hitsAllowed: z.number().int().nonnegative(),
+      homeRunsAllowed: z.number().int().nonnegative(),
+      runsAllowed: z.number().int().nonnegative(),
+      earnedRuns: z.number().int().nonnegative(),
+    }),
+  ).optional().default([]),
 });
 export type ParsedPlayerSummaryPitcherRow = z.infer<typeof parsedPlayerSummaryPitcherRowSchema>;
 
@@ -591,6 +677,13 @@ export const normalizedPlayersSchema = z.object({
 });
 export type NormalizedPlayers = z.infer<typeof normalizedPlayersSchema>;
 
+export const normalizedAwardsSchema = z.object({
+  generatedAt: z.string(),
+  sources: z.array(normalizedSourceReferenceSchema),
+  awards: z.array(awardSchema),
+});
+export type NormalizedAwards = z.infer<typeof normalizedAwardsSchema>;
+
 export const normalizedPlayerSeasonStatsSchema = z.object({
   generatedAt: z.string(),
   seasonId: z.string(),
@@ -599,6 +692,14 @@ export const normalizedPlayerSeasonStatsSchema = z.object({
   stats: z.array(playerSeasonStatSchema),
 });
 export type NormalizedPlayerSeasonStats = z.infer<typeof normalizedPlayerSeasonStatsSchema>;
+
+export const normalizedPlayerCareerStatsSchema = z.object({
+  generatedAt: z.string(),
+  seasonId: z.string(),
+  sources: z.array(normalizedSourceReferenceSchema),
+  rows: z.array(playerCareerStatSchema),
+});
+export type NormalizedPlayerCareerStats = z.infer<typeof normalizedPlayerCareerStatsSchema>;
 
 export const normalizedPlayerGameStatsSchema = z.object({
   generatedAt: z.string(),
@@ -804,6 +905,12 @@ export type ParsedDatasetMap = {
   "player-situations-inning-pitcher": ParsedPlayerSituationPitcherRow[];
   "player-situations-batting-order-hitter": ParsedPlayerSituationHitterRow[];
   "player-situations-batting-order-pitcher": ParsedPlayerSituationPitcherRow[];
+  "player-awards-mvp-rookie": ParsedPlayerAwardRow[];
+  "player-awards-golden-glove": ParsedPlayerAwardRow[];
+  "player-awards-defense-prize": ParsedPlayerAwardRow[];
+  "player-awards-series-prize": ParsedPlayerAwardRow[];
+  "player-profile-hitter": ParsedPlayerProfileRow[];
+  "player-profile-pitcher": ParsedPlayerProfileRow[];
   "player-register": ParsedPlayerRegisterRow[];
   "player-register-all": ParsedPlayerRegisterRow[];
   "roster-movement": ParsedRosterMovementRow[];
@@ -825,7 +932,9 @@ export type NormalizedDatasetOutputMap = {
   scoreboard: NormalizedScoreboard;
   standings: NormalizedStandings;
   players: NormalizedPlayers;
+  awards: NormalizedAwards;
   "player-season-stats": NormalizedPlayerSeasonStats;
+  "player-career-stats": NormalizedPlayerCareerStats;
   "player-game-stats": NormalizedPlayerGameStats;
   "player-split-stats": NormalizedPlayerSplitStats;
   "roster-events": NormalizedRosterEvents;

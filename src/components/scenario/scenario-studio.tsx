@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { SharedScenarioSpotlight } from "@/components/scenario/shared-scenario-spotlight";
-import { FreshnessBadges } from "@/components/shared/freshness-badges";
 import { MetricBadge } from "@/components/shared/metric-badge";
 import { PageHeader } from "@/components/shared/page-header";
 import { SectionCard } from "@/components/shared/section-card";
@@ -507,7 +506,6 @@ export function ScenarioStudio({
         eyebrow={`${year} 경우의 수`}
         title="경우의 수 계산기 / Scenario"
         description="팀과 목표를 먼저 고르면 현재 확률, 다음 시리즈의 유불리, 남은 일정에서 가장 크게 흔드는 카드가 바로 보입니다. 필요할 때만 아래에서 시리즈 단위 가정을 직접 편집하면 됩니다."
-        actions={<FreshnessBadges status={data.automationStatus} compact />}
       />
 
       {sharedLinkNotice && (sharedLinkTone === "negative" || !shareSpotlight) ? (
@@ -1087,7 +1085,7 @@ export function ScenarioStudio({
                     <div>
                       <div className="flex flex-wrap items-center gap-2">
                         <p className="font-medium text-ink">
-                          {away.shortNameKo} @ {home.shortNameKo}
+                          {away.shortNameKo} vs {home.shortNameKo}
                         </p>
                         <span className="metric-chip bg-accent-soft text-accent">
                           현재 선택 {QUICK_SERIES_OUTCOME_LABELS[currentSeriesSelection as keyof typeof QUICK_SERIES_OUTCOME_LABELS] ?? "개별 경기 입력"}

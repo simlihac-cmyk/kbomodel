@@ -8,6 +8,7 @@ import type {
   ManualAdjustmentBundle,
   ManualAdjustmentPatch,
   Player,
+  PlayerCareerStat,
   PlayerGameStat,
   PlayerSplitStat,
   PlayerSeasonStat,
@@ -66,6 +67,7 @@ export type GameContext = {
 export type PlayerContext = {
   player: Player;
   seasonStats: PlayerSeasonStat[];
+  careerStats: PlayerCareerStat[];
   gameStats: PlayerGameStat[];
   splitStats: PlayerSplitStat[];
 };

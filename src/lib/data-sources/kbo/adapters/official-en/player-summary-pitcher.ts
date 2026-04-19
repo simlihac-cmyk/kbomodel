@@ -46,6 +46,47 @@ function parseSeasonStatMap($: ReturnType<typeof loadHtml>, tableIndex: number) 
   return new Map(headers.map((header, index) => [header, values[index] ?? ""] as const));
 }
 
+function parseCareerStatRows($: ReturnType<typeof loadHtml>) {
+  const table = $("table[summary='Career Stats']").first();
+  const headers = table
+    .find("thead th span")
+    .toArray()
+    .map((item) => textOrNull($(item).text()) ?? "");
+
+  return table
+    .find("tbody tr")
+    .toArray()
+    .map((row) => {
+      const values = $(row)
+        .children("th, td")
+        .toArray()
+        .map((item) => textOrNull($(item).text()) ?? "");
+      const statMap = new Map(headers.map((header, index) => [header, values[index] ?? ""] as const));
+      const year = parseInteger(statMap.get("YEAR"));
+      if (!year) {
+        return null;
+      }
+      return {
+        year,
+        teamName: statMap.get("TEAM") ?? "Unknown",
+        games: parseInteger(statMap.get("G")) ?? 0,
+        era: parseFloatNumber(statMap.get("ERA")) ?? 0,
+        inningsPitched: parseInnings(statMap.get("IP") ?? null),
+        strikeouts: parseInteger(statMap.get("K")) ?? 0,
+        saves: parseInteger(statMap.get("SV")) ?? 0,
+        wins: parseInteger(statMap.get("W")) ?? 0,
+        losses: parseInteger(statMap.get("L")) ?? 0,
+        holds: parseInteger(statMap.get("HLD")) ?? 0,
+        walks: parseInteger(statMap.get("BB")) ?? 0,
+        hitsAllowed: parseInteger(statMap.get("H")) ?? 0,
+        homeRunsAllowed: parseInteger(statMap.get("HR")) ?? 0,
+        runsAllowed: parseInteger(statMap.get("R")) ?? 0,
+        earnedRuns: parseInteger(statMap.get("ER")) ?? 0,
+      };
+    })
+    .filter((row): row is NonNullable<typeof row> => row !== null);
+}
+
 function parsePcode(html: string) {
   const match = html.match(/summary\.aspx\?pcode=(\d+)/i);
   return match?.[1] ?? "unknown";
@@ -85,6 +126,15 @@ export function parseOfficialEnPlayerSummaryPitcher(html: string) {
       saves: parseInteger(firstTable.get("SV")) ?? 0,
       wins: parseInteger(firstTable.get("W")) ?? 0,
       losses: parseInteger(firstTable.get("L")) ?? 0,
+      holds: parseInteger(firstTable.get("HLD")) ?? 0,
+      walks: parseInteger(secondTable.get("BB")) ?? 0,
+      hitsAllowed: parseInteger(firstTable.get("H")) ?? 0,
+      homeRunsAllowed: parseInteger(firstTable.get("HR")) ?? 0,
+      runsAllowed: parseInteger(secondTable.get("R")) ?? 0,
+      earnedRuns: parseInteger(secondTable.get("ER")) ?? 0,
+      whip: parseFloatNumber(secondTable.get("WHIP")) ?? 0,
+      opponentAvg: parseFloatNumber(secondTable.get("OAVG")) ?? 0,
+      careerStats: parseCareerStatRows($),
     }),
   ];
 }

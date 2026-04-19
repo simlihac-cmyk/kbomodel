@@ -2,7 +2,6 @@
 
 import { useMemo } from "react";
 
-import { FreshnessBadges } from "@/components/shared/freshness-badges";
 import { RankHeatmap } from "@/components/shared/heatmap";
 import { PageHeader } from "@/components/shared/page-header";
 import { SectionCard } from "@/components/shared/section-card";
@@ -93,7 +92,6 @@ export function RaceOverview({ year, data }: RaceOverviewProps) {
         eyebrow={`${year} 레이스`}
         title="순위전망 / Race"
         description="최종 순위 분포, 1위~5위 버킷 odds, 잔여 일정 난이도, 타이브레이커 메모를 함께 보여 주는 레이스 전용 화면입니다. 현재 draft 시나리오가 있으면 delta도 같이 반영됩니다."
-        actions={<FreshnessBadges status={data.automationStatus} compact />}
       />
 
       <SectionCard

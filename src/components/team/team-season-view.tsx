@@ -3,6 +3,7 @@ import Link from "next/link";
 import { RankHeatmap } from "@/components/shared/heatmap";
 import { MetricBadge } from "@/components/shared/metric-badge";
 import { PageHeader } from "@/components/shared/page-header";
+import { RecentFormBadge } from "@/components/shared/recent-form-badge";
 import { SectionCard } from "@/components/shared/section-card";
 import {
   buildDirectRaceOpponents,
@@ -13,8 +14,13 @@ import {
   findTeamStrength,
 } from "@/lib/repositories/kbo/view-models";
 import type { getSeasonDashboardData } from "@/lib/repositories/kbo/view-models";
-import { formatDateOnlyLabel, formatPercent } from "@/lib/utils/format";
-import { buildPlayerRoute, buildScenarioRoute, buildTeamArchiveRoute } from "@/lib/utils/routes";
+import { describeRecentForm, formatDateOnlyLabel, formatPercent } from "@/lib/utils/format";
+import {
+  buildPlayerRoute,
+  buildScenarioRoute,
+  buildSeasonTeamConditionRoute,
+  buildTeamArchiveRoute,
+} from "@/lib/utils/routes";
 
 type TeamSeasonViewProps = {
   year: number;
@@ -83,6 +89,7 @@ export function TeamSeasonView({ year, teamSlug, data }: TeamSeasonViewProps) {
     .sort((left, right) => right.scheduledAt.localeCompare(left.scheduledAt))
     .slice(0, 5);
   const nextSeries = remainingSchedule[0] ?? null;
+  const recentForm = strength ? describeRecentForm(strength.recentFormAdjustment) : null;
 
   return (
     <div className="space-y-6">
@@ -91,12 +98,18 @@ export function TeamSeasonView({ year, teamSlug, data }: TeamSeasonViewProps) {
         title={`${found.display.displayNameKo} 시즌 상세`}
         description={`${found.display.displayNameKo}의 현재 성적, 예상 최종 성적, 남은 일정, 직접 경쟁 팀 레버리지, 전력 해석 카드를 한 페이지에 담았습니다.`}
         actions={
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
             <Link
               href={buildScenarioRoute(year, { mode: "team", teamSlug })}
               className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-white"
             >
               경우의 수에서 이 팀 보기
+            </Link>
+            <Link
+              href={buildSeasonTeamConditionRoute(year, teamSlug)}
+              className="rounded-full border border-line/80 bg-white px-4 py-2 text-sm font-medium text-ink"
+            >
+              팀 컨디션
             </Link>
             <Link href={buildTeamArchiveRoute(teamSlug)} className="rounded-full border border-line/80 bg-white px-4 py-2 text-sm font-medium text-ink">
               구단 아카이브
@@ -120,7 +133,7 @@ export function TeamSeasonView({ year, teamSlug, data }: TeamSeasonViewProps) {
               <MetricBadge label="Offense" value={strength.offenseRating.toFixed(1)} tone="positive" />
               <MetricBadge label="Starter" value={strength.starterRating.toFixed(1)} tone="positive" />
               <MetricBadge label="Bullpen" value={strength.bullpenRating.toFixed(1)} />
-              <MetricBadge label="Recent Form" value={strength.recentFormAdjustment.toFixed(2)} tone={strength.recentFormAdjustment >= 0 ? "positive" : "negative"} />
+              <MetricBadge label="최근 폼" value={recentForm?.label ?? "보통"} tone={recentForm?.tone ?? "neutral"} />
               <MetricBadge label="Home / Away" value={`${row.home} / ${row.away}`} />
               <MetricBadge label="Model Confidence" value={formatPercent(strength.confidenceScore)} />
             </div>
@@ -272,10 +285,13 @@ export function TeamSeasonView({ year, teamSlug, data }: TeamSeasonViewProps) {
               </div>
             ))}
             {strength ? (
-              <div className="rounded-2xl border border-line/80 bg-slate-50 px-4 py-4 text-sm text-muted">
-                최근 폼 {strength.recentFormAdjustment > 0 ? "+" : ""}
-                {strength.recentFormAdjustment.toFixed(2)} · head-to-head leverage{" "}
-                {strength.headToHeadLeverage.toFixed(2)}
+              <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-line/80 bg-slate-50 px-4 py-4 text-sm text-muted">
+                <RecentFormBadge
+                  summary={recentForm ?? { label: "보통", variant: "neutral", tone: "neutral" }}
+                />
+                <span className="metric-chip bg-white text-ink">
+                  맞대결 레버리지 {strength.headToHeadLeverage.toFixed(2)}
+                </span>
               </div>
             ) : null}
           </div>

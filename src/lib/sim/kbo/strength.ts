@@ -7,6 +7,7 @@ import type {
   TeamStrengthSnapshot,
 } from "@/lib/domain/kbo/types";
 import type { TeamPlayerImpact } from "@/lib/sim/kbo/player-impact";
+import { CURRENT_GAME_MODEL_PARAMETERS } from "@/lib/sim/kbo/current-model-parameters";
 import {
   buildBullpenProxySignal,
   buildConfidenceScore,
@@ -24,16 +25,56 @@ function clamp(value: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, value));
 }
 
+function shrinkRatingByConfidenceForSchedule(
+  rating: number,
+  confidenceScore: number,
+) {
+  const confidenceFactor = clamp(
+    CURRENT_GAME_MODEL_PARAMETERS.confidenceBase +
+      confidenceScore * CURRENT_GAME_MODEL_PARAMETERS.confidenceScale,
+    0.05,
+    1.25,
+  );
+  return 100 + (rating - 100) * confidenceFactor;
+}
+
+function buildAbsoluteTeamPowerValue(snapshot: TeamStrengthSnapshot): number {
+  const offense = shrinkRatingByConfidenceForSchedule(
+    snapshot.offenseRating,
+    snapshot.confidenceScore,
+  );
+  const starter = shrinkRatingByConfidenceForSchedule(
+    snapshot.starterRating,
+    snapshot.confidenceScore,
+  );
+  const bullpen = shrinkRatingByConfidenceForSchedule(
+    snapshot.bullpenRating,
+    snapshot.confidenceScore,
+  );
+  const totalWeight =
+    CURRENT_GAME_MODEL_PARAMETERS.offenseWeight +
+    CURRENT_GAME_MODEL_PARAMETERS.starterWeight +
+    CURRENT_GAME_MODEL_PARAMETERS.bullpenWeight;
+
+  return Number(
+    (
+      (offense * CURRENT_GAME_MODEL_PARAMETERS.offenseWeight +
+        starter * CURRENT_GAME_MODEL_PARAMETERS.starterWeight +
+        bullpen * CURRENT_GAME_MODEL_PARAMETERS.bullpenWeight) /
+      totalWeight
+    ).toFixed(3),
+  );
+}
+
 function buildRemainingDifficultyMap(
   seasonTeams: SeasonTeam[],
   games: Game[],
-  stateById: Record<string, ReturnType<typeof buildTeamStateSnapshot>>,
+  strengthById: Record<string, TeamStrengthSnapshot>,
 ): Record<string, number> {
-  const league = buildTeamStateLeagueAverages(Object.values(stateById));
   const currentPower = Object.fromEntries(
-    Object.values(stateById).map((state) => [
-      state.seasonTeamId,
-      buildScheduleStrengthValue(state, league),
+    Object.values(strengthById).map((snapshot) => [
+      snapshot.seasonTeamId,
+      buildAbsoluteTeamPowerValue(snapshot),
     ]),
   );
 
@@ -54,10 +95,10 @@ function buildRemainingDifficultyMap(
   return Object.fromEntries(
     Object.entries(difficulty).map(([seasonTeamId, values]) => {
       if (values.length === 0) {
-        return [seasonTeamId, 0];
+        return [seasonTeamId, 100];
       }
       const average = values.reduce((sum, value) => sum + value, 0) / values.length;
-      return [seasonTeamId, Number((average / 12).toFixed(3))];
+      return [seasonTeamId, Number(average.toFixed(3))];
     }),
   );
 }
@@ -179,10 +220,8 @@ export function buildTeamStrengthSnapshots(
   );
   const leagueState = buildTeamStateLeagueAverages(Object.values(currentStateById));
   const previousLeagueState = buildTeamStateLeagueAverages(Object.values(previousStateByFranchise));
-  const difficultyMap = buildRemainingDifficultyMap(seasonTeams, games, currentStateById);
   const leverageMap = buildHeadToHeadLeverageMap(games);
-
-  return seasonTeams.map((seasonTeam) => {
+  const provisionalSnapshots = seasonTeams.map((seasonTeam) => {
     const playerImpact = playerImpactByTeam[seasonTeam.seasonTeamId];
     const current = currentById[seasonTeam.seasonTeamId];
     const previous = previousByFranchise[seasonTeam.franchiseId];
@@ -284,15 +323,31 @@ export function buildTeamStrengthSnapshots(
       confidenceScore,
       priorWeight,
       currentWeight,
-      scheduleDifficulty: difficultyMap[seasonTeam.seasonTeamId] ?? 0,
+      scheduleDifficulty: 100,
       headToHeadLeverage: leverageMap[seasonTeam.seasonTeamId] ?? 0,
       explanationReasons: [],
     };
+    return snapshot;
+  });
+  const difficultyMap = buildRemainingDifficultyMap(
+    seasonTeams,
+    games,
+    Object.fromEntries(
+      provisionalSnapshots.map((snapshot) => [snapshot.seasonTeamId, snapshot]),
+    ),
+  );
 
-    snapshot.explanationReasons = [
-      ...buildStrengthReasons(snapshot),
+  return provisionalSnapshots.map((snapshot) => {
+    const playerImpact = playerImpactByTeam[snapshot.seasonTeamId];
+    const enrichedSnapshot = {
+      ...snapshot,
+      scheduleDifficulty: difficultyMap[snapshot.seasonTeamId] ?? 100,
+    };
+
+    enrichedSnapshot.explanationReasons = [
+      ...buildStrengthReasons(enrichedSnapshot),
       ...(playerImpact?.explanationReasons ?? []),
     ];
-    return snapshot;
+    return enrichedSnapshot;
   });
 }

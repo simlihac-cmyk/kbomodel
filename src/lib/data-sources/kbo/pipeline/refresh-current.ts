@@ -4,10 +4,11 @@ import type { DatasetId } from "@/lib/data-sources/kbo/dataset-types";
 import { fetchOfficialKoSeasonScheduleService } from "@/lib/data-sources/kbo/fetch/fetch-korean-schedule-service";
 import { refreshOfficialEnPlayerSeasonStats } from "@/lib/data-sources/kbo/pipeline/refresh-player-stats";
 import { kboSourceRegistry } from "@/lib/data-sources/kbo/source-registry";
+import { FileKboRepository } from "@/lib/repositories/kbo/file-adapter";
 import { FileKboIngestPatchRepository } from "@/lib/repositories/kbo/patch-repository";
 import { FileNormalizedKboRepository } from "@/lib/repositories/kbo/normalized-repository";
 import { FileRawSourceRepository } from "@/lib/repositories/kbo/raw-source-repository";
-import { buildPublishedKboBundleFromNormalized, loadFixtureSourceKboBundle, writePublishedKboBundle } from "@/lib/repositories/kbo/published-bundle";
+import { buildPublishedKboBundleFromNormalized, writePublishedKboBundle } from "@/lib/repositories/kbo/published-bundle";
 import { getKboDateKey } from "@/lib/scheduler/kbo/windows";
 
 const CURRENT_SEASON_DATASETS: DatasetId[] = [
@@ -23,12 +24,14 @@ export async function refreshCurrentLiveBundle() {
   const rawRepository = new FileRawSourceRepository();
   const normalizedRepository = new FileNormalizedKboRepository();
   const patchRepository = new FileKboIngestPatchRepository();
-  const bundle = await loadFixtureSourceKboBundle();
-  const season =
-    [...bundle.seasons].sort((left, right) => right.year - left.year).find((item) => item.status === "ongoing") ??
-    [...bundle.seasons].sort((left, right) => right.year - left.year)[0];
+  const repository = new FileKboRepository();
+  const [bundle, season] = await Promise.all([
+    repository.getBundle(),
+    repository.getCurrentSeason(),
+  ]);
   const patches = await patchRepository.getManualSourcePatches();
   const snapshotKey = getKboDateKey();
+  const playerIngestMode = process.env.KBO_LIVE_PLAYER_INGEST_MODE === "full" ? "full" : "partial";
 
   for (const datasetId of CURRENT_SEASON_DATASETS) {
     const preferredSourceId =
@@ -96,6 +99,7 @@ export async function refreshCurrentLiveBundle() {
     snapshotKey,
     rawRepository,
     normalizedRepository,
+    mode: playerIngestMode,
   });
 
   const publishedBundle = await buildPublishedKboBundleFromNormalized();

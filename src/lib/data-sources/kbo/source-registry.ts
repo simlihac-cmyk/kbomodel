@@ -7,6 +7,7 @@ import type {
   NormalizedSourceReference,
   ParsedFranchiseHistoryRow,
   ParsedHistoricalTeamRecordRow,
+  ParsedPlayerAwardRow,
   ParsedPlayerRegisterRow,
   ParsedRosterMovementRow,
   ParsedRulesetRow,
@@ -44,6 +45,10 @@ import { parseOfficialEnStandings } from "@/lib/data-sources/kbo/adapters/offici
 import { parseOfficialEnPlayerSearch } from "@/lib/data-sources/kbo/adapters/official-en/player-search";
 import { parseOfficialEnTeamInformation } from "@/lib/data-sources/kbo/adapters/official-en/team-information";
 import { parseOfficialKoHistoricalTeamRecord } from "@/lib/data-sources/kbo/adapters/official-ko/historical-team-record";
+import { parseOfficialKoPlayerAwardsDefensePrize } from "@/lib/data-sources/kbo/adapters/official-ko/player-awards-defense-prize";
+import { parseOfficialKoPlayerAwardsGoldenGlove } from "@/lib/data-sources/kbo/adapters/official-ko/player-awards-golden-glove";
+import { parseOfficialKoPlayerAwardsMvpRookie } from "@/lib/data-sources/kbo/adapters/official-ko/player-awards-mvp-rookie";
+import { parseOfficialKoPlayerAwardsSeriesPrize } from "@/lib/data-sources/kbo/adapters/official-ko/player-awards-series-prize";
 import { parseOfficialKoRegister } from "@/lib/data-sources/kbo/adapters/official-ko/register";
 import { parseOfficialKoRegisterAll } from "@/lib/data-sources/kbo/adapters/official-ko/register-all";
 import { parseOfficialKoRules } from "@/lib/data-sources/kbo/adapters/official-ko/rules";
@@ -59,6 +64,7 @@ import { parseStatizPlayerStats } from "@/lib/data-sources/kbo/adapters/statiz/p
 import { parseStatizTeamStats } from "@/lib/data-sources/kbo/adapters/statiz/team-stats";
 import { parseStatizWar } from "@/lib/data-sources/kbo/adapters/statiz/war";
 import { normalizeFranchiseHistory } from "@/lib/data-sources/kbo/normalize/franchise-history";
+import { normalizeAwards } from "@/lib/data-sources/kbo/normalize/awards";
 import { normalizeHistoricalTeamRecord } from "@/lib/data-sources/kbo/normalize/historical-team-record";
 import { normalizePlayerDirectory } from "@/lib/data-sources/kbo/normalize/player-directory";
 import { normalizeRosterEvents } from "@/lib/data-sources/kbo/normalize/roster-events";
@@ -553,6 +559,98 @@ export const kboSourceRegistry: SourceRegistryEntry[] = [
     normalizedTarget: null,
     parser: parseOfficialEnPlayerSituationsBattingOrderPitcher,
     normalizer: null,
+  },
+  {
+    sourceId: "official-kbo-ko",
+    datasetId: "player-awards-mvp-rookie",
+    priority: 1,
+    required: false,
+    enabled: true,
+    trustTier: "official-baseline",
+    sourceUrl: "https://www.koreabaseball.com/Player/Awards/PlayerPrize.aspx",
+    fetchStrategy: "html",
+    cacheTtlMs: 1000 * 60 * 60 * 24,
+    legalNote: OFFICIAL_KBO_LEGAL_NOTE,
+    parserVersion: "2026-04-18-ko-player-awards-mvp-rookie-v1",
+    fixturePath: null,
+    normalizedTarget: "awards",
+    parser: parseOfficialKoPlayerAwardsMvpRookie,
+    normalizer: ({ parsed, bundle, patches, sourceRef }) =>
+      normalizeAwards({
+        rows: parsed as ParsedPlayerAwardRow[],
+        bundle,
+        patches,
+        sourceRef,
+      }),
+  },
+  {
+    sourceId: "official-kbo-ko",
+    datasetId: "player-awards-golden-glove",
+    priority: 1,
+    required: false,
+    enabled: true,
+    trustTier: "official-baseline",
+    sourceUrl: "https://www.koreabaseball.com/Player/Awards/GoldenGlove.aspx",
+    fetchStrategy: "html",
+    cacheTtlMs: 1000 * 60 * 60 * 24,
+    legalNote: OFFICIAL_KBO_LEGAL_NOTE,
+    parserVersion: "2026-04-18-ko-player-awards-golden-glove-v1",
+    fixturePath: null,
+    normalizedTarget: "awards",
+    parser: parseOfficialKoPlayerAwardsGoldenGlove,
+    normalizer: ({ parsed, bundle, patches, sourceRef }) =>
+      normalizeAwards({
+        rows: parsed as ParsedPlayerAwardRow[],
+        bundle,
+        patches,
+        sourceRef,
+      }),
+  },
+  {
+    sourceId: "official-kbo-ko",
+    datasetId: "player-awards-defense-prize",
+    priority: 1,
+    required: false,
+    enabled: true,
+    trustTier: "official-baseline",
+    sourceUrl: "https://www.koreabaseball.com/Player/Awards/DefensePrize.aspx",
+    fetchStrategy: "html",
+    cacheTtlMs: 1000 * 60 * 60 * 24,
+    legalNote: OFFICIAL_KBO_LEGAL_NOTE,
+    parserVersion: "2026-04-18-ko-player-awards-defense-prize-v1",
+    fixturePath: null,
+    normalizedTarget: "awards",
+    parser: parseOfficialKoPlayerAwardsDefensePrize,
+    normalizer: ({ parsed, bundle, patches, sourceRef }) =>
+      normalizeAwards({
+        rows: parsed as ParsedPlayerAwardRow[],
+        bundle,
+        patches,
+        sourceRef,
+      }),
+  },
+  {
+    sourceId: "official-kbo-ko",
+    datasetId: "player-awards-series-prize",
+    priority: 1,
+    required: false,
+    enabled: true,
+    trustTier: "official-baseline",
+    sourceUrl: "https://www.koreabaseball.com/Player/Awards/SeriesPrize.aspx",
+    fetchStrategy: "html",
+    cacheTtlMs: 1000 * 60 * 60 * 24,
+    legalNote: OFFICIAL_KBO_LEGAL_NOTE,
+    parserVersion: "2026-04-18-ko-player-awards-series-prize-v1",
+    fixturePath: null,
+    normalizedTarget: "awards",
+    parser: parseOfficialKoPlayerAwardsSeriesPrize,
+    normalizer: ({ parsed, bundle, patches, sourceRef }) =>
+      normalizeAwards({
+        rows: parsed as ParsedPlayerAwardRow[],
+        bundle,
+        patches,
+        sourceRef,
+      }),
   },
   {
     sourceId: "official-kbo-ko",

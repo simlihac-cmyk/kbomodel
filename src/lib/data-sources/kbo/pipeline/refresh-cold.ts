@@ -1,13 +1,23 @@
 import { datasetIdSchema, type DatasetId } from "@/lib/data-sources/kbo/dataset-types";
+import { mergeNormalizedAwards } from "@/lib/data-sources/kbo/normalize/awards";
 import { kboSourceRegistry } from "@/lib/data-sources/kbo/source-registry";
+import { FileKboRepository } from "@/lib/repositories/kbo/file-adapter";
 import { FileKboIngestPatchRepository } from "@/lib/repositories/kbo/patch-repository";
 import { FileNormalizedKboRepository } from "@/lib/repositories/kbo/normalized-repository";
 import { FileRawSourceRepository } from "@/lib/repositories/kbo/raw-source-repository";
-import { loadFixtureSourceKboBundle, buildPublishedKboBundleFromNormalized, writePublishedKboBundle } from "@/lib/repositories/kbo/published-bundle";
+import { buildPublishedKboBundleFromNormalized, writePublishedKboBundle } from "@/lib/repositories/kbo/published-bundle";
 import { fetchSnapshotForKboDataset } from "@/lib/data-sources/kbo/fetch/fetch-source-snapshot";
 import { getKboDateKey } from "@/lib/scheduler/kbo/windows";
 
-const COLD_DATASETS: DatasetId[] = ["historical-team-record", "team-history", "rules"];
+const COLD_DATASETS: DatasetId[] = [
+  "historical-team-record",
+  "team-history",
+  "rules",
+  "player-awards-mvp-rookie",
+  "player-awards-golden-glove",
+  "player-awards-defense-prize",
+  "player-awards-series-prize",
+];
 
 async function runDataset(datasetId: DatasetId) {
   const entry = kboSourceRegistry
@@ -20,10 +30,11 @@ async function runDataset(datasetId: DatasetId) {
   const rawRepository = new FileRawSourceRepository();
   const normalizedRepository = new FileNormalizedKboRepository();
   const patchRepository = new FileKboIngestPatchRepository();
-  const bundle = await loadFixtureSourceKboBundle();
-  const season =
-    [...bundle.seasons].sort((left, right) => right.year - left.year).find((item) => item.status === "ongoing") ??
-    [...bundle.seasons].sort((left, right) => right.year - left.year)[0];
+  const repository = new FileKboRepository();
+  const [bundle, season] = await Promise.all([
+    repository.getBundle(),
+    repository.getCurrentSeason(),
+  ]);
   const patches = await patchRepository.getManualSourcePatches();
   const snapshot = await fetchSnapshotForKboDataset(datasetId, entry.sourceUrl);
   const snapshotKey = getKboDateKey();
@@ -56,7 +67,14 @@ async function runDataset(datasetId: DatasetId) {
   }) as never;
   const outputKey =
     "seasonId" in (normalized as Record<string, unknown>) ? `${season.year}-${snapshotKey}` : snapshotKey;
-  await normalizedRepository.saveDatasetOutput(entry.normalizedTarget, outputKey, normalized);
+  const mergedNormalized =
+    entry.normalizedTarget === "awards"
+      ? mergeNormalizedAwards(
+          await normalizedRepository.getDatasetOutput("awards", outputKey),
+          normalized as never,
+        )
+      : normalized;
+  await normalizedRepository.saveDatasetOutput(entry.normalizedTarget, outputKey, mergedNormalized);
 }
 
 export async function refreshColdPathSources() {

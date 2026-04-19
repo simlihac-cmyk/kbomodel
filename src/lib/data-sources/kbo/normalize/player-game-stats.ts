@@ -6,10 +6,12 @@ import {
   type ParsedPlayerGameLogHitterRow,
   type ParsedPlayerGameLogPitcherRow,
   type ParsedPlayerRegisterRow,
+  type ParsedPlayerSearchRow,
   type SourceId,
 } from "@/lib/data-sources/kbo/dataset-types";
 import { resolveSeasonTeamId } from "@/lib/data-sources/kbo/merge/apply-manual-patches";
 import {
+  buildOfficialPlayerSearchLookup,
   buildOfficialRegisterLookup,
   resolveOfficialPlayerIdentity,
 } from "@/lib/data-sources/kbo/normalize/player-season-stats";
@@ -20,6 +22,7 @@ type NormalizePlayerGameStatsArgs = {
   hitters: ParsedPlayerGameLogHitterRow[];
   pitchers: ParsedPlayerGameLogPitcherRow[];
   registerRows: ParsedPlayerRegisterRow[];
+  searchRows?: ParsedPlayerSearchRow[];
   bundle: KboDataBundle;
   patches: ManualSourcePatchBundle;
   sourceRefs: NormalizedSourceReference[];
@@ -27,7 +30,8 @@ type NormalizePlayerGameStatsArgs = {
 
 function buildGameDate(seasonId: string, shortDate: string) {
   const year = seasonId.match(/(\d{4})/)?.[1] ?? "2026";
-  const [month = "01", day = "01"] = shortDate.split("-");
+  const tokens = shortDate.split("-").filter(Boolean);
+  const [month = "01", day = "01"] = tokens.length >= 2 ? tokens.slice(-2) : tokens;
   return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
 }
 
@@ -69,7 +73,7 @@ function createPlayerGameStat(
   seasonTeamId: string,
   gameId: string,
   statType: "hitter" | "pitcher",
-  summaryLine: string,
+  fields: Omit<PlayerGameStat, "playerGameStatId" | "gameId" | "seasonId" | "playerId" | "seasonTeamId" | "statType">,
 ): PlayerGameStat {
   return {
     playerGameStatId: `pgs:${seasonId}:${playerId}:${gameId}:${statType}`,
@@ -78,7 +82,7 @@ function createPlayerGameStat(
     playerId,
     seasonTeamId,
     statType,
-    summaryLine,
+    ...fields,
   };
 }
 
@@ -88,11 +92,13 @@ export function normalizePlayerGameStats({
   hitters,
   pitchers,
   registerRows,
+  searchRows = [],
   bundle,
   patches,
   sourceRefs,
 }: NormalizePlayerGameStatsArgs) {
   const registerLookup = buildOfficialRegisterLookup(registerRows, seasonId, bundle, patches);
+  const searchLookup = buildOfficialPlayerSearchLookup(searchRows);
   const rows: PlayerGameStat[] = [];
 
   for (const row of hitters) {
@@ -101,6 +107,7 @@ export function normalizePlayerGameStats({
       sourceId,
       payload: row,
       registerLookup,
+      searchLookup,
       bundle,
       patches,
     });
@@ -134,7 +141,27 @@ export function normalizePlayerGameStats({
         identity.seasonTeamId,
         gameId,
         "hitter",
-        summarizeHitterRow(row),
+        {
+          battingAverage: row.avg,
+          atBats: row.atBats,
+          runs: row.runs,
+          hits: row.hits,
+          homeRuns: row.homeRuns,
+          rbi: row.rbi,
+          stolenBases: row.stolenBases,
+          walks: row.walks,
+          era: null,
+          result: null,
+          plateAppearances: null,
+          inningsPitched: null,
+          hitsAllowed: null,
+          homeRunsAllowed: null,
+          runsAllowed: null,
+          earnedRuns: null,
+          opponentAvg: null,
+          strikeouts: row.strikeouts,
+          summaryLine: summarizeHitterRow(row),
+        },
       ),
     );
   }
@@ -145,6 +172,7 @@ export function normalizePlayerGameStats({
       sourceId,
       payload: row,
       registerLookup,
+      searchLookup,
       bundle,
       patches,
     });
@@ -178,7 +206,27 @@ export function normalizePlayerGameStats({
         identity.seasonTeamId,
         gameId,
         "pitcher",
-        summarizePitcherRow(row),
+        {
+          battingAverage: null,
+          atBats: null,
+          runs: null,
+          hits: null,
+          homeRuns: null,
+          rbi: null,
+          stolenBases: null,
+          walks: row.walks,
+          era: row.era,
+          result: row.result,
+          plateAppearances: row.plateAppearances,
+          inningsPitched: row.inningsPitched,
+          hitsAllowed: row.hitsAllowed,
+          homeRunsAllowed: row.homeRunsAllowed,
+          runsAllowed: row.runsAllowed,
+          earnedRuns: row.earnedRuns,
+          opponentAvg: row.opponentAvg,
+          strikeouts: row.strikeouts,
+          summaryLine: summarizePitcherRow(row),
+        },
       ),
     );
   }
